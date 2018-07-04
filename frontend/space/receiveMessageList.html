@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+      .container{
+        margin-bottom: 0.5%;
+        max-width: 1200px;
+      }
+      .nav-menu{
+          padding: 0%;
+      }
+      .title{
+        font-size: 30px;
+        margin-bottom: 2em;
+        font-weight: bold;
+      }
+      .table_title{
+        font-size: 20px;
+        margin-bottom: 1em;
+        font-weight: bold;
+      }
+      ul{
+        line-height: 2em;
+      }
+      .dg-btn{
+          margin-bottom: 1em;
+      }
+    </style>
+
+
+    <title>messageList</title>
+  </head>
+  <body>
+    <!-- navbar start -->
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="#"><img src="" alt="">로고</a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- navbar end -->
+
+    <!-- study management window start -->
+    <div class="container">
+        <div class="title">쪽지</div>
+
+
+        <div class="row">
+            
+            <div class="col-sm-2">
+               <ul>
+                   <li><i class="far fa-envelope"></i><a href="">받은쪽지함</a></li>
+                   <li><i class="far fa-comment-dots"></i><a href="">보낸쪽지함</a></li>
+               </ul> 
+            </div>
+
+
+            <div class="col-sm-10">
+                <div class="table-responsive">
+                    <table class="table">
+                        <div class="table_title">받은쪽지함</div>
+                        <button class="btn btn-light btn-sm dg-btn">삭제</button>
+                        <button class="btn btn-light btn-sm dg-btn">답장</button>
+                        <thead>
+                            <tr class="table-active">
+                                <th scope="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                    </div>
+                                </th>
+                                <th scope="col">보낸사람</th>
+                                <th scope="col">내용</th>
+                                <th scope="col">날짜</th>
+                                <th scope="col">차단</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                    </div>
+                                </th>
+                                <td><a href="#">안중근</a></td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id ...</td>
+                                <td>2018.06.05</td>
+                                <td><button type="button" class="btn btn-light">차단</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                    </div>
+                                </th>
+                                <td><a href="#">윤봉길</a></td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id ...</td>
+                                <td>2018.07.01</td>
+                                <td><button type="button" class="btn btn-light">차단</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                    </div>
+                                </th>
+                                <td><a href="#">유관순</a></td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id ...</td>
+                                <td>2018.07.02</td>
+                                <td><button type="button" class="btn btn-light">차단</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- study management window end -->
+
+
+    <!-- footer start -->
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+    <!-- footer end -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>
