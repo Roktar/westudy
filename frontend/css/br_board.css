@@ -1,0 +1,30 @@
+div.category-board {
+    margin: 1rem;
+    display: block;
+}
+
+ul.filter-category-board{
+    margin: 0px;
+    padding: 0px;   
+    display: block;
+}
+
+li.block {
+    border: 1px solid #ddd;
+    height: 6rem;
+    width: 6rem;
+    text-align: center;
+    line-height: 6rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
+}
+
+button.writeBtn {
+    float: right;
+}
+
+li.block:hover {
+    box-shadow: 5px 5px #ddd;
+}

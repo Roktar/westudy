@@ -1,0 +1,101 @@
+div.group-nav, div.studyCheckin, div.checkedMembers {
+    border-radius: 5px;
+}
+
+div.group-nav {
+    margin: 0 1em 0 1em;
+    background-color: #ddd;
+}
+
+div.group-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin: 1em;
+}
+
+div.group-nav ul li {
+    display: inline;
+    margin: 2rem;
+}
+
+div.group-nav ul li a {
+    color: black;
+}
+
+div.studyCheckin, div.checkedMembers {
+    margin: 0 1em 0 1em;
+    background-color: #ddd;
+    margin: 1em;
+}
+
+.studyMain {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+h4{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+p.studyCheckin{
+    line-height: 2rem;
+    text-align: center;
+}
+
+li.eachMember {
+    background-color: white;
+    float: left;
+    margin: 1rem;
+}
+
+img[src="img/thumbnail.jpg"] {
+    width: 70%;
+    display: inline-block;
+    margin: 1rem;
+}
+
+img[src="img/message.png"] {
+    display: inline-block;
+    width: 70%;
+    margin: 1rem;
+}
+
+div.checkedMembers {
+    line-height: 2rem;
+}
+
+div.eachMember {
+    margin: 1rem;
+    padding : 1rem;
+    background-color: white;
+    border-radius: 5px;
+}
+
+div.studyCheckin img.mapMarker {
+    width: 5%;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+
+div.empty {
+    background-color: transparent;
+}
+
+span.memberName {
+    font-weight: bold;
+}
+
+div.modal-body img.mapMarker {
+    width: 10%;
+    margin: 1rem;
+}
+
+div.modal-footer button {
+    margin: 0 auto;
+}

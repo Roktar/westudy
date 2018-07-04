@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css');
+
+/* CSS 초기화 */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video{
+   margin:0;
+   padding:0;
+   border:0;
+   font-size:100%;
+   vertical-align:baseline;
+   background:transparent;
+}
+
+.container{
+    max-width: 1200px;
+}
+
+body{
+    font-family: 'NanumSquareRound', 'Noto Sans', sans-serif !important;
+   line-height:1;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{ 
+   display:block;
+}
+
+nav ul, li{
+   list-style:none;
+}
+
+a{
+   margin:0;
+   padding:0;
+   font-size:100%;
+   text-decoration:none;
+   vertical-align:baseline;
+   color:#000;
+   background:transparent;
+}
+
+img{
+   vertical-align:top;
+}
+
+table{
+   border-collapse:collapse;
+   border-spacing:0;
+}
+
+input{
+   margin:0;
+   padding:0;
+   box-sizing:content-box;
+   vertical-align:top;
+   appearance:none;
+   border:1px solid #e65d5d;
+   color:#e65d5d;
+   border-radius:0; 
+   font-family:NanumGothic,나눔고딕,'Nanum Gothic','맑은 고딕',HelveticaNeue,DroidSans,Sans-serif,Helvetica;
+}
+
+input::-moz-input-placeholder{
+   color:#e65d5d;
+}
+
+input::-webkit-input-placeholder {
+   color:#e65d5d;
+}
+
+/*헤더*/
+.header{
+   width:100%;
+   background: #34495e;
+   color: #fff;
+}
+.headerWrap{
+   position: relative;
+   width:62.5%;
+   height:100px;
+   margin:0 auto;
+   padding-top: 1.25rem; /* 20px */
+   overflow: hidden;
+}
+.logo {
+   float:left;
+}
+
+.utilMenu{
+   position: absolute;
+   top: 30px;
+   right: 0;
+   font-size: 1.125rem; /* 18px */
+   line-height: 1.777777777777778em; /* 32px */
+}
+   .utilMenu ul:after {
+      display: block;
+      content: "";
+      clear: both;
+   }
+   .utilMenu ul li {
+      float:left;
+      margin-left: 1.111111em; /* 20px */
+   
+   }
+   .utilMenu ul li.search {
+      width: 32px;
+      height: 32px;
+      background: url(../img/magnifying_glass.png) no-repeat 50% 50%;
+   }
+   .utilMenu ul li.menu {
+      width: 32px;
+      height: 32px;
+      background: url(../img/list.png) no-repeat 50% 50%;
+   }
+/*헤더*/
+
+/* footer css Start */
+.footer{
+   margin-top: 100px;
+   padding: 30px 0;
+   color:#fff;
+   text-align: center;
+   background-color: #34495e;
+}
+
+.footer span:after {
+   margin: 0 10px;
+   display: inline-block;
+   content: "|";
+   clear: both;
+}
+
+.footer div {
+   margin: 40px 0 20px 0;
+}
+/* footer css End */
+.card-text {
+    line-height: 2rem;
+}
+
+.list-group-item{
+    border:1px solid #ccc
+}
