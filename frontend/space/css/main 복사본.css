@@ -1,0 +1,47 @@
+/* index.html css */
+
+#wrap {
+	position: fixed;
+	width:100%;
+	height:80px; /* 수정 */
+	margin:0 auto;
+}
+
+.header{
+	width:62.5%;
+	height:80px;
+	margin:0 auto;
+	background: #ffd014;
+}
+
+/* section css */
+.section {
+	width:62.5%;
+	height:100%;
+	margin:0 auto;
+}
+.section div {
+	display:inline-block;
+	width:31.66666666666667%; /* 380px */
+	height: 100%;
+}
+.section div:nth-child(1) {
+	background-color: #f00;
+	margin-right: 2.5%; /* 30px */
+}
+.section div:nth-child(2) {
+	background-color: #0f0;
+	margin-right: 2.5%;
+}
+.section div:nth-child(3)  {
+	background-color: #00f;
+}
+
+
+/* footer css */
+.footer p {
+	margin-top: 150px; /* 수정 */
+	color:#000;
+	text-align: center;
+	background-color: #f00;
+}
