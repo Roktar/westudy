@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/message.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="index.html"><img src="" alt="">로고</a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                            내 정보 관리
+                        </a>
+                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                            관심 분야 설정
+                        </a>
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                            메시지
+                        </a>
+                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                            비밀번호 변경
+                        </a>
+                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                            계정 삭제
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-box col">
+                <div class="inner-container-box">
+                    <h3>메시지</h3><hr>
+
+                    <div class="con-box-list">
+                            <div class='css3-tab'>
+                                <input type='radio' name='a' id='tabOne' tabindex="1" checked>
+                                <input type='radio' name='a' id='tabTwo' tabindex="2">
+                                <input type='radio' name='a' id='addNew' tabindex="3">
+                                <div class="css3-tab-nav">
+                                        <label for='tabOne'>받은 쪽지함</label>
+                                        <label for='tabTwo'>보낸 쪽지함</label>
+                                        <label for='addNew'>쪽지 보내기</label>
+                                </div>
+
+                    <div class='css3-tab-content tab-one'>
+                            <div class="table-responsive">
+                                    <table class="table table-sm">
+                                            <thead>
+                                                    <tr class="table-active">
+                                                            <th scope="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                </div>
+                                                            </th>
+                                                            <th scope="col">보낸사람</th>
+                                                            <th scope="col">내용</th>
+                                                            <th scope="col">날짜</th>
+                                                            <th scope="col">차단</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                </div>
+                                                            </th>
+                                                            <td><a href="#">안중근</a></td>
+                                                            <td>Lorem ipsum dolor sit amet,  Nam id ...</td>
+                                                            <td>2018.06.05</td>
+                                                            <td><button type="button" class="btn btn-light btn-sm">차단</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                </div>
+                                                            </th>
+                                                            <td><a href="#">윤봉길</a></td>
+                                                            <td>Lorem ipsum dolor sit amet. Nam ...</td>
+                                                            <td>2018.07.01</td>
+                                                            <td><button type="button" class="btn btn-light btn-sm">차단</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                </div>
+                                                            </th>
+                                                            <td><a href="#">유관순</a></td>
+                                                            <td>Lorem ipsum dolor sit ut mauris id ...</td>
+                                                            <td>2018.07.02</td>
+                                                            <td><button type="button" class="btn btn-light btn-sm">차단</button></td>
+                                                        </tr>
+
+                                                        
+                                                    </tbody>
+                                             
+                                          </table>
+                                          <button class="btn btn-light btn-sm dg-btn delete">삭제</button>
+                                          <button class="btn btn-light btn-sm dg-btn reply">답장</button>
+                                </div>
+                           </div>
+                           <!-- 진행중 tab end! -->
+                       
+
+                           <!-- 마감 tab start! -->
+
+                                   <div class='css3-tab-content tab-two'>
+                                        <div class="table-responsive">
+                                                <table class="table">
+                                                        <thead>
+                                                                <tr class="table-active">
+                                                                        <th scope="col">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                            </div>
+                                                                        </th>
+                                                                        <th scope="col">받은사람</th>
+                                                                        <th scope="col">내용</th>
+                                                                        <th scope="col">날짜</th>
+                                                                        <th scope="col">차단</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                            </div>
+                                                                        </th>
+                                                                        <td><a href="#">안중근</a></td>
+                                                                        <td>Lorem ipsum dolor sit amet,  Nam id ...</td>
+                                                                        <td>2018.06.05</td>
+                                                                        <td><button type="button" class="btn btn-light btn-sm">차단</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                            </div>
+                                                                        </th>
+                                                                        <td><a href="#">윤봉길</a></td>
+                                                                        <td>Lorem ipsum dolor sit amet. Nam ...</td>
+                                                                        <td>2018.07.01</td>
+                                                                        <td><button type="button" class="btn btn-light btn-sm">차단</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                            </div>
+                                                                        </th>
+                                                                        <td><a href="#">유관순</a></td>
+                                                                        <td>Lorem ipsum dolor sit ut mauris id ...</td>
+                                                                        <td>2018.07.02</td>
+                                                                        <td><button type="button" class="btn btn-light btn-sm">차단</button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                      </table>
+                                                      <button class="btn btn-light btn-sm dg-btn delete">삭제</button>
+                                                      <button class="btn btn-light btn-sm dg-btn reply">답장</button>
+                                            </div>
+                                       </div>
+                            
+                            <!-- 마감 tab end! -->
+                    
+                            <!-- 쪽지 보내기 탭-->
+                            
+		<div class='css3-tab-content add-new'>
+				<!-- start slipsum code -->
+				<h1>Add New</h1> Integer elementum massa at nulla placerat varius. Suspendisse in libero risus, in interdum massa. Vestibulum ac leo vitae metus faucibus gravida ac in neque. Nullam est eros, suscipit sed dictum quis, accumsan a ligula. In sit amet justo lectus.
+				Etiam feugiat dolor ac elit suscipit in elementum orci fringilla. Aliquam in felis eros. Praesent hendrerit lectus sit amet turpis tempus hendrerit. Donec laoreet volutpat molestie. Praesent tempus dictum nibh ac ullamcorper. Sed eu consequat nisi.
+				Quisque ligula metus, tristique eget euismod at, ullamcorper et nibh. Duis ultricies quam egestas nibh mollis in ultrices turpis pharetra. Vivamus et volutpat mi. Donec nec est eget dolor laoreet iaculis a sit amet diam.
+
+				<h2>Donec malesuada vehicula</h2> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Quisque iaculis ligula ut ipsum mattis viverra. Nulla a libero metus. Integer gravida tempor metus eget condimentum. Integer eget iaculis tortor. Nunc sed ligula sed augue rutrum ultrices eget nec odio. Morbi rhoncus, sem laoreet tempus pulvinar,
+				leo diam varius nisi, sed accumsan ligula urna sed felis. Mauris molestie augue sed nunc adipiscing et pharetra ligula suscipit. In euismod lectus ac sapien fringilla ut eleifend lacus venenatis.
+
+				<h2>Nullam eros mi</h2> Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo. Suspendisse egestas est ac dolor imperdiet pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porttitor,
+				erat sit amet venenatis luctus, augue libero ultrices quam, ut congue nisi risus eu purus. Cras semper consectetur elementum. Nulla vel aliquet libero. Vestibulum eget felis nec purus commodo convallis. Aliquam erat volutpat.
+		</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
