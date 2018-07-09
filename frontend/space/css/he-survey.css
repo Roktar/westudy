@@ -1,7 +1,16 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 .container {
     font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
+    max-width: 1200px;
 }
 
+@media (max-width: 800px) {
+   
+    body {
+        min-width: 660px;
+    }   
+}
 
 
 span.std-std-info{

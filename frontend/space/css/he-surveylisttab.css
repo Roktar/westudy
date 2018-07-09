@@ -4,6 +4,7 @@
 
 .container {
     font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
+    max-width: 1200px;
 }
 
 
@@ -124,13 +125,11 @@ div.addMember {
 }
 
 div.survey-enroll {
-   
     margin-top: 1em;
     padding-bottom : 1em;
     padding-top: 1em;
     padding-right: 2em;
     overflow: hidden;
-   
     margin: auto;
 }
 
@@ -364,7 +363,6 @@ h6 {
         display: flex;
         justify-content: center;
         padding-left: 5.5em;
-        
         height: 40px;
     }
     .search-survey form {

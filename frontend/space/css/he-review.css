@@ -1,4 +1,11 @@
-      
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+.container {
+    font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
+  
+}
+
         div.class-list {
             border: 1px solid gray;
             margin-top : 2em;
@@ -10,7 +17,34 @@
             .class-list {
                 display: none;
             }
+           .col-box {
+               display: none;
+           }
+           .col-9 {
+               margin: auto;
+           }
+           body {
+            min-width: 660px;
+           }   
         }
+
+        @media (min-width:800px) {
+            .std-titl-titl {
+                display: none;
+            }
+        }
+
+       
+
+        .std-titl-titl {
+            background-color: #FBFBEF;
+            font-size : 24px;
+            text-align: center;
+            margin-bottom: 1em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+
 
         img.main-logo {
             margin: 3em;
