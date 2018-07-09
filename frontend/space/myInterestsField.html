@@ -35,28 +35,39 @@
     </header>
 
     <div class="container">
-        <nav class="group-nav">
-            <div class="row">
-                <div class="col group-nav">
-                    <ul>
-                        <span class="profileMain"><li><a href="#">내 정보</a></li></span>
-                        <li><a href="myProfile.html">내 정보 관리</a></li>
-                        <li><a href="myInterestsField.html">내 관심분야 설정</a></li>
-                        <li><a href="myPasswordChange.html">비밀번호 변경</a></li>
-                        <li><a href="myProfileDeleteConfirm.html">계정 삭제</a></li>
-                    </ul>
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                            내 정보 관리
+                        </a>
+                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                            관심 분야 설정
+                        </a>
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                            메시지
+                        </a>
+                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                            비밀번호 변경
+                        </a>
+                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                            계정 삭제
+                        </a>
+                    </div>
                 </div>
             </div>
-        </nav>
-            <div class="container-box interests">
-        <h2>관심 분야 설정</h2>
+            <div class="container-box col">
+                <div class="inner-container-box">
+        <h3>관심 분야 설정</h3>
         <hr>
         관심사는 총 3개까지 설정하실 수 있습니다.<br>
         <form>
             <div class="filter-selection">
                 <ul class="filter-category">
-                    
-                    <center><li class="block"><a href="#">프로그래밍</a></li>
+                    <li class="block"><a href="#">프로그래밍</a></li>
                     <li class="block"><a href="#">어학</a></li>
                     <li class="block"><a href="#">기사</a></li>
                     <li class="block"><a href="#">한국사</a></li>
@@ -66,11 +77,10 @@
                     <li class="block"><a href="#">독서</a></li>
                     <li class="block"><a href="#">기타</a></li>
                     <li class="block"><a href="#">기타</a></li>
-                    </center>
                 </ul>
             </div>
         </form><br>
-            <button class="btn btn-primary btn-block" id="saveBtn">저장</button>
+            <button class="btn btn-primary" id="saveBtn">저장</button>
     </div>
 
     </div>

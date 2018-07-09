@@ -17,7 +17,7 @@
 </head>
 
 <body>
-		<!-- header start -->
+    <!-- header start -->
     <header class="header">
         <div class="headerWrap">
             <h1 class="logo">
@@ -36,63 +36,54 @@
     </header>
 
     <div class="container">
-        <nav class="group-nav">
-            <div class="row">
-                <div class="col group-nav">
-                    <ul>
-                        <span class="profileMain"><li><a href="#">내 정보</a></li></span>
-                        <li><a href="myProfile.html">내 정보 관리</a></li>
-                        <li><a href="myInterestsField.html">내 관심분야 설정</a></li>
-                        <li><a href="myPasswordChange.html">비밀번호 변경</a></li>
-                        <li><a href="myProfileDeleteConfirm.html">계정 삭제</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="profile-box">
-            <h3>내 정보 관리</h3>
-            <div class="row profile-box">
-                <div class="col">    
-                    <ul>
-                        <li>이름 : </li>
-                        <li>이메일주소 : </li>
-                        <li>생일 : </li>
-                        <li>성별 : </li>
-                        <li>지역 : </li>
-                        <li>자기소개 : </li>
-                    </ul>
-                </div>
-                <div class="col-6">
-                    <ul>
-                        <li>윤봉길 </li>
-                        <li>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="bong@gmail.com" readonly>
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">변경</span>
-                                </div>
-                            </div>
-                            <!--                            <a href="#" class="btn btn-sm btn-secondary">변경</a>-->
-
-                        </li>
-                        <li>2012.03.02 </li>
-                        <li>남 </li>
-                        <li>서울특별시 강남구 <a href="#" class="btn btn-sm btn-secondary">변경</a></li>
-                        </li>
-                        <li> <textarea class="form-control" id="profileInput" rows="5"></textarea> <a href="#" class="btn btn-sm btn-secondary">수정</a></li>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <img src="img/thumbnail.jpg" alt="..." class="rounded-circle">
-                    <div class="form-group-img">
-                        <label for="exampleInputEmail1">내 사진 설정</label>
-                        <button type="file" class="btn btn-primary btn-sm" id="imgUpload">파일선택</button>
-                        <button type="file" class="btn btn-secondary btn-sm" id="imgEdit">변경하기</button>
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                            내 정보 관리
+                        </a>
+                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                            관심 분야 설정
+                        </a>
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                            메시지
+                        </a>
+                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                            비밀번호 변경
+                        </a>
+                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                            계정 삭제
+                        </a>
                     </div>
                 </div>
             </div>
+            <div class="container-box col">
+                <div class="inner-container-box">
+                    <h3>내 정보 관리</h3><hr><br>
+                    <div class="form-group-img">
+                        <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail"><br>
+                        <label for="exampleInputEmail1">내 사진 설정</label><br>
+                        <button type="file" class="btn btn-primary btn-sm" id="imgUpload">파일선택</button>
+                        <button type="file" class="btn btn-secondary btn-sm" id="imgEdit">변경하기</button>
+                    </div>
+                    <ul>
+                        <li>이름 : <span class="eachName">윤봉길 </span></li>
+                        <li>
+                            이메일 주소 : &nbsp;<span class="email">bong@gmail.com </span>
+                        </li>
+                        <li>생년월일 : &nbsp;<span class="BornYear">2012.03.02 </span> </li>
+                        <li>성별 : &nbsp;<span class="gender">여</span>  </li>
+                        <li>지역 : &nbsp;<span class="location">서울특별시 강남구</span>   <a href="#" class="btn btn-sm btn-secondary">변경</a></li>
+                        </li>
+                        <li> <textarea class="form-control" id="profileInput" rows="5"></textarea> <a href="#" class="btn btn-sm btn-secondary edit">수정</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
     </div>
     </div>

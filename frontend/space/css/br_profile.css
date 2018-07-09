@@ -1,10 +1,9 @@
-div.group-nav, div.studyCheckin, div.checkedMembers {
+div.group-nav,
+div.studyCheckin,
+div.checkedMembers {
     border-radius: 5px;
 }
 
-div.row {
-    margin: 0 auto;
-}
 div.group-nav {
     margin: 0 0em 0 0em;
     background-color: #ddd;
@@ -26,31 +25,20 @@ div.group-nav ul li a {
     color: black;
 }
 
-
-.profile-box {
-    margin: 3em;
-    margin: 0 auto;
-}
-
-h3{
-    font-size: 2rem;
+h3 {
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
-div.profile-box  {
+div.container-box {
+    margin: 0 auto;
     padding: 1em;
     line-height: 3rem;
+/*    width: 40%;*/
 }
 
 .navbar {
     margin: 0 0 3rem 0;
-}
-
-img.rounded-circle {
-    float: left;
-    margin: 1rem;
-    height: 30%;
-    widows: 30%;
 }
 
 #profileInput {
@@ -58,7 +46,7 @@ img.rounded-circle {
 }
 
 #exampleInputEmail1 {
-        width: 70%;
+    width: 70%;
 }
 
 .profileMain {
@@ -66,7 +54,7 @@ img.rounded-circle {
     font-weight: bold;
 }
 
-h3{
+h3 {
     text-align: center;
 }
 
@@ -85,17 +73,17 @@ div.filter-selection {
 ul.filter-category {
     display: block;
 }
+
 li.block {
     display: inline-block;
-    width: 7rem;
-    height: 7rem;
-    line-height: 7rem;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
     text-align: center;
-    border: 1px solid #ddd;
+/*    border: 1px solid #ddd;*/
     background-color: #fff;
     font-weight: bold;
-    margin: 0.1rem;
-    
+    margin: 0rem;
 }
 
 li.block:hover {
@@ -106,37 +94,38 @@ li.block:visited {
     box-shadow: 5px 5px #ccc inset;
 }
 
-h2{
+h2 {
     font-weight: bold;
     font-size: 2rem;
 }
 
-#saveBtn{
+#saveBtn {
     display: block;
-    width: 80%;
-    margin: 2rem auto;
+    margin: 0 auto;
 }
 
 h2 {
     text-align: center
 }
 
-div.interests{
+div.interests {
     text-align: center;
 }
 
 input[type="password"] {
     width: 95%;
 }
+
 #nextBtn {
     float: right;
 }
 
 div.forBtn {
-    text-align: center;
+    text-align: cen1ter;
 }
 
-div.modal-header, div.modal-footer {
+div.modal-header,
+div.modal-footer {
     text-align: center;
 }
 
@@ -149,3 +138,47 @@ div.modal-content {
     text-align: center;
     line-height: 2rem;
 }
+
+div.container {
+    padding: 2rem;
+}
+
+img.thumbnail {
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+div.inner-container-box {
+    width: 70%;
+    margin: 0 auto;
+}
+
+div.form-group-img {
+    text-align: center;
+}
+
+a.edit {
+    float: right;
+    margin: 1rem;
+}
+
+#passwordChange{
+    float: right;
+}
+
+form{
+    margin: 0px;
+    padding: 0px;
+}
+
+a.ok{
+    float: right;
+}
+
+div.list-group a{
+    border-radius: 0px;
+}
+
