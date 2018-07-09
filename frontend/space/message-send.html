@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="css/message-recieve.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-   
 
-    
+
    
 
 </head>
@@ -86,7 +85,7 @@
                                                     <tr class="table-active">
                                                             <th scope="col">
                                                                     <div class="form-check">
-                                                                        <input id="checkall" class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                        <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="fofo">
                                                                     </div>
                                                                 </th>
                                                             <th scope="col">보낸사람</th>
@@ -99,18 +98,18 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk">
+                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="fofo">
                                                                 </div>
                                                             </td>
                                                             <td><a href="#">안중근</a></td>
-                                                            <td><a href="message-recieve.html">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
+                                                            <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
                                                             <td>2018.06.05</td>
                                                             <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td scope="row">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk">
+                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="fofo">
                                                                 </div>
                                                             </td>
                                                             <td><a href="#">윤봉길</a></td>
@@ -137,67 +136,32 @@
                                           <button class="btn btn-light btn-sm dg-btn delete">삭제</button>
                                           <button class="btn btn-light btn-sm dg-btn reply">답장</button>
                                 </div>
-                           </div>
+                    </div>
                            <!-- 진행중 tab end! -->
                        
 
                            <!-- 마감 tab start! -->
 
                                    <div class='css3-tab-content tab-two'>
-                                        <div class="table-responsive">
-                                                <table class="table table-sm">
-                                                        <thead>
-                                                                <tr class="table-active">
-                                                                        <th scope="col">
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="fofo">
-                                                                                </div>
-                                                                            </th>
-                                                                        <th scope="col">받은사람</th>
-                                                                        <th scope="col">내용</th>
-                                                                        <th scope="col">날짜</th>
-                                                                        <th scope="col">차단</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><a href="#">안중근</a></td>
-                                                                        <td><a href="message-send.html">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                                        <td>2018.06.05</td>
-                                                                        <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input position-stati chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><a href="#">윤봉길</a></td>
-                                                                        <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                                        <td>2018.07.01</td>
-                                                                        <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><a href="#">유관순</a></td>
-                                                                        <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                                        <td>2018.07.02</td>
-                                                                        <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                      </table>
-                                                      <button class="btn btn-light btn-sm dg-btn delete">삭제</button>
+                                        <form>
+                                                <div class="form-group row form-box">
+                                                  <label for="staticEmail" class="col-sm-2 col-form-label send-p">받은 사람</label>
+                                                  <div class="col-sm-10">
+                                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="윤봉길">
+                                                  </div>
+                                                  <label for="staticEmail" class="col-sm-2 col-form-label receive-t">보낸 시간</label>
+                                                  <div class="col-sm-10">
+                                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="2018.07.09">
+                                                  </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-group">
                                                     
-                                            </div>
+                                                        <textarea class="form-control receivebox" id="exampleFormControlTextarea1" rows="9">이동현 오빠 키 183이래요.</textarea>
+                                                      </div>
+                                                    
+                                               
+                                              </form>
                                        </div>
                             
                             <!-- 마감 tab end! -->
@@ -240,8 +204,5 @@
     </footer>
 
 </body>
-
-
-
 
 </html>
