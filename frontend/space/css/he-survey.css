@@ -249,10 +249,18 @@ div.con-box-list {
   
 }
 
+.menu-bar {
+    text-align: center;
+    margin-top : 3em;
+}
 
 
 button.vote-btn {
     float: right;
+    background-color: white;
+    color: #ef6c00;
+    border: 1px solid #ef6c00;
+}
 }
 
 .col-box-list {

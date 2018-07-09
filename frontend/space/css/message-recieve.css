@@ -207,7 +207,9 @@ div.list-group a{
     margin-top: 1.1em;
 }
 
-
+.receivebox {
+    text-align: left;
+}
 
 .delete, .reply {
     float: right;
@@ -222,6 +224,10 @@ div.list-group a{
 .delete {
     margin-left: 1em;
     margin-right: 1.5em;
+}
+
+.send-p, .receive-t {
+    color : #A4A4A4;
 }
 
 .sendform {
@@ -245,6 +251,13 @@ div.list-group a{
     border:0;
 }
 
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
+.form-box {
+    margin-top: 1em;
+}
 
 /*tab css start*/
 
@@ -311,6 +324,7 @@ div.list-group a{
     border-bottom : none;
   }
 
+
   .css3-tab input[id='tabOne']:checked ~ .css3-tab-nav label[for='tabTwo'] {
     color: black;
     cursor: default;
@@ -332,10 +346,15 @@ div.list-group a{
         color : white !important
   }
 
+  .css3-tab input[id='tabOne'] ~ .css3-tab-nav label[for='addNew']:hover {
+    background-color: #ef6C00;
+    color : white !important
+}
+
 
   .css3-tab input[id='tabOne']:checked ~ div.tab-one {
     display: block;
-    background: #ef6C00;
+  
   }
   
   .css3-tab input[id='tabTwo']:checked ~ .css3-tab-nav label[for='tabTwo'] {
