@@ -27,7 +27,7 @@ body {
 /* ---- grid-item ---- */
 
 .grid-item {
-    width: 320px;
+    width: 32%;
     float: left;
     background: #ef6c00;
 
