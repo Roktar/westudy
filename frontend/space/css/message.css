@@ -69,7 +69,7 @@ h3 {
 }
 
 .container-box {
-    width: 60%;
+   
     margin: 5rem auto;
     margin: 3rem auto;
 }
@@ -426,5 +426,9 @@ div.list-group a{
         min-width: 660px;
     }   
    
+
+    @media (max-width:800px) {
+
+    }
       
   }
