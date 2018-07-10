@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/hf.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/br_profile.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
 
 </head>
 <style>
@@ -254,57 +263,63 @@
                     </div>
                 </div>
                 <!--col-box2 -->
-            </div>  
-            <div class="col-sm-10" style="padding-left: 4em">
-                <p style="font-size: 1.5rem; text-align: center; padding-top: 1em; margin-bottom: 1.4em">그룹정보 관리</p>
-                <div class="row" style="border: 1px solid #ccc; border-radius: 0.25em">
-                    <div class="col-sm-7" style="">
-                        <div class="form-group">
-                            <label for="">스터디 장</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" readonly>
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">변경</button>
-                                </div>
+            </div>
+            <div class="col-sm-10" style="padding-left: 4em; padding-right: 4em ">
+                <div style="margin: 0 auto">
+                    <p style="font-size: 1.5rem; text-align: center; padding-top: 1em; margin-bottom: 1.4em">그룹정보 관리</p>
+                    <div class="row" style="border: 1px solid #ccc; border-radius: 0.25em;">
+                        <div class="col-sm-5" style="margin-bottom: 2em">
+                            <div class="form-group-img" style="margin-top: 1em;">
+                                <div style="width: auto; height: 18em; overflow: hidden;margin: 0 auto; ">
+                                <img src="img/aaaa.jpeg"  alt="logo" class="image-thumbnail" style="width: 18rem; height: 18rem; max-width: 100%;"></div>
+                                <br>
+                                <br>
+                                <button type="file" class="btn btn-secondary  btn-sm" id="imgUpload">파일선택</button>
+                                <button type="file" class="btn btn-primary btn-sm" id="imgEdit">변경하기</button>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">스터디 명칭</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" readonly>
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">변경</button>
+                        <div class="col-sm-7" style="">
+                            <div class="form-group">
+                                <label for="">스터디 장</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn " type="submit">변경</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">스터디 분류</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" readonly>
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">변경</button>
+                            <div class="form-group">
+                                <label for="">스터디 명칭</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn " type="submit">변경</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">스터디 장소</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" readonly>
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">변경</button>
+                            <div class="form-group">
+                                <label for="">스터디 분류</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn " type="submit">변경</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <label for="">스터디 소개</label>
-                            <textarea class="form-control" id="profileInput" rows="5" style="width: 100%;"></textarea>
-                            <button class="btn btn-success" type="submit" style="float: right;">변경</button>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <img src="img/11.jpeg" class="img-fluid img-thumbnail" alt="...">
-                        <div class="input-group-append" style="margin-top: 1em">
-                            <button class="btn btn-success btn-block" type="submit">사진 변경</button>
+                            <div class="form-group">
+                                <label for="">스터디 장소</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn " type="submit">변경</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="">스터디 소개</label>
+                                <textarea class="form-control" id="profileInput" rows="5" style="width: 100%;"></textarea>
+                                <button class="btn " type="submit" style="float: right;">변경</button>
+                            </div>
                         </div>
                     </div>
                 </div>
