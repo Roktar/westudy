@@ -334,3 +334,17 @@ img.leader-thumbnail {
     width: 10rem;
     display: inline-block;
 }
+
+div.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img.message {
+    width: 4rem;
+    vertical-align: middle;
+}
+
+div.memberProfile {
+    width: 50%;
+}
