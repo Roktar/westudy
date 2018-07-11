@@ -172,3 +172,17 @@
         height: 10%;
 }
 */
+
+/*버튼 색*/
+
+.btn, .btn-primary, .btn:hover, .btn:active, .btn-primary:hover, .btn-primary:active {
+    background-color: #ef6c00;
+    color: white;
+    border: 0px;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active {
+    background-color: #aaa;
+    color: white;
+    border: 0px;
+}
