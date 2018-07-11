@@ -11,34 +11,80 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="album.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 
     <style>
+        .container-fluid{
+            background-color: #f2f2f2;
+        }
+
         .container{
-            margin-bottom: 0.5%;
+            margin-bottom: 1rem;
         }
-        .categories{
-            text-align: center;
-            padding: 1em;
+
+        .jumbotron-fluid{
+            background-image: url('#');
+            background-size: cover;
         }
+
         .headline{
+            font-size: 1.25rem;
             font-weight: bold;
-        }
-        .card-deck{
-            margin-bottom: 2em;
-        }
-        .category{
-            padding: 1%;
-            border-collapse: collapse;
-            box-shadow: 
-                2px 0 0 0 #888, 
-                0 2px 0 0 #888, 
-                2px 2px 0 0 #888,
-                2px 0 0 0 #888 inset, 
-                0 2px 0 0 #888 inset;
+            margin-bottom: 1rem;
         }
         
+        .searchbar{
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border: 5px solid #ef6c00;
+        }
+        .searchOption{
+            padding: 1rem;
+        }
+
+        /* dropdown shadow */
+        .form-control:focus {
+            border-color: #ef6c00;
+            box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
+        }
     </style>
+
+    <!-- study list start --> 
+    <style>
+        .box{
+            padding: 0px;
+            background-color: white;
+            margin: 1rem;
+        }
+
+        .studyImage{
+            height: 200px;
+        }
+
+        .studyTitle:hover{
+            color:#ef6c00;
+        }
+
+        .studyHashTag:hover{
+            color:#ef6c00;
+        }
+        .studyDetail{
+            padding: 1rem;
+        }
+        a:hover{
+            color: #ef6c00;
+        }
+    </style>
+    <!-- study list end -->
+
+    <!-- pagination start -->
+    <style>
+        .page-link{
+            color: #ef6c00!important;
+        }
+    </style>
+    <!-- pagination end -->
 
     <title>search</title>
 </head>
@@ -63,46 +109,78 @@
     </header>
     <!-- navbar end -->
 
+    <!-- jumbotron start -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">다양한 스터디를 찾아보세요.</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+    <!-- jumbotron end -->
+
     <!-- search start -->
     <div class="container">
-
-        <span class="headline">지역설정</span>
+        <div class="headline">
+            스터디 검색
+        </div>
+    </div>
+    <div class="container searchbar">
         <div class="row">
-            <div class="col-auto mr-auto">
+            <div class="col-sm-3 searchOption">
+                <select class="form-control">
+                    <option>지역 대분류</option>
+                    <option>서울특별시</option>
+                    <option>경기도</option>
+                    <option>강원도</option>
+                    <option>충청북도</option>
+                    <option>충청남도</option>
+                    <option>경상북도</option>
+                    <option>경상남도</option>
+                    <option>전라북도</option>
+                    <option>전라남도</option>
+                    <option>제주특별자치도</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchOption">
+                <select class="form-control">
+                    <option>지역 소분류</option>
+                    <option>서울 전체</option>
+                    <option>강남구</option>
+                    <option>강동구</option>
+                    <option>강북구</option>
+                    <option>강서구</option>
+                    <option>관악구</option>
+                    <option>광진구</option>
+                    <option>구로구</option>
+                    <option>금천구</option>
+                    <option>노원구</option>
+                    <option>도봉구</option>
+                    <option>동대문구</option>
+                    <option>동작구</option>
+                    <option>마포구</option>
+                    <option>서대문구</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchOption">
+                <select class="form-control">
+                    <option>분류</option>
+                    <option>프로그래밍</option>
+                    <option>어학</option>
+                    <option>자격증</option>
+                    <option>한국사</option>
+                    <option>금융</option>
+                    <option>토론</option>
+                    <option>독서</option>
+                    <option>기타</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchOption">
                 <form class="form">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">지역설정</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-light btn-sm">현재 위치로 설정하기</button>
-                <button type="button" class="btn btn-light btn-sm">지도보기</button>
-            </div>
-        </div>
-
-        <span class="headline">분류 선택</span>
-        <div class="row categories">
-            <div class="col category"><a href="#">프로그래밍</a></div>
-            <div class="col category"><a href="#">어학</a></div>
-            <div class="col category"><a href="#">기사 자격증</a></div>
-            <div class="col category"><a href="#">한국사</a></div>
-        </div>
-        <div class="row categories">
-            <div class="col category"><a href="#">금융</a></div>
-            <div class="col category"><a href="#">토론</a></div>
-            <div class="col category"><a href="#">독서</a></div>
-            <div class="col category"><a href="#">기타</a></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 ml-auto">
-                <form class="form">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="키워드 검색" aria-label="" aria-describedby="">
+                        <input type="text" class="form-control" placeholder="포함단어 입력" aria-label="" aria-describedby="">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button">검색</button>
                         </div>
@@ -114,118 +192,128 @@
     </div>
     <!-- search end -->
 
-    <div class="container resultCount">총 _개의 스터디가 검색되었습니다. </div>
+    <div class="container resultCount">총 <font color="#ef6c00"><bold>0</bold></font>개의 스터디가 검색되었습니다. </div>
 
     <!-- study list start -->
-    <div class="container">
-        <!-- card-deck1 start -->
-        <div class="card-deck 1"><a href="search.html">
-            <div class="card shadow-sm">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">강남역 JAVA스터디</h5>
-                    <p class="card-text">자바 개발자가 되고 싶은 분들을 위한 스터디입니다. </p>
+    <div class="container-fluid">
+        <div class="container">
+            <!-- list 1 start -->
+            <div class="row">
+                <div class="col-sm box">
+                    <div class="imgWrap">
+                        <a href="#"><img src="holder.js/100px200?auto=yes"></a>
+                    </div>
+                    <div class="studyDetail">
+                        <div>
+                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디 </a><span class="badge badge-warning">모집중</span></h6>
+                            <br>
+                        </div>
+                        <div class="studyHashTag text-center">
+                            <a href="#">#자바</a>
+                            <a href="#">#강남</a>
+                            <a href="#">#개발</a>
+                            <a href="#">#Java</a>
+                            <a href="#">#웹개발</a>
+                        </div>
+                        <hr>
+                        <div class="list-details text-muted">
+                            <span class="float-left">
+                                <p>서울, 강남</p>
+                            </span>
+                            <span class="float-right">
+                                <i class="fas fa-user"></i>
+                                <span>4 / 5</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">6명의 회원이 있습니다.</small>
+                
+                <div class="col-sm box">
+                    <div class="imgWrap">
+                        <a href="#"><img src="holder.js/100px200?auto=yes"></a>
+                    </div>
+                    <div class="studyDetail">
+                        <div>
+                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디</h6></a>
+                            <br>
+                        </div>
+                        <div class="studyHashTag text-center">
+                            <a href="#">#자바</a>
+                            <a href="#">#강남</a>
+                            <a href="#">#개발</a>
+                            <a href="#">#Java</a>
+                            <a href="#">#웹개발</a>
+                        </div>
+                        <hr>
+                        <div class="list-details text-muted">
+                            <span class="float-left">
+                                <p>서울, 강남</p>
+                            </span>
+                            <span class="float-right">
+                                <i class="fas fa-user"></i>
+                                <span>4 / 5</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </div></a>
-            <div class="card shadow-sm">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="#">강남역 JAVA스터디</a></h5>
-                    <p class="card-text"><a href="#">자바 개발자가 되고 싶은 분들을 위한 스터디입니다. </a></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                
+                <div class="col-sm box">
+                    <div class="imgWrap">
+                        <a href="#"><img src="holder.js/100px200?auto=yes"></a>
+                    </div>
+                    <div class="studyDetail">
+                        <div>
+                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디</h6></a>
+                            <br>
+                        </div>
+                        <div class="studyHashTag text-center">
+                            <a href="#">#자바</a>
+                            <a href="#">#강남</a>
+                            <a href="#">#개발</a>
+                            <a href="#">#Java</a>
+                            <a href="#">#웹개발</a>
+                        </div>
+                        <hr>
+                        <div class="list-details text-muted">
+                            <span class="float-left">
+                                <p>서울, 강남</p>
+                            </span>
+                            <span class="float-right">
+                                <i class="fas fa-user"></i>
+                                <span>4 / 5</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card shadow-sm">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="#">강남역 JAVA스터디</a></h5>
-                    <p class="card-text"><a href="#">자바 개발자가 되고 싶은 분들을 위한 스터디입니다. </a></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
+            <!-- list 1 end -->
         </div>
-        <!-- card-deck1 end -->
-
-        <!-- card deck2 start -->
-        <div class="card-deck 2">
-            <div class="card shadow-sm">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="#">강남역 JAVA스터디</a></h5>
-                    <p class="card-text">자바 개발자가 되고 싶은 분들을 위한 스터디입니다. </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">6명의 회원이 있습니다.</small>
-                </div>
-            </div>
-            <div class="card shadow-sm">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="#">강남역 JAVA스터디</a></h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-        <!-- card deck2 end -->
-
-
-        <!-- card deck3 start -->
-        <div class="card-deck 3">
-            <div class="card">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">강남역 JAVA스터디</h5>
-                    <p class="card-text">자바 개발자가 되고 싶은 분들을 위한 스터디입니다. </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">6명의 회원이 있습니다.</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="holder.js/100px200" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-        <!-- card deck3 end -->
     </div>
     <!-- study list end -->
 
+    <!-- pagination start -->
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- pagination end -->
     
     <!-- footer start -->
     <footer class="footer">

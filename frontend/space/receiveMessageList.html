@@ -14,31 +14,54 @@
     <link rel="stylesheet" href="css/common.css">
 
     <style>
-      .container{
-        margin-bottom: 0.5%;
-        max-width: 1200px;
-      }
-      .nav-menu{
-          padding: 0%;
-      }
-      .title{
-        font-size: 30px;
-        margin-bottom: 2em;
-        font-weight: bold;
-      }
-      .table_title{
-        font-size: 20px;
-        margin-bottom: 1em;
-        font-weight: bold;
-      }
-      ul{
-        line-height: 2em;
-      }
-      .dg-btn{
-          margin-bottom: 1em;
-      }
-    </style>
+        .container{
+            margin-bottom: 0.5%;
+            max-width: 1200px;
+        }
+        .nav-menu{
+            padding: 0%;
+        }
+        .title{
+            font-size: 30px;
+            margin-bottom: 2em;
+            font-weight: bold;
+        }
+        .table_title{
+            font-size: 20px;
+            margin-bottom: 1em;
+            font-weight: bold;
+        }
+        .dg-btn{
+            margin-bottom: 1em;
+        }
 
+        ul {
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+
+        li {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            border : 0;
+            float: left;
+        }
+
+        ul > li > a{
+            padding-right: 1rem;
+        }
+
+        .sender{
+            width: 90px;
+        }
+        a:hover{
+            color:#ef6c00;
+        }
+        .submenu{
+            margin-bottom: 1rem;
+        }
+    </style>
 
     <title>messageList</title>
   </head>
@@ -69,20 +92,32 @@
 
         <div class="row">
             
-            <div class="col-sm-2">
-               <ul>
-                   <li><i class="far fa-envelope"></i><a href="">받은쪽지함</a></li>
-                   <li><i class="far fa-comment-dots"></i><a href="">보낸쪽지함</a></li>
-               </ul> 
+            <div class="col-md-2">
+                <table>
+                    <tr>
+                        <div class="submenu">
+                            <i class="far fa-envelope"></i><a href="#">받은쪽지함</a>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="submenu">
+                            <i class="far fa-comment-dots"></i><a href="#">보낸쪽지함</a>
+                        </div>
+                    </tr>
+                </table>
             </div>
 
-
-            <div class="col-sm-10">
+            <div class="col-md-10">
                 <div class="table-responsive">
                     <table class="table">
                         <div class="table_title">받은쪽지함</div>
-                        <button class="btn btn-light btn-sm dg-btn">삭제</button>
-                        <button class="btn btn-light btn-sm dg-btn">답장</button>
+                        
+                        <ul>
+                            <li><a href="#">삭제</a></li>
+                            <li><a href="#">답장</a></li>
+                            <li><a href="#">차단</a></li>
+                        </ul>
+                        
                         <thead>
                             <tr class="table-active">
                                 <th scope="col">
@@ -90,10 +125,9 @@
                                         <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                     </div>
                                 </th>
-                                <th scope="col">보낸사람</th>
+                                <th class="sender" scope="col">보낸사람 </th>
                                 <th scope="col">내용</th>
                                 <th scope="col">날짜</th>
-                                <th scope="col">차단</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,9 +138,8 @@
                                     </div>
                                 </th>
                                 <td><a href="#">안중근</a></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id ...</td>
+                                <td class="msgContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id</td>
                                 <td>2018.06.05</td>
-                                <td><button type="button" class="btn btn-light">차단</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -117,7 +150,6 @@
                                 <td><a href="#">윤봉길</a></td>
                                 <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id ...</td>
                                 <td>2018.07.01</td>
-                                <td><button type="button" class="btn btn-light">차단</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -128,7 +160,6 @@
                                 <td><a href="#">유관순</a></td>
                                 <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut mauris id ...</td>
                                 <td>2018.07.02</td>
-                                <td><button type="button" class="btn btn-light">차단</button></td>
                             </tr>
                         </tbody>
                     </table>

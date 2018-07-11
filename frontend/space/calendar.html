@@ -82,7 +82,7 @@
       <div class="calendarMenuWrap">
         <div class="calendarMenu">
           <div class="afterContent">강원대학교 자바 웹개발 스터디</div>
-          <div class="afterContent">스터디장 :  <span><a href="#" data-toggle="modal" data-target="#exampleModal">안중근</a><span></div>
+          <div class="afterContent">스터디장 :  <span><a href="#" data-toggle="modal" data-target="#messageModal">안중근</a><span></div>
           <div class="afterContent">스터디인원 : <span><a href="groupMembers.html">5명</a></span></div>
           <div>지역 : <span>강원,춘천</span></div>
           <div class="right">
@@ -96,7 +96,7 @@
 
 
             <!-- add calendar schedule modal start -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -138,20 +138,19 @@
         <div class="nextDiv2"></div> 
       
         <div class="calendarAddBtn">
-          <a id="calendarBtn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">일정 등록</a>
+          <a id="calendarBtn" data-toggle="modal" data-target="#calendarModal">일정 등록</a>
         </div>
           <script type="text/javascript">
-            $(document).ready( function() {
-              $("#calendarBtn").click( function() {
-              $("#exampleModal").modal();
-       });
+            $(document).ready(function(){
+                $("#calendarBtn").click(function(){
+                    $("#calendarModal").modal();
+                });
             });
-
           </script>
       </div>
 
       <!-- add calendar schedule modal start -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -229,70 +228,6 @@
         </div>
     </div>
     <!-- add calendar schedule modal end -->
-
-      <div class="calendarTable">
-        <div class="caption">Caption Text</div>
-        <div class="thead">
-          <div class="tr">
-            <div class="th" style="color: #f00">일</div>
-            <div class="th">월</div>
-            <div class="th">화</div>
-            <div class="th">수</div>
-            <div class="th">목</div>
-            <div class="th">금</div>
-            <div class="th">토</div>
-          </div>
-        </div>
-        <div class="tbody">
-          <div class="tr">
-            <div class="td">1</div>
-            <div class="td">2</div>
-            <div class="td">3</div>
-            <div class="td">4</div>
-            <div class="td">5</div>
-            <div class="td">6</div>
-            <div class="td">7</div>
-          </div>
-          <div class="tr">
-            <div class="td">1</div>
-            <div class="td">2</div>
-            <div class="td">3</div>
-            <div class="td">4</div>
-            <div class="td">5</div>
-            <div class="td">6</div>
-            <div class="td">7</div>
-          </div>
-          <div class="tr">
-            <div class="td">1</div>
-            <div class="td">2</div>
-            <div class="td">3</div>
-            <div class="td">4</div>
-            <div class="td">5</div>
-            <div class="td">6</div>
-            <div class="td">7</div>
-          </div>
-          <div class="tr">
-            <div class="td">1</div>
-            <div class="td">2</div>
-            <div class="td">3</div>
-            <div class="td">4</div>
-            <div class="td">5</div>
-            <div class="td">6</div>
-            <div class="td">7</div>
-          </div>
-          <div class="tr">
-            <div class="td">1</div>
-            <div class="td">2</div>
-            <div class="td">3</div>
-            <div class="td">4</div>
-            <div class="td">5</div>
-            <div class="td">6</div>
-            <div class="td">7</div>
-          </div>
-        </div>
-      </div>
-
-
 
 		</section>
 		<!-- section end -->
