@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 
     <style>
-        .topper{
-            margin-top: 100px;
-        }
+	    .container{
+	       margin-top: 0;
+	    }
+	    .jumbotron{
+	       margin-top: 100px;
+	    }
         .container-fluid{
             background-color: #f2f2f2;
         }
@@ -68,15 +71,8 @@
         .studyTitle:hover{
             color:#ef6c00;
         }
-
-        .studyHashTag:hover{
-            color:#ef6c00;
-        }
         .studyDetail{
             padding: 1rem;
-        }
-        a:hover{
-            color: #ef6c00;
         }
     </style>
     <!-- study list end -->
@@ -121,8 +117,10 @@
     </header>
     <!-- navbar end -->
 
+
+
     <!-- jumbotron start -->
-    <div class="topper jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">다양한 스터디를 찾아보세요.</h1>
             <p class="lead"></p>
@@ -130,13 +128,15 @@
     </div>
     <!-- jumbotron end -->
 
-    <!-- search start -->
     <div class="container">
+    <!-- search start -->
+    
+    <div class="title">
         <div class="headline">
             스터디 검색
         </div>
     </div>
-    <div class="container searchbar">
+    <div class="searchbar">
         <div class="row">
             <div class="col-sm-3 searchOption">
                 <select class="form-control">
@@ -204,7 +204,8 @@
     </div>
     <!-- search end -->
 
-    <div class="container resultCount">총 <font color="#ef6c00"><bold>0</bold></font>개의 스터디가 검색되었습니다. </div>
+    <div class="box resultCount">총 <font color="#ef6c00"><bold>0</bold></font>개의 스터디가 검색되었습니다. </div>
+</div> 
 
     <!-- study list start -->
     <div class="container-fluid">
@@ -213,11 +214,13 @@
             <div class="row">
                 <div class="col-sm box">
                     <div class="imgWrap">
-                        <a href="#"><img src="js/holder.js/100px200?auto=yes"></a>
+                        <a href="#"><img src="holder.js/100px200?auto=yes"></a>
                     </div>
                     <div class="studyDetail">
                         <div>
-                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디 </a><span class="badge badge-warning">모집중</span></h6>
+                            <a href="#">
+                                <h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디 <span class="badge badge-warning">모집중</span></h6>
+                            </a>
                             <br>
                         </div>
                         <div class="studyHashTag text-center">
@@ -304,7 +307,7 @@
     <!-- study list end -->
 
     <!-- pagination start -->
-    <div class="container">
+    <div class="box">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
@@ -326,7 +329,6 @@
         </nav>
     </div>
     <!-- pagination end -->
-    
     <!-- footer start -->
     <footer class="footer">
         <p>Logo</p>
