@@ -1,0 +1,449 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+
+.container {
+    font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
+    max-width: 1200px;
+}
+
+
+div.group-nav,
+div.studyCheckin,
+div.checkedMembers {
+    border-radius: 5px;
+}
+
+div.group-nav {
+    margin: 0 0em 0 0em;
+    background-color: #ddd;
+}
+
+div.group-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin: 1em;
+}
+
+div.group-nav ul li {
+    display: inline;
+    margin: 2rem;
+}
+
+div.group-nav ul li a {
+    color: black;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+div.container-box {
+    margin: 0 auto;
+    padding: 1em;
+    line-height: 3rem;
+/*    width: 40%;*/
+}
+
+.navbar {
+    margin: 0 0 3rem 0;
+}
+
+#profileInput {
+    float: right;
+}
+
+#exampleInputEmail1 {
+    width: 70%;
+}
+
+.profileMain {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+h3 {
+    text-align: center;
+}
+
+.container-box {
+    width: 60%;
+    margin: 5rem auto;
+    margin: 3rem auto;
+}
+
+div.filter-selection {
+    margin: 3rem;
+    display: block;
+    position: relative;
+}
+
+ul.filter-category {
+    display: block;
+}
+
+li.block {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+/*    border: 1px solid #ddd;*/
+    background-color: #fff;
+    font-weight: bold;
+    margin: 0rem;
+}
+
+li.block:hover {
+    box-shadow: 5px 5px #ccc inset;
+}
+
+li.block:visited {
+    box-shadow: 5px 5px #ccc inset;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#saveBtn {
+    display: block;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center
+}
+
+div.interests {
+    text-align: center;
+}
+
+input[type="password"] {
+    width: 95%;
+}
+
+#nextBtn {
+    float: right;
+}
+
+div.forBtn {
+    text-align: cen1ter;
+}
+
+div.modal-header,
+div.modal-footer {
+    text-align: center;
+}
+
+form.warn {
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+div.modal-content {
+    text-align: center;
+    line-height: 2rem;
+}
+
+div.container {
+    padding: 2rem;
+}
+
+img.thumbnail {
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+div.inner-container-box {
+    width: 70%;
+    margin: 0 auto;
+}
+
+div.form-group-img {
+    text-align: center;
+}
+
+a.edit {
+    float: right;
+    margin: 1rem;
+}
+
+#passwordChange{
+    float: right;
+}
+
+form{
+    margin: 0px;
+    padding: 0px;
+}
+
+a.ok{
+    float: right;
+}
+
+div.list-group a{
+    border-radius: 0px;
+}
+
+
+.table-responsive {
+    background-color: white;
+}
+
+.table thead th {
+    border-top : none;
+    background-color: white;
+    padding-top: 1em;
+}
+
+.chk {
+    margin-top: 1.1em;
+}
+
+.receivebox {
+    text-align: left;
+}
+
+.delete, .reply {
+    float: right;
+}
+
+.reply {
+    background-color: #ef6C00;
+    color: white;
+  
+}
+
+.delete {
+    margin-left: 1em;
+    margin-right: 1.5em;
+}
+
+.send-p, .receive-t {
+    color : #A4A4A4;
+}
+
+.sendform {
+    padding-top: 2em;
+    width: 40%;
+}
+
+.sendbtn {
+    float: right;
+    background-color: #ef6C00;
+    color: white;
+    border : 0;
+}
+
+.juso {
+    border : 1px solid #ef6C00;
+}
+
+.btn-secondary {
+    background-color: #CCC;
+    border:0;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
+.form-box {
+    margin-top: 1em;
+}
+
+/*tab css start*/
+
+.css3-tab {
+    list-style: none;
+    margin: 0 auto 40px;
+   
+    position: relative;
+  
+  }
+  .css3-tab input[type='radio'] {
+    display: none;
+  }
+  .css3-tab .css3-tab-nav {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .css3-tab .css3-tab-nav label {
+    display: table-cell;
+    background-color: #FFF;
+    color: black;
+   
+    text-align: center;
+    transition: all .3s ease 0s;
+  }
+.list-group {
+    
+    border-top: none;
+}
+
+
+.list-group .list-group-item:first-child {
+  
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+}
+
+  .css3-tab .css3-tab-nav label:last-child {
+      border-bottom : 1px solid #ef6C00;
+  }
+
+  .css3-tab .css3-tab-nav label:hover {
+    cursor: pointer;
+    background: white;
+    color: #666666;
+    transition: all .3s ease 0s;
+  }
+
+ 
+  .css3-tab .css3-tab-content {
+    overflow: hidden;
+ 
+    display: none;
+    background: #FFF;
+    clear: left;
+    box-sizing: border-box;
+  }
+  .css3-tab input[id='tabOne']:checked ~ .css3-tab-nav label[for='tabOne'] {
+    background-color: #ef6C00;
+    color: white;
+    cursor: default;
+    border-bottom : none;
+  }
+
+
+  .css3-tab input[id='tabOne']:checked ~ .css3-tab-nav label[for='tabTwo'] {
+    color: black;
+    cursor: default;
+    border-bottom : none;
+  }
+
+  .css3-tab input[id='tabOne'] ~ .css3-tab-nav label[for='tabOne']:hover {
+      background-color: #ef6C00;
+      color : white;
+  }
+  .css3-tab input[id='tabOne'] ~ .css3-tab-nav label[for='tabOne'] {
+    color: #ef6C00;
+    cursor: default;
+    border-bottom :1px solid #ef6C00;
+    
+}
+  .css3-tab input[id='tabTwo'] ~ .css3-tab-nav label[for='tabTwo']:hover {
+        background-color: #ef6C00;
+        color : white !important
+  }
+
+  .css3-tab input[id='tabOne'] ~ .css3-tab-nav label[for='addNew']:hover {
+    background-color: #ef6C00;
+    color : white !important
+}
+
+
+  .css3-tab input[id='tabOne']:checked ~ div.tab-one {
+    display: block;
+  
+  }
+  
+  .css3-tab input[id='tabTwo']:checked ~ .css3-tab-nav label[for='tabTwo'] {
+    background-color: #ef6C00;
+    color: white;
+    cursor: default;
+    border-bottom : none;
+  }
+
+  .css3-tab input[id='tabTwo']:checked ~ .css3-tab-nav label[for='tabOne'] {
+    color: black;
+    cursor: default;
+    border-bottom : none;
+  }
+
+  .css3-tab input[id='tabOne']:checked ~ .css3-tab-nav label[for='addNew'] {
+   
+    color: black;
+    cursor: default;
+    border-bottom : none;
+  }
+
+
+  .css3-tab input[id='tabTwo']:checked ~ .css3-tab-nav label[for='addNew'] {
+   
+    color: black;
+    cursor: default;
+    border-bottom : none;
+  }
+
+  .css3-tab .css3-tab-nav label:last-child {
+    border-bottom : 1px solid #ef6C00;
+}
+  
+
+  .css3-tab input[id='tabTwo']:checked ~ div.tab-two {
+    display: block;
+  }
+
+
+  .css3-tab input[id='addNew']:checked ~ .css3-tab-nav label[for='addNew'] {
+    background-color: #ef6C00;
+    color: white;
+    cursor: default;
+    border-bottom : none;
+  }
+  .css3-tab input[id='addNew']:checked ~ div.add-new {
+    display: block;
+    
+  }
+
+  .css3-tab input[id='addNew']:checked ~ .css3-tab-nav label[for='tabOne'] {
+   
+    color: black;
+    cursor: default;
+    border-bottom : none;
+  }
+
+  
+  /*tab css end*/
+
+
+
+/*media*/
+  @media (max-width: 692px) {
+    .css3-tab .css3-tab-nav {
+     
+      margin: 0 0 0;
+    }
+    .css3-tab .css3-tab-nav label .css3-tab input[id='tabOne']:checked ~ .css3-tab-nav label[for='tabOne']{
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 20px;
+     
+    }
+
+     
+    
+  }
+  @media (max-width: 950px) {
+    .custom-control {
+        display: flex;
+        flex-direction: column;
+
+    }
+    body {
+        min-width: 660px;
+    }   
+   
+      
+  }

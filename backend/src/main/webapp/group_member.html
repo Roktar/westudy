@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/hf.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<style>
+    span.std-std-info {
+        padding-top: 3%;
+
+    }
+
+    div.nav-1 {
+        margin-top: 1.5em;
+    }
+
+    div.group-nav,
+    div.studyCheckin {
+        border-radius: 5px;
+    }
+
+
+    div.group-nav {
+        margin: 0 1em 0 1em;
+        background-color: #ddd;
+    }
+
+    div.group-nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin: 1em;
+    }
+
+    div.group-nav ul li {
+        display: inline;
+        margin: 2rem;
+    }
+
+    div.group-nav ul li a {
+        color: black;
+    }
+
+    div.studyCheckin {
+        margin: 0 1em 0 1em;
+        background-color: #ddd;
+        margin: 1em;
+    }
+
+    .studyMain {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        padding-top: 1em;
+        margin-bottom: 1em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    p.studyCheckin {
+        line-height: 2rem;
+        text-align: center;
+    }
+
+    li.eachMember {
+        background-color: white;
+        float: left;
+        margin: 1rem;
+    }
+
+    img[src="img/thumbnail.jpg"] {
+        width: 70%;
+        display: inline-block;
+        margin: 1rem;
+    }
+
+    img[src="img/message.png"] {
+        display: inline-block;
+        width: 70%;
+        margin: 1rem;
+    }
+
+
+    div.eachMember {
+        margin: 1rem;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    div.studyCheckin img.mapMarker {
+        width: 5%;
+        margin: 0 auto;
+        display: block;
+    }
+
+
+    div.empty {
+        background-color: transparent;
+    }
+
+    span.memberName {
+        font-weight: bold;
+    }
+
+    div.modal-body img.mapMarker {
+        width: 10%;
+        margin: 1rem;
+    }
+
+    div.modal-footer button {
+        margin: 0 auto;
+    }
+
+    div.addMember {
+        margin: 1rem;
+        border-radius: 5px;
+        float: right;
+    }
+
+    div.survey-enroll {
+        background-color: #ddd;
+        border-radius: 5px;
+        margin-top: 1em;
+        padding-bottom: 1em;
+        padding-right: 1em;
+        overflow: hidden;
+    }
+
+
+
+    input.form-control {
+        width: 90%;
+    }
+
+
+    label.item-titl {
+        margin: 0.5em;
+        font-weight: bold;
+    }
+
+    select.select-no {
+        width: 20%;
+    }
+
+
+    input.vote-date {
+        float: left;
+        margin-right: 1em;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        color: #495057;
+        height: 36px;
+        width: 40%;
+
+    }
+
+
+    div.con-box-enroll {
+        margin-top: 1em;
+        background-color: #FAFAFA;
+        margin-left: 1em;
+        padding-left: 1.5em;
+        padding-right: 0.5em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        height: 30rem;
+    }
+
+    div.con-box-list {
+        margin-top: 1em;
+        background-color: #FAFAFA;
+        margin-left: 1em;
+        padding-left: 1.5em;
+        padding-right: 0.5em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        overflow-y: scroll;
+        height: 30rem;
+    }
+
+    div.enroll-btn {
+        margin: auto;
+        width: 50%;
+
+    }
+
+    button.vote-btn {
+        float: right;
+    }
+
+    .col-box-list {
+        margin-top: 3em;
+    }
+
+    hr.line3 {
+        width: 80%;
+        border: 2px solid #BDBDBD;
+
+    }
+.btn{
+    color: white
+}
+   
+    .col-sm-5{
+        border: 1px solid;
+        border-radius: 0.25em;
+    }
+
+</style>
+
+<body>
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="#">
+                    <img src="" alt="">로고</a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>dd 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">관리자 페이지</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                            그룹정보 관리
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                            그룹멤버 관리
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action cls-list-link">
+                            설문조사 관리
+                        </a>
+                    </div>
+                </div>
+                <!--col-box2 -->
+            </div>  
+            <div class="col-sm-10" style="padding-left: 3em">
+                <p style="font-size: 1.5rem; text-align: center; padding-top: 1em;">그룹멤버 관리</p>
+                <div class="row" >
+                    <div class="col-12" style="margin-top: 1em">
+                        <div class="col-sm-5" style="float: left; margin-bottom: 1em; border: 1px solid #ccc">
+                            <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                            <div style="margin-bottom: 1.5em; margin-left: 3em; float: left;">
+                                <h4>이동현</h4>
+                                <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                            </div>
+                            <div style="float: right; margin-top: 1em">
+                                <button type="button" class="btn  btn-sm" style="font-size: 1.5em; margin-top: 0.6em">추방</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-5" style="float: right; border: 1px solid #ccc">
+                            <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                            <div style="margin-bottom: 1.5em;margin-left: 3em; float: left;">
+                                <h4>이동현</h4>
+                                <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                            </div>
+                            <div style="float: right; margin-top: 1em">
+                                <button type="button" class="btn  btn-sm" style="font-size: 1.5em;  margin-top: 0.6em">추방</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" style="margin-top: 1em">
+                        <div class="col-sm-5" style="float: left; margin-bottom: 1em; border: 1px solid #ccc">
+                            <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                            <div style="margin-bottom: 1.5em; margin-left: 3em; float: left;">
+                                <h4>이동현</h4>
+                                <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                            </div>
+                            <div style="float: right; margin-top: 1em">
+                                <button type="button" class="btn  btn-sm" style="font-size: 1.5em; margin-top: 0.6em">추방</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-5" style="float: right; border: 1px solid #ccc">
+                            <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style=" width: 5em; float: left; margin-top: 1em">
+                            <div style="margin-bottom: 1.5em;margin-left: 3em; float: left;">
+                                <h4>이동현</h4>
+                                <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                            </div>
+                            <div style="float: right; margin-top: 1em">
+                                <button type="button" class="btn  btn-sm" style="font-size: 1.5em;  margin-top: 0.6em">추방</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" style="margin-top: 1em">
+                            <div class="col-sm-5" style="float: left; margin-bottom: 1em; border: 1px solid #ccc">
+                                <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                                <div style="margin-bottom: 1.5em; margin-left: 3em; float: left;">
+                                    <h4>이동현</h4>
+                                    <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                                </div>
+                                <div style="float: right; margin-top: 1em">
+                                    <button type="button" class="btn  btn-sm" style="font-size: 1.5em; margin-top: 0.6em">추방</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-5" style="border: 1px solid; float: right; border: 1px solid #ccc">
+                                <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                                <div style="margin-bottom: 1.5em;margin-left: 3em; float: left;">
+                                    <h4>이동현</h4>
+                                    <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                                </div>
+                                <div style="float: right; margin-top: 1em">
+                                    <button type="button" class="btn btn-sm" style="font-size: 1.5em; margin-top: 0.6em">추방</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style="margin-top: 1em">
+                            <div class="col-sm-5" style="float: left; margin-bottom: 1em; border: 1px solid #ccc">
+                                <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                                <div style="margin-bottom: 1.5em; margin-left: 3em; float: left;">
+                                    <h4>이동현</h4>
+                                    <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                                </div>
+                                <div style="float: right; margin-top: 1em">
+                                    <button type="button" class="btn  btn-sm" style="font-size: 1.5em;  margin-top: 0.6em">추방</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-5" style="float: right; border: 1px solid #ccc">
+                                <img src="img/a.jpeg" alt="..." class="rounded-circle img-fluid" style="width: 5em; float: left; margin-top: 1em">
+                                <div style="margin-bottom: 1.5em;margin-left: 3em; float: left;">
+                                    <h4>이동현</h4>
+                                    <p style="font-size: 0.5em">마지막 접속일 : 어제</p>
+                                </div>
+                                <div style="float: right; margin-top: 1em">
+                                    <button type="button" class="btn  btn-sm" style="font-size: 1.5em;  margin-top: 0.6em">추방</button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>Logo</p>
+            <div>
+                <span>서울특별시 강남구 비트캠프 401호</span>
+                <span>Tel080-777-2299</span>
+                <span>개인정보취급관리자 홍길동</span>
+                <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+        </footer>
+</body>
+
+</html>
