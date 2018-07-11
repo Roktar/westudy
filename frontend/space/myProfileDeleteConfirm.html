@@ -35,31 +35,42 @@
     </header>
 
     <div class="container">
-        <nav class="group-nav">
-            <div class="row">
-                <div class="col group-nav">
-                    <ul>
-                        <span class="profileMain"><li><a href="#">내 정보</a></li></span>
-                        <li><a href="myProfile.html">내 정보 관리</a></li>
-                        <li><a href="myInterestsField.html">내 관심분야 설정</a></li>
-                        <li><a href="myPasswordChange.html">비밀번호 변경</a></li>
-                        <li><a href="myProfileDeleteConfirm.html">계정 삭제</a></li>
-                    </ul>
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                            내 정보 관리
+                        </a>
+                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                            관심 분야 설정
+                        </a>
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                            메시지
+                        </a>
+                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                            비밀번호 변경
+                        </a>
+                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                            계정 삭제
+                        </a>
+                    </div>
                 </div>
             </div>
-        </nav>
-            <div class="container-box">
-        <h2>계정 삭제</h2>
-        <hr>
-           <form>
-            <div class="password-change"><br><br>
-                비밀 번호를 입력해 주세요<br><br>
-            <input type="password" class="form-control"><br><br><br><br>
-                <div class="forBtn"><a href="myProfileDeleteDone.html" class="btn btn-primary">확인</a></div>
+            <div class="container-box col">
+                <div class="inner-container-box">
+                <h3>계정 삭제</h3>
+                <hr>
+                <form>
+                    <div class="password-change"><br> 비밀 번호를 입력해 주세요<br>
+                        <input type="password" class="form-control"><br>
+                        <a href="myProfileDeleteDone.html" class="btn btn-primary ok">확인</a>
+                    </div>
+                </form>
             </div>
-            </form>
-    </div>
-    </div>
+        </div>
     </div>
     </div>
     </div>

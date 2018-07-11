@@ -33,30 +33,40 @@
             </div>
         </div>
     </header>
-
     <div class="container">
-        <nav class="group-nav">
-            <div class="row">
-                <div class="col group-nav">
-                    <ul>
-                        <span class="profileMain"><li><a href="#">내 정보</a></li></span>
-                        <li><a href="myProfile.html">내 정보 관리</a></li>
-                        <li><a href="myInterestsField.html">내 관심분야 설정</a></li>
-                        <li><a href="myPasswordChange.html">비밀번호 변경</a></li>
-                        <li><a href="myProfileDeleteConfirm.html">계정 삭제</a></li>
-                    </ul>
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                            내 정보 관리
+                        </a>
+                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                            관심 분야 설정
+                        </a>
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                            메시지
+                        </a>
+                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                            비밀번호 변경
+                        </a>
+                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                            계정 삭제
+                        </a>
+                    </div>
                 </div>
             </div>
-        </nav>
-        <div class="container-box">
-            <h2>계정 삭제</h2>
-            <hr>
-            <form class="warn">
-                <br><br><br><br> 계정을 삭제하면 그동안 이용했던 모든 서비스를 다시 이용하실 수 없게 됩니다.<br> 정말 계정을 삭제하시겠습니까?<br><br><br><br>
-                <div class="forBtn">
-                    <a href="myProfile.html" class="btn btn-primary" id="cancel">이전</a>
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-  계정삭제
+            <div class="container-box col">
+                <div class="inner-container-box">
+                    <h3>계정 삭제</h3>
+                    <hr>
+                    <form class="warn">
+                        <br><br><br><br> 계정을 삭제하면 그동안 이용했던 모든 서비스를 다시 이용하실 수 없게 됩니다.<br> 정말 계정을 삭제하시겠습니까?<br><br><br><br>
+                        <div class="forBtn">
+                            <a href="myProfile.html" class="btn btn-primary" id="cancel">이전</a>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">계정삭제
                 </div>
             </form>
         </div>
@@ -72,13 +82,13 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-                    </div>
-                    <div class="modal-body">
-                        계정이 삭제되었습니다. <br>그동안 서비스를 이용해 주셔서 감사합니다.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
-                    </div>
+                        </div>
+                        <div class="modal-body">
+                            계정이 삭제되었습니다. <br>그동안 서비스를 이용해 주셔서 감사합니다.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+                        </div>
                 </div>
             </div>
         </div>
