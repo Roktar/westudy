@@ -1,0 +1,282 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/he-survey.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
+<title>westudy</title>
+</head>
+
+<body>
+  	<!-- header start -->
+      <header class="header">
+			<div class="headerWrap">
+                    <h1 class="logo">
+                            <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+                         </h1>
+				<div class="utilMenu">
+					<ul>
+						<li class="search"><a href="search.html">검색</a></li>
+						<li><a href="makeStudy.html">스터디 만들기</a></li>
+						<li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
+						<li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
+						<li class="utilMenuMobile">스터디그룹 만들기</li>
+						<li class="utilMenuMobile">가입한 스터디 목록</li>
+						<li class="menu"><a href="myProfile.html">menu</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="menuToggle" style="display: none">
+				<div>
+					<div class="profile_img">
+						<a href="#" title="프로필 페이지로 이동">프로필 사진</a>
+					</div>
+				</div>	
+			</div>
+		</header>
+		<!-- header end -->
+    <!-- </header> -->
+
+      
+  
+
+<!-- survey start -->
+
+<div class="container">
+    <div class="row">
+            <div class="col-sm-2 menu-bar">
+                    <div class="col-box-list">
+                        <div class="class_titl">관리자 페이지</div>
+                        <hr class="line3">
+                        <div class="list-group cls-list">
+                            <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                                그룹정보 관리
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                                그룹멤버 관리
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                                설문조사 관리
+                            </a>
+                       
+            
+                        </div>
+                    </div>
+                </div>
+    
+
+        <div class="col-sm-5">
+            <div class="survey-enroll">
+               <h4>설문조사 등록/수정</h4>
+                <div class="con-box-enroll">
+                <form>
+                    <div class="form-group">
+                            <label class="item-titl">투표 주제</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="투표 주제를 입력하세요">
+                    </div>
+                 </form>
+
+                 <form>
+                    <div class="form-group">
+                        <label class="item-titl">답변 선택 수</label>
+                        <select class="form-control select-no" id="exampleFormControlSelect1">
+                          <option>단일</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    </div>
+                </form>
+
+                
+                <div class="form-group">
+                    <form id="frm" action="action.jsp">
+                            <label class="item-titl">기간</label>
+                        <div><input type="date" class="vote-date" value="2018-07-03"></div>
+                        <div><input type="date" class="vote-date" value="2018-07-03"></div>
+                    </form>
+                        <a href="#"><img src="img/calendar.png" width=30px height=35px></a>
+                </div>
+                        
+                <form>
+                    <div class="form-group vote-list">
+                            <label class="item-titl">투표 항목</label>
+                            <button class="plus-btn">
+                                <span class="fas fa-plus-circle fa-1x"></span></button>
+                              
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="1. 항목을 입력해주세요"><br>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="2. 항목을 입력해주세요">
+                    
+                    </div>
+
+                    <div class="enroll-btn">
+                        <button type="button" class="btn btn-secondary btn-sm">초기화</button>
+                        <button type="button" class="btn btn-primary btn-sm  enroll-bt">등록</button>
+                       
+                    </div>
+                   
+                  
+                </form>
+              
+                    
+               </div> <!-- con-box-enroll end -->
+              
+            </div> <!-- survey-enroll end -->
+        </div> <!-- col-sm-6 end -->
+
+
+        <div class="col-sm-5">
+            <div class="survey-list-box">
+                <h4>설문조사 목록</h4>
+                    <div class="con-box-list">
+                            <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="survey-titl">6월 27일 희망 회식장소 조사</h5>
+                                        <hr>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio1">브라운치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio2">놀란치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio3">무아</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio4">기타</label>
+                                            </div>
+
+                                            <button type="button" class="btn btn-success btn-sm vote-btn">수정</button>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="survey-titl">6월 27일 희망 회식장소 조사</h5>
+                                        <hr>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio1">브라운치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio2">놀란치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio3">무아</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio4">기타</label>
+                                            </div>
+
+                                            <button type="button" class="btn btn-success btn-sm vote-btn">수정</button>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="survey-titl">6월 27일 희망 회식장소 조사</h5>
+                                        <hr>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio1">브라운치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio2">놀란치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio3">무아</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio4">기타</label>
+                                            </div>
+
+                                            <button type="button" class="btn btn-success btn-sm vote-btn">수정</button>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="survey-titl">6월 27일 희망 회식장소 조사</h5>
+                                        <hr>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio1">브라운치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio2">놀란치킨</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio3">무아</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                                                    <label class="custom-control-label survey-list" for="customRadio4">기타</label>
+                                            </div>
+
+                                            <button type="button" class="btn btn-success btn-sm vote-btn">수정</button>
+                                    </li>
+                                  
+                                  </ul>
+                    </div> <!-- con-box-list end -->
+            </div> <!-- survey-enroll end -->
+        </div> <!-- col-sm-6 end -->
+    </div> <!-- row end -->
+</div>  <!-- container end -->
+
+
+
+
+
+
+    <!-- footer start -->
+    
+<footer class="footer">
+            <p>Logo</p>
+   
+            <div>
+               <span>서울특별시 강남구 비트캠프 401호</span>
+               <span>Tel080-777-2299</span>
+               <span>개인정보취급관리자 홍길동</span>
+               <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+         </footer>
+         
+    <!-- footer end -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="js/holder.min.js"></script>
+    <script>
+        Holder.addTheme("dark", {
+            background: "#000", 
+            foreground: "#aaa", 
+            size: 11, 
+            font: "Monaco", 
+            fontweight: "normal" 
+        });
+    </script>
+
+</body>
+</html>

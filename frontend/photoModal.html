@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Photo test</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/photoModal.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="img/logo3.png" alt="로고" title="WeStudy">
+                </a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search">
+                        <a href="search.html">검색</a>
+                    </li>
+                    <li>
+                        <a href="makeStudy.html">스터디 만들기</a>
+                    </li>
+                    <li>
+                        <a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a>
+                    </li>
+                    <li>
+                        <a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a>
+                    </li>
+                    <li class="utilMenuMobile">스터디그룹 만들기</li>
+                    <li class="utilMenuMobile">가입한 스터디 목록</li>
+                    <li class="menu">
+                        <a href="myProfile.html">menu</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="menuToggle" style="display: none">
+            <div>
+                <div class="profile_img">
+                    <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="grid">
+
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal1">
+                    <img class="listImg" src="img/test.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal2">
+                    <img class="listImg" src="img/test2.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal3">
+                    <img class="listImg" src="img/test3.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal4">
+                    <img class="listImg" src="img/test4.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal5">
+                    <img class="listImg" src="img/test5.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study1.JPG">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study2.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study3.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study1.JPG">
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal1">
+                    <img class="listImg" src="img/test.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal2">
+                    <img class="listImg" src="img/test2.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal3">
+                    <img class="listImg" src="img/test3.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal4">
+                    <img class="listImg" src="img/test4.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal" href="#myModal5">
+                    <img class="listImg" src="img/test5.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study1.JPG">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study2.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study3.jpeg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a data-toggle="modal">
+                    <img class="listImg" src="img/study1.JPG">
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/test.jpeg" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/test2.jpeg" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal3" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/test3.jpeg" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal4" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/test4.jpeg" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal5" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/test5.jpeg" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer start -->
+    <footer class="footer">
+        <p>Logo</p>
+
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+    <!-- footer end -->
+</body>
+<script>
+    $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 100,
+        gutter: 10,
+        itemSelector: '.grid-item',
+        percentPosition: true
+
+    });
+</script>
+
+</html>

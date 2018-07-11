@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/group.css">
+
+    <link type="text/css" rel="stylesheet" href="node_modules/fullcalendar/dist/fullcalendar.css">
+    <link type="text/css" rel="stylesheet" media="print" href="node_modules/fullcalendar/dist/fullcalendar.print.css">
+    <link type="text/css" rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/moment/moment.js"></script>
+    <script src="node_modules/fullcalendar/dist/fullcalendar.js"> </script>
+    <script src="node_modules/fullcalendar/dist/locale/ko.js"> </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script>
+	let lists = {};
+	let events = [];
+	let calendars = {
+		header: {
+		left:'prev,next today',
+		center:'title'
+		},
+		editable:true,
+		eventLimit:true,
+		eventClick:function(calEvent, jsEvent, view) {
+
+		$("#eventTitle").text( calEvent.title );
+		$("#eventPlace").text( calEvent.place );
+		$("#eventTopic").text( calEvent.topic );
+		console.log(calEvent);
+
+		$("#eventSchedules").empty();
+
+		for(let item in calEvent.schedules) {
+			let text = "(" +  calEvent.schedules[item].startTime + " ~ " +  calEvent.schedules[item].endTime + ") " +  calEvent.schedules[item].content;
+			
+			$("#eventSchedules").append( $('<li>', { value:text, text:text }) );
+			console.log(text);
+		}
+
+		$("#exampleModal").modal().css({
+			'margin-top':function() {
+				return -(($this).height()/2);
+			}
+		});
+		
+		} // 상세보기는 여기서 하면 됨.
+	};
+
+        $(document).ready( function() {
+	  console.log("onload run");
+          $("#calendarBtn").click( function() {
+          	$("#exampleModal").modal().css({
+			'margin-top':function() {
+				return -(($this).height()/2);
+			}
+		});
+          });
+	
+
+	  $('#addScheduleToTime').click( function() {
+		let newNode = $("<input type='text' readonly>");
+		$(newNode).val( $('#addNewNode').val() );
+		$('#addNewNode').val("");
+		$("#insertedList").append( newNode );
+
+		let lists = $("#insertedList>input");		
+
+	  });
+
+          $(".memberAdd").click(function() {
+            $('.invitation').css('display', 'block');
+          });
+
+
+	  $.getJSON("../json/testb/listdetail", {}, res => {		
+		for(let schedule in res) {
+			let object = {};
+			let schedules = [];
+			object.title = res[schedule].title;
+
+			//let baseDate = new Date(res[schedule].startDate)
+			//let date = "";
+			//date += baseDate.getFullYear() + "-" + (baseDate.getMonth()+1) + "-" + baseDate.getDate();
+			//object.start = date;			
+
+			object.start = res[schedule].startDate;
+			object.time = res[schedule].time;
+			object.place = res[schedule].place;
+			object.topic = res[schedule].topic;
+
+			for(let schedule_detail in res[schedule].schedules)
+				schedules.push(res[schedule].schedules[schedule_detail]);
+			
+		object.schedules = schedules;
+		events.push(object);
+
+	  	calendars.events = this.events;
+	  	$("#calendar").fullCalendar(calendars);
+
+   	  	$('#calendar').fullCalendar('removeEventSource', events);
+    	  	$('#calendar').fullCalendar('addEventSource', events);
+    	  	$('#calendar').fullCalendar('refetchEvents');
+		}
+	  });
+
+	});
+
+	function insertSchedule() {
+
+
+		let data = {
+			title : $("#addTitle").val(),
+			//start : $("#addStartDate").val(),
+			time : $("#addTime").val(),
+			place : $("#addPlace").val(),
+			topic : $("#addTopic").val()
+		};
+
+		console.log(data);
+
+		events.push( data );
+
+		$.post("../json/testb/add", data, () => {
+			console.log("success");
+		});
+
+   		$('#calendar').fullCalendar('removeEventSource', events);
+    		$('#calendar').fullCalendar('addEventSource', events);
+    		$('#calendar').fullCalendar('refetchEvents');
+		$('#insertSchedule').modal('hide');
+	}
+
+
+    </script>
+
+<style>
+.container {
+	margin-top:0;
+}
+
+.modal {
+       	text-align: center;
+}
+ 
+.modal-dialog {
+       	text-align: left;
+       	vertical-align: middle;
+}
+.modal:before {
+	display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 10%;
+}
+</style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="#"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <ul class="nav justify-content-center" style="height:100px;">
+        <li class="nav-item">
+            <a class="nav-link active" href="groupMain.html">그룹메인</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="calendar.html">전체일정</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="surveylist.html">전체설문</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="groupMain.html#members">회원</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="groupMain.html#board">게시판</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="groupMain.html#album">앨범</a>
+        </li>
+    </ul>
+    <div class="forcolor">
+        <div class="container">
+            <div class="innerContainer">
+                <div class="row">
+                    <div class="col menu menu2">
+                        <h6 class="menu"><a name="board">일정 </a></h6>
+		<hr>
+
+
+ <!-- view calendar schedule modal start -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="eventTitle"></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- modal-body start -->
+                <div class="modal-body">
+		<h4>장소</h4>
+		- <span id="eventPlace"> </span>
+		<br>
+ 		<h4>스터디 주제</h4>
+		- <span id="eventTopic"> </span>
+		<br>
+		<h4>일정</h4>
+		<ul id="eventSchedules">
+
+		</ul>
+
+                </div>
+                <!-- modal-body end -->
+
+                <div class="modal-footer">
+		<input type="button" class="btn btn-danger btn-sm" value="일정 삭제" id="deleteSchedule"/>
+		<!-- <input type="checkbox" class="Checkbox" style="vertical-align:middle"/> 수정하기 -->
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <!-- view calendar schedule modal end -->
+
+      <!-- add calendar schedule modal start -->
+    <div class="modal fade" id="insertSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">일정 등록</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                <form>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label" >제목</label>
+                    <div class="row">
+                        <input type="text" class="form-control" id="addTitle">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label"  >시작일</label>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="date" class="form-control" id="addStartDate">
+                                </div>
+                                <div class="col-6">
+                                    <input type="time" class="form-control" id="addTime">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">장소</label>
+                        <div>  <input type="text" class="form-control" aria-label="" aria-describedby="" id="addPlace" style="width:95%;">  </div>
+                    </div>
+
+                    <label for="message-text" class="col-form-label">과제</label>
+                    <form class="form">
+                        <div class="input-group mb-3" style="clear:both;">
+                            <input type="text" class="form-control" placeholder="과제 입력" aria-label="" aria-describedby="" style="height:16px;" id="addNewNode">
+    
+                            <button class="btn btn-outline-secondary" type="button" style="margin-top:0;" id="addScheduleToTime">추가</button>
+                        </div>
+ 			    <div id="insertedList">
+				
+			    </div>
+                    </form>
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">설명</label>
+                        <div>
+                            <textarea class="form-control" id="addTopic"> </textarea>
+                        </div>
+                    </div>
+
+                </form>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary" onclick="insertSchedule();">일정 등록</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- add calendar schedule modal end -->
+
+
+
+		 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertSchedule">일정 등록</button>
+		 <div id="calendar"> </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

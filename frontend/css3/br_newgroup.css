@@ -1,0 +1,202 @@
+body {
+  line-height: 1.5rem;
+}
+
+div.group-nav, div.studyCheckin, div.checkedMembers {
+    border-radius: 5px;
+}
+
+div.group-nav {
+    margin: 0 1em 0 1em;
+    background-color: #f2f2f2;
+}
+
+div.group-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin: 1em;
+}
+
+div.group-nav ul li {
+    display: inline;
+    margin: 2rem;
+}
+
+div.group-nav ul li a {
+    color: black;
+}
+
+.studyMain {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+p.studyCheckin{
+    line-height: 2rem;
+    text-align: center;
+}
+
+li.eachMember {
+    background-color: white;
+    float: left;
+    margin: 1rem;
+}
+
+img[src="img/thumbnail.jpg"] {
+    width: 70%;
+    display: inline-block;
+    margin: 1rem;
+}
+
+img[src="img/message.png"] {
+    display: inline-block;
+    width: 70%;
+    margin: 1rem;
+}
+
+div.checkedMembers {
+    line-height: 2rem;
+}
+
+div.eachMember {
+    margin: 1rem;
+    padding : 1rem;
+    background-color: white;
+    border-radius: 5px;
+}
+
+div.studyCheckin img.mapMarker {
+    width: 5%;
+    margin: 0 auto;
+    display: block;
+}
+
+div.empty {
+    background-color: transparent;
+}
+
+span.memberName {
+    font-weight: bold;
+}
+
+div.modal-body img.mapMarker {
+    width: 10%;
+    margin: 1rem;
+}
+
+div.modal-footer button {
+    margin: 0 auto;
+}
+
+div.groupMenu {
+    margin: 1rem 1em 1rem 1em;
+    padding: 1rem;
+/*    background-color: #f2f2f2;*/
+    text-align: center;
+}
+
+h3{
+    font-weight: bold;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    
+}
+span.group-description {
+    line-height: 1.5rem;
+    margin: 0 1rem 1rem 1rem;
+}
+
+span.dday-description {
+    line-height: 1.5rem;
+    margin: 0 1rem 1rem 1rem;
+    text-align: center;
+}
+
+span.dday {
+    line-height: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+div.previousSchedule {
+    overflow-y: scroll;
+    height: 20rem;
+    background-color: white;
+    margin: 1rem 0 1rem 0;
+    border-radius: 5px;
+}
+
+li.eachSchedule {
+    display: block;
+    border: 1px solid #ddd;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+span.title {
+    font-weight: bold;
+    text-align: center;
+}
+
+span.location {
+    float: right;
+    font-size: 0.8rem;
+}
+
+li.eachSchedule {
+    border: 1px solid #ddd;
+}
+
+img.mapMarker {
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+img.second {
+    height: 2rem;
+    width: 2rem;
+}
+h4{
+    text-align: center;
+    margin: 0.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+
+}
+
+div.todaySchedule {
+    background-color: white;
+    text-align: center;
+}
+
+
+.location-description {
+    margin: 0 auto;
+}
+
+h4.scheduleTitle {
+    font-size: 1.5rem;
+}
+
+a.checkin {
+    margin: 1rem 0 0 0;
+}
+
+div.card, div.card-body, div.card-header, div.card-title, div.card-text, .card-header:first-child {
+    border-radius: 0px;
+    border: 0px;
+}
+
+div.card {
+    border: 1px solid #ddd;
+}
+div.card-header {
+    background-color: #bbb;
+    color: white;
+}

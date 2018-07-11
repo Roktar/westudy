@@ -1,0 +1,174 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <!-- Custom styles for this template -->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+    <style>
+    .container{
+    max-width: 1200px;
+    }
+    .title{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    }
+
+
+    .btn {
+    background-color: #ef6c00;
+    color: white;
+    font-weight: bold;
+    }
+
+    .btn:hover{
+    background-color: rgb(240, 130, 0);
+    color: white;
+    font-weight: bold;
+    }
+    
+    /* dropdown shadow */
+    .form-control:focus {
+        border-color: #ef6c00;
+        box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
+    }
+    
+    </style>
+
+    <!-- pagination start -->
+    <style>
+        .page-link{
+            color: #ef6c00!important;
+        }
+    </style>
+    <!-- pagination end -->
+
+    <title>Free Board</title>
+</head>
+
+<body>
+
+
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="#"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- free board start  -->
+    <div class="container" style="height:100px">
+        <div class="title"><h5 class="font-weight-bold">자유게시판</h5></div>    
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">내용</th>
+                    <th scope="col">날짜</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        
+		<script>
+            $.getJSON("../json/board/testlist", (data) => {
+		console.log(data);
+                for (var item of data) {
+                    $("<tr>")
+                        .html("<td>" + item.no + "</td>" + 
+                            "<td><a href='freeboard.html?no=" + item.no + "'>" + item.title + "</a></td>" + 
+                            "<td>" + item.content + "</td>" + 
+                            "<td>" + item.createdDate + "</td>")
+                        .appendTo(tableBody);
+                }
+            });
+		</script>
+    </div>
+
+	
+	<!-- pagination start -->
+    <div class="container">
+        <button class="btn btn-sm float-right">글쓰기</button>
+        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">이전</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">다음</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- pagination end -->
+        
+    <div class="container">
+        <div class="row">
+	        <div class="col-sm-3">
+	        
+	        </div>
+	        
+	        <div class="col-sm-6 row">
+	            <select class="form-control col-sm-3">
+                    <option selected>제목</option>
+                    <option>제목 + 내용</option>
+                </select>
+                <input class="form-control-sm col-sm-6" type="text" placeholder="검색어를 입력하세요">
+                <button class="btn btn-sm col-sm-3" type="button">검색</button>
+	        </div>
+	        
+	        <div class="col-sm-3">
+	        
+	        </div>
+        </div>
+    </div>
+    <!-- free board end  -->
+
+       <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

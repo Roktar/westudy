@@ -1,0 +1,359 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+
+    <style>
+        .topper{
+            margin-top: 100px;
+        }
+        .container-fluid{
+            background-color: #f2f2f2;
+        }
+
+        .container{
+            margin-bottom: 1rem;
+        }
+
+        .jumbotron-fluid{
+            background-image: url('#');
+            background-size: cover;
+        }
+
+        .headline{
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .searchbar{
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border: 5px solid #ef6c00;
+        }
+        .searchOption{
+            padding: 1rem;
+        }
+
+        /* dropdown shadow */
+        .form-control:focus {
+            border-color: #ef6c00;
+            box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
+        }
+    </style>
+
+    <!-- study list start -->
+    <style>
+        .box{
+            padding: 0px;
+            background-color: white;
+            margin: 1rem;
+        }
+
+        .studyImage{
+            height: 200px;
+        }
+
+        .studyTitle:hover{
+            color:#ef6c00;
+        }
+
+        .studyHashTag:hover{
+            color:#ef6c00;
+        }
+        .studyDetail{
+            padding: 1rem;
+        }
+        a:hover{
+            color: #ef6c00;
+        }
+    </style>
+    <!-- study list end -->
+
+    <!-- pagination start -->
+    <style>
+        .page-link{
+            color: #ef6c00!important;
+        }
+    </style>
+    <!-- pagination end -->
+
+    <title>search</title>
+</head>
+
+<body>
+    <!-- navbar start -->
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"><a href="search.html">검색</a></li>
+                    <li><a href="makeStudy.html">스터디 만들기</a></li>
+                    <li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
+                    <li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
+                    <li class="utilMenuMobile">스터디그룹 만들기</li>
+                    <li class="utilMenuMobile">가입한 스터디 목록</li>
+                    <li class="menu"><a href="myProfile.html">menu</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="menuToggle" style="display: none">
+            <div>
+                <div class="profile_img">
+                    <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
+                </div>
+            </div>	
+        </div>
+    </header>
+    <!-- navbar end -->
+
+    <!-- jumbotron start -->
+    <div class="topper jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">다양한 스터디를 찾아보세요.</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+    <!-- jumbotron end -->
+
+    <!-- search start -->
+    <div class="container">
+        <div class="headline">
+            스터디 검색
+        </div>
+    </div>
+    <div class="container searchbar">
+        <div class="row">
+            <div class="col-sm-3 searchOption">
+                <select class="form-control">
+                    <option>지역 대분류</option>
+                    <option>서울특별시</option>
+                    <option>경기도</option>
+                    <option>강원도</option>
+                    <option>충청북도</option>
+                    <option>충청남도</option>
+                    <option>경상북도</option>
+                    <option>경상남도</option>
+                    <option>전라북도</option>
+                    <option>전라남도</option>
+                    <option>제주특별자치도</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchOption">
+                <select class="form-control">
+                    <option>지역 소분류</option>
+                    <option>서울 전체</option>
+                    <option>강남구</option>
+                    <option>강동구</option>
+                    <option>강북구</option>
+                    <option>강서구</option>
+                    <option>관악구</option>
+                    <option>광진구</option>
+                    <option>구로구</option>
+                    <option>금천구</option>
+                    <option>노원구</option>
+                    <option>도봉구</option>
+                    <option>동대문구</option>
+                    <option>동작구</option>
+                    <option>마포구</option>
+                    <option>서대문구</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchOption">
+                <select class="form-control">
+                    <option>분류</option>
+                    <option>프로그래밍</option>
+                    <option>어학</option>
+                    <option>자격증</option>
+                    <option>한국사</option>
+                    <option>금융</option>
+                    <option>토론</option>
+                    <option>독서</option>
+                    <option>기타</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchOption">
+                <form class="form">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="포함단어 입력" aria-label="" aria-describedby="">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">검색</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- search end -->
+
+    <div class="container resultCount">총 <font color="#ef6c00"><bold>0</bold></font>개의 스터디가 검색되었습니다. </div>
+
+    <!-- study list start -->
+    <div class="container-fluid">
+        <div class="container">
+            <!-- list 1 start -->
+            <div class="row">
+                <div class="col-sm box">
+                    <div class="imgWrap">
+                        <a href="#"><img src="js/holder.js/100px200?auto=yes"></a>
+                    </div>
+                    <div class="studyDetail">
+                        <div>
+                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디 </a><span class="badge badge-warning">모집중</span></h6>
+                            <br>
+                        </div>
+                        <div class="studyHashTag text-center">
+                            <a href="#">#자바</a>
+                            <a href="#">#강남</a>
+                            <a href="#">#개발</a>
+                            <a href="#">#Java</a>
+                            <a href="#">#웹개발</a>
+                        </div>
+                        <hr>
+                        <div class="list-details text-muted">
+                            <span class="float-left">
+                                <p>서울, 강남</p>
+                            </span>
+                            <span class="float-right">
+                                <i class="fas fa-user"></i>
+                                <span>4 / 5</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm box">
+                    <div class="imgWrap">
+                        <a href="#"><img src="holder.js/100px200?auto=yes"></a>
+                    </div>
+                    <div class="studyDetail">
+                        <div>
+                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디</h6></a>
+                            <br>
+                        </div>
+                        <div class="studyHashTag text-center">
+                            <a href="#">#자바</a>
+                            <a href="#">#강남</a>
+                            <a href="#">#개발</a>
+                            <a href="#">#Java</a>
+                            <a href="#">#웹개발</a>
+                        </div>
+                        <hr>
+                        <div class="list-details text-muted">
+                            <span class="float-left">
+                                <p>서울, 강남</p>
+                            </span>
+                            <span class="float-right">
+                                <i class="fas fa-user"></i>
+                                <span>4 / 5</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm box">
+                    <div class="imgWrap">
+                        <a href="#"><img src="holder.js/100px200?auto=yes"></a>
+                    </div>
+                    <div class="studyDetail">
+                        <div>
+                            <a href="#"><h6 class="studyTitle text-center font-weight-bold">강남 비트캠프 웹개발 스터디</h6></a>
+                            <br>
+                        </div>
+                        <div class="studyHashTag text-center">
+                            <a href="#">#자바</a>
+                            <a href="#">#강남</a>
+                            <a href="#">#개발</a>
+                            <a href="#">#Java</a>
+                            <a href="#">#웹개발</a>
+                        </div>
+                        <hr>
+                        <div class="list-details text-muted">
+                            <span class="float-left">
+                                <p>서울, 강남</p>
+                            </span>
+                            <span class="float-right">
+                                <i class="fas fa-user"></i>
+                                <span>4 / 5</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- list 1 end -->
+        </div>
+    </div>
+    <!-- study list end -->
+
+    <!-- pagination start -->
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- pagination end -->
+    
+    <!-- footer start -->
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+        <span>서울특별시 강남구 비트캠프 401호</span>
+        <span>Tel080-777-2299</span>
+        <span>개인정보취급관리자 홍길동</span>
+        <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+    <!-- footer end -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="js/holder.min.js"></script>
+    <script>
+        Holder.addTheme("dark", {
+            background: "#000", 
+            foreground: "#aaa", 
+            size: 11, 
+            font: "Monaco", 
+            fontweight: "normal" 
+        });
+    </script>
+
+</body>
+</html>

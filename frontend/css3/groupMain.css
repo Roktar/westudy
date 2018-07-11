@@ -1,0 +1,214 @@
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css');
+/* @media (min-width:640px){.navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+}}
+@media (min-width: 640px){.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}}
+@media (min-width: 640px){.navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+}} */
+.radio {
+    padding-left: 20px; }
+.radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px; }
+.radio label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out; }
+.radio label::after {
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 11px;
+    height: 11px;
+    left: 3px;
+    top: 3px;
+    margin-left: -20px;
+    border-radius: 50%;
+    background-color: #555555;
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    transform: scale(0, 0);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
+.radio input[type="radio"] {
+    opacity: 0; }
+.radio input[type="radio"]:focus + label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
+.radio input[type="radio"]:checked + label::after {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1); }
+.radio input[type="radio"]:disabled + label {
+    opacity: 0.65; }
+.radio input[type="radio"]:disabled + label::before {
+    cursor: not-allowed; }
+.radio.radio-inline {
+    margin-top: 0; }
+
+.radio-primary input[type="radio"] + label::after {
+    background-color: #428bca; }
+.radio-primary input[type="radio"]:checked + label::before {
+    border-color: #428bca; }
+.radio-primary input[type="radio"]:checked + label::after {
+    background-color: #428bca; }
+
+body{font-family:'NanumSquareRound', 'Noto Sans', sans-serif;}
+a:link { color: red; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: blue; text-decoration: none;}
+
+hr { border-top:2px solid #9C9C9C; border-bottom:1px solid #F6F6F6; }
+
+ul{list-style:none;
+    padding-left:0px;
+    }
+
+
+.header{width: 100%; position: fixed; margin: 0 auto;z-index: 999; background-color: gray;}
+#topNavL{width: 1200px;   height: 3rem; padding: 0; 
+    margin: 0 auto; min-height: 1.125rem; font-size: 1.25rem;
+    
+}
+#navbarNav{margin: 0 auto;}
+#topbtn{float: right;}
+
+.container{max-width: 1200px; margin: 0 auto; padding-top:3em; }
+.row{margin-bottom: 0.625em;}
+.col{float: left; border: 1px solid #ccc;}
+.tiBox{float:left; font-size: 1.8rem; padding: 0.438rem 0.313rem;}
+.setBtn{float: right; margin: 0.813em 0.813em; font-size: 0.875rem; }
+
+
+#top{    overflow: hidden;
+    margin-top: -1px;
+    height: 1.8rem;
+    line-height: 1.5em;}
+#topL{padding: 0 0.0625em; text-align: left;}
+#topR{max-width: 13em; float: right; padding: 0.0625em; text-align: right;}
+
+#introCon{overflow: hidden;}
+#inTxtBox{padding: 0; width: 68%;}
+#txtBoxWrap{padding:0.625em; width: 100em;}
+#txtBox{margin-top: 1em; height: 11rem; padding: 0.6em;line-height: 1.4em; font-size: 1.25rem; overflow: scroll;}
+
+#dBox{overflow: hidden; padding: 0; margin-left: 0.625em;}
+#dTBox{margin-top:2.5em; border:1px solid #000;box-sizing:border-box;}
+#dTxt{margin: 0 auto; padding:0.3em;font-size: 1.5rem; text-align: center;}
+#dMin{margin: 0 auto; padding:0.2em; font-size: 4.375rem; text-align: center;}
+
+
+#dateCon{overflow: hidden;}
+#dayBox{padding: 0;}
+#tDateBox{padding: 0;margin-top: 1em;}
+#btnDiv{margin-top: 1em;}
+#buteBtn{display: block; line-height: 1em; min-width: 13em;  margin: 0 auto; text-align: center;}
+
+.meetName{font-size: 1.5rem; font-weight: bold; text-align: center;}
+.meetfix{font-size: 1.25rem; font-weight: bold; }
+.meetData{font-size: 1.125rem; line-height: 1.5em;}
+
+
+#atnList{height: 11.88rem; overflow: scroll;}
+
+#dateBox{margin-top: 1em;}
+#laMetBox{width:22em; margin-right: 0.625em; display: inline-block; padding: 0.625em;}
+#laDateBox{overflow: hidden; padding: 0;margin-left: 0.6875em;}
+
+#dateList{height: 7.5rem; overflow: scroll;  border: 1px solid black; box-sizing: border-box;}
+.metDate{font-size: 1rem; text-align: left; font-weight: bold; padding: 0.8em; border: 1px solid gray;}
+.metDay{font-size: 1rem; display: inline-block; width: 2.5em; text-align: center; color: dodgerblue; border: 1px solid gray;}
+
+#laMetWrap{padding: 0; margin-top: 1em;}
+.metArea{font-size: 0.75rem;}
+.metfix{font-size: 1.25rem; font-weight: bold; }
+.metData{font-size: 1rem;    line-height: 1.5em}
+
+
+#lastWrap{float: right;}
+#lastList{height: 7rem; width: 7em; margin-top: 0.5em; padding:0.5em; overflow: scroll;}
+.grUser{line-height: 180%;}
+
+#srvCon{overflow: hidden;}
+#srvWrap{padding: 0;}
+#srvBox{margin-top:1em; padding: 0;}
+#srvStat{float: right;}
+#ingBox{width: 49.5%;padding: 1em;}
+#endBox{width: 49.5%; float: right;padding: 1em;}
+.radio{line-height: 1.3em;}
+.sliderInner{height: 14.75rem;}
+
+#picCon{overflow: hidden;}
+#picWrap{padding: 0;}
+#picBox{margin-top: 1em; padding: 1em; height: 19rem;}
+
+.grid3 {
+
+    width:31.3%; 
+    margin-left:1.6%;
+   }
+  .left {
+   float:left;
+  }
+  .del-float {
+    display:block;
+    content:"";
+    clear:both;
+  }
+  .imgOverInfo {
+   position:relative; 
+   padding: 0.5em;
+   bottom:3rem; 
+   background-color:#000000; 
+   opacity:0.6; 
+   color:#ffffff;
+  }
+ 
+  .imgOverInfo span:first-child {
+    font-size:1.03rem;
+  }
+ 
+  .imgOverInfo span:last-child {
+   font-size:0.8rem; 
+   font-weight:bold;
+  }
+  .left img {
+    display: block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+  }
+
+#boaCon{overflow: hidden;}
+#boaWrap{padding: 0;}
+#preBox{width: 49.5%; padding: 0;}
+#mtrBox{width: 49.5%;  padding: 0; float: right;}
+#preboa{margin-top: 1em;}
+
+header.header {
+    background-color: #34495e;
+}
