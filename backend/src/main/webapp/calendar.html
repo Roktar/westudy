@@ -67,7 +67,7 @@
 	
 
 	  $('#addScheduleToTime').click( function() {
-		let newNode = $("<input type='text' readonly>");
+		let newNode = $("<input class='form-control' type='text' style='width:90%' readonly>");
 		$(newNode).val( $('#addNewNode').val() );
 		$('#addNewNode').val("");
 		$("#insertedList").append( newNode );
@@ -161,6 +161,9 @@
         content: " ";
         height: 10%;
 }
+.modal-footer{
+    padding: 0;
+}
 </style>
 
 </head>
@@ -252,72 +255,99 @@
     <div class="modal fade" id="insertSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+            
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">일정 등록</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            
+            
             <div class="modal-body">
-                <div class="container">
                 <form>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label" >제목</label>
-                    <div class="row">
-                        <input type="text" class="form-control" id="addTitle">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label"  >시작일</label>
+                    <div class="form-group">
                         <div class="row">
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="date" class="form-control" id="addStartDate">
-                                </div>
-                                <div class="col-6">
-                                    <input type="time" class="form-control" id="addTime">
-                                </div>
+                            <div class="col-sm-2">제목</div>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="addTitle" style="width:90%">
                             </div>
                         </div>
-                </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">장소</label>
-                        <div>  <input type="text" class="form-control" aria-label="" aria-describedby="" id="addPlace" style="width:95%;">  </div>
                     </div>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                           <div class="col-sm-2">시작일</div>
+                           <div class="col-sm-5">
+                               <input type="date" class="form-control" id="addStartDate" style="width:90%">
+                           </div>
+                               
+                           <div class="col-sm-5">
+                               <input type="time" class="form-control" id="addTime" style="width:90%">
+                           </div>
+                        </div>
+                    </div>
+                
+                    <div class="row form-group">
+                        <div class="col-sm-2">장소</div>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" style="width:90%"></input>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="#">지도첨부</a>
+                        </div>
+                    </div>
+                    
 
-                    <label for="message-text" class="col-form-label">과제</label>
+                    <div class="form-group row">
+                        <div class="col-sm-2">과제</div>
+                        <div class="col-sm-7">
+                            <input id="addNewNode" class="form-control" type="text" style="width:90%"></input>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="#" id="addScheduleToTime">추가</a>
+                        </div>
+                        
+                    </div>
+                        
+                    <div class="row">
+                       <div id="insertedList" class="col-sm-7 offset-sm-2">
+                       </div>
+                    </div>
+                    
+                    
+                    <!-- <label for="message-text" class="col-form-label">과제</label>
                     <form class="form">
                         <div class="input-group mb-3" style="clear:both;">
                             <input type="text" class="form-control" placeholder="과제 입력" aria-label="" aria-describedby="" style="height:16px;" id="addNewNode">
     
                             <button class="btn btn-outline-secondary" type="button" style="margin-top:0;" id="addScheduleToTime">추가</button>
                         </div>
- 			    <div id="insertedList">
-				
-			    </div>
-                    </form>
+                        
+                        <div id="insertedList">
+                        
+                        </div>
+                    </form> -->
 
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">설명</label>
-                        <div>
-                            <textarea class="form-control" id="addTopic"> </textarea>
+                    <div class="row form-group" style="margin-top:1rem;">
+                        <div class="col-sm-2">설명</div>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="addTopic" rows="3"> </textarea>
                         </div>
                     </div>
 
                 </form>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-            <button type="button" class="btn btn-primary" onclick="insertSchedule();">일정 등록</button>
-        </div>
+                
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button type="button" class="btn" onclick="insertSchedule();">일정 등록</button>
+            </div>
        </div>
+       
       </div>
      </div>
     </div>
-
     <!-- add calendar schedule modal end -->
-
 
 
 		 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertSchedule">일정 등록</button>
