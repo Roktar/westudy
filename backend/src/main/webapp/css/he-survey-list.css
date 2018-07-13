@@ -1,0 +1,326 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+    /* min-width: 1110px; */
+}
+
+
+/* menu bar*/
+.sv-list {
+    display: none;
+    border: 1px solid #e6e6e6;
+}
+.sv-list-pr:hover .sv-list {
+    display: block;
+}
+.sv-list-a {
+    display: block;
+    padding: 15px 0;
+}
+a.sv-list-a:hover {
+    color:orange !important;
+}
+.sv-list-bordertop {
+    border-top: 1px solid #e6e6e6;
+}
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
+    max-width: 1200px;
+}
+
+.menubar li ul {
+    background: rgb(109,109,109);
+    display:none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
+    height:auto;
+    padding:0px;
+    margin:0px;
+    border:0px;
+    position:absolute;
+    width:200px;
+    z-index:200;
+    }
+
+span.std-std-info{
+    padding-top: 3%;
+  
+}
+
+
+
+.survey-manage{
+    width : 100%;
+    text-align: center;
+}
+
+
+
+div.nav-1 {
+    margin-top: 1.5em;
+}
+
+div.group-nav, div.studyCheckin{
+    border-radius: 5px;
+}
+
+.list-group-item {
+    padding : 2em 2em 1em 2em;
+ 
+}
+
+
+
+
+div.studyCheckin {
+    margin: 0 1em 0 1em;
+    background-color: #ddd;
+    margin: 1em;
+}
+
+.studyMain {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+h4{
+    font-size: 1.5rem;
+    padding-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+.survey-titl {
+   
+    font-weight: bold;
+}
+
+.survey-list {
+    font-size: small;
+}
+
+p.studyCheckin{
+    line-height: 2rem;
+    text-align: center;
+}
+
+li.eachMember {
+    background-color: white;
+    float: left;
+    margin: 1rem;
+}
+
+img[src="img/thumbnail.jpg"] {
+    width: 70%;
+    display: inline-block;
+    margin: 1rem;
+}
+
+img[src="img/message.png"] {
+    display: inline-block;
+    width: 70%;
+    margin: 1rem;
+}
+
+
+div.eachMember {
+    margin: 1rem;
+    padding : 1rem;
+    background-color: white;
+    border-radius: 5px;
+}
+
+div.studyCheckin img.mapMarker {
+    width: 5%;
+    margin: 0 auto;
+    display: block;
+}
+
+
+div.empty {
+    background-color: transparent;
+}
+
+span.memberName {
+    font-weight: bold;
+}
+
+div.modal-body img.mapMarker {
+    width: 10%;
+    margin: 1rem;
+}
+
+div.modal-footer button {
+    margin: 0 auto;
+}
+
+div.addMember {
+    margin: 1rem;
+    border-radius: 5px;
+    float: right;
+}
+
+div.survey-enroll {
+    margin-top: 1em;
+    padding-bottom : 1em;
+    padding-right: 1em;
+    overflow: hidden;
+}
+
+
+div.survey-list-box {
+    margin-top: 1em;
+    padding-bottom : 3.6em;
+   
+    overflow: hidden;
+}
+
+.form-control {
+    /* max-width :90%; */
+    
+}
+
+
+.vote-list {
+    padding-top: 1em;
+}
+
+
+label.item-titl {
+    margin : 0.5em;
+    font-weight: bold;
+}
+
+select.select-no {
+    max-width: 150px;
+}
+
+button.plus-btn {
+    background-color: #ffffff;
+    border :0;
+   
+   margin-right: 0.5em;
+}
+
+
+
+input.vote-date {
+    float: left;
+    margin-right: 1em;
+  
+    border : 1px solid #ced4da;
+    color: #495057;
+    height: 36px;
+    width:40%;
+    text-align: center;
+   
+}
+
+
+div.con-box-enroll {
+    margin-top: 1em;
+    border: 1px solid #ddd;
+    margin-left :1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-radius: .25rem;
+}
+
+.list-group-item:first-child {
+     border-top-left-radius: 0; 
+     border-top-right-radius: 0; 
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    margin: 0;
+    border-top: none;
+    background-color: #f6f6f6;
+}
+
+.plus {
+    float: right;
+    margin-right : 1em;
+    margin-top : 0.5em;
+}
+
+div.con-box-list {
+    margin-top: 1em;
+    border: 1px solid #ddd;
+   max-width: 40em;
+   margin: auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    overflow-y : scroll;
+   height: 45em;
+  border-radius: .25rem;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+
+
+.con-box-list::-webkit-scrollbar { 
+    display: none; 
+}
+
+.enroll-bt {
+    background-color: #ef6c00;
+    border : 1px solid #ef6c00;
+}
+
+.enroll-btn {
+    margin : 0 auto;
+    width: 110px;
+}
+
+.menu-bar {
+    text-align: center;
+    margin-top : 3em;
+}
+
+
+button.vote-btn {
+    float: right;
+}
+
+
+.col-box-list {
+    margin-top: 2em;
+}
+
+hr.line3 {
+    width: 80%;
+    border: 2px solid #BDBDBD;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
