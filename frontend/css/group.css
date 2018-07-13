@@ -1,6 +1,6 @@
 div.container {
     max-width: 1200px;
-    margin: 1rem;
+    margin: 0px auto 0px auto;
 }
 
 div.innerContainer {
@@ -10,6 +10,8 @@ div.innerContainer {
 ul.nav, ul.nav li, ul.nav li a {
     background-color: #ef6c00;
     color: white; 
+/*    padding-bottom: 1rem;*/
+/*    margin-bottom: 1rem;*/
 /*    font-weight: bold;*/
 }
 
@@ -33,6 +35,7 @@ div.objective {
     line-height: 2rem;
     text-align: center;
     display: inline-block;
+    padding: 0rem;
 }
 
 div.objective-sm {
@@ -80,7 +83,7 @@ div.carousel-caption h5 {
 h6 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 0.5rem;
+    margin: 1rem 0px 0.5rem 0px;
 }
 
 div.menu {
@@ -117,7 +120,7 @@ div.checkedMembers {
     line-height: 2rem;
 }
 
-div.eachMember {
+div.row.eachMember {
     margin: 1rem;
     padding: 1rem;
     background-color: white;
@@ -139,6 +142,7 @@ li.eachMember {
 img.thumbnail {
     width: 6rem;
     display: inline-block;
+/*    padding: 1rem;*/
     /*
     margin: 1.5rem;
     padding: 0.5rem;
@@ -193,9 +197,9 @@ span.ddaycount {
 }
 
 div.forcolor {
-    padding: 2rem;
+    padding: 2rem 0px 2rem 0px;
     width: 100%;
-    background-color: #f2f2f2;
+/*    background-color: #f2f2f2;*/
 }
 
 div.menu2 {
@@ -296,6 +300,10 @@ img.fileIcon {
 div.photos {
     margin: 0;
     padding: 0;
+/*
+    max-width: 1232px;
+    overflow: visible;
+*/
 }
 
 img.card-img-top {
@@ -311,18 +319,52 @@ a.photoBtn {
 
 div.card {
     border: 0px;
-    padding: 1rem;
+    padding: 0rem;
+    margin: 1rem;
 }
 
+/*
+div.card1 {
+    margin-left: -0rem;
+}
+*/
+
+div.card3{
+    margin-right: 
+}
 div.card-body {
     border: 1px solid #ddd;
     border-top: 0px;
 }
 
 div.survey-{
-    margin: 2rem;
-    padding: 1rem;
+    margin: 0rem;
+    padding: 0rem;
+/*    border: 1px solid #ddd;*/
+}
+
+img.thum {
+    height: 8rem;
+    width: 8rem;
+}
+div.groupMem{
+    margin: 0px;
+    padding: 0px;
+/*    border: 1px solid #ddd;*/
+}
+
+div.memPic {
+    margin: 0px;
+    padding: 0px;
     border: 1px solid #ddd;
+}
+
+div.memDesc {
+    margin: 0px;
+    padding-left: 1rem;
+    padding-right: 4rem;
+    border: 1px solid #ddd;
+    line-height: 2rem;
 }
 
 div.studyLeader {
@@ -335,4 +377,51 @@ img.leader-thumbnail {
     height: 10rem;
     width: 10rem;
     display: inline-block;
+}
+
+div.container {
+/*    margin: 0px;*/
+    padding: 0px;
+}
+
+div.row {
+    padding: 0px;
+    margin: 0px;
+    max-width: 1200px;
+}
+
+div.col-sm.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.col-sm.memberProfile {
+    line-height: 3rem;
+}
+div.col {
+    padding: 0px;
+    max-width: 1200px;
+    margin: 0px;
+}
+
+img.message {
+    height:4rem;
+    width:4rem;
+/*    float: right;*/
+    margin: 0px;
+    padding: 0px;
+}
+
+div.col-md-4 {
+    padding: 0px;
+}
+
+div.col-sm{
+    padding: 0px;
+}
+
+div.col-sm.memberProfile span{
+    margin-left: 1rem;
+    margin-right: 2rem;
 }
