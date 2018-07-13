@@ -1,6 +1,29 @@
 
+.container-box {
+  width: 60%;
+  margin: 5rem auto;
+  margin: 3rem auto;
+}
+div.container-box {
+  margin: 0 auto;
+  padding: 1em;
+  line-height: 3rem;
+/*    width: 40%;*/
+}
+div.inner-container-box {
+  width: 70%;
+  margin: 0 auto;
+}
+
 div.form-group-img {
   text-align: center;
+}
+.form-control{
+  background-color: white !important;
+}
+.tag-editor {
+  list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden; border: 1px solid #eee; cursor: text;
+  font: normal 14px sans-serif; color: #555; background: #fff; line-height: 20px;
 }
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
@@ -58,11 +81,11 @@ div.studyCheckin {
 }
 
 h4{
-    font-size: 1.5rem;
-    padding-top: 1em;
-    margin-bottom: 1em;
-    text-align: center;
-    font-weight: bold;
+  font-size: 1.5rem;
+  padding-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-weight: bold;
 }
 
 
@@ -138,10 +161,10 @@ div.addMember {
 }
 
 div.survey-enroll {
-    margin-top: 1em;
-    padding-bottom : 1em;
-    padding-right: 1em;
-    overflow: hidden;
+  margin-top: 1em;
+  padding-bottom : 1em;
+  padding-right: 1em;
+  overflow: hidden;
 }
 
 
@@ -152,10 +175,6 @@ div.survey-list-box {
     overflow: hidden;
 }
 
-.form-control {
-    max-width :90%;
-    
-}
 
 
 .vote-list {
@@ -194,17 +213,7 @@ input.vote-date {
 }
 
 
-div.con-box-enroll {
-    margin-top: 1em;
-    border: 1px solid #ddd;
-    margin-left :1em;
-    padding-left: 1.5em;
-    padding-right: 0.5em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-    border-radius: .25rem;
-}
+
 
 
 .plus {
@@ -226,9 +235,6 @@ div.con-box-list {
    border-radius: .25rem;
 }
 
-.form-control {
-    border-radius: 0;
-}
 
 
 
@@ -383,20 +389,7 @@ div.addMember {
     float: right;
 }
 
-div.survey-enroll {
-    background-color: #ddd;
-    border-radius: 5px;
-    margin-top: 1em;
-    padding-bottom: 1em;
-    padding-right: 1em;
-    overflow: hidden;
-}
 
-
-
-input.form-control {
-    width: 90%;
-}
 
 
 label.item-titl {
@@ -418,18 +411,6 @@ input.vote-date {
     height: 36px;
     width: 40%;
 
-}
-
-
-div.con-box-enroll {
-    margin-top: 1em;
-    background-color: #FAFAFA;
-    margin-left: 1em;
-    padding-left: 1.5em;
-    padding-right: 0.5em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    height: 30rem;
 }
 
 div.con-box-list {
@@ -1296,7 +1277,7 @@ hr.line3 {
   }
    
 
-  @media (min-width: 860px) {
+  @media (min-width: 753px) {
     .col-sm {
       -ms-flex-preferred-size: 0;
       flex-basis: 0;
