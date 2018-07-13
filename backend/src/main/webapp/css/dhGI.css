@@ -2,7 +2,9 @@ span.std-std-info {
     padding-top: 3%;
 
 }
-
+div.form-group-img {
+  text-align: center;
+}
 div.nav-1 {
     margin-top: 1.5em;
 }
