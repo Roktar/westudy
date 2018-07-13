@@ -1,3 +1,23 @@
+
+.under{
+  display:none;
+}
+
+
+@media screen and (max-width:500px) {
+  .under {
+    display:block;
+  }
+}
+
+
+
+@media screen and (max-width:500px) {
+  .upper {
+    display:none;
+  }
+}
+
 span.std-std-info {
   padding-top: 3%;
 
@@ -1032,7 +1052,7 @@ color: white
   }
    
 
-  @media (min-width: 1px) {
+  @media (min-width: 860px) {
     .col-sm {
       -ms-flex-preferred-size: 0;
       flex-basis: 0;
