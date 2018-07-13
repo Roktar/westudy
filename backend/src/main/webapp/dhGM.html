@@ -15,8 +15,8 @@
         crossorigin="anonymous"></script>
 </head>
 <style>
-   
 </style>
+
 <body>
     <!-- header start -->
     <header class="header">
@@ -59,7 +59,7 @@
     <!-- header end -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-2" style="text-align: center; margin-top: 3em">
+            <div class="col-sm-2 menu-bar" style="margin: 0 auto">
                 <div class="col-box-list">
                     <div class="class_titl">관리자 페이지</div>
                     <hr class="line3">
@@ -70,15 +70,19 @@
                         <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
                             그룹멤버 관리
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action cls-list-link">
+                        <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
                             설문조사 관리
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-10" style="text-align: center; margin-top: 4em;">
-                <h3>그룹멤버 관리</h3>
-                <div class="row" style="margin-top: 2.5em">
+            <div class="col-sm-10" >
+                    <h4 style="  font-size: 1.5rem;
+                    padding-top: 1em;
+                    margin-bottom: 0.4em;
+                    text-align: center;
+                    font-weight: bold;">그룹멤버 관리</h4>
+                <div class="row" style="margin-top: 1.4em">
                     <table class="table upper" style="width: 80%; margin: 0 auto">
                         <thead>
                             <tr>
@@ -89,8 +93,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td >이름</td>
-                                <td >아이디</td>
+                                <td>이름</td>
+                                <td>아이디</td>
                                 <td>
                                     <button type="button" class="btn btn-secondary btn-sm">추방</button>
                                 </td>
@@ -113,39 +117,46 @@
                     </table>
                     <!--모바일-->
                     <div class="col-sm-10 table under" style="text-align: center; border: 1px solid">
-                            <div class="row">
-                    <table class="table under" style="width: 60%; margin: 0 auto">
-                        <thead>
-                            <tr>
-                                <th scope="col">이름</th>
-                                <th scope="col">추방</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>이천재<span style="font-size: 0.5em">(cjswozz)</span></td>
-                                <td>
-                                    <button type="button" class="btn btn-secondary btn-sm">추방</button>
-                                </td>
-                            </tr>
-                            <tr style="width: 1px">
-                                <td>이동현<span style="font-size: 0.5em">(donghyeon24)</span></td>
-                                <td>
-                                    <button type="button" class="btn btn-secondary btn-sm">추방</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>이지존<span style="font-size: 0.5em">(zlzhsaos123)</span></td>
-                                <td>
-                                    <button type="button" class="btn btn-secondary btn-sm">추방</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <div class="row">
+                            <table class="table under" style="width: 60%; margin: 0 auto">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">이름</th>
+                                        <th scope="col">추방</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>이천재
+                                            <span style="font-size: 0.5em">(cjswozz)</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-secondary btn-sm">추방</button>
+                                        </td>
+                                    </tr>
+                                    <tr style="width: 1px">
+                                        <td>이동현
+                                            <span style="font-size: 0.5em">(donghyeon24)</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-secondary btn-sm">추방</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>이지존
+                                            <span style="font-size: 0.5em">(zlzhsaos123)</span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-secondary btn-sm">추방</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <footer class="footer">
         <p>Logo</p>
