@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java106.pms.domain.TestBase;
 import bitcamp.java106.pms.service.TestService;
 
-@Controller
+@RestController
 @RequestMapping("/testb")
 public class TestBaseController {
     

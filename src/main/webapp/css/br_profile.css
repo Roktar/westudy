@@ -182,3 +182,22 @@ div.list-group a{
     border-radius: 0px;
 }
 
+#imgInput {
+    border: 0px;
+}
+
+input[type="file"] {
+    background-color: #ef6c00 ;
+    color: white;
+}
+
+#updBtn{
+    width: 50%;
+    margin: 10rem auto 0 auto;
+    display: block;
+}
+
+input.form-control-plaintext{
+    display: inline-block;
+    width: 50%;
+}

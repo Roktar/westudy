@@ -1,4 +1,4 @@
-package bitcamp.java106.pms.domain;
+package main.java.bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
