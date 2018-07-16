@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/group.css">
+</head>
+
+<style>
+.container {
+  margin-top:0;
+}
+ul.nav {
+ margin-top:100px;
+}
+</style>
+
+<body>
+
+    <!-- Modal 출석 성공 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="studyCheckin">
+                        <br><span class="memberName">안중근</span> 회원님이<br><br>
+                        <a href="#"><img src="img/mapMarker.png" class="rounded-0 mapMarker"></a>
+                        <br><span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span><br><br>
+                        <span>위 장소에서 2017년 6월 23일 19시에 시작되는<br> 
+                            오늘의 스터디를 <span class="currentTime">현재 시각 19시 02분</span>에 체크인하였습니다.</span><br><br>
+                        <span class="lateTime">02분 지각</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 출석 성공 -->
+
+
+    <!-- Modal 장소 달라 출석 실패 -->
+    <div class="modal fade" id="myModalFail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="studyCheckin">
+                        <a href="#"><img src="img/mapMarker.png" class="rounded-0 mapMarker"></a>
+                        <br><span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span><br><br>
+                        <span>현재 위치가 지정된 오늘의 스터디 장소와 달라<br>
+                            스터디체크인에 실패하였습니다.</span><br><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 장소 달라 출석 실패 -->
+
+    <!-- Modal 이미 출석 -->
+    <div class="modal fade" id="myModalAlready" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="studyCheckin">
+                        <a href="#"><img src="img/mapMarker.png" class="rounded-0 mapMarker"></a>
+                        <br><span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span><br><br>
+                        <span>회원님께서는 이미 체크인하셨습니다!</span><br><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 장소 달라 출석 실패 -->
+
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="#"><img src="img/logo3.png" alt=""></a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">그룹메인</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">일정</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">설문</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">회원</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">사진</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">자유게시판</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">자료게시판</a>
+        </li>
+    </ul>
+    <div class="forcolor">
+        <div class="container">
+            <div class="innerContainer">
+                <div class="row">
+                    <div class="col menu menu2">
+                        <h6 class="menu">오늘의 일정 <a href="calendar.html" class="badge badge-warning">전체 일정</a></h6>
+                        <hr>
+                        <div class="scheduleDetail">
+                            <span class="scheduleTilte">강남 자바스터디 7회차</span>
+                            <div class="row">
+                                <div class="col scheduleDetails">
+                                    <span class="scheduleLocation">장소</장소></span><br><br>
+                                    <a href="#"><img src="img/mapMarker.png" class="rounded-0 mapMarker mapMarker-center"></a><br>
+                                    <p class="studyCheckin">
+                                        <span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span><br>
+                                        <span>위 장소에서 2017년 6월 23일 19시에 시작되는 오늘의 스터디에 체크인합니다.</span><br>
+                                        <span class="time">(현재 시각 19시 02분)</span><br><br>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">체크인!</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="innerContainer">
+            <div class="row">
+                <div class="col checkedMembers menu">
+                    <h6 class="menu">체크인 회원</h6>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-md-auto">
+                                    <a href="userProfile.html"><img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail"></a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <span class="memberClass">회원<br></span>
+                                    <span class="memberName">윤봉길<br></span>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-md-auto">
+                                    <a href="userProfile.html"><img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail"></a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-md-auto">
+                                    <a href="userProfile.html"><img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail"></a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-md-auto">
+                                    <a href="userProfile.html"><img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail"></a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길&nbsp;</span> <span class="badge badge-warning">지각</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 이름은 SQL을 찾을 때 사용하는 그룹명이다.
+     따라서 SQL 문을 사용하는 DAO 클래스 이름과 같게 하면
+     유지보수할 때 알아보기 쉽다.
+     단순히 알아보기 쉬울 뿐만 아니라 
+     스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다. 
+-->
+<mapper namespace="bitcamp.java106.pms.dao.TestBaseDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.TestBase" id="tbMap">
+    <id column="no" property="no"/>
+    <result column="place" property="place"/>
+    <result column="start" property="startDate"/>
+    <result column="time" property="time"/>
+    <result column="title" property="title"/>
+    <result column="topic" property="topic"/>
+    <collection property="schedules" ofType="bitcamp.java106.pms.domain.TestAdditional">
+        <id column="refid" property="no"/>
+        <result column="stime" property="startTime"/>
+        <result column="etime" property="endTime"/>
+        <result column="cont" property="content"/>
+    </collection>
+  </resultMap>
+  
+  <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
+       유지보수할 때 알아보기 쉽다. 
+       알아보기 쉬울 뿐만 아니라
+       스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고 
+       그 메서드를 자동생성할 때 사용할 수 있다.
+  -->
+  <select id="selectList" resultMap="tbMap" parameterType="map">
+    select *
+    from test_base
+    limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  <select id="selectListWithSchedules" resultMap="tbMap" parameterType="map">
+    select 
+        tb.no,
+        tb.place,
+        tb.start,
+        tb.time,
+        tb.title,
+        tb.topic,
+        ta.refid,
+        ta.stime,
+        ta.etime,
+        ta.cont
+    from test_base tb
+         left outer join test_schedule ta on tb.no=ta.refid
+  </select>
+  
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.TestBase">
+    insert into test_base(place, start, time, title, topic) values( #{place}, #{startDate}, #{time}, #{title}, #{topic} );
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+    delete from test_base where no = #{no}
+  </delete>
+  
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>
+      .container{
+        margin-bottom: 0.5%;
+        max-width: 1200px;
+      }
+      .nav-align{
+        padding-top: 3%;
+      }
+
+    </style>
+
+    <style>
+        div.group-nav, div.studyCheckin, div.checkedMembers {
+        border-radius: 5px; 
+        }
+
+        div.group-nav {
+            margin: 0 1em 0 1em;
+            background-color: #ddd;
+        }
+
+        div.group-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin: 1em;
+        }
+
+        div.group-nav ul li {
+            display: inline;
+            margin: 2rem;
+        }
+
+        div.group-nav ul li a {
+            color: black;
+        }
+
+        div.studyCheckin, div.checkedMembers {
+            margin: 0 1em 0 1em;
+            background-color: #ddd;
+            margin: 1em;
+        }
+
+        .studyMain {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        h4{
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 1rem;
+            font-weight: bold;
+            padding: 1rem;
+        }
+
+        p.studyCheckin{
+            line-height: 2rem;
+            text-align: center;
+        }
+
+        li.eachMember {
+            background-color: white;
+            float: left;
+            margin: 1rem;
+        }
+
+        img[src="img/thumbnail.jpg"] {
+            width: 70%;
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        img[src="img/message.png"] {
+            display: inline-block;
+            width: 70%;
+            margin: 1rem;
+        }
+
+        div.checkedMembers {
+            line-height: 2rem;
+        }
+
+        div.eachMember {
+            margin: 1rem;
+            padding : 1rem;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        div.studyCheckin img.mapMarker {
+            width: 5%;
+            margin: 0 auto;
+            display: block;
+        }
+
+
+        div.empty {
+            background-color: transparent;
+        }
+
+        span.memberName {
+            font-weight: bold;
+        }
+
+        div.modal-body img.mapMarker {
+            width: 10%;
+            margin: 1rem;
+        }
+
+        div.modal-footer button {
+            margin: 0 auto;
+        }
+
+        div.addMember {
+            margin: 1rem;
+            border-radius: 5px;
+            float: right;
+        }
+
+        input.memberAdd{
+            width: 95%;
+        }
+
+        #emailInput{
+            margin-bottom: 3px;
+        }
+
+        .invitation{
+            padding: 1em;
+            color:orange;
+            display: none;
+            font-weight: bold;
+        }
+    </style>
+
+
+    <title>Member</title>
+  </head>
+  <body>
+    <header class="header">
+            <div class="headerWrap">
+                <h1 class="logo">
+                    <a href="index.html"><img src="" alt="">로고</a>
+                </h1>
+                <div class="utilMenu">
+                    <ul>
+                        <li class="search"></li>
+                        <li>스터디 만들기</li>
+                        <li>로그인</li>
+                        <li>회원가입</li>
+                        <li class="menu"></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container">
+            <nav class="group-nav">
+                <div class="row">
+                    <div class="col group-nav">
+                        <ul>
+                            <span class="studyMain"><li><a href="#">강원대 자바 웹개발 스터디</a></li></span>
+                            <li><a href="#">스터디장: 안중근</a></li>
+                            <li><a href="#">스터디인원: 4명</a></li>
+                            <li><a href="#">지역: 강원 춘천</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="row">
+                <div class="col checkedMembers">
+                    <h4>회원 목록</h4>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <a href="#"><img src="img/thumbnail.jpg" alt="..." class="rounded-circle"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span><br>
+                                </div>
+                                <div class="col">
+                                <a href="receiveMessageList.html"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <a href="#"><img src="img/thumbnail.jpg" alt="..." class="rounded-circle"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span><br>
+                                </div>
+                                <div class="col">
+                                <a href="receiveMessageList.html"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <img src="img/thumbnail.jpg" alt="..." class="rounded-circle">
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span><br>
+                                </div>
+                                <div class="col">
+                                <a href="receiveMessageList.html"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <a href="#"><img src="img/thumbnail.jpg" alt="..." class="rounded-circle"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span><br>
+                                </div>
+                                <div class="col">
+                                <a href="receiveMessageList.html"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <a href="#"><img src="img/thumbnail.jpg" alt="..." class="rounded-circle"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span><br>
+                                </div>
+                                <div class="col">
+                                <a href="receiveMessageList.html"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <a href="#"><img src="img/thumbnail.jpg" alt="..." class="rounded-circle"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">회원</span><br>
+                                    <span class="memberName">윤봉길</span><br>
+                                    <span class="checkedTime">체크인시각 : 18시 55분</span><br>
+                                </div>
+                                <div class="col">
+                                <a href="receiveMessageList.html"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col">
+                                    <a href="#"><img src="img/thumbnail.jpg" alt="..." class="rounded-circle"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass">스터디장</span><br>
+                                    <span class="memberName"><b>윤봉길(나)</b></span><br>
+                                    <span class="checkedTime">체크인시각 : 19시 05분  <span class="badge badge-danger late">지각</span></span><br>
+    
+                                </div>
+                                <div class="col">
+                                    <a href="#"><img src="img/message.png" alt="..." class="rounded-0"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember empty">
+                                <div class="col">
+                                    <a href="#"></a>
+                                </div>
+                                <div class="col-6">
+                                    <span class="memberClass"></span><br>
+                                    <span class="memberName"></span><br>
+                                    <span class="checkedTime"></span><br>
+                                </div>
+                                <div class="col">
+                                    <a href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row addMember">
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">멤버 초대</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Modal start -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                    <div class="invitation">초대해 주셔서 감사합니다<i class="far fa-smile"></i></div>
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">친구 초대</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="emailInput">이메일 주소 입력(쉼표로 구분)</label>
+                                                <textarea class="form-control" id="emailInput" rows="4"></textarea>
+                                                <button type="button" class="btn btn-primary btn-block memberAdd">초대장 보내기</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal end -->    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>Logo</p>
+            <div>
+                <span>서울특별시 강남구 비트캠프 401호</span>
+                <span>Tel080-777-2299</span>
+                <span>개인정보취급관리자 홍길동</span>
+                <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+        </footer>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script>
+        $(".memberAdd").click(function(){
+            $('.invitation').css('display', 'block');
+        });
+    </script>
+
+    </body>        
+</html>

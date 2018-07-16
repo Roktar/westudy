@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.TestBoardDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.TestBoard" id="tBoardMap">
+    <id column="no" property="no"/>
+    <result column="titl" property="title"/>
+    <result column="cont" property="content"/>
+    <result column="cdt" property="createdDate"/>
+  </resultMap>
+  
+  <select id="selectList" resultMap="tBoardMap" parameterType="map">
+    select *
+    from test_board
+    limit #{startRowNo}, #{pageSize}
+  </select>  
+</mapper>
