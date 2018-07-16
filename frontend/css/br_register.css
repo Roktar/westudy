@@ -19,7 +19,7 @@ h2{
 }
 
 #exampleInputEmail1 {
-    width: 80%;
+    width: 75%;
     display: inline-block;
 }
 
@@ -73,7 +73,6 @@ li.block {
     border: 1px solid #ddd;
     background-color: #fff;
     font-weight: bold;
-    
 }
 
 
@@ -92,10 +91,9 @@ li.block:visited {
     float: right;
 }
 
-div.col-sm-4{
-    margin: 2rem auto;
+div.col-sm-6{
+    margin: 150px auto;
 }
-
 
 .btn {
     margin: 0.1rem;
