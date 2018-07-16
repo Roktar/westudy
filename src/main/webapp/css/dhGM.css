@@ -285,8 +285,13 @@ button.vote-btn {
 }
 }
 
-.col-box-list {
-    margin-top: 2em;
+
+.col-box {
+  margin-top: 2em;
+}
+
+.ssss{
+margin-top: 2em;
 }
 
 hr.line3 {
@@ -1295,7 +1300,7 @@ hr.line3 {
   }
    
 
-  @media (min-width: 753px) {
+  @media (min-width: 576px) {
     .col-sm {
       -ms-flex-preferred-size: 0;
       flex-basis: 0;
