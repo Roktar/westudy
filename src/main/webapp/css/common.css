@@ -28,7 +28,8 @@
 	background: #fff;
 	color: #333;
 	z-index: 9999;
-	box-shadow: rgba(0, 0, 0, 0.2) 3px 4px 10px;
+    border-bottom: 1px solid #ebebeb;
+	box-shadow: rgba(0, 0, 0, 0.08) 3px 4px 10px;
 	box-sizing: border-box;
 }
 .headerWrap{
@@ -179,10 +180,16 @@
     background-color: #ef6c00;
     color: white;
     border: 0px;
+    border-radius: 0px;
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-secondary:active {
     background-color: #aaa;
     color: white;
     border: 0px;
+    border-radius: 0px;
+}
+
+.badge{
+    border-radius: 0px;
 }
