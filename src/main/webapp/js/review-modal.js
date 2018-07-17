@@ -1,4 +1,3 @@
-
 // Dropzone 초기화, myDropzone form 있는 id 위해
 
 Dropzone.options.myDropzone = {
@@ -64,7 +63,7 @@ Dropzone.options.myDropzone = {
 
 		// Call the action method to load the images from the server
 		// 서버로부터 이미지를 로드하기 위한 액션 메소드 호출
-		$.getJSON("/PhotoController").done(function(data) {
+		$.getJSON("/PhotoServiceImpl").done(function(data) {
 
 			if (data.Data != '') {
 
@@ -216,7 +215,3 @@ Dropzone.options.myDropzone = {
 	}
 
 };
-
-
-
-
