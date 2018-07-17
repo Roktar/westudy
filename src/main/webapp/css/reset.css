@@ -78,7 +78,7 @@ vertical-align:baseline;
 background:transparent;
 }
 html, body {
-	font-family: 'Nanum Gothic', 'Noto Sans', sans-serif !important;
+	font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
@@ -95,7 +95,7 @@ a {
 	padding: 0;
 	text-decoration: none !important;
 	vertical-align: baseline;
-	color: #333 !important;
+	color: #333 ;
 	background: transparent;
 }
 

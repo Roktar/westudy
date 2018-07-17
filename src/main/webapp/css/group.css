@@ -10,16 +10,14 @@ div.innerContainer {
 }
 
 ul.nav {
-	background-color: #ef6c00; <<<<<<<
-	HEAD: frontend/css/group.css color: white;
+	background-color: #ef6c00; 
 	/*    padding-bottom: 1rem;*/
 	/*    margin-bottom: 1rem;*/
-	/*    font-weight: bold;*/ ======= >>>>>>> 64006
-	f5920d7df1dead85c786318028718810f26: src/main/webapp/css/group.css
+	/*    font-weight: bold;*/ 
 }
 
 a.nav-link {
-	color: white;
+	color: white !important;
 }
 
 div.scheduleDetails {

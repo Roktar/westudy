@@ -47,6 +47,7 @@
 						</a>
 						<br>
 						<div id="map" style="width:100%;height:20rem;"></div>
+						
 						<script>
 							var container = document.getElementById('map');
 							var options = {
@@ -78,8 +79,8 @@
 											$('#checkinSuccess').text("현재 위치가 지정된 스터디 장소와 달라 스터디 체크인에 실패하였습니다!");
 										}
 										
-										var dt = new Date();
-										$('#lateTime').text(dt);
+										// var dt = new Date();
+										// $('#lateTime').text(dt);
 										
 									}, function (error) {
 										console.error(error);
@@ -102,6 +103,7 @@
 								map.relayout();
 							});
 						</script>
+						
 						<span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span>
 						<br>
 						<br>
