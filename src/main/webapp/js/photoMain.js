@@ -44,6 +44,7 @@ Dropzone.options.myDropzone = {
 	// 기본 true false 로 주면 아무 동작 못함
 
 	clickable : true,
+	
 
 	// 지원하지 않는 IE 10 미만일 경우
 
@@ -62,8 +63,8 @@ Dropzone.options.myDropzone = {
 		myDropzone = this; // closure
 
 		// Call the action method to load the images from the server
-		// 서버로부터 이미지를로드하기위한 액션 메소드 호출
-		$.getJSON("/PhotoServiceImpl").done(function(data) {
+		// 서버로부터 이미지를 로드하기 위한 액션 메소드 호출
+		$.getJSON("/PhotoController").done(function(data) {
 
 			if (data.Data != '') {
 
@@ -205,10 +206,8 @@ Dropzone.options.myDropzone = {
 			if (this.getAcceptedFiles().length === 0) {
 
 				$("#btnSubmit").attr("disabled", true);
-
+				
 				$("#btnAllClear").attr("disabled", true);
-				
-				
 			
 			}
 
@@ -218,4 +217,6 @@ Dropzone.options.myDropzone = {
 
 };
 
-$("#photo1").hover()
+
+
+
