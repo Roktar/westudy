@@ -1,1 +1,1 @@
-var serverRoot = "file:///C:/Users/Bit/git/FinalProject/src/main/webapp";
+var serverRoot = "http://localhost:8888/FinalProject";

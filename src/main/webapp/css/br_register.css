@@ -5,96 +5,97 @@
     margin: 3rem auto;
 }
 */
-
 div.form-group input.form-control {
-    width: 96%;
+	width: 96%;
 }
 
-h2{
-    font-size: 2rem;
-    font-weight: bold;
+h2 {
+	font-size: 2rem;
+	font-weight: bold;
 }
+
 #mustinput {
-    font-size: 0.7rem;
+	font-size: 0.7rem;
 }
 
 #exampleInputEmail1 {
-    width: 75%;
-    display: inline-block;
+	width: 75%;
+	display: inline-block;
 }
 
 input[type="textarea"] {
-    grid-row:
+	grid-row:
 }
 
 img.rounded-circle {
-    width: 30%;
-    height: 30%;
-    float: left;
-    margin: 1rem;
-    padding: 1rem;
+	width: 30%;
+	height: 30%;
+	float: left;
+	margin: 1rem;
+	padding: 1rem;
 }
 
 img.rounded-circle:after {
-    clear: both;
+	clear: both;
 }
 
 .form-group-img {
-    display: inline-block;
-    margin: 2em auto;
-    clear: both;
-    flex: auto;
+	display: inline-block;
+	margin: 2em auto;
+	clear: both;
+	flex: auto;
 }
 
 .form-group-img {
-    clear: both;
+	clear: both;
 }
 
 lable.profile {
-    text-align: right;
+	text-align: right;
 }
 
 div.filter-selection {
-    margin: 3rem;
-    display: block;
-    position: relative;
+	margin: 3rem;
+	display: block;
+	position: relative;
 }
 
 ul.filter-category {
-    display: block;
-}
-li.block {
-    display: block;
-    float: left;
-    width: 7rem;
-    height: 7rem;
-    line-height: 7rem;
-    text-align: center;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    font-weight: bold;
+	display: block;
 }
 
+li.block {
+	display: block;
+	float: left;
+	width: 7rem;
+	height: 7rem;
+	line-height: 7rem;
+	text-align: center;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	font-weight: bold;
+}
 
 li.block:hover {
-    box-shadow: 5px 5px #ccc inset;
+	box-shadow: 5px 5px #ccc inset;
 }
 
 li.block:visited {
-    box-shadow: 5px 5px #ccc inset;
+	box-shadow: 5px 5px #ccc inset;
 }
+
 .card-body {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
-#nextBtn, #previousBtn{
-    float: right;
+#nextBtn, #previousBtn {
+	float: right;
 }
 
-div.col-sm-6{
-    margin: 150px auto;
+div.col-sm-6 {
+	margin: 150px auto;
 }
 
 .btn {
-    margin: 0.1rem;
+	margin: 0.1rem;
 }

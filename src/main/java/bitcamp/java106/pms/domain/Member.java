@@ -1,34 +1,40 @@
 package main.java.bitcamp.java106.pms.domain;
+
 import java.io.Serializable;
 import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class Member implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Member implements Serializable{
 
-    private int no;
-    private String name;
-    private String email;    
-    private String password;    
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
-    private Date birthDate;
-    private char gender;
-    private String location;
-    private String photo;
-    private String profile;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     
+    private int no;
+    private String email;
+    private String password;
+    private String  profilePicture;
+    private String introduction;
+    private String name;
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+    private Date birth;
+    private String telephone;
+    private char gender;
+    private String interestedLocation;
+    
+    @Override
+    public String toString() {
+        return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profilePicture=" + profilePicture
+                + ", introduction=" + introduction + ", name=" + name + ", birth=" + birth + ", telephone=" + telephone
+                + ", gender=" + gender + ", interestedLocation=" + interestedLocation + "]";
+    }
     public int getNo() {
         return no;
     }
     public void setNo(int no) {
         this.no = no;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
     public String getEmail() {
         return email;
@@ -42,11 +48,35 @@ public class Member implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Date getBirthDate() {
-        return birthDate;
+    public String getProfilePicture() {
+        return profilePicture;
     }
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+    public String getIntroduction() {
+        return introduction;
+    }
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public Date getBirth() {
+        return birth;
+    }
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+    public String getTelephone() {
+        return telephone;
+    }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
     public char getGender() {
         return gender;
@@ -54,35 +84,15 @@ public class Member implements Serializable {
     public void setGender(char gender) {
         this.gender = gender;
     }
-    public String getLocation() {
-        return location;
+    public String getInterestedLocation() {
+        return interestedLocation;
     }
-    public void setLocation(String location) {
-        this.location = location;
-    }
-    public String getPhoto() {
-        return photo;
-    }
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-    public String getProfile() {
-        return profile;
-    }
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setInterestedLocation(String interestedLocation) {
+        this.interestedLocation = interestedLocation;
     }
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
     
-    
-    @Override
-    public String toString() {
-        return "TestMember [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
-                + ", birthDate=" + birthDate + ", gender=" + gender + ", location=" + location + ", photo=" + photo
-                + ", profile=" + profile + "]";
-    }
- 
     
 }
