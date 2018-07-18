@@ -192,6 +192,7 @@
 	color: white;
 	border: 0px;
 	border-radius: 0px;
+	margin: 0.5rem;
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-secondary:active {
@@ -199,8 +200,14 @@
 	color: white;
 	border: 0px;
 	border-radius: 0px;
+	margin : 0.5rem;
 }
 
 .badge {
 	border-radius: 0px;
+}   
+
+/*모달*/
+div.modal-dialog {
+	margin-top : 150px;
 }

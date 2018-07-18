@@ -38,54 +38,83 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<p class="studyCheckin">
-						<br>
-						<span class="memberName">안중근</span> 회원님이
-						<br>
-						<br>
-						<a href="http://place.map.daum.net/10118805">
+					      <!--  
+					       <a href="http://place.map.daum.net/10118805">
 							<img src="img/mapMarker.png" class="rounded-0 mapMarker">
 						</a>
-						<br>
-						<div id="map" style="width:100%;height:20rem;"></div>
+						 -->
+                        <span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span><br>						
+						<div id="map" style="width:100%;height:350px;"></div>
 						
 						<script>
-							var container = document.getElementById('map');
-							var options = {
-								center: new daum.maps.LatLng(33.450701, 126.570667),
-								level: 3
-							};
+                        function relayout() {
+                            map.relayout();
+                        }                           
 
-							var map = new daum.maps.Map(container, options);
-							function relayout() {
-								map.relayout();
-							}
+                        function resizeMap() {
+                            var mapContainer = document.getElementById('map');
+                            mapContainer.style.width = '100%';
+                            mapContainer.style.height = '350px'; 
+                        }
+
+                        function setCenter() {            
+                            // 이동할 위도 경도 위치를 생성합니다 
+                            var moveLatLon = new daum.maps.LatLng(37.4923615 , 127.02928809999999);
+                            // 지도 중심을 이동 시킵니다
+                            map.setCenter(moveLatLon);
+                        }
+
+                        var centerPlace = new daum.maps.LatLng(37.4923615 , 127.02928809999999);							
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						mapOption = { 
+						    center: centerPlace, // 지도의 중심좌표
+						    level: 1 // 지도의 확대 레벨
+						};
+
+						var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+						var markerPosition  = centerPlace; 
+
+						var marker = new daum.maps.Marker({
+						    position: markerPosition
+						});
+
+						marker.setMap(map);
+
+						var studyLat = centerPlace.getLat(); 
+						var studyLng = centerPlace.getLng();
+						
+
+						<!--gps가져오고 위치 확인-->
+						var currentLatitude;
+						var currentLongitude;
+						var checkinCnt=0;	
 							
-							var latlng = new daum.maps.LatLng(33.450701, 127);
-							var studyLat = latlng.getLat(); // 
-							var studyLng = latlng.getLng();
-							var currentLatitude;
-							var currentLongitude;
-
 							function getLocation() {
 								if (navigator.geolocation) { // GPS를 지원하면
 									navigator.geolocation.getCurrentPosition(function (position) {
 										currentLatitude = position.coords.latitude;
 										currentLongitude = position.coords.longitude;
-										console.log(currentLatitude - studyLat);
+										console.log(currentLatitude, currentLongitude);
 
 										if((currentLatitude-studyLat < 0.5) && (currentLongitude - studyLng < 0.5)) {
-											$('#checkinSuccess').text("오늘의 스터디 체크인에 성공하였습니다!");
+											$('#checkinResult').text("오늘의 스터디 체크인에 성공하였습니다!");
+											checkinCnt++;
+											console.log("checkinCnt", checkinCnt);
+											if (checkinCnt >= 1) {
+	                                            $('#checkinResult').text("이미 스터디에 체크인하였습니다.");
+											}
 										} else {
-											$('#checkinSuccess').text("현재 위치가 지정된 스터디 장소와 달라 스터디 체크인에 실패하였습니다!");
+											$('#checkinResult').text("현재 위치가 지정된 스터디 장소와 달라 스터디 체크인에 실패하였습니다!");
 										}
 										
-										// var dt = new Date();
-										// $('#lateTime').text(dt);
+										var dt = new Date().getHours();
+										$('#lateTime').text(dt);
 										
 									}, function (error) {
 										console.error(error);
 									}, {
-											enableHighAccuracy: false,
+										  enableHighAccuracy: false,
 											maximumAge: 0,
 											timeout: Infinity
 										});
@@ -94,27 +123,21 @@
 								}
 							}
 							getLocation();
+							
 						</script>
 
 						<script>
-							// 모달 다이알로그가 열리면 지도 크기 재조정
 							$("#myModal").on('shown.bs.modal', function (e) {
 								e.preventDefault();
 								map.relayout();
+								map.resizeMap();
+								map.setCenter();
 							});
 						</script>
-						
-						<span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span>
 						<br>
+						<div id="checkinResult"></div>
 						<br>
-						<div id="checkinSuccess"></div>
-						<!-- <span>위 장소에서 2017년 6월 23일 19시에 시작되는
-							<br> 오늘의 스터디를
-							<span class="currentTime">현재 시각 19시 02분</span>에 체크인하였습니다.
-						</span> -->
-						<br>
-						<br>
-						<div id="lateTime"></span>
+						<div id="lateTime"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">확인</button>
@@ -123,33 +146,6 @@
 		</div>
 	</div>
 	<!-- Modal 출석 성공 -->
-
-	<!-- Modal 장소 달라 출석 실패 -->
-	<div class="modal fade" id="myModalFail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-					<p class="studyCheckin">
-						<a href="http://place.map.daum.net/10118805">
-							<img src="img/mapMarker.png" class="rounded-0 mapMarker">
-						</a>
-						<br>
-						<span class="location">토즈 강남 2호점(서울 서초구 강남대로 23번지 301호)</span>
-						<br>
-						<br>
-						<span>현재 위치가 지정된 오늘의 스터디 장소와 달라
-							<br> 스터디체크인에 실패하였습니다.
-						</span>
-						<br>
-						<br>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">확인</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal 장소 달라 출석 실패 -->
 
 	<!-- Modal 이미 출석 -->
 	<div class="modal fade" id="myModalAlready" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -175,7 +171,6 @@
 		</div>
 	</div>
 	<!-- Modal 장소 달라 출석 실패 -->
-
 	<header class="header">
 		<div class="headerWrap">
 			<h1 class="logo">
@@ -248,7 +243,6 @@
 										<br>
 										<span class="time">(현재 시각 19시 02분)</span>
 										<br>
-										<br>
 										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="relayout()">체크인!</button>
 									</p>
 								</div>
@@ -259,7 +253,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="container">
 		<div class="innerContainer">
 			<div class="row">
