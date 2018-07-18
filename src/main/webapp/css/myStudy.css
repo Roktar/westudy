@@ -145,7 +145,7 @@ div.inner-container-box {
 
 .modal-content {
     margin-top : 10em;
-    pointer-events: none;
+    pointer-events: none !important;
 }
 
 a {
