@@ -1,14 +1,19 @@
 {
-	"name": "space",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"jquery-bar-rating": "^1.2.2"
-	}
+  "name": "space",
+  "version": "1.0.0",
+  "description": "html, js 등 정적 파일",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blueimp-file-upload": "^9.22.0",
+    "bootstrap": "^4.1.2",
+    "jquery": "^3.3.1",
+    "jquery-bar-rating": "^1.2.2",
+    "popper.js": "^1.14.3"
+  },
+  "devDependencies": {}
 }
