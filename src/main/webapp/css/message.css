@@ -68,8 +68,7 @@ h3 {
 	margin: 3rem auto;
 }
 
-\
-\
+
 div.filter-selection {
 	margin: 3rem;
 	display: block;
@@ -211,11 +210,9 @@ div.list-group a {
 	color: white;
 }
 
-.delete {
-	margin-left: 1em;
-	margin-right: 1.5em;
+.btntn {
+    margin-right: 2em;
 }
-
 .sendform {
 	padding-top: 2em;
 	width: 40%;
