@@ -94,7 +94,7 @@
                         <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
                             관심 분야 설정
                         </a>
-                        <a href="message.html" class="list-group-item list-group-item-action cls-list-link">
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
                             메시지
                         </a>
                         <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
@@ -118,7 +118,7 @@
                     <div class="mystudy">
                         <div>
                          <a href="groupMain.html">자바 스터디 'JAVAJAVA'</a> 
-                         <button class="btn btn-secondary btn-sm dd">탈퇴</button>
+                         <button class="btn btn-secondary btn-sm dd" data-toggle="modal" data-target="#tmodal">탈퇴</button>
                          <a data-toggle="modal" href="#dAD"><button class="btn btn-primary btn-sm review">후기 작성</button></a>
                         </div>
                         <div>
@@ -161,6 +161,27 @@
         </div>
     </div>
 
+
+    <!-- Modal -->
+<div class="modal fade" id="tmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="padding-left: 8.5em;">스터디 탈퇴</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+              스터디를 탈퇴하시겠습니까?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-primary btn-sm">탈퇴</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <!--DAD Modal -->
 <div class="modal fade" id="dAD" role="dialog">
