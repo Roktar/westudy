@@ -124,15 +124,12 @@ h2 {
 }
 
 
-.ttbtn, .review{
+.dd, .review{
     float : right;
 
   
 }
 
-.ttbtn {
-	margin-left : 1em;
-}
 
 div.container {
     padding: 2rem;
@@ -147,8 +144,7 @@ div.inner-container-box {
 
 
 .modal-content {
-    margin-top : 10em;
-    pointer-events: none !important;
+	margin-top : 10em;
 }
 
 a {
@@ -165,8 +161,13 @@ a {
     margin-bottom: 0;
 }
 
+.ttbtn {
+	float: right;
+	margin-left : 1em;
+}
 
-
-
+.starzone {
+	margin-top: 1em;
+}
 
   
