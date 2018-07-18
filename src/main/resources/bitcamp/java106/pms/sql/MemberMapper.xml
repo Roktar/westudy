@@ -5,64 +5,46 @@
 
 <mapper namespace="bitcamp.java106.pms.dao.MemberDao">
 
-	<resultMap type="Member" id="MemberMap">
-		<id column="memno" property="no" />
-		<result column="email" property="email" />
-		<result column="pwd" property="email" />
-		<result column="pfp" property="profilePicture" />
-		<result column="intrd" property="introduction" />
-		<result column="name" property="name" />
-		<result column="birth" property="birth" />
-		<result column="tel" property="telephone" />
-		<result column="gen" property="gender" />
-		<result column="itrloc" property="interestedLocation" />
-	</resultMap>
-
-	<select id="selectList" resultMap="MemberMap"
-		parameterType="map">
-		select memno, email, pwd, pfp, intrd, name, birth, tel, gen, itrloc
-		from member
-		limit #{startRowNo}, #{pageSize}
-	</select>
-
-	<insert id="insert" parameterType="Member">
-		insert member
-		values(#{no},#{email},password(#{password}),#{profilePicture},
-		#{introduction},#{name},#{birth},#{telephone},#{gender},#{intrestedLocation})
-	</insert>
-
-	<select id="selectOne" parameterType="String"
-		resultMap="MemberMap">
-        select memno, email, pwd, pfp, intrd, name, birth, tel, gen, itrloc
-		from member
-		where memno=#{no}
-	</select>
-
-	<select id="count" parameterType="map" resultType="int">
-		select count(*)
-		from member
-		where memno=#{no} and pwd=password(#{password})
-	</select>
-
-	<select id="selectOneWithPassword" parameterType="map"
-		resultMap="MemberMap">
-        select memno, email, pwd, pfp, intrd, name, birth, tel, gen, itrloc
-		from member
-		where memno=#{no} and pwd=password(#{password})
-	</select>
-
-	<update id="update" parameterType="Member">
-		update member set
-		pwd=password(#{password}),
-		itrloc=#{interestedLocation},
-		pfp=#{profilePicture},
-		intrd=#{introduction}
-		where memno=#{no}
-	</update>
-
-	<delete id="delete" parameterType="String">
-		delete from member where memno=#{value}
-	</delete>
+  <resultMap type="bitcamp.java106.pms.domain.Member" id="MemberMap">
+    <id column="memno" property="no"/>
+    <result column="email" property="email"/>
+    <result column="pwd" property="password"/>
+    <result column="intrd" property="introduce"/>
+    <result column="pfp" property="profile"/>
+    <result column="name" property="name"/>
+    <result column="birth" property="birthday"/>
+    <result column="tel" property="tel"/>
+    <result column="gen" property="gender"/>
+    <result column="itrloc" property="interestedPlace"/>
+  </resultMap>
+    
+  <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
+    insert into member( email, pwd, name, tel))
+    values(#{email}, password(#{password}), #{name}, #{tel} )
+  </insert>
+  
+  <!-- 
+  <update id="update_additional">
+    update member
+  </update> -->
+    
+  <select id="selectOne" parameterType="String" resultMap="MemberMap">
+    select *
+    from member 
+    where email=#{id}
+  </select>
+  
+  <select id="selectOneSimpleCase" parameterType="String" resultType="bitcamp.java106.pms.domain.Member">
+    select memno, email
+    from member 
+    where email=#{id}
+  </select>
+  
+  <select id="count" parameterType="map" resultType="int">
+        select count(*)
+        from member 
+        where email=#{id} and pwd=password(#{password})
+  </select>
 </mapper>
 
 
