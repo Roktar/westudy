@@ -157,14 +157,15 @@ a {
 }
 
 
-
-.btn {
- border: solid 1px #ef6c00;
+.modal-header {
+    margin-bottom: 1em;
 }
 
-.btn, .btn-primary, .btn:hover, .btn:active, .btn-primary:hover, .btn-primary:active 
-.btn-secondary, .btn-secondary:hover, .btn-secondary:active {
-    border: 1px solid #ef6c00;
+
+.form-group {
+    margin-bottom: 0;
 }
+
+
 
   
