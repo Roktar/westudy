@@ -124,12 +124,15 @@ h2 {
 }
 
 
-.dd, .review{
+.ttbtn, .review{
     float : right;
 
   
 }
 
+.ttbtn {
+	margin-left : 1em;
+}
 
 div.container {
     padding: 2rem;
@@ -161,6 +164,8 @@ a {
 .form-group {
     margin-bottom: 0;
 }
+
+
 
 
 

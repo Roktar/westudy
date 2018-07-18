@@ -210,8 +210,13 @@ div.list-group a {
 	color: white;
 }
 
+.delete {
+	margin-left:1em;	
+	
+}
+
 .btntn {
-    margin-right: 2em;
+    margin-right: 1.8em;
 }
 .sendform {
 	padding-top: 2em;
@@ -226,7 +231,7 @@ div.list-group a {
 }
 
 .juso {
-	border: 1px solid #ef6C00;
+	border-radius : .25rem;
 }
 
 .btn-secondary {
