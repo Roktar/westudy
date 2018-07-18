@@ -192,7 +192,7 @@
 	color: white;
 	border: 0px;
 	border-radius: 0px;
-	margin: 0.5rem;
+	
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-secondary:active {
@@ -200,7 +200,7 @@
 	color: white;
 	border: 0px;
 	border-radius: 0px;
-	margin : 0.5rem;
+
 }
 
 .badge {
