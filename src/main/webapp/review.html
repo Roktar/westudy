@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/he-review.css">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/css-stars-reviewpage.css">
+    <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
 
 <title>westudy</title>
 
@@ -98,7 +102,15 @@
                             <a href="#"><img src="img/thumbnail.jpg"  width="50rem" height="50rem" class="rounded-circle prof-img" alt="logo"></a>
                             <div id="user_inform">
                                 <div id="user_name"><a href="#">장하은</a></div>
-                                <span class="user_score">★★★★★ </span>
+                                <div class="user_score">
+                                    <select id="review-score">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                    </select>
+                                </div>
                                 <div class="user_class">정보처리기사 </div>
                             </div>
                             <form>
@@ -131,7 +143,7 @@
                             </form>
                             <span class="review_date">2018년 6월</span>
                                 <div class="user_class_info">
-                                    <div class="user_class_name"><a href="#">'정처기 합격각'</a> <span class="study-link">스터디</span></div>
+                                    <div class="user_class_name"><a href="groupMain.html">'정처기 합격각'</a> <span class="study-link">스터디</span></div>
                                         <img src="img/review-img.jpg"  class="img-fluid rounded-circle study-prof" alt="logo">
                                 </div>
                                 <hr class="review-line"> 
@@ -279,9 +291,7 @@
     <!-- footer end -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+ 
     <script src="js/holder.min.js"></script>
     <script>
         Holder.addTheme("dark", {
@@ -293,5 +303,19 @@
         });
     </script>
 
+ 
 </body>
+
+<script type="text/javascript">
+    $(function() {
+       $('#review-score').barrating({
+         theme: 'css-stars',
+         readonly: true
+       });
+
+      
+    });
+ </script>
+
+
 </html>
