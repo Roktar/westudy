@@ -1,8 +1,9 @@
 div.container {
-	max-width: 1200px; <<<<<<<
-	HEAD: frontend/css/group.css margin: 0px auto 0px auto; =======
-	padding: 0px; >>>>>>> 64006
+	max-width: 1200px; 
+	HEAD: frontend/css/group.css margin: 0px auto 0px auto;
+	padding: 0px; 
 	f5920d7df1dead85c786318028718810f26: src/main/webapp/css/group.css
+	
 }
 
 div.innerContainer {
@@ -372,7 +373,7 @@ img.leader-thumbnail {
 }
 
 div.container {
-	/*    margin: 0px;*/
+	margin-top: 0px;
 	padding: 0px;
 }
 
