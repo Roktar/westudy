@@ -19,8 +19,8 @@
   </resultMap>
     
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
-    insert into member( email, pwd, name, tel))
-    values(#{email}, password(#{password}), #{name}, #{tel} )
+    insert into member( email, pwd, name, tel)
+        values(#{email}, password(#{password}), #{name}, #{tel} )
   </insert>
   
   <!-- 

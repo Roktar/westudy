@@ -5,14 +5,15 @@ import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.service.MemberService;
 
-@Controller
+@RestController
 @RequestMapping("/member")
 public class MemberController {
     MemberService memberService;
@@ -22,20 +23,21 @@ public class MemberController {
     }
     
     @RequestMapping("add")
-    public void insert(@RequestBody String qs) {
+    public void insert(@RequestBody String qs ) {
+        System.out.println(qs);
+        
         String[] seperateParameter = qs.split("&");
         Map<String, String> seperateKeyValue = new HashMap<>();
         
-        System.out.println(qs);
-        
+        int idx = 0;
         try {
             for(String param : seperateParameter) {
                 String[] keyVal = param.split("=");
                 keyVal[0] = URLDecoder.decode(keyVal[0], "UTF-8");
                 keyVal[1] = URLDecoder.decode(keyVal[1], "UTF-8");
                 
-/*                if(keyVal[0].startsWith("interests")) 
-                    keyVal[0] = keyVal[0].substring(12) + keyVal[0].substring(10, 11);*/
+                if(keyVal[0].startsWith("interests")) 
+                    keyVal[0] = keyVal[0].substring(11) + (idx++);
                 
                 seperateKeyValue.put(keyVal[0], keyVal[1]);
             }
@@ -46,7 +48,7 @@ public class MemberController {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+        memberService.insert(seperateKeyValue);
     }
     
     @RequestMapping("{id}")

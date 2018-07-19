@@ -17,6 +17,7 @@ public class AuthCheckInterceptor implements HandlerInterceptor{
         
         HttpSession session = request.getSession();
         Member loginUser = (Member) session.getAttribute("loginUser");
+        System.out.println("인터셉터 : " + loginUser);
         
         if(loginUser == null) { // 로그인이 안된 경우 로그인 폼으로 이동
             response.sendRedirect(request.getContextPath()+ "/index.html");

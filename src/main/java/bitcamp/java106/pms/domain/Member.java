@@ -4,19 +4,16 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class Member implements Serializable {
  
     private static final long serialVersionUID = 1L;
-     
+    
     private int no;
     private String email;
     private String password;
     private String profile;
     private String introduce;
     private String name;
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")    
     private Date birthday;
     private String tel;
     private char gender;
