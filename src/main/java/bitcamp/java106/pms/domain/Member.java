@@ -7,7 +7,7 @@ import java.util.List;
 public class Member implements Serializable {
  
     private static final long serialVersionUID = 1L;
-    
+     
     private int no;
     private String email;
     private String password;

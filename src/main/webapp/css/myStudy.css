@@ -126,10 +126,15 @@ h2 {
 
 .dd, .review{
     float : right;
-
+    margin-left: 1em;
+    margin-top: 0.5em;
   
 }
 
+.review {
+    background-color: #ef6c00 !important;
+    border-color: #ef6c00 !important;
+}
 
 div.container {
     padding: 2rem;
@@ -143,31 +148,18 @@ div.inner-container-box {
 }
 
 
-.modal-content {
-	margin-top : 10em;
-}
-
-a {
-	color: black !important;
-}
 
 
-.modal-header {
-    margin-bottom: 1em;
+.mystudy {
+  
 }
 
 
-.form-group {
-    margin-bottom: 0;
-}
 
-.ttbtn {
-	float: right;
-	margin-left : 1em;
-}
 
-.starzone {
-	margin-top: 1em;
-}
+
+
+
+
 
   

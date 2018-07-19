@@ -1,5 +1,5 @@
 {
-  "name": "space",
+  "name": "webapp",
   "version": "1.0.0",
   "description": "html, js 등 정적 파일",
   "main": "index.js",
@@ -12,8 +12,9 @@
     "blueimp-file-upload": "^9.22.0",
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
-    "jquery-bar-rating": "^1.2.2",
+    "masonry": "0.0.2",
+    "masonry.js": "^3.1.5",
+    "popper": "^1.0.1",
     "popper.js": "^1.14.3"
-  },
-  "devDependencies": {}
+  }
 }
