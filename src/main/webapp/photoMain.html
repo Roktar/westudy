@@ -2,91 +2,29 @@
 <html>
 
 <head>
-<<<<<<< HEAD
-<meta charset="utf-8" />
-<title>Photo</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-	crossorigin="anonymous">
-
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/photoMain.css">
-<link rel="stylesheet" href="css/dist/min/basic.min.css">
-<link rel="stylesheet" href="css/dist/min/dropzone.min.css">
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-	integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-	integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
-<script
-	src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="js/dropzone.js"></script>
-<script src="js/photoMain.js"></script>
-
-
-<script>
-        $("div#myId").dropzone({
-            url: "/file/post"
-        });
-
-    </script>
-<style>
-.hoverOk {
-	position: relative;
-	overflow: hidden;
-}
-
-.hoverOk img {
-	opacity: 1;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-
-.hoverOk img:hover {
-	opacity: .5;
-}
-
-.hoverOk div {
-	display: none;
-}
-
-.hoverOk img:hover+div {
-	position: absolute;
-	top: 40px;
-	z-index: 999;
-	color: white;
-	display: block;
-}
-</style>
-=======
 	<meta charset="utf-8" />
 	<title>Photo</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-	 crossorigin="anonymous">
-
+	
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/photoMain.css">
+	<link type="text/css" rel="stylesheet" href="css/hover-box.css">
+	
 	<link rel="stylesheet" href="css/dist/min/basic.min.css">
 	<link rel="stylesheet" href="css/dist/min/dropzone.min.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-	 crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<script src='node_modules/jquery/dist/jquery.min.js'></script>
+	<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+	<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+	<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
+	
+	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/dropzone.js"></script>
 	<script src="js/photoMain.js"></script>
 
@@ -94,35 +32,18 @@
 	<script>
 
 	</script>
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 </head>
 
 <body>
 	<header class="header">
 		<div class="headerWrap">
 			<h1 class="logo">
-<<<<<<< HEAD
-				<a href="index.html"> <img src="img/logo3.png" alt="로고"
-					title="WeStudy">
-=======
 				<a href="index.html">
 					<img src="img/logo3.png" alt="로고" title="WeStudy">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 				</a>
 			</h1>
 			<div class="utilMenu">
 				<ul>
-<<<<<<< HEAD
-					<li class="search"><a href="search.html">검색</a></li>
-					<li><a href="makeStudy.html">스터디 만들기</a></li>
-					<li><a id="login" style="" data-toggle="modal"
-						data-target="#myModal"> 로그인 </a></li>
-					<li><a id="signup" class="" data-toggle="modal"
-						data-target="#register">회원가입</a></li>
-					<li class="utilMenuMobile">스터디그룹 만들기</li>
-					<li class="utilMenuMobile">가입한 스터디 목록</li>
-					<li class="menu"><a href="myProfile.html">menu</a></li>
-=======
 					<li class="search">
 						<a href="search.html">검색</a>
 					</li>
@@ -140,7 +61,6 @@
 					<li class="menu">
 						<a href="myProfile.html">menu</a>
 					</li>
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 				</ul>
 			</div>
 		</div>
@@ -166,81 +86,60 @@
 		<h6>7월</h6>
 		<hr>
 		<div class="grid">
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal1"> <img class="listImg"
-					src="img/test.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal" href="#myModal1">
-					<img class="listImg" src="img/test.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/test.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal2"> <img class="listImg"
-					src="img/test2.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal" href="#myModal2">
-					<img class="listImg" src="img/test2.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/test2.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal3"> <img class="listImg"
-					src="img/test3.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal" href="#myModal3">
-					<img class="listImg" src="img/test3.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/test3.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal4"> <img class="listImg"
-					src="img/test4.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal" href="#myModal4">
-					<img class="listImg" src="img/test4.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/test4.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal5"> <img class="listImg"
-					src="img/test5.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal" href="#myModal5">
-					<img class="listImg" src="img/test5.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/test5.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+					<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+				</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal">
-					<img class="listImg" src="img/study3.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/study3.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study2.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal">
-					<img class="listImg" src="img/study2.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/study2.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
 
@@ -249,104 +148,45 @@
 		<h6>6월</h6>
 		<hr>
 		<div class="grid">
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal5"> <img class="listImg"
-					src="img/test5.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal" href="#myModal5">
-					<img class="listImg" src="img/test5.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/test5.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal">
-					<img class="listImg" src="img/study3.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/study3.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study2.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal">
-					<img class="listImg" src="img/study2.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/study2.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
-			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-=======
+			<div class="hvrbox grid-item">
 				<a data-toggle="modal">
-					<img class="listImg" src="img/study3.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
-					<div>이미지 안에 텍스트 출력</div>
+					<img class="listImg" src="img/study3.jpeg" class="hvrbox-layer_bottom">
+					<div class="hvrbox-layer_top hvrbox-layer_slidedown">
+						<div class="hvrbox-text">이미지 안에 텍스트 출력</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg" src="img/test.jpeg">
-=======
 				<a data-toggle="modal">
 					<img class="listImg" src="img/test.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 				</a>
 			</div>
 
 			<div class="grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal1"> <img class="listImg"
-					src="img/test.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal2"> <img class="listImg"
-					src="img/test2.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal3"> <img class="listImg"
-					src="img/test3.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal4"> <img class="listImg"
-					src="img/test4.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal5"> <img class="listImg"
-					src="img/test5.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg" src="img/test.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study2.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/test2.jpeg">
-=======
 				<a data-toggle="modal" href="#myModal1">
 					<img class="listImg" src="img/test.jpeg">
 				</a>
@@ -389,7 +229,6 @@
 			<div class="grid-item">
 				<a data-toggle="modal">
 					<img class="listImg" src="img/test2.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 				</a>
 			</div>
 		</div>
@@ -398,122 +237,36 @@
 		<hr>
 		<div class="grid">
 			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal5"> <img class="listImg"
-					src="img/test5.jpeg">
-=======
 				<a data-toggle="modal" href="#myModal5">
 					<img class="listImg" src="img/test5.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 					<div>이미지 안에 텍스트 출력</div>
 				</a>
 			</div>
 			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-=======
 				<a data-toggle="modal">
 					<img class="listImg" src="img/study3.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 					<div>이미지 안에 텍스트 출력</div>
 				</a>
 			</div>
 			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study2.jpeg">
-=======
 				<a data-toggle="modal">
 					<img class="listImg" src="img/study2.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 					<div>이미지 안에 텍스트 출력</div>
 				</a>
 			</div>
 			<div class="hoverOk grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-=======
 				<a data-toggle="modal">
 					<img class="listImg" src="img/study3.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 					<div>이미지 안에 텍스트 출력</div>
 				</a>
 			</div>
 			<div class="grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal"> <img class="listImg" src="img/test.jpeg">
-=======
 				<a data-toggle="modal">
 					<img class="listImg" src="img/test.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 				</a>
 			</div>
 
 			<div class="grid-item">
-<<<<<<< HEAD
-				<a data-toggle="modal" href="#myModal1"> <img class="listImg"
-					src="img/test.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal2"> <img class="listImg"
-					src="img/test2.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal3"> <img class="listImg"
-					src="img/test3.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal4"> <img class="listImg"
-					src="img/test4.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal" href="#myModal5"> <img class="listImg"
-					src="img/test5.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg" src="img/test.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study2.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/test2.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg" src="img/test.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study2.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/study3.jpeg">
-				</a>
-			</div>
-			<div class="grid-item">
-				<a data-toggle="modal"> <img class="listImg"
-					src="img/test2.jpeg">
-=======
 				<a data-toggle="modal" href="#myModal1">
 					<img class="listImg" src="img/test.jpeg">
 				</a>
@@ -576,7 +329,6 @@
 			<div class="grid-item">
 				<a data-toggle="modal">
 					<img class="listImg" src="img/test2.jpeg">
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 				</a>
 			</div>
 		</div>
@@ -594,54 +346,27 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="input-group mb-3">
-<<<<<<< HEAD
-					<input id="phoTitle" type="text" class="form-control"
-						placeholder="제목" aria-label="phoTitle"
-						aria-describedby="basic-addon1">
-				</div>
-
-				<div class="modal-body" style="padding-top: 0em;">
-					<div id="trueForm">
-						<form action="PhotoServiceImpl" class="dropzone"
-							enctype="multipart/form-data" id="my-dropzone" method="post">
-						</form>
-					</div>
-					<div id="falseForm" style="display: none;">지원하지 않는 브라우저입니다.</div>
-				</div>
-
-				<div class="modal-footer">
-					<button type="submit" id="btnSubmit" class="btn btn-default"
-						disabled="disabled">업로드</button>
-					<button id="btnAllClear" class="btn btn-default"
-						disabled="disabled">초기화</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal"
-						onclick="delete">취소</button>
-				</div>
-			</div>
-
-=======
 					<input id="phoTitle" type="text" class="form-control" placeholder="제목" aria-label="phoTitle" aria-describedby="basic-addon1">
 				</div>
 
 				<div class="modal-body">
 					<div id="trueForm">
-						<form action="PhotoServiceImpl" class="dropzone" enctype="multipart/form-data" id="my-dropzone" method="post" @Html.Hidden(
-						 "hideTxtData")>
-
+						<form action="js/photoMain.js" class="dropzone" enctype="multipart/form-data" id="my-dropzone" method="post" >
 						</form>
+						
+						
 					</div>
 					<div id="falseForm" style="display: none;">지원하지 않는 브라우저입니다.
 					</div>
 				</div>
 
 				<div class="modal-footer">
-					<button id="btnSubmit" type="submit" class="btn btn-default" disabled="disabled">업로드</button>
+					<button id="btnSubmit" type="button" class="btn btn-default" disabled="disabled">업로드</button>
 					<button id="btnAllClear" class="btn btn-default" disabled="disabled">초기화</button>
 					<button id="closeBtn" class="btn btn-default" data-dismiss="modal">취소</button>
 
 				</div>
 			</div>
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 		</div>
 	</div>
 
@@ -755,16 +480,11 @@
 		<p>Logo</p>
 
 		<div>
-<<<<<<< HEAD
-			<span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
-				홍길동 </span> <span>E-mail : we_study@westudy.com</span>
-=======
 			<span>서울특별시 강남구 비트캠프 401호</span>
 			<span>Tel080-777-2299</span>
 			<span>개인정보취급관리자 홍길동
 			</span>
 			<span>E-mail : we_study@westudy.com</span>
->>>>>>> 7f9a5f24e40939fb34851d38305f48a88d7c9600
 		</div>
 		<p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
 	</footer>

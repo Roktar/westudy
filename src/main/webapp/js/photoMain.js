@@ -5,7 +5,7 @@ Dropzone.options.myDropzone = {
 
 	// 업로드 그림 경로 지정
 
-	url : '@Url.Action("dropZone", "Home")',
+//	url : '@Url.Action("dropZone", "Home")',
 
 	// 파라메터 지정
 
@@ -64,7 +64,7 @@ Dropzone.options.myDropzone = {
 
 		// Call the action method to load the images from the server
 		// 서버로부터 이미지를 로드하기 위한 액션 메소드 호출
-		$.getJSON("/PhotoController").done(function(data) {
+		$.getJSON("#my-dropzone").done(function(data) {
 
 			if (data.Data != '') {
 
@@ -103,7 +103,7 @@ Dropzone.options.myDropzone = {
 
 		allClearButton.addEventListener("click", function() {
 
-			if (confirm('정말 전체 항목을 삭제하겠습니까?')) {
+			if (confirm('정말 전체 항목을 삭제하겠습니까?') == true) {
 
 				// 서버 삭제 로직
 

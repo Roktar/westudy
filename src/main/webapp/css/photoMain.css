@@ -1,74 +1,93 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: sans-serif;
+    font-family: sans-serif;
 }
 
-.container {
-	margin-top: 7.5em;
+.container{
+    margin-top: 7.5em;
+
+    
 }
 
 h6 {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin: 0.5rem;
-	display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem;
+    display: inline-block;
+
 }
 
-.btn, .btn:hover, .btn:active {
-	background-color: #ef6c00;
+.btn, .btn:hover, .btn:active{ 
+    background-color: #ef6c00;
 	border: 0px;
 	color: white
 }
 
 .input-group {
-	width: 92%;
-	margin: 1em auto;
+    width: 92%;
+    margin: 1em auto;
 }
 
+#trueForm {
+	overflow: scroll;
+	max-height: 15rem;
+}
+
+
+
+
 /* ---- grid ---- */
+
 .grid {
-	margin: 0 auto;
-	counter-reset: grid-item;
+    margin: 0 auto;
+    counter-reset: grid-item;
 }
 
 /* clearfix */
+
 .grid:after {
-	content: '';
-	display: block;
-	clear: both;
+    content: '';
+    display: block;
+    clear: both;
 }
 
 /* ---- grid-item ---- */
+
 .grid-item {
-	width: 225px;
-	float: left;
-	background: #444;
-	border-radius: 5px;
-	margin-bottom: 1em;
+    width: 225px;
+    float: left;
+    background: #444;
+
+    border-radius: 5px;
+    margin-bottom: 1em;
 }
+
 
 .grid-item:before {
-	counter-increment: grid-item;
-	/* content: counter(grid-item); */
-	display: block;
-	color: white;
-	padding-top: 0.2em;
-	text-align: center;
-	font-size: 1.4rem;
+    counter-increment: grid-item;
+    /* content: counter(grid-item); */
+    display: block;
+    color: white;
+    padding-top: 0.2em;
+    text-align: center;
+    font-size: 1.4rem;
+
 }
 
-.modal {
-	padding-top: 8.5em;
+.modal{
+    padding-top: 8.5em;
 }
 
-.modal-content {
-	width: 80%;
-	margin: 0 auto;
+.modal-content{
+    width: 80%;
+    
+    margin: 0 auto;
 }
+
 
 img {
-	width: 100%;
+    width: 100%;
 }

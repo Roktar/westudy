@@ -215,4 +215,3 @@ Dropzone.options.myDropzone = {
 	}
 
 };
-
