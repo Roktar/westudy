@@ -1,4 +1,4 @@
-package main.java.bitcamp.java106.pms.service;
+package bitcamp.java106.pms.service;
 
 import java.util.List;
 import java.util.Map;

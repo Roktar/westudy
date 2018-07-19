@@ -1,58 +1,84 @@
-package main.java.bitcamp.java106.pms.domain;
+package bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class StudyAttendance implements Serializable {
 
+    /**
+     * 
+     */
     private static final long serialVersionUID = 1L;
-    private int attendanceNo;
-    private int scheduleNo;
-    private int studyNo;
-    private int memberNo;
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")    
-    private Date attendanceTime;
-    public int getAttendanceNo() {
-        return attendanceNo;
+    
+    private int no;
+    private StudySchedule studySchedule;
+    private Study study;
+    private List<Member> members;
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+    private Date time;
+    
+    public int getNo() {
+        return no;
     }
-    public void setAttendanceNo(int attendanceNo) {
-        this.attendanceNo = attendanceNo;
+
+
+    public void setNo(int no) {
+        this.no = no;
     }
-    public int getScheduleNo() {
-        return scheduleNo;
+
+
+    public StudySchedule getSchedule() {
+        return studySchedule;
     }
-    public void setScheduleNo(int scheduleNo) {
-        this.scheduleNo = scheduleNo;
+
+
+    public void setSchedule(StudySchedule studySchedule) {
+        this.studySchedule = studySchedule;
     }
-    public int getStudyNo() {
-        return studyNo;
+
+
+    public Study getStudy() {
+        return study;
     }
-    public void setStudyNo(int studyNo) {
-        this.studyNo = studyNo;
+
+
+    public void setStudy(Study study) {
+        this.study = study;
     }
-    public int getMemberNo() {
-        return memberNo;
+
+
+    public List<Member> getMembers() {
+        return members;
     }
-    public void setMemberNo(int memberNo) {
-        this.memberNo = memberNo;
+
+
+    public void setMembers(List<Member> members) {
+        this.members = members;
     }
-    public Date getAttendanceTime() {
-        return attendanceTime;
+
+
+    public Date getTime() {
+        return time;
     }
-    public void setAttendanceTime(Date attendanceTime) {
-        this.attendanceTime = attendanceTime;
+
+
+    public void setTime(Date time) {
+        this.time = time;
     }
+
+
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
+
+
     @Override
     public String toString() {
-        return "StudyAttendance [attendanceNo=" + attendanceNo + ", scheduleNo=" + scheduleNo + ", studyNo=" + studyNo
-                + ", memberNo=" + memberNo + ", attendanceTime=" + attendanceTime + "]";
+        return "Attendance [no=" + no + ", members=" + members + ", time=" + time + "]";
     }
-    
     
     
 }

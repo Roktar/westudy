@@ -96,10 +96,10 @@
 						<br>
 						<script>
 						if (location.href.split("?").length > 1) {
-	var tags = $(".input-view");
-    tags.css("display", "none");
+							   var tags = $(".input-view");
+							    tags.css("display", "none");
 
-    var no = location.href.split("?")[1].split("=")[1];
+							    var no = location.href.split("?")[1].split("=")[1];
 	
     $.getJSON(serverRoot + "/json/member/" + no, function(data) {
         $(fNo).val(data.no); 

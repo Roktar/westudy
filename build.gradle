@@ -111,6 +111,9 @@ dependencies {
     // => 즉 서버와 같은 버전의 라이브러리를 다운로드 받아서 사용해야만 그 서버에서 실행할 수 있다.
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     
+    // https://mvnrepository.com/artifact/net.coobird/thumbnailator
+    compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
+    
 }
 
 
