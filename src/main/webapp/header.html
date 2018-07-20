@@ -1,0 +1,123 @@
+﻿<!-- 사이드 메뉴 시작 -->
+<div off-canvas="id-2 right overlay">
+    <!-- 로그인 전 시작 -->
+    <div class="text-center align-middle" id="login-before">
+       <i class="fas fa-question-circle fa-7x" style="margin-top:30px"></i>
+       <br><br>
+       <span class="font-weight-bold">로그인 하세요.</span>
+    </div>
+    <!-- 로그인 전 끝 -->
+    
+    <!-- 로그인 후 시작-->
+    <div class="text-center align-middle" id="login-after">
+        <i class="fas fa-user-circle fa-7x" style="margin-top:30px"></i>
+        <br>
+		<span class="font-weight-bold" id="user" ></span>
+		
+		<div class="row" style="margin-top:30px">
+			<div class="col-sm-12 sidemenu text-left">
+			   내 정보 <i class="fas fa-angle-right float-right"></i>
+			</div>
+			<div class="col-sm-12 sidemenu text-left">
+	           스터디 관리 <i class="fas fa-angle-right float-right"></i>
+	        </div>
+	        <div class="col-sm-12 sidemenu text-left">
+	           스터디 후기 <i class="fas fa-angle-right float-right"></i>
+	        </div>
+	        <div class="col-sm-12 sidemenu text-left">
+               Q & A <i class="fas fa-angle-right float-right"></i>
+            </div>
+        </div>
+        <br>
+	    <p class="text-center" id="userLogout" ><a href="json/auth/logout">로그아웃</a></p>
+    </div>
+    <!-- 로그인 후 끝-->
+</div>
+<!-- 사이드 메뉴 끝 -->
+
+<!-- header start -->
+<header class="header" style="z-index:1;">
+ <div class="headerWrap">
+  <h1 class="logo">
+   <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+  </h1>
+ <div class="utilMenu">
+  <ul id="userMenu">
+   <li class="search"><a href="search.html">검색</a></li>
+   <li><a href="makeStudy.html">스터디 만들기</a></li>
+   <li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
+   <li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
+   <li class="utilMenuMobile">스터디그룹 만들기</li>
+   <li class="utilMenuMobile">가입한 스터디 목록</li>
+   <li class="menu toggle-id-2">menu</li>
+  </ul>
+ </div>
+ </div>
+ <div class="menuToggle" style="display: none">
+  <div>
+   <div class="profile_img" id="userPic">
+    <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
+   </div>
+  </div>	
+ </div>
+</header>
+<!-- header end -->
+
+<script>
+
+
+  ( function ( $ ) {
+            // Initialize Slidebars
+            var controller = new slidebars();
+            controller.init();
+    
+            $( '.toggle-id-2' ).on( 'click', function ( event ) {
+              // Stop default action and bubbling
+              event.stopPropagation();
+              event.preventDefault();
+    
+              // Toggle the Slidebar with id 'id-2'
+              controller.toggle( 'id-2' );
+            } );
+            
+            $( '#container' ).on( 'click', function () {
+                controller.close();
+              } );
+
+            $.get("json/auth/loginstat", {}, res=> {
+            console.log("[" + res + "]" + ", " + typeof(res));
+    
+            if(typeof(res) == "object" ) {
+                $('#login-before').css('display', 'none');
+                $('#user').text( res.email );
+
+                $('#login-after').css('display', 'block');
+                $('#userPic').css('display', 'block');
+                $('#userLogout').css('display', 'block');
+                $('#login').css('display', 'none');
+                $('#signup').css('display', 'none');
+
+            } else {
+                $('#login-after').css('display', 'none');
+                $('#userPic').css('display', 'none');
+                $('#userLogout').css('display', 'none');
+
+                $('#login-before').css('display', 'block');
+                $('#user').css('display', 'none');
+                $('#login').css('display', 'block');
+                $('#signup').css('display', 'block');
+            }
+        
+            });
+          }) ( jQuery );
+</script>
+
+<style>
+.sidemenu{
+    padding: 2rem;
+    border: 1px solid #dddddd;
+}
+.sidemenu:hover{
+    color: #ef6c00;
+}
+</style>

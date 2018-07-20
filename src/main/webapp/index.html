@@ -5,40 +5,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
-	<!-- bootstrap css link -->
-	<!-- 정호형 소스 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<!-- 정호형 소스 -->
-
+	<link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+	<link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+	
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link type="text/css" rel="stylesheet" href="css/common.css">
 	<link type="text/css" rel="stylesheet" href="css/reset.css">
 	<link type="text/css" rel="stylesheet" href="css/mediaqueries.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-
-	<!-- slidebars start -->
-    	<link type="text/css" rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
-    	<!-- slidebars end -->
 	
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
-	<!-- 정호형 소스 -->
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/popper.js/dist/popper.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="slider/jquery.bxslider.min.js"></script>
 	<script src="node_modules/slidebars/dist/slidebars.js"></script>
-	<!-- 정호형 소스 -->
- 
 	<script src="js/common.js"></script>
 
 	<script>
-	$(document).ready(function() { 
+	var controller = new slidebars();
+        controller.init();
 
+	$(document).ready(function() { 
 	  $('.slider').bxSlider({
 	   auto:true,
 	   speed:500,
@@ -48,14 +41,12 @@
 	   minSlides:3,
 	   maxSlides:3
 	  });
-
 	   $("#login").click( function() {
 	   	$("#myModal").modal();
 	   });
 	   $("#signup").click( function() {
 	   	$("#register").modal();
 	   });
-
       $('#doc1').click( function() {
          
          if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
@@ -65,9 +56,7 @@
           $('#regLink').css('pointer-events', 'none');
           $('#regLink').css('opacity', '0.2');
          }
-
        });
-
        $('#doc2').click( function() {
          
          if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
@@ -77,7 +66,6 @@
           $('#regLink').css('pointer-events', 'none');
           $('#regLink').css('opacity', '0.2');
          }
-
        });
 	
 	$('#register').on('shown.bs.modal', function() {
@@ -86,24 +74,13 @@
 		$('#regLink').css('pointer-events', 'none');
           	$('#regLink').css('opacity', '0.2');
 	});
-
-
        $('body').focus( function() {
          $('#doc1').attr("checked", "false");
          $('#doc2').attr("checked", "false");
          $('#saveId').attr("checked", "false");
        });
-	
-	$.get("json/auth/loginstat", {}, res=> {
-		console.log("[" + res + "]" + ", " + typeof(res));
-		if(typeof(res) == "object" ) {
-			$("#header").load(serverRoot+"/header.html");
-			return;
-		}
 
-		$("#header").load(serverRoot+"/header-before.html");
-			
-	})
+	$("#header").load(serverRoot+"/header.html");
 
         $(signin).click(function() {
 		$.post("json/auth/login", {
@@ -116,25 +93,8 @@
 				location.href = "index.html";
 		});
          });
+
 	});
-
-   var controller = new slidebars();
-            controller.init();
-    
-            $( '.toggle-id-2' ).on( 'click', function ( event ) {
-              // Stop default action and bubbling
-              event.stopPropagation();
-              event.preventDefault();
-    
-              // Toggle the Slidebar with id 'id-2'
-              controller.toggle( 'id-2' );
-            } );
-            
-            $( '#wrap' ).on( 'click', function () {
-                controller.close();
-              } );
-
-
 	</script>
 
 <style>
@@ -155,26 +115,13 @@
 </style>
 
 
-<!-- 사이드메뉴 시작 -->
-<style>
-	.sidemenu{
-	    padding: 2rem;
-	    border: 1px solid #dddddd;
-	}
-	
-	.sidemenu:hover{
-	   color: #ef6c00;
-	}
-</style>
-<!-- 사이드메뉴 끝 -->
-
-
 </head>
-<body>
+<body id="container" canvas="container">
 	<div id="wrap">
 		<!-- header start -->
-		<div id="header">
-		</div>
+		<div id="header"> </div>
+		
+		<!-- header end -->
 	
 		<!-- section start -->
 		<section class="section">
@@ -294,6 +241,7 @@
 			    </div>
 			  </div>
 			 </div>
+			</div>
 			 <!-- Modal -->
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
