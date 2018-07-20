@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.MemberDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.Member" id="MemberMap">
+    <id column="memno" property="no"/>
+    <result column="email" property="email"/>
+    <result column="pwd" property="password"/>
+    <result column="intrd" property="introduce"/>
+    <result column="pfp" property="profile"/>
+    <result column="name" property="name"/>
+    <result column="birth" property="birthday"/>
+    <result column="tel" property="tel"/>
+    <result column="gen" property="gender"/>
+    <result column="itrloc" property="interestedPlace"/>
+  </resultMap>
+    
+  <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
+    insert into member( email, pwd, name, tel)
+        values(#{email}, password(#{password}), #{name}, #{tel} )
+  </insert>
+  
+  <!-- 
+  <update id="update_additional">
+    update member
+  </update> -->
+    
+  <select id="selectOne" parameterType="String" resultMap="MemberMap">
+    select *
+    from member 
+    where email=#{id}
+  </select>
+  
+  <select id="selectOneSimpleCase" parameterType="String" resultType="bitcamp.java106.pms.domain.Member">
+    select memno, email
+    from member 
+    where email=#{id}
+  </select>
+  
+  <select id="count" parameterType="map" resultType="int">
+        select count(*)
+        from member 
+        where email=#{id} and pwd=password(#{password})
+  </select>
+</mapper>
+
+
+
+
+
+
+

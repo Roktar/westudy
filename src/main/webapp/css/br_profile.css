@@ -1,0 +1,203 @@
+div.group-nav,
+div.studyCheckin,
+div.checkedMembers {
+    border-radius: 5px;
+}
+
+div.group-nav {
+    margin: 0 0em 0 0em;
+    background-color: #ddd;
+}
+
+div.group-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin: 1em;
+}
+
+div.group-nav ul li {
+    display: inline;
+    margin: 2rem;
+}
+
+div.group-nav ul li a {
+    color: black;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+div.container-box {
+    margin: 0 auto;
+    padding: 1em;
+    line-height: 3rem;
+/*    width: 40%;*/
+}
+
+.navbar {
+    margin: 0 0 3rem 0;
+}
+
+#profileInput {
+    float: right;
+}
+
+#exampleInputEmail1 {
+    width: 70%;
+}
+
+.profileMain {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+h3 {
+    text-align: center;
+}
+
+.container-box {
+    width: 60%;
+    margin: 5rem auto;
+    margin: 3rem auto;
+}
+
+div.filter-selection {
+    margin: 3rem;
+    display: block;
+    position: relative;
+}
+
+ul.filter-category {
+    display: block;
+}
+
+li.block {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+/*    border: 1px solid #ddd;*/
+    background-color: #fff;
+    font-weight: bold;
+    margin: 0rem;
+}
+
+li.block:hover {
+    box-shadow: 5px 5px #ccc inset;
+}
+
+li.block:visited {
+    box-shadow: 5px 5px #ccc inset;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#saveBtn {
+    display: block;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center
+}
+
+div.interests {
+    text-align: center;
+}
+
+input[type="password"] {
+    width: 95%;
+}
+
+#nextBtn {
+    float: right;
+}
+
+div.forBtn {
+    text-align: cen1ter;
+}
+
+div.modal-header,
+div.modal-footer {
+    text-align: center;
+}
+
+form.warn {
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+div.modal-content {
+    text-align: center;
+    line-height: 2rem;
+}
+
+div.container {
+    padding: 2rem;
+}
+
+img.thumbnail {
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+div.inner-container-box {
+    width: 70%;
+    margin: 0 auto;
+}
+
+div.form-group-img {
+    text-align: center;
+}
+
+a.edit {
+    float: right;
+    margin: 1rem;
+}
+
+#passwordChange{
+    float: right;
+}
+
+form{
+    margin: 0px;
+    padding: 0px;
+}
+
+a.ok{
+    float: right;
+}
+
+div.list-group a{
+    border-radius: 0px;
+}
+
+#imgInput {
+    border: 0px;
+}
+
+input[type="file"] {
+    background-color: #ef6c00 ;
+    color: white;
+}
+
+#updBtn{
+    width: 50%;
+    margin: 10rem auto 0 auto;
+    display: block;
+}
+
+input.form-control-plaintext{
+    display: inline-block;
+    width: 50%;
+}

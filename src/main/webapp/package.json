@@ -1,0 +1,20 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "html, js 등 정적 파일",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blueimp-file-upload": "^9.22.0",
+    "bootstrap": "^4.1.2",
+    "jquery": "^3.3.1",
+    "masonry": "0.0.2",
+    "masonry.js": "^3.1.5",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.3"
+  }
+}

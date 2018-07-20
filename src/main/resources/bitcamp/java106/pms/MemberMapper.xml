@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.MemberDao">
+
+	<resultMap type="Member" id="MemberMap">
+		<id column="memno" property="no" />
+		<result column="email" property="email" />
+		<result column="pwd" property="email" />
+		<result column="pfp" property="profilePicture" />
+		<result column="intrd" property="introduction" />
+		<result column="name" property="name" />
+		<result column="birth" property="birth" />
+		<result column="tel" property="telephone" />
+		<result column="gen" property="gender" />
+		<result column="itrloc" property="interestedLocation" />
+	</resultMap>
+
+	<select id="selectList" resultMap="MemberMap"
+		parameterType="map">
+		select memno, email, pwd, pfp, intrd, name, birth, tel, gen, itrloc
+		from member
+		limit #{startRowNo}, #{pageSize}
+	</select>
+
+	<insert id="insert" parameterType="Member">
+		insert member
+		values(#{no},#{email},password(#{password}),#{profilePicture},
+		#{introduction},#{name},#{birth},#{telephone},#{gender},#{intrestedLocation})
+	</insert>
+
+	<select id="selectOne" parameterType="String"
+		resultMap="MemberMap">
+        select memno, email, pwd, pfp, intrd, name, birth, tel, gen, itrloc
+		from member
+		where memno=#{no}
+	</select>
+
+	<select id="count" parameterType="map" resultType="int">
+		select count(*)
+		from member
+		where memno=#{no} and pwd=password(#{password})
+	</select>
+
+	<select id="selectOneWithPassword" parameterType="map"
+		resultMap="MemberMap">
+        select memno, email, pwd, pfp, intrd, name, birth, tel, gen, itrloc
+		from member
+		where memno=#{no} and pwd=password(#{password})
+	</select>
+
+	<update id="update" parameterType="Member">
+		update member set
+		pwd=password(#{password}),
+		itrloc=#{interestedLocation},
+		pfp=#{profilePicture},
+		intrd=#{introduction}
+		where memno=#{no}
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete from member where memno=#{value}
+	</delete>
+</mapper>
+
+
+
+
+
+
+

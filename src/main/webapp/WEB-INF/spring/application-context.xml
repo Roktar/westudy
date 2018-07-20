@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- web 패키지에 있는 객체를 제외한 다른 객체를 다룸 -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:ctx="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd                        
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd                       
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+    <ctx:component-scan base-package="bitcamp.java106.pms">
+        <!-- <ctx:exclude-filter type="regex" expression="bitcamp.java106.pms.web.*"/> -->
+    </ctx:component-scan>
+    
+    <!-- jdbc.properties 파일을 읽기 위해 파일 주소를 제공 -->
+    <!-- aws.properties 파일은 공유되서는 안됨. -->
+    <ctx:property-placeholder
+        location="classpath:jdbc.properties, 
+                  classpath:aws.properties" />
+
+    <!-- DB ConnectionPool 객체 생성 -->
+    <bean id="dataSource"
+        class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+
+    <!-- SqlSessionFactory 객체 생성 -->
+    <bean id="sqlSessionFactory"
+        class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations"
+            value="classpath*:bitcamp/java106/pms/sql/*Mapper.xml" />
+        <property name="typeAliasesPackage"
+            value="bitcamp.java106.pms.domain"></property>
+    </bean>
+    
+    <!-- DAO 생성 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="bitcamp.java106.pms.dao" />
+    </bean> 
+    
+    <!-- 트랜잭션 등록 -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="list*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* bitcamp.java106.pms.service.impl.*.*(..))"/>
+    </aop:config>
+    
+</beans>
+
+
+
+
+
+

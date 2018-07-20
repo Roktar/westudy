@@ -1,0 +1,145 @@
+﻿/* 미디어 쿼리 css */
+
+@media (max-width: 640px) {
+
+
+   .header {
+      width: 100%;
+   }
+
+   .header .headerWrap {
+      position: relative;
+      height: 80px;
+      margin: 0 10px;
+   }
+   .utilMenu {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 14px;
+      line-height: 2.285714285714286rem;
+   }
+
+   .utilMenu ul:after {
+      display: block;
+      content: "";
+      clear:both;
+   }
+
+   .utilMenu ul li:nth-child(2), .utilMenu ul li:nth-child(3), .utilMenu ul li:nth-child(4) {
+      display: none;
+   }
+   .utilMenu ul .utilMenuMobile {
+      display: block;
+   }
+
+   .utilMenu ul li {
+      float:left;
+   }
+
+   .utilMenu ul li.search {
+      width: 32px;
+      height: 32px;
+      background: url(../img/magnifying_glass.png) no-repeat 50% 50%;
+   }
+   .utilMenu ul li.menu {
+      width: 32px;
+      height: 32px;
+      background: url(../img/list.png) no-repeat 50% 50%;
+   }
+
+
+
+
+
+   /*.visualBanner {
+      width:100%;
+   }
+   .thumbnail {
+      position: relative;
+      padding-top: 100%;
+      overflow: hidden;
+   }
+   .thumbnail img {
+      position: absolute;
+      top:0;
+      left:0;
+      right: 0;
+      bottom: 0;
+      max-width: 100%;
+      height: auto;
+   }*/
+
+
+
+
+   .mainCategory {
+      width: auto;
+      padding: 0 10px;
+      text-align: center;
+   }
+   .mainCategory ul {
+      width:100%;
+      margin: 20px 0;
+   }
+   .mainCategory ul li {
+      width: 25%;
+   }
+   .mainCategory ul li a{
+      margin-bottom: 30px;
+   }
+
+   /* 스터디 후기 */
+   .l-col {
+      width: 50%;
+   }
+   .study {
+      margin-bottom: 80px;
+   }
+   /* 스터디 후기 */
+
+   
+
+   /* 정호형 소스 */
+
+  .grid2 {
+    width:auto;
+  }
+  
+  .grid3 {
+    width:auto;
+    margin-top:0.6em;
+  }
+
+  .sliderInner {
+    width:auto;
+  }
+
+  .btn {
+    font-size:0.8rem;
+  }
+
+  .memberOffer {
+    background-size:100% 100%;
+    background-position: 100% 100%;
+  }
+   /* 정호형 소스 */
+
+
+   .overflow:after {
+      display: block;
+      content: "";
+      clear: both;
+   }
+
+   .grid4 {
+      float: left;
+      width: 50%;
+      margin: 0;
+   }
+   .grid4:last-child {
+      margin: 0;
+   }
+
+
+}

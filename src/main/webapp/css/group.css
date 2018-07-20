@@ -1,0 +1,434 @@
+div.container {
+    max-width: 1200px;
+<<<<<<< HEAD:frontend/css/group.css
+    margin: 0px auto 0px auto;
+=======
+    padding: 0px;
+>>>>>>> 64006f5920d7df1dead85c786318028718810f26:src/main/webapp/css/group.css
+}
+
+div.innerContainer {
+    max-width: 1200px;
+}
+
+ul.nav {
+    background-color: #ef6c00;
+<<<<<<< HEAD:frontend/css/group.css
+    color: white; 
+/*    padding-bottom: 1rem;*/
+/*    margin-bottom: 1rem;*/
+/*    font-weight: bold;*/
+=======
+>>>>>>> 64006f5920d7df1dead85c786318028718810f26:src/main/webapp/css/group.css
+}
+
+a.nav-link {
+    color: white;
+}
+
+div.scheduleDetails {
+    border: 1px solid #ddd;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+div.carousel-caption h5 {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+}
+
+div.objective {
+    line-height: 2rem;
+    text-align: center;
+    display: inline-block;
+    padding: 0rem;
+}
+
+div.objective-sm {
+    margin: 0 auto;
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+div.carousel-caption p {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+}
+
+h6.studyName {
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-left: 2px solid #ef6c00;
+    border-right: 2px solid #ef6c00;
+}
+
+h5.studyName {
+    font-weight: bold;
+}
+
+div.carousel-caption p,
+div.carousel-caption h5 {
+    height: 5rem;
+    width: 34rem;
+    margin: 0 auto;
+}
+
+
+.btn,
+.btn:hover,
+.btn:active {
+    background-color: #ef6c00;
+    color: white;
+    font-weight: bold;
+}
+
+
+h6 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem 0px 0.5rem 0px;
+}
+
+div.menu {
+    margin: 1rem;
+}
+
+a.calendar {
+    float: right;
+    margin: 0.5rem;
+}
+
+span.scheduleTopic,
+span.scheduleTimeline,
+span.scheduleLocation,
+span.scheduleTilte {
+    font-size: 1.2rem;
+    line-height: 3.5rem;
+    border-bottom: 2px solid #ef6c00;
+    padding: 0.5rem;
+}
+
+span.scheduleTilte {
+    font-weight: bold;
+    border-bottom: 2px solid #ef6c00;
+    padding: 0.5rem;
+}
+
+div.scheduleDetail {
+    text-align: center;
+    line-height: 2rem;
+}
+
+div.checkedMembers {
+    line-height: 2rem;
+}
+
+div.row.eachMember {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #ddd;
+
+}
+
+span.memberName {
+    font-weight: bold;
+}
+
+li.eachMember {
+    background-color: white;
+    float: left;
+    margin: 1rem;
+}
+
+
+img.thumbnail {
+    width: 6rem;
+    display: inline-block;
+/*    padding: 1rem;*/
+    /*
+    margin: 1.5rem;
+    padding: 0.5rem;
+*/
+}
+
+div.scheduleDetail {
+    margin: 0 auto;
+}
+
+.studyName {
+    display: inline-block;
+}
+
+.survey {
+    text-align: center;
+}
+
+span.pollTitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+div.custom-control {
+    text-align: left;
+}
+
+button.poll {
+    margin: 0 auto;
+    float: right;
+}
+
+div.dday {
+    width: 15rem;
+    height: 15rem;
+    margin: auto auto;
+    text-align: center;
+    line-height: 3rem;
+    border: 1px solid #ddd;
+}
+
+span.ddaytitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+span.ddaycount {
+    font-size: 2rem;
+    line-height: 2rem;
+    padding: 1rem;
+}
+
+div.forcolor {
+    padding: 2rem 0px 2rem 0px;
+    width: 100%;
+/*    background-color: #f2f2f2;*/
+}
+
+div.menu2 {
+    background-color: white;
+    padding: 0.5rem;
+}
+
+footer.footer {
+    margin-top: 0;
+}
+
+div.col1 {
+    width: 40%;
+    margin: 0px;
+}
+
+div.col2 {
+    width: 60%;
+    margin: 0px;
+    padding: 2.5rem;
+}
+
+button.apply {
+    float: right;
+}
+
+a.checkin {
+    width: 30%;
+    margin: 0 auto;
+}
+
+div.input-group {
+    width: 50%;
+    margin: 0 auto;
+}
+
+img.mapMarker {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: block;
+    margin: 0 auto;
+}
+
+button.btn {
+    border: 0px;
+}
+
+button.btn:hover,
+button.btn:active {
+    background-color: #ef6c00;
+}
+
+div.modal-body {
+    text-align: center;
+}
+
+span.lateTime {
+    color: red;
+}
+
+button.invitationbtn {
+    margin: 1rem auto;
+    width: 20%;
+}
+
+
+div.addMember {
+    margin: 1rem;
+    border-radius: 5px;
+    float: right;
+}
+
+input.memberAdd {
+    width: 95%;
+}
+
+#emailInput {
+    margin-bottom: 3px;
+}
+
+.invitation {
+    padding: 1em;
+    color: orange;
+    display: none;
+    font-weight: bold;
+}
+
+a.writeBtn {
+    float: right;
+}
+
+img.fileIcon {
+    height: 1.2rem;
+    display: inline-block;
+    margin: 0.2rem;
+}
+
+div.photos {
+    margin: 0;
+    padding: 0;
+/*
+    max-width: 1232px;
+    overflow: visible;
+*/
+}
+
+img.card-img-top {
+    border-radius: 0px;
+}
+img.card-img-top:hover {
+    opacity: 0.4;
+}
+
+a.photoBtn {
+    float: right;
+}
+
+div.card {
+    border: 0px;
+    padding: 0rem;
+    margin: 1rem;
+}
+
+/*
+div.card1 {
+    margin-left: -0rem;
+}
+*/
+
+div.card3{
+    margin-right: 
+}
+div.card-body {
+    border: 1px solid #ddd;
+    border-top: 0px;
+}
+
+div.survey-{
+    margin: 0rem;
+    padding: 0rem;
+/*    border: 1px solid #ddd;*/
+}
+
+img.thum {
+    height: 8rem;
+    width: 8rem;
+}
+div.groupMem{
+    margin: 0px;
+    padding: 0px;
+/*    border: 1px solid #ddd;*/
+}
+
+div.memPic {
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #ddd;
+}
+
+div.memDesc {
+    margin: 0px;
+    padding-left: 1rem;
+    padding-right: 4rem;
+    border: 1px solid #ddd;
+    line-height: 2rem;
+}
+
+div.studyLeader {
+    width: 20%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+img.leader-thumbnail {
+    height: 10rem;
+    width: 10rem;
+    display: inline-block;
+}
+
+div.container {
+/*    margin: 0px;*/
+    padding: 0px;
+}
+
+div.row {
+    padding: 0px;
+    margin: 0px;
+    max-width: 1200px;
+}
+
+div.col-sm.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.col-sm.memberProfile {
+    line-height: 3rem;
+}
+div.col {
+    padding: 0px;
+    max-width: 1200px;
+    margin: 0px;
+}
+
+img.message {
+    height:4rem;
+    width:4rem;
+/*    float: right;*/
+    margin: 0px;
+    padding: 0px;
+}
+
+div.col-md-4 {
+    padding: 0px;
+}
+
+div.col-sm{
+    padding: 0px;
+}
+
+div.col-sm.memberProfile span{
+    margin-left: 1rem;
+    margin-right: 2rem;
+}

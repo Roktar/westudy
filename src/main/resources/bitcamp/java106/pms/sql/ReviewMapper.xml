@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.ReviewDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.Review" id="ReviewMap">
+    <id column="rvwno" property="no"/>
+    <result column="cont" property="content"/>
+    <result column="rating" property="rating"/>
+    <result column="cdt" property="createdDate"/>
+    <result column="category" property="category"/>
+    <association property="member" javaType="Member">
+      <id column="memno" property="no"/>
+    </association>
+  </resultMap>
+    
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">
+    insert into study_review(rvwno, cont, rating, cdt, category, memno)
+        values(#{no}, #{content}, #{rating}, #{createdDate}, #{category}, #{member.no} )
+  </insert>
+  
+  <!-- 
+  <update id="update_additional">
+    update member
+  </update> -->
+    
+  <select id="get" parameterType="int" resultMap="ReviewMap">
+    select *
+    from study_survey 
+    where title=#{no}
+  </select>
+  
+  
+</mapper>
+
+
+
+
+
+
+
