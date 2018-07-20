@@ -94,35 +94,34 @@
 							<input type='file' id="imgInput" />
 						</form>
 						<br>
-						<script>
-						if (location.href.split("?").length > 1) {
-							   var tags = $(".input-view");
-							    tags.css("display", "none");
+<span class="btn btn-success fileinput-button">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>파일 선택...</span>
+    <input id="fileupload" type="file" name="files" multiple>
+</span>
 
-							    var no = location.href.split("?")[1].split("=")[1];
-	
-    $.getJSON(serverRoot + "/json/member/" + no, function(data) {
-        $(fNo).val(data.no); 
-        $(fName).val(data.name); 
-        $(fEmail).val(data.email); 
-        $(fPassword).val(data.password); 
-        $(fBirthDate).val(data.birth); 
-        $(fGender).val(data.gender); 
-        $(fLocation).val(data.interestedLocation); 
-        $(fProfile).val(data.introduction); 
-    });
-	
-    $("#updBtn").click(() => {
-        $.post(serverRoot + "/json/member/update", {
-            no: $(fNo).val(),
-            email: $(fEmail).val(),
-            password: $(fPassword).val()
-        });
-    })
-}
+<div id="imgBox"></div>
 
-						</script>
 						<script>
+						var imgBox = $('#imgBox');
+
+						$('#fileupload').fileupload({
+						    url: '../mvc/exam11_2/upload04',        // 서버에 요청할 URL
+						    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+						    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+						      console.log('done()...');
+						      console.log(data.result);
+						      
+						      $('<img>')
+						        .attr('src', '../files/' + data.result.filename)
+						        .appendTo(imgBox);
+						      $('<img>')
+						        .attr('src', '../files/' + data.result.filename + '_50x50.jpg')
+						        .appendTo(imgBox);
+						    }
+						});
+
+						
                             function readURL(input) {
                                 if (input.files && input.files[0]) {
                                     var reader = new FileReader();
