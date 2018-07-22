@@ -9,4 +9,5 @@ public interface MemberDao {
     void insert_basic(Member member);
     int count(Map<String, Object> params);
     Member selectOneSimpleCase(String id);
+    int update(Member member);
 }

@@ -45,6 +45,16 @@
         from member 
         where email=#{id} and pwd=password(#{password})
   </select>
+  
+  <update id="update" parameterType="Member">
+        update Member set
+        pfp=#{profile},
+        pwd=password(#{password}),
+        tel=#{tel},
+        itrloc=#{interestedPlace},
+        where email=#{id}
+    </update>
+  
 </mapper>
 
 

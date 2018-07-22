@@ -9,5 +9,6 @@ public interface MemberService {
     Member selectOne(String id);
     boolean isExist(String id, String password);
     Member selectOneSimpleCase(String id);
+    int update(Member member);
 } 
  
