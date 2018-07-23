@@ -5,7 +5,7 @@
 
 <mapper namespace="bitcamp.java106.pms.dao.ReviewDao">
 
-  <resultMap type="bitcamp.java106.pms.domain.Review" id="ReviewMap">
+  <resultMap type="Review" id="ReviewMap">
     <id column="rvwno" property="no"/>
     <result column="cont" property="content"/>
     <result column="rating" property="rating"/>
@@ -15,10 +15,21 @@
       <id column="memno" property="no"/>
     </association>
   </resultMap>
+  
+   <select id="selectList" 
+          resultMap="ReviewMap"
+          parameterType="map">
+   select rvwno, cont, rating, cdt, category 
+   from study_review
+   order by rvwno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  
     
-  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">
+  <insert id="insert" parameterType="Review"
+  		  useGeneratedKeys="true" keyColumn="bno" keyProperty="no">
     insert into study_review(rvwno, cont, rating, cdt, category, memno)
-        values(#{no}, #{content}, #{rating}, #{createdDate}, #{category}, #{member.no} )
+        values(#{no}, #{content}, #{rating}, #{createdDate}, #{category}, #{member.no})
   </insert>
   
   <!-- 
@@ -28,7 +39,7 @@
     
   <select id="get" parameterType="int" resultMap="ReviewMap">
     select *
-    from study_survey 
+    from study_review
     where title=#{no}
   </select>
   

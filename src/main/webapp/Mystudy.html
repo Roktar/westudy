@@ -27,7 +27,7 @@
         <script src="js/dropzone.js"></script>
         <script src="js/review-modal.js"></script>
 	 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/fontawesome-stars.css">
+        <link rel="stylesheet" href="css/css-stars.css">
         <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
 			<script src="js/common.js"></script>
 </head>
@@ -200,6 +200,7 @@
                     </div>
                     
                     <div class="starzone">
+                    <span style="color:#495057;">별점을 자유롭게 매겨주세요!</span>
                     <select id="example">
 					  <option value="1">1</option>
 					  <option value="2">2</option>
@@ -269,7 +270,7 @@
 <script type="text/javascript">
     $(function() {
        $('#example').barrating({
-         theme: 'fontawesome-stars'
+         theme: 'css-stars'
        });
     });
  </script>
