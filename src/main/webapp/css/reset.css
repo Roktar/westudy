@@ -47,9 +47,7 @@ input{
 	box-sizing:content-box;
 	vertical-align:top;
 	appearance:none;
-	border:1px solid #333;
 	color:#333;
-	border-radius:0; 
 	font-family:NanumGothic,나눔고딕,'Nanum Gothic','맑은 고딕',HelveticaNeue,DroidSans,Sans-serif,Helvetica;
 }
 
