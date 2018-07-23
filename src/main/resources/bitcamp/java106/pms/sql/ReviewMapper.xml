@@ -14,12 +14,15 @@
     <association property="member" javaType="Member">
       <id column="memno" property="no"/>
     </association>
+      <association property="study" javaType="Study">
+      <id column="stdno" property="no"/>
+    </association>
   </resultMap>
   
    <select id="selectList" 
           resultMap="ReviewMap"
           parameterType="map">
-   select rvwno, cont, rating, cdt, category 
+   select cont, rating, cdt, category
    from study_review
    order by rvwno desc
    limit #{startRowNo}, #{pageSize}
@@ -27,9 +30,9 @@
   
     
   <insert id="insert" parameterType="Review"
-  		  useGeneratedKeys="true" keyColumn="bno" keyProperty="no">
-    insert into study_review(rvwno, cont, rating, cdt, category, memno)
-        values(#{no}, #{content}, #{rating}, #{createdDate}, #{category}, #{member.no})
+  		  useGeneratedKeys="true" keyColumn="rvwno" keyProperty="no">
+    insert into study_review(cont, rating, cdt, category)
+        values(#{content}, #{rating}, now(), #{category})
   </insert>
   
   <!-- 

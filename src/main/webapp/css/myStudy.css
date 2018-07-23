@@ -152,10 +152,6 @@ a {
 }
 
 
-.modal-header {
-    margin-bottom: 1em;
-}
-
 
 .form-group {
     margin-bottom: 0;
@@ -166,8 +162,17 @@ a {
 	margin-left : 1em;
 }
 
-.starzone {
-	margin-top: 1em;
+.modal-footer {
+	justify-content : center;
+}
+
+.input-view, .cancel-view {
+	width: 230px;
+	
+}
+
+.ttbtn, .review {
+	margin-top: 0.6em;
 }
 
   

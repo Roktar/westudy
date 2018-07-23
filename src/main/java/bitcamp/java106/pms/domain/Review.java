@@ -13,8 +13,15 @@ public class Review implements Serializable {
     private Date createdDate;
     private String category;
     private Member member;
+    private Study study;
     
     
+	public Study getStudy() {
+		return study;
+	}
+	public void setStudy(Study study) {
+		this.study = study;
+	}
 	public int getNo() {
 		return no;
 	}
