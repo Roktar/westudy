@@ -1,57 +1,53 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 
 <head>
-<meta charset="UTF-8">
-<title>Document</title>
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans"
-	rel="stylesheet">
-<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="node_modules/blueimp-file-upload/css/jquery.fileupload.css">
-<script src='node_modules/jquery/dist/jquery.js'></script>
-<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>	
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/br_profile.css">
-<script id="tr-template" type="text/x-handlebars-template"></script>
-<script src="js/common.js"></script>
+    <meta charset="UTF-8">
+    <title>내 정보 관리</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/br_profile.css">
+    <script src='node_modules/jquery/dist/jquery.js'></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <style>
+    .test{
+        border: 1px solid red;
+    }
+    </style>
+
 </head>
 
 <body>
-	<!-- header start -->
-	<header class="header">
-		<div class="headerWrap">
-			<h1 class="logo">
-				<a href="index.html"> <img src="img/logo3.png" alt="로고"
-					title="WeStudy">
-				</a>
-			</h1>
-			<div class="utilMenu">
-				<ul>
-					<li class="search"></li>
-					<li>스터디 만들기</li>
-					<li>로그인</li>
-					<li>회원가입</li>
-					<li class="menu"></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+    <!-- header start -->
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2" style="text-align: center">
-				<div class="col-box-list">
-					<div class="class_titl">내정보</div>
-					<hr class="line3">
-					<div class="list-group cls-list">
-						  <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
                             내 정보 관리
-                        </a>
-                        <a href="Mystudy.html" class="list-group-item list-group-item-action cls-list-link">
-                            내 스터디
                         </a>
                         <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
                             관심 분야 설정
@@ -65,132 +61,144 @@
                         <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
                             계정 삭제
                         </a>
-					</div>
-				</div>
-			</div>
-			<div class="container-box col">
-				<div class="inner-container-box">
-					<h3>내 정보 관리</h3>
-					<hr>
-					<br>
-					<div class="form-group-img">
-						<label for="exampleInputEmail1">내 사진 </label> <br>
-						<form id="form" runat="server">
-							<img id="image_section"
-								src="http://localhost:8888/FinalProject/img/thumbnail2.jpg"
-								alt="현재 이미지" class="rounded-circle thumbnail" /> <br> <br>
-							<input type='file' id="imgInput" />
-						</form>
-						<br>
-<span class="btn btn-success fileinput-button">
-    <i class="glyphicon glyphicon-plus"></i>
-    <span>파일 선택...</span>
-    <input id="fileupload" type="file" name="files" multiple>
-</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container-box col">
+                <div class="inner-container-box">
+                    <h3>내 정보 관리</h3><hr>
+                    <div class="form-group-img">
+                        <div id='images-div'></div>
+                        <div class="row">
+	                        <div class="col-sm-4 offset-sm-4">
+							  <input id="fileupload" type="file" name="files" class="form-control-sm form-control-file">
+	                        </div>
+						</div>
+                    </div>
+                    <ul>
+                        <li>이름 : <span class="eachName">Celine Farach</span></li>
+                        <li>
+                            이메일 주소 : &nbsp;<span class="email">farach@gmail.com </span>
+                        </li>
+                        <li>생년월일 : &nbsp;<span class="BornYear">1997.08.22 </span> </li>
+                        <li>성별 : &nbsp;<span class="gender">여</span>  </li>
+                        <li>지역 : &nbsp;<span class="location">서울, 강남</span>   <a href="#" class="btn btn-sm btn-secondary">변경</a></li>
+                        </li>
+                        <li> <textarea class="form-control" id="profileInput" rows="5"></textarea> <a href="#" class="btn btn-sm btn-secondary edit">수정</a></li>
+                    </ul>
+                    
+					
+					<table class="table table-hover">
+					<thead>
+					    <tr><th>번호</th><th>제목</th><th>등록일</th></tr>
+					</thead>
+					<tbody id="tableBody"></tbody>
+					</table>
+					
+					<script>
+/* 					$.getJSON("json/mypage/1", {
+					    dataType: "json",
+					    success(data) {
+					            var tr = document.createElement("tr");
+					            tr.innerHTML = "<td>" + item.memno + "</td>" + 
+					                "<td><a href='form.html?no=" + item.memno + "'>" + item.email + "</a></td>" + 
+					                "<td>" + item.gen + "</td>";
+					            tableBody.appendChild(tr);
+					    },
+					    error() {
+					        window.alert("실행 오류!");
+					    }
+					}); */
+					
+	                   $.getJSON("json/mypage/get/1", {}, function(data) {
+	                                var tr = document.createElement("tr");
+	                                tr.innerHTML = "<td>" + item.memno + "</td>" + 
+	                                    "<td><a href='form.html?no=" + item.memno + "'>" + item.email + "</a></td>" + 
+	                                    "<td>" + item.gen + "</td>";
+	                                tableBody.appendChild(tr);
+	                        });
+					</script>
+					
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
 
-<div id="imgBox"></div>
 
-						<script>
-						var imgBox = $('#imgBox');
-
-						$('#fileupload').fileupload({
-						    url: serverRoot+'/json/member/upload04',        // 서버에 요청할 URL
-						    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
-						    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-						      console.log('done()...');
-						      console.log(data.result);
-						      
-						      $('<img>')
-						        .attr('src', 'files/' + data.result.filename)
-						        .appendTo(imgBox);
-						      $('<img>')
-						        .attr('src', 'files/' + data.result.filename + '_50x50.jpg')
-						        .appendTo(imgBox);
-						    }
-						});
-
-                            function readURL(input) {
-                                if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-                                    reader.onload = function (e) {
-                                        $('#image_section').attr('src', e.target.result);
-                                    }
-                                    reader.readAsDataURL(input.files[0]);
-                                }
-                            }
-                            $("#imgInput").change(function () {
-                                readURL(this);
-                            });
-                        </script>
-					</div>
-					<div class="form-group row">
-						<label for="fName" class="col-sm-2 col-form-label">이름:&nbsp;</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control-plaintext" readonly
-								id="fName">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="fEmail" class="col-sm-2 col-form-label">이메일
-							:&nbsp; </label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control-plaintext " readonly
-								id="fEmail">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="fBirthDate" class="col-sm-2 col-form-label">생년월일
-							:&nbsp; </label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control-plaintext " readonly
-								id="fBirthDate">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="fGender" class="col-sm-2 col-form-label">성별
-							:&nbsp; </label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control-plaintext " readonly
-								id="fGender">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="fLocation" class="col-sm-2 col-form-label">지역
-							:&nbsp;&nbsp; </label>
-						<div class="col-sm-10">
-							<div class="input-group mb-3">
-								<input type="text" class="form-control" id="fLocation">
-								<div class="input-group-append">
-									<button class="btn btn-outline-secondary" type="button"
-										id="button-addon2">변경</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="fProfile" class="col-sm-2 col-form-label">내 소개
-							:&nbsp; </label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="fProfile" rows="3"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	<footer class="footer ">
-		<p>Logo</p>
-		<div>
-			<span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
-				홍길동 </span> <span>E-mail : we_study@westudy.com</span>
-		</div>
-		<p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-	</footer>
+    <!-- blueimp start -->
+    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script>
+       "use strict"
+        $('#fileupload').fileupload({
+          url: '../pms/mypage/upload',        // 서버에 요청할 URL
+          dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+          sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+          singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+          autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+          disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+          previewMaxWidth: 200,   // 미리보기 이미지 너비
+          previewMaxHeight: 200,  // 미리보기 이미지 높이 
+          previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+          processalways: function(e, data) {
+              console.log('fileuploadprocessalways()...');
+              console.log(data.files);
+              var imagesDiv = $('#images-div');
+              imagesDiv.html("");
+              for (var i = 0; i < data.files.length; i++) {
+                try {
+                  if (data.files[i].preview.toDataURL) {
+                    $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '200px').appendTo(imagesDiv);
+                  }
+                } catch (err) {}
+              }
+              $('#upload-btn').unbind("click");
+              $('#upload-btn').click(function() {
+                  data.submit();
+              });
+          }, 
+          submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+            console.log('submit()...');
+            data.formData = {
+                name: $('#name').val(),
+                age: $('#age').val()
+            };
+          }, 
+          done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+            console.log('done()...');
+            console.log(data.result);
+            $('<p/>').text("name : " + data.result.name).appendTo(document.body);
+            $('<p/>').text("age : " + data.result.age).appendTo(document.body);
+            $.each(data.result.files, function(index, file) {
+              $('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
+            });
+          }
+        });
+    </script>
+    <!-- blueimp end -->
 
 </body>
+
 </html>

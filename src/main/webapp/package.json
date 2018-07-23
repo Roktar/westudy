@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "Slidebars": "^2.0.0",
     "blueimp-file-upload": "^9.22.0",
     "bootstrap": "^4.1.2",
     "fontawesome": "^4.7.2",
@@ -18,5 +19,8 @@
     "popper": "^1.0.1",
     "popper.js": "^1.14.3",
     "slidebars": "^2.0.2"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.1"
   }
 }
