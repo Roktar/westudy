@@ -3,41 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>내 정보 관리</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/br_profile.css">
-    <script src='node_modules/jquery/dist/jquery.js'></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-    <style>
-    .test{
-        border: 1px solid red;
-    }
-    </style>
-
+    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src="js/common.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#header").load(serverRoot+"/header.html");
+	});
+</script>
 </head>
 
 <body>
-    <!-- header start -->
-    <header class="header">
-        <div class="headerWrap">
-            <h1 class="logo">
-                <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
-            </h1>
-            <div class="utilMenu">
-                <ul>
-                    <li class="search"></li>
-                    <li>스터디 만들기</li>
-                    <li>로그인</li>
-                    <li>회원가입</li>
-                    <li class="menu"></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+  <div id="header"> </div>
 
     <div class="container">
         <div class="row">
@@ -52,7 +39,7 @@
                         <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
                             관심 분야 설정
                         </a>
-                        <a href="message.html" class="list-group-item list-group-item-action cls-list-link">
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
                             메시지
                         </a>
                         <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
@@ -66,60 +53,24 @@
             </div>
             <div class="container-box col">
                 <div class="inner-container-box">
-                    <h3>내 정보 관리</h3><hr>
+                    <h3>내 정보 관리</h3><hr><br>
                     <div class="form-group-img">
-                        <div id='images-div'></div>
-                        <div class="row">
-	                        <div class="col-sm-4 offset-sm-4">
-							  <input id="fileupload" type="file" name="files" class="form-control-sm form-control-file">
-	                        </div>
-						</div>
+                        <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail"><br>
+                        <label for="exampleInputEmail1">내 사진 설정</label><br>
+                        <button type="file" class="btn btn-sm" id="imgUpload">파일선택</button>
+                        <button type="file" class="btn btn-secondary btn-sm" id="imgEdit">변경하기</button>
                     </div>
                     <ul>
-                        <li>이름 : <span class="eachName">Celine Farach</span></li>
+                        <li>이름 : <span class="eachName">윤봉길 </span></li>
                         <li>
-                            이메일 주소 : &nbsp;<span class="email">farach@gmail.com </span>
+                            이메일 주소 : &nbsp;<span class="email">bong@gmail.com </span>
                         </li>
-                        <li>생년월일 : &nbsp;<span class="BornYear">1997.08.22 </span> </li>
+                        <li>생년월일 : &nbsp;<span class="BornYear">2012.03.02 </span> </li>
                         <li>성별 : &nbsp;<span class="gender">여</span>  </li>
-                        <li>지역 : &nbsp;<span class="location">서울, 강남</span>   <a href="#" class="btn btn-sm btn-secondary">변경</a></li>
+                        <li>지역 : &nbsp;<span class="location">서울특별시 강남구</span>   <a href="#" class="btn btn-sm btn-secondary">변경</a></li>
                         </li>
                         <li> <textarea class="form-control" id="profileInput" rows="5"></textarea> <a href="#" class="btn btn-sm btn-secondary edit">수정</a></li>
                     </ul>
-                    
-					
-					<table class="table table-hover">
-					<thead>
-					    <tr><th>번호</th><th>제목</th><th>등록일</th></tr>
-					</thead>
-					<tbody id="tableBody"></tbody>
-					</table>
-					
-					<script>
-/* 					$.getJSON("json/mypage/1", {
-					    dataType: "json",
-					    success(data) {
-					            var tr = document.createElement("tr");
-					            tr.innerHTML = "<td>" + item.memno + "</td>" + 
-					                "<td><a href='form.html?no=" + item.memno + "'>" + item.email + "</a></td>" + 
-					                "<td>" + item.gen + "</td>";
-					            tableBody.appendChild(tr);
-					    },
-					    error() {
-					        window.alert("실행 오류!");
-					    }
-					}); */
-					
-	                   $.getJSON("json/mypage/get/1", {}, function(data) {
-	                                var tr = document.createElement("tr");
-	                                tr.innerHTML = "<td>" + item.memno + "</td>" + 
-	                                    "<td><a href='form.html?no=" + item.memno + "'>" + item.email + "</a></td>" + 
-	                                    "<td>" + item.gen + "</td>";
-	                                tableBody.appendChild(tr);
-	                        });
-					</script>
-					
-                    
                 </div>
             </div>
         </div>
@@ -139,65 +90,6 @@
         </div>
         <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
     </footer>
-
-
-    <!-- blueimp start -->
-    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-    <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
-    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
-    <script>
-       "use strict"
-        $('#fileupload').fileupload({
-          url: '../pms/mypage/upload',        // 서버에 요청할 URL
-          dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-          sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-          singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-          autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
-          disableImageResize: /Android(?!.*Chrome)|Opera/
-                .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-          previewMaxWidth: 200,   // 미리보기 이미지 너비
-          previewMaxHeight: 200,  // 미리보기 이미지 높이 
-          previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-          processalways: function(e, data) {
-              console.log('fileuploadprocessalways()...');
-              console.log(data.files);
-              var imagesDiv = $('#images-div');
-              imagesDiv.html("");
-              for (var i = 0; i < data.files.length; i++) {
-                try {
-                  if (data.files[i].preview.toDataURL) {
-                    $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '200px').appendTo(imagesDiv);
-                  }
-                } catch (err) {}
-              }
-              $('#upload-btn').unbind("click");
-              $('#upload-btn').click(function() {
-                  data.submit();
-              });
-          }, 
-          submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-            console.log('submit()...');
-            data.formData = {
-                name: $('#name').val(),
-                age: $('#age').val()
-            };
-          }, 
-          done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-            console.log('done()...');
-            console.log(data.result);
-            $('<p/>').text("name : " + data.result.name).appendTo(document.body);
-            $('<p/>').text("age : " + data.result.age).appendTo(document.body);
-            $.each(data.result.files, function(index, file) {
-              $('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
-            });
-          }
-        });
-    </script>
-    <!-- blueimp end -->
 
 </body>
 

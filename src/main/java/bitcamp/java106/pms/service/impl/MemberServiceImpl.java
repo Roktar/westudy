@@ -43,7 +43,6 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public void insert(Map<String, String> params) {
-        // TODO Auto-generated method stub
         
         Member member = new Member();
         member.setEmail(params.get("email"));
@@ -57,6 +56,7 @@ public class MemberServiceImpl implements MemberService{
         params.remove("tel");
         
         memberDao.insert_basic(member);
+        System.out.println("회원가입완료");
         int refid = memberDao.selectOne(member.getEmail()).getNo(); // 기준 회원 선택
         System.out.println("");
         
@@ -68,6 +68,34 @@ public class MemberServiceImpl implements MemberService{
                 interestFieldDao.insert(itr);
             }
         }
+    }
+
+    @Override
+    public Object changePassword(int no, String nowPassword, String newPassword) {
+        // TODO Auto-generated method stub
+        System.out.println("service run");
+        
+        Map<String, Object> validateParams = new HashMap<>();
+        validateParams.put("no", no);
+        validateParams.put("password", nowPassword);
+        
+        Member member = memberDao.validation(validateParams);
+        System.out.println(member);
+        
+        if(member == null)
+            return "fail";
+        
+        Map<String, Object> params = new HashMap<>();
+        params.put("no", no);
+        params.put("newPassword", newPassword);
+        
+        return memberDao.changePassword(params);
+    }
+
+    @Override
+    public Member selectOne(int no) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
