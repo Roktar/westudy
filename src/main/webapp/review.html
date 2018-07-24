@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="css/he-review.css">
     <link rel="stylesheet" href="css/css-stars-reviewpage.css">
     
-   <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+ 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
-    <script src="js/list.js"></script>
+ 
 
 <title>westudy</title>
 
@@ -99,7 +99,7 @@
                 </div>
                
 
-             <!--    <div class="prof_div">
+           <div class="prof_div">
                      <ul class="list-group">
                         <li class="list-group-item">
                             <a href="#"><img src="img/thumbnail.jpg"  width="50rem" height="50rem" class="rounded-circle prof-img" alt="logo"></a>
@@ -130,9 +130,13 @@
                                 <hr class="review-line"> 
                         </li>
                     </ul>
-                </div>  -->
+                </div>  
                 
-                <tbody id="tableBody"></tbody>
+                <div class="profdiv">
+                
+                
+                
+                </div>
             </div>
                        
             
@@ -207,41 +211,24 @@
     });
  </script>
 
-<script id="tr-template" type="text/x-handlebars-template">
-{{#each list}}
-
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="#"><img src="img/thumbnail.jpg"  width="50rem" height="50rem" class="rounded-circle prof-img" alt="logo"></a>
-                            <div id="user_inform">
-                                <div id="user_name"><a href="#">{{mname}}</a></div>
-                                <div class="user_score">
-                                    <select id="review-score">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="user_class">{{category}} </div>
-                            </div>
-                            <form>
-                                <div class="form-group">
-                                    <textarea class="form-control review-form" id="user-review" rows="4" readonly>{{cont}}
-                                    </textarea>
-                                </div>
-                            </form>
-                            <span class="review_date">{{cdt}}</span>
-                                <div class="user_class_info">
-                                    <div class="user_class_name"><a href="groupMain.html">'{{sname}}'</a> <span class="study-link">스터디</span></div>
-                                        <img src="img/review-img.jpg"  class="img-fluid rounded-circle study-prof" alt="logo">
-                                </div>
-                                <hr class="review-line"> 
-                        </li>
-                    </ul>
-            
-           
-{{/each}}
+ <script>
+ 	$(document).ready(function() {
+        $.getJSON("json/review/list", {name:'ㄴㄴ'}, res => {
+        	let review = $('.profdiv');
+        	
+        		for(let item in res) {
+        			let ul = $('<ul>');
+        			let li = $('<li>')
+        			let name = $('<div>')
+        			let rating = $('<div>')
+        			let category = $('<div>')
+        			let content = $('<div>')
+        			let createdDate = $('<span>')
+        			
+        			
+        		}	
+            })
+        });
 </script>
+
 </html>

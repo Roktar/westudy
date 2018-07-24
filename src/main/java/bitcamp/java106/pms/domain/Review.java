@@ -3,6 +3,8 @@ package bitcamp.java106.pms.domain;
 import java.io.Serializable;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Review implements Serializable {
 	 
     private static final long serialVersionUID = 1L;
@@ -10,6 +12,7 @@ public class Review implements Serializable {
     private int no;
     private String content;
     private int rating;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date createdDate;
     private String category;
     private Member member;
