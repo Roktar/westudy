@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "webapp",
   "version": "1.0.0",
@@ -21,3 +22,31 @@
     "slidebars": "^2.0.2"
   }
 }
+=======
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "html, js 등 정적 파일",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "Slidebars": "^2.0.0",
+    "blueimp-file-upload": "^9.22.0",
+    "bootstrap": "^4.1.2",
+    "fontawesome": "^4.7.2",
+    "jquery": "^3.3.1",
+    "masonry": "0.0.2",
+    "masonry.js": "^3.1.5",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.3",
+    "slidebars": "^2.0.2"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.1"
+  }
+}
+>>>>>>> branch 'master' of https://github.com/Roktar/FinalProject.git

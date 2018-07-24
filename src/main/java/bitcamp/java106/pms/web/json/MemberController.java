@@ -26,6 +26,8 @@ import net.coobird.thumbnailator.Thumbnails;
 @RequestMapping("/member")
 public class MemberController {
     MemberService memberService;
+
+    @Autowired ServletContext sc;
     
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
@@ -64,10 +66,12 @@ public class MemberController {
     public Member selectOne(String id) {
         return memberService.selectOne(id);
     }
-    
-    @Autowired ServletContext sc;
 
-    
+    @RequestMapping("change/{no}")
+    public Object changePassword(@PathVariable int no, String nowPassword, String newPassword) {
+        return memberService.changePassword(no, nowPassword, newPassword);
+    }
+
     @PostMapping("upload04")
     public Object upload04(
             MultipartFile files) {
@@ -103,6 +107,4 @@ public class MemberController {
     public void update(Member member) throws Exception {
         memberService.update(member);
     }
-
-
 }
