@@ -110,7 +110,7 @@
                                                             <th scope="col" style="width:75px;">보낸이</th>
                                                             <th scope="col">내용</th>
                                                             <th scope="col">날짜</th>
-                                                            <th scope="col">차단</th>
+                                                          
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -121,9 +121,9 @@
                                                                 </div>
                                                             </td>
                                                             <td><a href="#">안중근씨</a></td>
-                                                            <td><a href="message-recieve.html">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                            <td id="receive-date">2018.06.05</td>
-                                                            <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
+                                                            <td style="max-width: 0;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a href="message-send.html"><a href="message-recieve.html">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
+                                                            <td id="receive-date" style="text-align:center">2018.06.05</td>
+                                                           
                                                         </tr>
                                                         <tr>
                                                             <td scope="row">
@@ -132,9 +132,9 @@
                                                                 </div>
                                                             </td>
                                                             <td><a href="#">윤봉길</a></td>
-                                                            <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                            <td>2018.07.01</td>
-                                                            <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
+                                                             <td style="max-width: 0;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a href="message-send.html"><a href="message-recieve.html">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
+                                                            <td id="receive-date" style="text-align:center">2018.06.05</td>
+                                                          
                                                         </tr>
                                                         <tr>
                                                             <td scope="row">
@@ -144,8 +144,8 @@
                                                             </td>
                                                             <td><a href="#">유관순</a></td>
                                                             <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                            <td>2018.07.02</td>
-                                                            <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
+                                                            <td id="receive-date" style="text-align:center">2018.07.02</td>
+                                                          
                                                         </tr>
 
                                                         
@@ -165,56 +165,59 @@
 
                                    <div class='css3-tab-content tab-two'>
                                         <div class="table-responsive">
-                                                <table class="table table-sm">
-                                                        <thead>
-                                                                <tr class="table-active">
-                                                                        <th scope="col">
-                                                                                <div class="form-check">
-                                                                                    <input id="checkall2" class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                                                </div>
-                                                                            </th>
-                                                                        <th scope="col" style="width:75px;">받은사람</th>
-                                                                        <th scope="col">내용</th>
-                                                                        <th scope="col">날짜</th>
-                                                                        <th scope="col">차단</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk2">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><a href="#">안중근씨</a></td>
-                                                                        <td><a href="message-send.html">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                                        <td>2018.06.05</td>
-                                                                        <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input position-stati chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk2">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><a href="#">윤봉길</a></td>
-                                                                        <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                                        <td>2018.07.01</td>
-                                                                        <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk2">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><a href="#">유관순</a></td>
-                                                                        <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
-                                                                        <td>2018.07.02</td>
-                                                                        <td><button type="button" class="btn btn-secondary btn-sm">차단</button></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                      </table>
+                                                 <table class="table table-sm">
+                                            <thead>
+                                                    <tr class="table-active">
+                                                            <th scope="col">
+                                                                    <div class="form-check">
+                                                                        <input id="checkall" class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                                    </div>
+                                                                </th>
+                                                            <th scope="col" style="width:75px;">보낸이</th>
+                                                            <th scope="col">내용</th>
+                                                            <th scope="col">날짜</th>
+                                                          
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk">
+                                                                </div>
+                                                            </td>
+                                                            <td><a href="#">안중근씨</a></td>
+                                                            <td style="max-width: 0;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a href="message-send.html"><a href="message-recieve.html">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
+                                                            <td id="receive-date" style="text-align:center">2018.06.05</td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td scope="row">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk">
+                                                                </div>
+                                                            </td>
+                                                            <td><a href="#">윤봉길</a></td>
+                                                             <td style="max-width: 0;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a href="message-send.html"><a href="message-recieve.html">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
+                                                            <td id="receive-date" style="text-align:center">2018.06.05</td>
+                                                          
+                                                        </tr>
+                                                        <tr>
+                                                            <td scope="row">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk">
+                                                                </div>
+                                                            </td>
+                                                            <td><a href="#">유관순</a></td>
+                                                            <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
+                                                            <td id="receive-date" style="text-align:center">2018.07.02</td>
+                                                          
+                                                        </tr>
+
+                                                        
+                                                    </tbody>
+                                             
+                                          </table>
                                                       <div class="btntn">
                                                       <button class="btn btn btn-secondary btn-sm dg-btn delete">삭제</button>
                                                       </div>

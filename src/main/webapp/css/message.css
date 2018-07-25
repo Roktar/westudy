@@ -204,6 +204,7 @@ div.list-group a{
     background-color: white;
     padding-top: 1em;
     font-size: small;
+    text-align: center;
 }
 
 .chk {
@@ -224,7 +225,7 @@ div.list-group a{
 
 .delete {
     margin-left: 1em;
-    margin-right: 1.5em;
+   
 }
 
 .sendform {
@@ -246,7 +247,14 @@ div.list-group a{
 .btn-secondary {
     background-color: #CCC;
     border:0;
+    margin-right: 2.2em;
 }
+
+.form-check {
+	text-align: center;
+}
+
+
 
 
 /*tab css start*/

@@ -19,14 +19,32 @@
     </association>
   </resultMap>
   
-   <select id="selectList" 
+  <!--  <select id="selectList" 
           resultMap="ReviewMap"
-          parameterType="String">
+          parameterType="string">
    select m.name, r.cont, r.rating, r.cdt, r.category, s.name 
    from study_review r , member m , study_info s
    where s.ctgr=#{category}
    order by rvwno desc
-   
+  </select>
+  
+  <select id="selectList" 
+          resultMap="ReviewMap"
+          parameterType="string">
+   select jm.name, r.cont, r.rating, r.cdt, r.category, s.name 
+   from study_review r , study_joined_member jm , study_info s
+   where s.ctgr=#{category}
+   order by rvwno desc
+  </select>  -->
+  
+   <select id="selectList" 
+          resultMap="ReviewMap"
+          parameterType="string">
+   select m.name, jm.name 
+   from study_joined_member jm 
+   		inner join member m on m.memno=jm.memno
+   where s.ctgr=#{category}
+   order by rvwno desc
   </select>
   
     
