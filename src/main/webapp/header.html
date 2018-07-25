@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-﻿<!-- 사이드 메뉴 시작 -->
+﻿﻿<!-- 사이드 메뉴 시작 -->
 <div off-canvas="id-2 right overlay">
     <!-- 로그인 전 시작 -->
     <div class="text-center align-middle" id="login-before">
@@ -15,156 +12,31 @@
     <div class="text-center align-middle" id="login-after">
         <i class="fas fa-user-circle fa-7x" style="margin-top:30px"></i>
         <br>
-		<span class="font-weight-bold" id="user" ></span>
-		
-		<div class="row" style="margin-top:30px">
-			<div class="col-sm-12 sidemenu text-left">
-			   내 정보 <i class="fas fa-angle-right float-right"></i>
-			</div>
-			<div class="col-sm-12 sidemenu text-left">
-	           스터디 관리 <i class="fas fa-angle-right float-right"></i>
-	        </div>
-	        <div class="col-sm-12 sidemenu text-left">
-	           스터디 후기 <i class="fas fa-angle-right float-right"></i>
-	        </div>
-	        <div class="col-sm-12 sidemenu text-left">
-               Q & A <i class="fas fa-angle-right float-right"></i>
-            </div>
-        </div>
-        <br>
-	    <p class="text-center" id="userLogout" ><a href="json/auth/logout">로그아웃</a></p>
-    </div>
-    <!-- 로그인 후 끝-->
-</div>
-<!-- 사이드 메뉴 끝 -->
-
-<!-- header start -->
-<header class="header" style="z-index:1;">
- <div class="headerWrap">
-  <h1 class="logo">
-   <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
-  </h1>
- <div class="utilMenu">
-  <ul id="userMenu">
-   <li class="search"><a href="search.html">검색</a></li>
-   <li><a href="makeStudy.html">스터디 만들기</a></li>
-   <li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
-   <li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
-   <li class="utilMenuMobile">스터디그룹 만들기</li>
-   <li class="utilMenuMobile">가입한 스터디 목록</li>
-   <li class="menu toggle-id-2">menu</li>
-  </ul>
- </div>
- </div>
- <div class="menuToggle" style="display: none">
-  <div>
-   <div class="profile_img" id="userPic">
-    <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
-   </div>
-  </div>	
- </div>
-</header>
-<!-- header end -->
-
-<script>
-
-
-  ( function ( $ ) {
-            // Initialize Slidebars
-            var controller = new slidebars();
-            controller.init();
-    
-            $( '.toggle-id-2' ).on( 'click', function ( event ) {
-              // Stop default action and bubbling
-              event.stopPropagation();
-              event.preventDefault();
-    
-              // Toggle the Slidebar with id 'id-2'
-              controller.toggle( 'id-2' );
-            } );
-            
-            $( '#container' ).on( 'click', function () {
-                controller.close();
-              } );
-
-            $.get("json/auth/loginstat", {}, res=> {
-            console.log("[" + res + "]" + ", " + typeof(res));
-    
-            if(typeof(res) == "object" ) {
-                $('#login-before').css('display', 'none');
-                $('#user').text( res.email );
-
-                $('#login-after').css('display', 'block');
-                $('#userPic').css('display', 'block');
-                $('#userLogout').css('display', 'block');
-                $('#login').css('display', 'none');
-                $('#signup').css('display', 'none');
-
-            } else {
-                $('#login-after').css('display', 'none');
-                $('#userPic').css('display', 'none');
-                $('#userLogout').css('display', 'none');
-
-                $('#login-before').css('display', 'block');
-                $('#user').css('display', 'none');
-                $('#login').css('display', 'block');
-                $('#signup').css('display', 'block');
-            }
+        <span class="font-weight-bold" id="user" ></span>
         
-            });
-          }) ( jQuery );
-</script>
-
-<style>
-.sidemenu{
-    padding: 2rem;
-    border: 1px solid #dddddd;
-}
-.sidemenu:hover{
-    color: #ef6c00;
-}
-=======
->>>>>>> 7309ecdbcf718b55112e04cd053bd45dfed1a153
-﻿<!-- 사이드 메뉴 시작 -->
-<div off-canvas="id-2 right overlay">
-    <!-- 로그인 전 시작 -->
-    <div class="text-center align-middle" id="login-before">
-       <i class="fas fa-question-circle fa-7x" style="margin-top:30px"></i>
-       <br><br>
-       <span class="font-weight-bold">로그인 하세요.</span>
-    </div>
-    <!-- 로그인 전 끝 -->
-    
-    <!-- 로그인 후 시작-->
-    <div class="text-center align-middle" id="login-after">
-        <i class="fas fa-user-circle fa-7x" style="margin-top:30px"></i>
-        <br>
-		<span class="font-weight-bold" id="user" ></span>
-		
-		<div class="row" style="margin-top:30px">
-			<a href="myProfile.html">
-			<div class="col-sm-12 sidemenu text-left">
-			   내 정보 <i class="fas fa-angle-right float-right"></i>
-			</a>
-		</div>
-		
-		<div class="col-sm-12 sidemenu text-left">
-	           스터디 관리 <i class="fas fa-angle-right float-right"></i>
-	        </div>
-	        <div class="col-sm-12 sidemenu text-left">
-	           스터디 후기 <i class="fas fa-angle-right float-right"></i>
-	        </div>
-	        <div class="col-sm-12 sidemenu text-left">
+        <div class="row" style="margin-top:30px">
+            <a href="myProfile.html">
+            <div class="col-sm-12 sidemenu text-left">
+               내 정보 <i class="fas fa-angle-right float-right"></i>
+            </a>
+        </div>
+        
+        <div class="col-sm-12 sidemenu text-left">
+               스터디 관리 <i class="fas fa-angle-right float-right"></i>
+            </div>
+            <div class="col-sm-12 sidemenu text-left">
+               스터디 후기 <i class="fas fa-angle-right float-right"></i>
+            </div>
+            <div class="col-sm-12 sidemenu text-left">
                Q & A <i class="fas fa-angle-right float-right"></i>
             </div>
         </div>
         <br>
-	    <p class="text-center" id="userLogout" ><a href="json/auth/logout">로그아웃</a></p>
+        <p class="text-center" id="userLogout" ><a href="json/auth/logout">로그아웃</a></p>
     </div>
     <!-- 로그인 후 끝-->
 </div>
 <!-- 사이드 메뉴 끝 -->
-
 <!-- header start -->
 <header class="header" style="z-index:1;">
  <div class="headerWrap">
@@ -188,43 +60,42 @@
    <div class="profile_img" id="userPic">
     <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
    </div>
-  </div>	
+  </div>    
  </div>
 </header>
 <!-- header end -->
-
-		<!-- 로그인 modal Start -->
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
-			         <span class="modal-titlehead"> 로그인 </span>
-			        </h5>
-			      </div>
-			      <div class="modal-body del-float">
-			       <div>이메일 주소</div>
-			       <input id="login_email" class="resizeWidth" type="text" placeholder="이메일을 입력해주세요." />
-			       <div class="add-margin-top left">비밀번호</div>
-			       <a class="right link-font" href="#">비밀번호를 잊으셨나요?</a>
-			       <input id="login_password" class="resizeWidth" type="password" placeholder="비밀번호를 입력해주세요." />
-			       <div style="vertical-align:center; width:100%;"> 
-			        <input class="add-margin left" type="checkbox" /> <p class="add-margin-top left"> 로그인 상태 유지 </p> 
-			       </div>
-			       <a class="right link-font" href="#">회원가입</a>
-			       <div id="signin" class="btn btn-success text-center resizeWidth add-margin-top"> 로그인 </div> 
-			       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-			       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 로그인하기 </div> 
-			       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 로그인하기 </div> 
-			      </div>
-			      <div class="modal-footer">
-			      </div>
-			    </div>
-			  </div>
-			 </div>
-			</div>
-			 <!-- Modal -->
+        <!-- 로그인 modal Start -->
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
+                     <span class="modal-titlehead"> 로그인 </span>
+                    </h5>
+                  </div>
+                  <div class="modal-body del-float">
+                   <div>이메일 주소</div>
+                   <input id="login_email" class="resizeWidth" type="text" placeholder="이메일을 입력해주세요." />
+                   <div class="add-margin-top left">비밀번호</div>
+                   <a class="right link-font" href="#">비밀번호를 잊으셨나요?</a>
+                   <input id="login_password" class="resizeWidth" type="password" placeholder="비밀번호를 입력해주세요." />
+                   <div style="vertical-align:center; width:100%;"> 
+                    <input class="add-margin left" type="checkbox" /> <p class="add-margin-top left"> 로그인 상태 유지 </p> 
+                   </div>
+                   <a class="right link-font" href="#">회원가입</a>
+                   <div id="signin" class="btn btn-success text-center resizeWidth add-margin-top"> 로그인 </div> 
+                   <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
+                   <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 로그인하기 </div> 
+                   <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 로그인하기 </div> 
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+             <!-- Modal -->
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -247,11 +118,8 @@
   </div>
  </div>
 <!-- 로그인 model End -->
-
 <script>
-
 let no = -1;
-
   ( function ( $ ) {
             // Initialize Slidebars
             var controller = new slidebars();
@@ -269,26 +137,22 @@ let no = -1;
             $( '#container' ).on( 'click', function () {
                 controller.close();
               } );
-
             $.get("json/auth/loginstat", {}, res=> {
             console.log("[" + res + "]" + ", " + typeof(res));
-		no = res.no;
+        no = res.no;
     
             if(typeof(res) == "object" ) {
                 $('#login-before').css('display', 'none');
                 $('#user').text( res.email );
-
                 $('#login-after').css('display', 'block');
                 $('#userPic').css('display', 'block');
                 $('#userLogout').css('display', 'block');
                 $('#login').css('display', 'none');
                 $('#signup').css('display', 'none');
-
             } else {
                 $('#login-after').css('display', 'none');
                 $('#userPic').css('display', 'none');
                 $('#userLogout').css('display', 'none');
-
                 $('#login-before').css('display', 'block');
                 $('#user').css('display', 'none');
                 $('#login').css('display', 'block');
@@ -296,7 +160,6 @@ let no = -1;
             }
         
             });
-
       $('#doc1').click( function() {
          
          if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
@@ -317,52 +180,45 @@ let no = -1;
           $('#regLink').css('opacity', '0.2');
          }
        });
-	
-	$('#register').on('shown.bs.modal', function() {
-		$('#doc1').attr("checked", "false");
-		$('#doc2').attr("checked", "false");
-		$('#regLink').css('pointer-events', 'none');
-          	$('#regLink').css('opacity', '0.2');
-	});
-
-
-	    $(signin).click(function() {
-		$.post("json/auth/login", {
-			id:$(login_email).val(),
-			password:$(login_password).val()
-		}, res => {
-			if(res.state == "fail")
-				alert("login failed");
-			else
-				location.href = "index.html";
-		});
+    
+    $('#register').on('shown.bs.modal', function() {
+        $('#doc1').attr("checked", "false");
+        $('#doc2').attr("checked", "false");
+        $('#regLink').css('pointer-events', 'none');
+            $('#regLink').css('opacity', '0.2');
+    });
+        $(signin).click(function() {
+        $.post("json/auth/login", {
+            id:$(login_email).val(),
+            password:$(login_password).val()
+        }, res => {
+            if(res.state == "fail")
+                alert("login failed");
+            else
+                location.href = "index.html";
+        });
          });
-
-	  $("#login").click( function() {
-	   	$("#myModal").modal();
-	   });
-
-	   $("#signup").click( function() {
-	   	$("#register").modal();
-	   });
-
-	$(signin).click(function() {
-		$.post("json/auth/login", {
-			id:$(login_email).val(),
-			password:$(login_password).val()
-		}, res => {
-			if(res.state == "fail")
-				alert("login failed");
-			else
-				location.href = "index.html";
-		});
+      $("#login").click( function() {
+        $("#myModal").modal();
+       });
+       $("#signup").click( function() {
+        $("#register").modal();
+       });
+    $(signin).click(function() {
+        $.post("json/auth/login", {
+            id:$(login_email).val(),
+            password:$(login_password).val()
+        }, res => {
+            if(res.state == "fail")
+                alert("login failed");
+            else
+                location.href = "index.html";
+        });
          });
-
-
           }) ( jQuery );
-	function getNo() {
-		return no;
-	}
+    function getNo() {
+        return no;
+    }
 </script>
 
 <style>
@@ -373,257 +229,4 @@ let no = -1;
 .sidemenu:hover{
     color: #ef6c00;
 }
-<<<<<<< HEAD
-=======
-﻿<!-- 사이드 메뉴 시작 -->
-<div off-canvas="id-2 right overlay">
-    <!-- 로그인 전 시작 -->
-    <div class="text-center align-middle" id="login-before">
-       <i class="fas fa-question-circle fa-7x" style="margin-top:30px"></i>
-       <br><br>
-       <span class="font-weight-bold">로그인 하세요.</span>
-    </div>
-    <!-- 로그인 전 끝 -->
-    
-    <!-- 로그인 후 시작-->
-    <div class="text-center align-middle" id="login-after">
-        <i class="fas fa-user-circle fa-7x" style="margin-top:30px"></i>
-        <br>
-		<span class="font-weight-bold" id="user" ></span>
-		
-		<div class="row" style="margin-top:30px">
-			<a href="myProfile.html">
-			<div class="col-sm-12 sidemenu text-left">
-			   내 정보 <i class="fas fa-angle-right float-right"></i>
-			</a>
-		</div>
-		
-		<div class="col-sm-12 sidemenu text-left">
-	           스터디 관리 <i class="fas fa-angle-right float-right"></i>
-	        </div>
-	        <div class="col-sm-12 sidemenu text-left">
-	           스터디 후기 <i class="fas fa-angle-right float-right"></i>
-	        </div>
-	        <div class="col-sm-12 sidemenu text-left">
-               Q & A <i class="fas fa-angle-right float-right"></i>
-            </div>
-        </div>
-        <br>
-	    <p class="text-center" id="userLogout" ><a href="json/auth/logout">로그아웃</a></p>
-    </div>
-    <!-- 로그인 후 끝-->
-</div>
-<!-- 사이드 메뉴 끝 -->
-
-<!-- header start -->
-<header class="header" style="z-index:1;">
- <div class="headerWrap">
-  <h1 class="logo">
-   <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
-  </h1>
- <div class="utilMenu">
-  <ul id="userMenu">
-   <li class="search"><a href="search.html">검색</a></li>
-   <li><a href="makeStudy.html">스터디 만들기</a></li>
-   <li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
-   <li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
-   <li class="utilMenuMobile">스터디그룹 만들기</li>
-   <li class="utilMenuMobile">가입한 스터디 목록</li>
-   <li class="menu toggle-id-2">menu</li>
-  </ul>
- </div>
- </div>
- <div class="menuToggle" style="display: none">
-  <div>
-   <div class="profile_img" id="userPic">
-    <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
-   </div>
-  </div>	
- </div>
-</header>
-<!-- header end -->
-
-		<!-- 로그인 modal Start -->
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
-			         <span class="modal-titlehead"> 로그인 </span>
-			        </h5>
-			      </div>
-			      <div class="modal-body del-float">
-			       <div>이메일 주소</div>
-			       <input id="login_email" class="resizeWidth" type="text" placeholder="이메일을 입력해주세요." />
-			       <div class="add-margin-top left">비밀번호</div>
-			       <a class="right link-font" href="#">비밀번호를 잊으셨나요?</a>
-			       <input id="login_password" class="resizeWidth" type="password" placeholder="비밀번호를 입력해주세요." />
-			       <div style="vertical-align:center; width:100%;"> 
-			        <input class="add-margin left" type="checkbox" /> <p class="add-margin-top left"> 로그인 상태 유지 </p> 
-			       </div>
-			       <a class="right link-font" href="#">회원가입</a>
-			       <div id="signin" class="btn btn-success text-center resizeWidth add-margin-top"> 로그인 </div> 
-			       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-			       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 로그인하기 </div> 
-			       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 로그인하기 </div> 
-			      </div>
-			      <div class="modal-footer">
-			      </div>
-			    </div>
-			  </div>
-			 </div>
-			</div>
-			 <!-- Modal -->
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
-         <span class="titlehead"> 회원가입 </span>
-        </h5>
-      </div>
-      <div class="modal-body del-float">
-       <div> <input class="add-margin-top" type="checkbox" id="doc1" />  <a href="privacy.html"> 개인정보수집 및 이용에 대한 안내</a>에 동의합니다. </div>
-       <div> <input class="add-margin-top" type="checkbox" id="doc2" /> <a href="termsConditions.html"> 사이트 이용 약관</a>에 동의합니다. </div>
-       <a id="regLink" href="register1.html" style="pointer-events:none; opacity:0.2;"> <div class="btn btn-success text-center resizeWidth add-margin-top"> 가입하기 </div> </a> 
-       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 가입하기 </div> 
-       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 가입하기 </div> 
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
- </div>
-<!-- 로그인 model End -->
-
-<script>
-
-let no = -1;
-
-  ( function ( $ ) {
-            // Initialize Slidebars
-            var controller = new slidebars();
-            controller.init();
-    
-            $( '.toggle-id-2' ).on( 'click', function ( event ) {
-              // Stop default action and bubbling
-              event.stopPropagation();
-              event.preventDefault();
-    
-              // Toggle the Slidebar with id 'id-2'
-              controller.toggle( 'id-2' );
-            } );
-            
-            $( '#container' ).on( 'click', function () {
-                controller.close();
-              } );
-
-            $.get("json/auth/loginstat", {}, res=> {
-            console.log("[" + res + "]" + ", " + typeof(res));
-		no = res.no;
-    
-            if(typeof(res) == "object" ) {
-                $('#login-before').css('display', 'none');
-                $('#user').text( res.email );
-
-                $('#login-after').css('display', 'block');
-                $('#userPic').css('display', 'block');
-                $('#userLogout').css('display', 'block');
-                $('#login').css('display', 'none');
-                $('#signup').css('display', 'none');
-
-            } else {
-                $('#login-after').css('display', 'none');
-                $('#userPic').css('display', 'none');
-                $('#userLogout').css('display', 'none');
-
-                $('#login-before').css('display', 'block');
-                $('#user').css('display', 'none');
-                $('#login').css('display', 'block');
-                $('#signup').css('display', 'block');
-            }
-        
-            });
-
-      $('#doc1').click( function() {
-         
-         if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
-          $('#regLink').css('pointer-events', 'auto');
-          $('#regLink').css('opacity', '1');
-         } else {
-          $('#regLink').css('pointer-events', 'none');
-          $('#regLink').css('opacity', '0.2');
-         }
-       });
-       $('#doc2').click( function() {
-         
-         if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
-          $('#regLink').css('pointer-events', 'auto');
-          $('#regLink').css('opacity', '1');
-         } else {
-          $('#regLink').css('pointer-events', 'none');
-          $('#regLink').css('opacity', '0.2');
-         }
-       });
-	
-	$('#register').on('shown.bs.modal', function() {
-		$('#doc1').attr("checked", "false");
-		$('#doc2').attr("checked", "false");
-		$('#regLink').css('pointer-events', 'none');
-          	$('#regLink').css('opacity', '0.2');
-	});
-
-
-	    $(signin).click(function() {
-		$.post("json/auth/login", {
-			id:$(login_email).val(),
-			password:$(login_password).val()
-		}, res => {
-			if(res.state == "fail")
-				alert("login failed");
-			else
-				location.href = "index.html";
-		});
-         });
-
-	  $("#login").click( function() {
-	   	$("#myModal").modal();
-	   });
-
-	   $("#signup").click( function() {
-	   	$("#register").modal();
-	   });
-
-	$(signin).click(function() {
-		$.post("json/auth/login", {
-			id:$(login_email).val(),
-			password:$(login_password).val()
-		}, res => {
-			if(res.state == "fail")
-				alert("login failed");
-			else
-				location.href = "index.html";
-		});
-         });
-
-
-          }) ( jQuery );
-	function getNo() {
-		return no;
-	}
-</script>
-
-<style>
-.sidemenu{
-    padding: 2rem;
-    border: 1px solid #dddddd;
-}
-.sidemenu:hover{
-    color: #ef6c00;
-}
-=======
->>>>>>> 7309ecdbcf718b55112e04cd053bd45dfed1a153
->>>>>>> branch 'master' of https://github.com/Roktar/FinalProject.git
 </style>
