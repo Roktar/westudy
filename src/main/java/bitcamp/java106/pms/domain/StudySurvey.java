@@ -1,9 +1,6 @@
 package bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class StudySurvey implements Serializable {
 

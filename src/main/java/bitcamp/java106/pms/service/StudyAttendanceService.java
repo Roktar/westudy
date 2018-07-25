@@ -1,10 +1,11 @@
 package bitcamp.java106.pms.service;
 
-import bitcamp.java106.pms.domain.Member;
+import java.util.List;
+
+import bitcamp.java106.pms.domain.StudyAttendance;
 
 public interface StudyAttendanceService {
-    //void insert(StudyAttendance studyAttendance);
-    Member selectOne(int no);
-    boolean isExist(int no, String password);
-    void delete(int no);
+    List<StudyAttendance> list();
+    StudyAttendance get(int no);
+    int add(StudyAttendance studyAttendance);
 }

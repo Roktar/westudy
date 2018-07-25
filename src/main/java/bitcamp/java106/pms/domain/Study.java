@@ -18,12 +18,7 @@ public class Study implements Serializable {
     private Date createdDate;
     private int maxPeople;
     private String category;
-    @Override
-    public String toString() {
-        return "Study [no=" + no + ", city=" + city + ", county=" + county + ", name=" + name + ", information="
-                + information + ", createdDate=" + createdDate + ", maxPeople=" + maxPeople + ", category=" + category
-                + "]";
-    }
+
     public int getNo() {
         return no;
     }
@@ -71,9 +66,6 @@ public class Study implements Serializable {
     }
     public void setCategory(String category) {
         this.category = category;
-    }
-    public static long getSerialversionuid() {
-        return serialVersionUID;
     }
     
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.StudyDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.Study" id="StudyMap">
+    <id column="stdno" property="no"/>
+    <result column="city" property="city"/>
+    <result column="county" property="county"/>
+    <result column="name" property="name"/>
+    <result column="info" property="information"/>
+    <result column="cdt" property="createdDate"/>
+    <result column="mprs" property="maxPeople"/>
+    <result column="ctgr" property="category"/>
+  </resultMap>
+
+
+  <select id="selectList" 
+          resultMap="StudyMap" 
+          parameterType="map">
+    select *
+    from study_info
+  </select>
+
+
+  <insert id="insert" parameterType="Study"
+          useGeneratedKeys="true" keyColumn="stdno" keyProperty="no">
+    insert into study_info(city, county, name, info, cdt, mprs, ctgr) 
+    values(#{city}, #{county}, #{name}, #{information}, now(), #{maxPeople}, #{category});
+  </insert>
+      
+  <select id="selectOne" parameterType="int" resultMap="StudyMap">
+    select *
+    from study_info 
+    where stdno=#{value}
+  </select>
+  
+  <update id="update" parameterType="Study">
+        update Study set
+        city=#{city},
+        county=#{county},
+        name=#{name},
+        info=#{information},
+        mprs=#{maxPeople}
+        where stdno=#{no}
+    </update>
+  
+    <delete id="delete" parameterType="int">
+    delete from study_info where stdno=#{value}
+  </delete>
+  
+</mapper>
+
+
+
+
+
+
+

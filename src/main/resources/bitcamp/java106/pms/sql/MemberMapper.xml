@@ -22,19 +22,20 @@
     insert into member( email, pwd, name, tel)
         values(#{email}, password(#{password}), #{name}, #{tel} )
   </insert>
-  
-  <!-- 
-  <update id="update_additional">
-    update member
-  </update> -->
-    
+      
   <select id="selectOne" parameterType="String" resultMap="MemberMap">
     select *
     from member 
     where email=#{id}
   </select>
   
-  <select id="selectOneSimpleCase" parameterType="String" resultType="bitcamp.java106.pms.domain.Member">
+  <select id="selectOneTypeInt" parameterType="int" resultMap="MemberMap">
+    select *
+    from member 
+    where email=#{id}
+  </select>
+  
+  <select id="selectOneSimpleCase" parameterType="String" resultMap="MemberMap">
     select memno, email
     from member 
     where email=#{id}
@@ -46,6 +47,18 @@
         where email=#{id} and pwd=password(#{password})
   </select>
   
+  
+  <update id="changePassword" parameterType="map">
+    update member set pwd=password(#{newPassword})
+    where memno = #{no}
+  </update>
+  
+  <select id="validation" parameterType="map" resultMap="MemberMap">
+    select email
+    from member
+    where memno = #{no} and pwd = password(#{password})
+  </select>
+  
   <update id="update" parameterType="Member">
         update Member set
         pfp=#{profile},
@@ -54,6 +67,9 @@
         itrloc=#{interestedPlace},
         where email=#{id}
     </update>
+
+
+
   
 </mapper>
 

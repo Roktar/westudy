@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/jquery.tag-editor.css">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
 
     <style>
         .container{
@@ -93,7 +94,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                    <select name="option1" onchange="changes(document.form.option1.value)" class="form-control">
+                    <select name="option1" onchange="changes(document.form.option1.value)" class="form-control" id="city">
                         <option value="" selected>:: 시/도 ::</option>
                         <option value="1">서울특별시</option>
                         <option value="2">부산광역시</option>
@@ -115,7 +116,7 @@
                     </select>
                 </div>
                     <div class="col-sm-6">
-                        <select name="option2" class="form-control">
+                        <select name="option2" class="form-control" id="county">
                             <option>:: 시/군/구 ::</option>
                         </select>
                     </div>
@@ -126,7 +127,7 @@
                 <div class="dg-subtitle">스터디그룹 관련 주제</div>
                 <div class="row">
                     <div class="form-group col-sm">
-                        <select id="inputState" class="form-control">
+                        <select id="category" class="form-control">
                             <option selected>주제 선택</option>
                             <option>IT</option>
                             <option>국가시험</option>
@@ -146,20 +147,37 @@
                 <div class="step2">3/3 단계</div>
                 <div class="dg-subtitle">스터디그룹 이름 및 설명</div>
                 <div class="input-group">
-                    <input class="form-control" type="text" id="StudytitleFormControlInput" placeholder="스터디 이름">
+                    <input class="form-control" type="text" id="fTitle" placeholder="스터디 이름">
                 </div>
                 <div class="input-group">
-                    <textarea class="form-control" id="StudyDescriptionControlInput" rows="5" placeholder="설명"></textarea>
+                    <textarea class="form-control" id="fDescription" rows="5" placeholder="설명"></textarea>
                 </div>
                 <hr>
                 <div>
-                    <button class="btn btn-lg btn-block">등록</button>
+                    <button class="btn btn-lg btn-block" id="createStudy">등록</button>
                 </div>
             </div>
         </form>
     </div>
     <!-- study make end -->
-
+    <script>
+    $("#createStudy").click(() => {
+    	$.ajax({
+    		type:"post",
+    		url: "../../json/study/add",
+    		data: {
+    			city: $(city).val(),
+    			county: $(county).val(),
+    			category: $(category).val(),
+    			name: $(fTitle).val(),
+    			info: $(fDescription).val()
+    			}
+    		}).done(function() {
+    			window.alert("스터디가 등록되었습니다!");
+    		});
+    	});
+    
+    </script>
 
     <footer class="footer">
         <p>Logo</p>

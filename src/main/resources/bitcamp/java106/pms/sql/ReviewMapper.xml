@@ -21,18 +21,21 @@
   
    <select id="selectList" 
           resultMap="ReviewMap"
-          parameterType="map">
-   select cont, rating, cdt, category
-   from study_review
+          parameterType="String">
+   select m.name, r.cont, r.rating, r.cdt, r.category, s.name 
+   from study_review r , member m , study_info s
+   where s.ctgr=#{category}
    order by rvwno desc
-   limit #{startRowNo}, #{pageSize}
+   
   </select>
   
     
   <insert id="insert" parameterType="Review"
   		  useGeneratedKeys="true" keyColumn="rvwno" keyProperty="no">
-    insert into study_review(cont, rating, cdt, category)
-        values(#{content}, #{rating}, now(), #{category})
+   select m.name, r.cont, r.rating, r.cdt, r.category, s.name 
+   from study_review r , member m , study s, study_joined_member sm
+   where sm.memno=m.memno and sm.stdno=s.stdno
+   order by rvwno desc
   </insert>
   
   <!-- 

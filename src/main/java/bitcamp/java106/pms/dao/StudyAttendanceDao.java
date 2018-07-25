@@ -1,13 +1,12 @@
 package bitcamp.java106.pms.dao;
 
-import java.util.Map;
+import java.util.List;
 
-import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.domain.StudyAttendance;
 
 public interface StudyAttendanceDao {
+    List<StudyAttendance> selectList();
+    int add(StudyAttendance studyAttendance);
+    StudyAttendance get(int no);
     StudyAttendance selectOne(int no);
-    void insert(StudyAttendance studyAttendance);
-    int count(Map<String, Object> params);
-    StudyAttendance selectOneSimpleCase(int no);
 }

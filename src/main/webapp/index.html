@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<link href="node_modules/Slidebars/dist/slidebars.css" rel="stylesheet">
+	<link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+	<link href="node_modules/fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 	<link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-	
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link type="text/css" rel="stylesheet" href="css/common.css">
 	<link type="text/css" rel="stylesheet" href="css/reset.css">
@@ -20,16 +20,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 	
     <script src="node_modules/jquery/dist/jquery.js"></script>
-	<script src="node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="node_modules/popper.js/dist/popper.min.js"></script>
+
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="slider/jquery.bxslider.min.js"></script>
-	<script src="node_modules/Slidebars/dist/slidebars.js"></script>
+	<script src="node_modules/slidebars/dist/slidebars.js"></script>
 	<script src="js/common.js"></script>
 
 	<script>
-	var controller = new slidebars();
-        controller.init();
+    var controller = new slidebars();
+    controller.init();
 
 	$(document).ready(function() { 
 	  $('.slider').bxSlider({
@@ -41,59 +42,47 @@
 	   minSlides:3,
 	   maxSlides:3
 	  });
-	   $("#login").click( function() {
-	   	$("#myModal").modal();
-	   });
-	   $("#signup").click( function() {
-	   	$("#register").modal();
-	   });
-      $('#doc1').click( function() {
-         
-         if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
-          $('#regLink').css('pointer-events', 'auto');
-          $('#regLink').css('opacity', '1');
-         } else {
+	  
+      $("#login").click( function() {
+          $("#myModal").modal();
+         });
+         $("#signup").click( function() {
+          $("#register").modal();
+         });
+        $('#doc1').click( function() {
+           
+           if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
+            $('#regLink').css('pointer-events', 'auto');
+            $('#regLink').css('opacity', '1');
+           } else {
+            $('#regLink').css('pointer-events', 'none');
+            $('#regLink').css('opacity', '0.2');
+           }
+         });
+         $('#doc2').click( function() {
+           
+           if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
+            $('#regLink').css('pointer-events', 'auto');
+            $('#regLink').css('opacity', '1');
+           } else {
+            $('#regLink').css('pointer-events', 'none');
+            $('#regLink').css('opacity', '0.2');
+           }
+         });
+      
+      $('#register').on('shown.bs.modal', function() {
+          $('#doc1').attr("checked", "false");
+          $('#doc2').attr("checked", "false");
           $('#regLink').css('pointer-events', 'none');
-          $('#regLink').css('opacity', '0.2');
-         }
-       });
-       $('#doc2').click( function() {
-         
-         if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
-          $('#regLink').css('pointer-events', 'auto');
-          $('#regLink').css('opacity', '1');
-         } else {
-          $('#regLink').css('pointer-events', 'none');
-          $('#regLink').css('opacity', '0.2');
-         }
-       });
-	
-	$('#register').on('shown.bs.modal', function() {
-		$('#doc1').attr("checked", "false");
-		$('#doc2').attr("checked", "false");
-		$('#regLink').css('pointer-events', 'none');
-          	$('#regLink').css('opacity', '0.2');
-	});
-       $('body').focus( function() {
-         $('#doc1').attr("checked", "false");
-         $('#doc2').attr("checked", "false");
-         $('#saveId').attr("checked", "false");
-       });
-
-	$("#header").load(serverRoot+"/header.html");
-
-        $(signin).click(function() {
-		$.post("json/auth/login", {
-			id:$(login_email).val(),
-			password:$(login_password).val()
-		}, res => {
-			if(res.state == "fail")
-				alert("login failed");
-			else
-				location.href = "index.html";
-		});
+              $('#regLink').css('opacity', '0.2');
+      });
+         $('body').focus( function() {
+           $('#doc1').attr("checked", "false");
+           $('#doc2').attr("checked", "false");
+           $('#saveId').attr("checked", "false");
          });
 
+	$("#header").load(serverRoot+"/header.html");
 	});
 	</script>
 
@@ -116,7 +105,7 @@
 
 
 </head>
-<body id="container" canvas="container">
+<body>
 	<div id="wrap">
 		<!-- header start -->
 		<div id="header"> </div>
@@ -207,64 +196,8 @@
 				</ul>
 			</div> <!-- mainCategory -->
 			
-
-		<!-- 정호형 소스 -->
 		<div class="wrap center">
-		
-		<!-- 로그인 modal Start -->
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
-			         <span class="modal-titlehead"> 로그인 </span>
-			        </h5>
-			      </div>
-			      <div class="modal-body del-float">
-			       <div>이메일 주소</div>
-			       <input id="login_email" class="resizeWidth" type="text" placeholder="이메일을 입력해주세요." />
-			       <div class="add-margin-top left">비밀번호</div>
-			       <a class="right link-font" href="#">비밀번호를 잊으셨나요?</a>
-			       <input id="login_password" class="resizeWidth" type="password" placeholder="비밀번호를 입력해주세요." />
-			       <div style="vertical-align:center; width:100%;"> 
-			        <input class="add-margin left" type="checkbox" /> <p class="add-margin-top left"> 로그인 상태 유지 </p> 
-			       </div>
-			       <a class="right link-font" href="#">회원가입</a>
-			       <div id="signin" class="btn btn-success text-center resizeWidth add-margin-top"> 로그인 </div> 
-			       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-			       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 로그인하기 </div> 
-			       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 로그인하기 </div> 
-			      </div>
-			      <div class="modal-footer">
-			      </div>
-			    </div>
-			  </div>
-			 </div>
-			</div>
-			 <!-- Modal -->
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
-         <span class="titlehead"> 회원가입 </span>
-        </h5>
-      </div>
-      <div class="modal-body del-float">
-       <div> <input class="add-margin-top" type="checkbox" id="doc1" />  <a href="privacy.html" style="color: #007bff;"> 개인정보수집 및 이용에 대한 안내</a>에 동의합니다. </div>
-       <div> <input class="add-margin-top" type="checkbox" id="doc2" /> <a href="termsConditions.html" style="color: #007bff;"> 사이트 이용 약관</a>에 동의합니다. </div>
-       <a id="regLink" href="register1.html" style="pointer-events:none; opacity:0.2;"> <div class="btn btn-success text-center resizeWidth add-margin-top"> 가입하기 </div> </a> 
-       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 가입하기 </div> 
-       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 가입하기 </div> 
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
- </div>
-<!-- 로그인 model End -->
+	
 
 			<div class="section" style="padding-top: 0">
 				<div class="resizeWidth"> 
@@ -432,7 +365,6 @@
 		   
 		  </div>
 		 </div>
-		<!-- 정호형 소스 끝 -->
 
         <div class="study-contents">
         	<div class="l-wrapper">
