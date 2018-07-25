@@ -28,6 +28,11 @@ public class MemberServiceImpl implements MemberService{
     };
     
     @Override
+    public Member get(int id) {
+        return memberDao.selectOne(id);
+    }
+    
+    @Override
     public boolean isExist(String id, String password) {
         Map<String, Object> params = new HashMap<>();
         params.put("id", id);
@@ -90,12 +95,6 @@ public class MemberServiceImpl implements MemberService{
         params.put("newPassword", newPassword);
         
         return memberDao.changePassword(params);
-    }
-
-    @Override
-    public Member selectOne(int no) {
-        // TODO Auto-generated method stub
-        return null;
     }
 
     @Override

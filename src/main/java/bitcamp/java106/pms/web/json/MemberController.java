@@ -63,9 +63,9 @@ public class MemberController {
         memberService.insert(seperateKeyValue);
     }
     
-    @RequestMapping("{id}")
-    public Member selectOne(String id) {
-        return memberService.selectOne(id);
+    @RequestMapping("{no}")
+    public Member view(@PathVariable int no) throws Exception {
+        return memberService.get(no);
     }
 
     @RequestMapping("change/{no}")
