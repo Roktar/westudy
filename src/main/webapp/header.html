@@ -32,7 +32,7 @@
             </div>
         </div>
         <br>
-        <p class="text-center" id="userLogout" ><a href="json/auth/logout">로그아웃</a></p>
+        <p class="text-center" id="userLogout" ><a href="#" id="logout">로그아웃</a></p>
     </div>
     <!-- 로그인 후 끝-->
 </div>
@@ -219,6 +219,12 @@ let no = -1;
     function getNo() {
         return no;
     }
+    
+    $('#logout').click(function() {
+        $.post("json/auth/logout");
+        location.reload();
+    });
+    
 </script>
 
 <style>
@@ -229,4 +235,7 @@ let no = -1;
 .sidemenu:hover{
     color: #ef6c00;
 }
+div[off-canvas="id-2 right overlay"] a {color:#fff; cursor:pointer}
+div[off-canvas="id-2 right overlay"] a:hover {color:#ef6c00; cursor:pointer}
+
 </style>
