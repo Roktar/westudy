@@ -100,7 +100,7 @@
 
              
         img.prof-img {
-           
+            margin-right: 1em;
             float: left;
         }
 
@@ -158,11 +158,14 @@
             margin-top :0.9em;
             margin-right: 1em;
             color: #BDBDBD;
+             font-weight: bold;
         }
 
         .user_class {
             font-size: small;
             color: #cccccc;
+            text-transform:uppercase;
+            font-weight: 800;
         }
        
         
@@ -208,6 +211,7 @@
       
        .list-group-item {
            border: 0;
+           padding-left: 0;
        }
 
        .review-line {
@@ -217,7 +221,7 @@
      
 
         .std-main-box {
-            border : 3px solid red;
+           
             padding : 0;
         }
 
@@ -228,7 +232,7 @@
 
 
         .review_date {
-            margin-left: 5em;
+            margin-left: 5.9em;
             font-size: 14px;
             display: inline-block;
             margin-top: 1.3em;
@@ -284,6 +288,14 @@
         .form-control:disabled, .form-control[readonly] {
             background-color: white;
             opacity: 1;
+            border: none;
+            resize: none;
+            padding: 0;
+            font-size: 15px;
+            white-space: pre-wrap;
+            font-family: nanum-gothic;
+            margin-left: 1.1em;
+            padding-right: 2em;
         }
 
 
