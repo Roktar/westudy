@@ -1,100 +1,37 @@
 ﻿<!DOCTYPE HTML>
 <html lang="ko">
 <head>
-	<title>스터디 | We Study platform</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>스터디 | We Study platform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
-	<link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="css/main.css">
-	<link type="text/css" rel="stylesheet" href="css/common.css">
-	<link type="text/css" rel="stylesheet" href="css/reset.css">
-	<link type="text/css" rel="stylesheet" href="css/mediaqueries.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="node_modules/Slidebars/dist/slidebars.css" rel="stylesheet">
+    <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/mediaqueries.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-	
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/popper.js/dist/popper.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="slider/jquery.bxslider.min.js"></script>
-	<script src="node_modules/slidebars/dist/slidebars.js"></script>
-	<script src="js/common.js"></script>
-	<script>
-    var controller = new slidebars();
-    controller.init();
-
-	$(document).ready(function() { 
-	  $('.slider').bxSlider({
-	   auto:true,
-	   speed:500,
-	   mode:'fade',
-	   adaptiveHeight:true,
-	   hideControlOnEnd:true,
-	   minSlides:3,
-	   maxSlides:3
-	  });
-	  
-      $("#login").click( function() {
-          $("#myModal").modal();
-         });
-         $("#signup").click( function() {
-          $("#register").modal();
-         });
-        $('#doc1').click( function() {
-           
-           if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
-            $('#regLink').css('pointer-events', 'auto');
-            $('#regLink').css('opacity', '1');
-           } else {
-            $('#regLink').css('pointer-events', 'none');
-            $('#regLink').css('opacity', '0.2');
-           }
-         });
-         $('#doc2').click( function() {
-           
-           if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
-            $('#regLink').css('pointer-events', 'auto');
-            $('#regLink').css('opacity', '1');
-           } else {
-            $('#regLink').css('pointer-events', 'none');
-            $('#regLink').css('opacity', '0.2');
-           }
-         });
-      
-      $('#register').on('shown.bs.modal', function() {
-          $('#doc1').attr("checked", "false");
-          $('#doc2').attr("checked", "false");
-          $('#regLink').css('pointer-events', 'none');
-              $('#regLink').css('opacity', '0.2');
-      });
-         $('body').focus( function() {
-           $('#doc1').attr("checked", "false");
-           $('#doc2').attr("checked", "false");
-           $('#saveId').attr("checked", "false");
-         });
-
-	$("#header").load(serverRoot+"/header.html");
-	});
-	</script>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    
+    
 
 <style>
 .modal {
-       	text-align: center;
+        text-align: center;
 }
  
 .modal-dialog {
-       	text-align: left;
-       	vertical-align: middle;
+        text-align: left;
+        vertical-align: middle;
 }
 .modal:before {
-	display: inline-block;
+    display: inline-block;
         vertical-align: middle;
         content: " ";
         height: 10%;
@@ -103,14 +40,15 @@
 
 
 </head>
-<body>
-	<div id="wrap">
-		<!-- header start -->
-		<div id="header"> </div>
-		<!-- header end -->
-		
-		<!-- section start -->
-		<section class="section">
+<body id="container" canvas="container">
+    <div id="wrap">
+        <!-- header start -->
+        <div id="header"> </div>
+        
+        <!-- header end -->
+    
+        <!-- section start -->
+        <section class="section">
             <!--Carousel-->
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -139,293 +77,415 @@
   </a>
             </div>
             <!--Carousel-->
-			<!-- 대분류 list -->
-			<div class="mainCategory">
-				<ul>
-					<li>
-						<a href="search.html?category=it">
-							<span class="img it">it</span>
-							<span class="text">IT</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html?category=national">
-							<span class="img country"></span>
-							<span class="text">국가시험</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html?category=gisa">
-							<span class="img license"></span>
-							<span class="text">기사</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html?category=language">
-							<span class="img language"></span>
-							<span class="text">언어</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html?category=finance">
-							<span class="img dollar"></span>
-							<span class="text">금융</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html?category=job">
-							<span class="img job"></span>
-							<span class="text">취업</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html?category=discussion">
-							<span class="img feedback"></span>
-							<span class="text">토론</span>
-						</a>
-					</li>
-					<li>
-						<a href="search.html">
-							<span class="img etc"></span>
-							<span class="text">기타</span>
-						</a>
-					</li>
-				</ul>
-			</div> <!-- mainCategory -->
-			
-		<div class="wrap center">
-	
+            <!-- 대분류 list -->
+            <div class="mainCategory">
+                <ul>
+                    <li>
+                        <a href="search.html?category=it">
+                            <span class="img it">it</span>
+                            <span class="text">IT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html?category=national">
+                            <span class="img country"></span>
+                            <span class="text">국가시험</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html?category=gisa">
+                            <span class="img license"></span>
+                            <span class="text">기사</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html?category=language">
+                            <span class="img language"></span>
+                            <span class="text">언어</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html?category=finance">
+                            <span class="img dollar"></span>
+                            <span class="text">금융</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html?category=job">
+                            <span class="img job"></span>
+                            <span class="text">취업</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html?category=discussion">
+                            <span class="img feedback"></span>
+                            <span class="text">토론</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html">
+                            <span class="img etc"></span>
+                            <span class="text">기타</span>
+                        </a>
+                    </li>
+                </ul>
+            </div> <!-- mainCategory -->
+            
 
-			<div class="section" style="padding-top: 0">
-				<div class="resizeWidth"> 
-					<p class="titlehead text-center"  style="margin:2rem 0;">내 주변 스터디</p>
-					<a href="#" class="right" style="color:#333; margin-top:-3%;" >더보기</a>
-				</div>
-
-				<div class="l-wrapper" style="margin: 0 auto">
-	        	<ul class="l-row">
-	        		<li class="l-col">
-		                <div class="study" style="background: #fff; border:solid 1px #d2d2d2">
-		                	<a href="#" style="display: block; width: 100%;">
-			                	<div class="ove">
-			                		<span></span>
-			                	</div>
-		                	</a>
-					<a href="groupMain.html">
-		                	<div class="info_area">
-			                    <h2>강남 자바 웹 개발 스터디</h2>
-			                    <div class="tags">
-			                 		<span class="tag_area_name">강남</span>
-			                 		<span>#Servlet</span>
-			                 		<span>#Spring</span>
-			                 		<span>#코딩이 좋은 사람들의 모임</span>
-			                    </div>
-					</a>
-		                    </div>
-		                </div>
-	                </li>
-	                <li class="l-col">
-		                <div class="study" style="background: #fff; border:solid 1px #d2d2d2">
-		                	<a href="#" style="display: block; width: 100%;">
-			                	<div class="ove">
-			                		<span></span>
-			                	</div>
-		                	</a>
-		                	<div class="info_area">
-			                    <h2>강남 자바 웹 개발 스터디</h2>
-			                    <div class="tags">
-			                 		<span class="tag_area_name">강남</span>
-			                 		<span>#Servlet</span>
-			                 		<span>#Spring</span>
-			                 		<span>#코딩</span>
-			                    </div>
-		                    </div>
-		                </div>
-	                </li>
-	                <li class="l-col">
-		                <div class="study" style="background: #fff; border:solid 1px #d2d2d2">
-		                	<a href="#" style="display: block; width: 100%;">
-			                	<div class="ove">
-			                		<span></span>
-			                	</div>
-		                	</a>
-		                	<div class="info_area">
-			                    <h2>강남 자바 웹 개발 스터디</h2>
-			                    <div class="tags">
-			                 		<span class="tag_area_name">강남</span>
-			                 		<span>#Servlet</span>
-			                 		<span>#Spring</span>
-			                 		<span>#코딩이 좋은 사람들의 모임 </span>
-			                    </div>
-		                    </div>
-		                </div>
-	                </li>
-	                <li class="l-col">
-		                <div class="study" style="background: #fff; border:solid 1px #d2d2d2">
-		                	<a href="#" style="display: block; width: 100%;">
-			                	<div class="ove">
-			                		<span></span>
-			                	</div>
-		                	</a>
-		                	<div class="info_area">
-			                    <h2>강남 자바 웹 개발 스터디</h2>
-			                    <div class="tags">
-			                 		<span class="tag_area_name">강남</span>
-			                 		<span>#Servlet</span>
-			                 		<span>#Spring</span>
-			                 		<span>#자바</span>
-			                    </div>
-		                    </div>
-		                </div>
-	                </li>
-	            </ul>
+        <!-- 정호형 소스 -->
+        <div class="wrap center">
+        
+        <!-- 로그인 modal Start -->
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
+                     <span class="modal-titlehead"> 로그인 </span>
+                    </h5>
+                  </div>
+                  <div class="modal-body del-float">
+                   <div>이메일 주소</div>
+                   <input id="login_email" class="resizeWidth" type="text" placeholder="이메일을 입력해주세요." />
+                   <div class="add-margin-top left">비밀번호</div>
+                   <a class="right link-font" href="#">비밀번호를 잊으셨나요?</a>
+                   <input id="login_password" class="resizeWidth" type="password" placeholder="비밀번호를 입력해주세요." />
+                   <div style="vertical-align:center; width:100%;"> 
+                    <input class="add-margin left" type="checkbox" /> <p class="add-margin-top left"> 로그인 상태 유지 </p> 
+                   </div>
+                   <a class="right link-font" href="#">회원가입</a>
+                   <div id="signin" class="btn btn-success text-center resizeWidth add-margin-top"> 로그인 </div> 
+                   <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
+                   <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 로그인하기 </div> 
+                   <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 로그인하기 </div> 
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+             </div>
             </div>
+             <!-- Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title resizeWidth text-center" id="myModalLabel">
+         <span class="titlehead"> 회원가입 </span>
+        </h5>
+      </div>
+      <div class="modal-body del-float">
+       <div> <input class="add-margin-top" type="checkbox" id="doc1" />  <a href="privacy.html" style="color: #007bff;"> 개인정보수집 및 이용에 대한 안내</a>에 동의합니다. </div>
+       <div> <input class="add-margin-top" type="checkbox" id="doc2" /> <a href="termsConditions.html" style="color: #007bff;"> 사이트 이용 약관</a>에 동의합니다. </div>
+       <a id="regLink" href="register1.html" style="pointer-events:none; opacity:0.2;"> <div class="btn btn-success text-center resizeWidth add-margin-top"> 가입하기 </div> </a> 
+       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
+       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 가입하기 </div> 
+       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 가입하기 </div> 
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+ </div>
+<!-- 로그인 model End -->
 
-				<!-- 관심 스터디 -->
-				<div class="center">
-					<p class="titlehead" style="margin:2rem 0;">내 관심 스터디</p>
-					<a href="#" class="right" style="color:#333">더보기</a>
-					<div class="slider">
-					    <div class="sliderInner">
-						    <div class="left grid3" style="margin-left: 0">
-							    <img src="src/img/study1.jpg" />
-							    <div class="imgOverInfo">
-								    <span>강원대학교 자바 웹개발 스터디 </span> <br>
-								    <span>#Servlet #Spring</span>
-							    </div>
-						    </div>
-						    <div class="left grid3">
-								<img src="src/img/study1.jpg" />
-								<div class="imgOverInfo">
-									<span>강원대학교 자바 웹개발 스터디 </span> <br>
-									<span>#Servlet #Spring</span>
-								</div>
-							</div>
-							<div class="left grid3">
-								<img src="src/img/study1.jpg" />
-								<div class="imgOverInfo">
-									<span>강원대학교 자바 웹개발 스터디 </span> <br>
-									<span>#Servlet #Spring</span>
-								</div>
-							</div>
-						</div>
+            <div class="section" style="padding-top: 0">
+                <div class="resizeWidth"> 
+                    <p class="titlehead text-center"  style="margin:2rem 0;">내 주변 스터디</p>
+                    <a href="#" class="right" style="color:#333; margin-top:-3%;" >더보기</a>
+                </div>
 
-						<div class="sliderInner">
-						    <div class="left grid3" style="margin-left: 0">
-							    <img src="src/img/study1.jpg" />
-							    <div class="imgOverInfo">
-								    <span>강원대학교 자바 웹개발 스터디 </span> <br>
-								    <span>#Servlet #Spring</span>
-							    </div>
-						    </div>
-						    <div class="left grid3">
-								<img src="src/img/study1.jpg" />
-								<div class="imgOverInfo">
-									<span>강원대학교 자바 웹개발 스터디 </span> <br>
-									<span>#Servlet #Spring</span>
-								</div>
-							</div>
-							<div class="left grid3">
-								<img src="src/img/study1.jpg" />
-								<div class="imgOverInfo">
-									<span>강원대학교 자바 웹개발 스터디 </span> <br>
-									<span>#Servlet #Spring</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		<!-- 신규 스터디 --> 
-		  <div class="center del-float" style="overflow:auto">
-		   <!-- <p class="titlehead" style="margin:2rem 0;">신규 스터디</p> -->
-		   <hr>
-		    <div class="del-float">
-		      <div class="memberOffer">
-		        <div class="titleContent latelyText">
-		         최근에 등록된 스터디를 확인해보세요! <br>
-		         <div class="btn">
-		           보러 가기
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
+                <div class="l-wrapper" style="margin: 0 auto">
+                    <ul id="lrow" class="l-row">
+                        <!-- <li id="lcol" class="l-col">
+                            <div id="mystudy" class="study" style="background: #fff; border:solid 1px #d2d2d2">
+                                <a href="#" style="display: block; width: 100%;">
+                                    <div class="ove" style="text-indent:-9999px">
+                                        <span class="ove_span"></span>
+                                    </div>
+                                </a>
+                                <div class="info_area">
+                                    <h2 class="infoareah2"></h2>
+                                    <div class="tags">
+                                        <span class="tag_area_name"></span>
+                                        <span class="hashtags">#Servlet</span>
+                                        <span>#Spring</span>
+                                        <span>#자바</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            
 
-		<div class="wrap center">
-		<!-- 스터디 후기 -->
-		  <div class="center del-float">
-		   <p class="titlehead" style="margin:2rem 0;">스터디 후기</p>
-		   <a href="review.html" class="right" style="color:#333">더보기</a>
-		   
-		  </div>
-		 </div>
+                <!-- 관심 스터디 -->
+                <div class="center">
+                    <p class="titlehead" style="margin:2rem 0;">내 관심 스터디</p>
+                    <a href="#" class="right" style="color:#333">더보기</a>
+                    <div class="slider">
+                        <div class="sliderInner">
+                            <div class="left grid3" style="margin-left: 0">
+                                <img src="src/img/study1.jpg" />
+                                <div class="imgOverInfo">
+                                    <span>강원대학교 자바 웹개발 스터디 </span> <br>
+                                    <span>#Servlet #Spring</span>
+                                </div>
+                            </div>
+                            <div class="left grid3">
+                                <img src="src/img/study1.jpg" />
+                                <div class="imgOverInfo">
+                                    <span>강원대학교 자바 웹개발 스터디 </span> <br>
+                                    <span>#Servlet #Spring</span>
+                                </div>
+                            </div>
+                            <div class="left grid3">
+                                <img src="src/img/study1.jpg" />
+                                <div class="imgOverInfo">
+                                    <span>강원대학교 자바 웹개발 스터디 </span> <br>
+                                    <span>#Servlet #Spring</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sliderInner">
+                            <div class="left grid3" style="margin-left: 0">
+                                <img src="src/img/study1.jpg" />
+                                <div class="imgOverInfo">
+                                    <span>강원대학교 자바 웹개발 스터디 </span> <br>
+                                    <span>#Servlet #Spring</span>
+                                </div>
+                            </div>
+                            <div class="left grid3">
+                                <img src="src/img/study1.jpg" />
+                                <div class="imgOverInfo">
+                                    <span>강원대학교 자바 웹개발 스터디 </span> <br>
+                                    <span>#Servlet #Spring</span>
+                                </div>
+                            </div>
+                            <div class="left grid3">
+                                <img src="src/img/study1.jpg" />
+                                <div class="imgOverInfo">
+                                    <span>강원대학교 자바 웹개발 스터디 </span> <br>
+                                    <span>#Servlet #Spring</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- 신규 스터디 --> 
+          <div class="center del-float" style="overflow:auto">
+           <!-- <p class="titlehead" style="margin:2rem 0;">신규 스터디</p> -->
+           <hr>
+            <div class="del-float">
+              <div class="memberOffer">
+                <div class="titleContent latelyText">
+                 최근에 등록된 스터디를 확인해보세요! <br>
+                 <div class="btn">
+                   보러 가기
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="wrap center">
+        <!-- 스터디 후기 -->
+          <div class="center del-float">
+           <p class="titlehead" style="margin:2rem 0;">스터디 후기</p>
+           <a href="review.html" class="right" style="color:#333">더보기</a>
+           
+          </div>
+         </div>
+        <!-- 정호형 소스 끝 -->
 
         <div class="study-contents">
-        	<div class="l-wrapper">
-	        	<ul class="l-row">
-	        		<li class="l-col">
-		                <div class="study">
-		                    <img class="study-icon" src="img/icon.png">
-		                    <h2>스터디명</h2>
-		                    <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		                    <div class="study-hover">
-		                    	<a href="#"><span>스터디 둘러보기</span></a>
-		                    </div>
-		                </div>
-	                </li>
-	                <li class="l-col">
-		                <div class="study">
-		                    <img class="study-icon" src="img/icon.png">
-		                    <h2>스터디명</h2>
-		                    <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		                    <div class="study-hover">
-		                    	<a href="#"><span>스터디 둘러보기</span></a>
-		                    </div>
-		                </div>
-	                </li>
-	                <li class="l-col">
-		                <div class="study">
-		                    <img class="study-icon" src="img/icon.png">
-		                    <h2>스터디명</h2>
-		                    <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		                    <div class="study-hover">
-		                    	<a href="#"><span>스터디 둘러보기</span></a>
-		                    </div>
-		                </div>
-	                </li>
-	                <li class="l-col">
-		                <div class="study">
-		                    <img class="study-icon" src="img/icon.png">
-		                    <h2>스터디명</h2>
-		                    <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		                    <div class="study-hover">
-		                    	<a href="#"><span>스터디 둘러보기</span></a>
-		                    </div>
-		                </div>
-	                </li>
-	            </ul>
+            <div class="l-wrapper">
+                <ul class="l-row">
+                    <li class="l-col">
+                        <div class="study">
+                            <img class="study-icon" src="img/icon.png">
+                            <h2>스터디명</h2>
+                            <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div class="study-hover">
+                                <a href="#"><span>스터디 둘러보기</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="l-col">
+                        <div class="study">
+                            <img class="study-icon" src="img/icon.png">
+                            <h2>스터디명</h2>
+                            <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div class="study-hover">
+                                <a href="#"><span>스터디 둘러보기</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="l-col">
+                        <div class="study">
+                            <img class="study-icon" src="img/icon.png">
+                            <h2>스터디명</h2>
+                            <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div class="study-hover">
+                                <a href="#"><span>스터디 둘러보기</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="l-col">
+                        <div class="study">
+                            <img class="study-icon" src="img/icon.png">
+                            <h2>스터디명</h2>
+                            <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div class="study-hover">
+                                <a href="#"><span>스터디 둘러보기</span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
-		</section>
-		<!-- section end -->
+        </section>
+        <!-- section end -->
 
-		<!-- footer start -->
-		<footer class="footer">
-			<p>Logo</p>
+        <!-- footer start -->
+        <footer class="footer">
+            <p>Logo</p>
 
-			<div>
-				<span>서울특별시 강남구 비트캠프 401호</span>
-				<span>Tel080-777-2299</span>
-				<span>개인정보취급관리자 홍길동</span>
-				<span>E-mail : we_study@westudy.com</span>
-			</div>
-			<p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-		</footer>
-		<!-- footer end -->
-	</div> <!-- #wrap -->
+            <div>
+                <span>서울특별시 강남구 비트캠프 401호</span>
+                <span>Tel080-777-2299</span>
+                <span>개인정보취급관리자 홍길동</span>
+                <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+        </footer>
+        <!-- footer end -->
+    </div> <!-- #wrap -->
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="slider/jquery.bxslider.min.js"></script>
+    <script src="node_modules/Slidebars/dist/slidebars.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+    var controller = new slidebars();
+        controller.init();
+
+    $(document).ready(function() { 
+      $('.slider').bxSlider({
+       auto:true,
+       speed:500,
+       mode:'fade',
+       adaptiveHeight:true,
+       hideControlOnEnd:true,
+       minSlides:3,
+       maxSlides:3
+      });
+       $("#login").click( function() {
+        $("#myModal").modal();
+       });
+       $("#signup").click( function() {
+        $("#register").modal();
+       });
+      $('#doc1').click( function() {
+         
+         if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
+          $('#regLink').css('pointer-events', 'auto');
+          $('#regLink').css('opacity', '1');
+         } else {
+          $('#regLink').css('pointer-events', 'none');
+          $('#regLink').css('opacity', '0.2');
+         }
+       });
+       $('#doc2').click( function() {
+         
+         if( $('#doc1').is(':checked') && $('#doc2').is(':checked') ) {
+          $('#regLink').css('pointer-events', 'auto');
+          $('#regLink').css('opacity', '1');
+         } else {
+          $('#regLink').css('pointer-events', 'none');
+          $('#regLink').css('opacity', '0.2');
+         }
+       });
+    
+    $('#register').on('shown.bs.modal', function() {
+        $('#doc1').attr("checked", "false");
+        $('#doc2').attr("checked", "false");
+        $('#regLink').css('pointer-events', 'none');
+            $('#regLink').css('opacity', '0.2');
+    });
+       $('body').focus( function() {
+         $('#doc1').attr("checked", "false");
+         $('#doc2').attr("checked", "false");
+         $('#saveId').attr("checked", "false");
+       });
+
+    $("#header").load(serverRoot+"/header.html");
+
+        $(signin).click(function() {
+        $.post("json/auth/login", {
+            id:$(login_email).val(),
+            password:$(login_password).val()
+        }, res => {
+            if(res.state == "fail")
+                alert("login failed");
+            else
+                location.href = "index.html";
+        });
+         });
+        var index = 0;
+        /* 내 주변 스터디 */
+        $.ajaxSetup({ async:false });
+        $.getJSON("json/studyInfo/list", (data) => {
+                for (var item of data) {
+                    console.log(item);
+                     $("<li class='l-col'>").html("<div id='mystudy' class='study' style='background: #fff; border:solid 1px #d2d2d2'>" +
+                     "<a href='groupMain.html?no=" + item.no +"' style='display: block; width: 100%;'>" +
+                     "<div class='ove'><span class='ove_span'></span></div></a>" +
+                     "<div class='info_area'><h2 class='infoareah2'>" + item.name + "</h2>" +
+                     "<div class='tags'><span class='tag_area_name'>" + item.county + "</span></div></div>").appendTo(lrow);
+                
+                    var tagss = $(".tags");
+                    var count = item.no;
+                    console.log("count=" + count);
+                    
+                    console.log("studyInfo/list");
+                    (function(count) {
+                        $.getJSON("json/studyInfo/listTag/" + count, (data2) => {
+                            console.log("studyInfo/listTag");
+                            //console.log(data2);
+                            console.log(count);
+                            console.log(index);
+                            for (var i of data2) {
+                                //console.log(i);
+                                //console.log(index);
+                                //console.log($(tagss[index]));
+                                //console.log(data2);
+                                
+                                //console.log(i.hashtag);
+                                $(tagss[index]).append($("<span class='hashtags'>" + i.hashtag + "</span>"));
+                                //console.log(index);
+                            }
+                            index++;
+                            //console.log("index="+index);
+                        });
+                    })(count);
+                }
+        });
+        $.ajaxSetup({ async:true });
+        
+        
+        
+    });
+    </script>
 </body>
 </html>

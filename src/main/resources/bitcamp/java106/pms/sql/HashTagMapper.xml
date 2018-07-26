@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 이름은 SQL문을 찾을 때 사용하는 그룹명이다.
+       따라서 SQL 문을 사용하는 DAO 클래스 이름과 같게 하면
+       유지보수할 때 알아보기 쉽다. 
+       단순히 알아보기 쉬울 뿐만 아니라 
+       스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다.
+-->
+<mapper namespace="bitcamp.java106.pms.dao.HashTagDao">
+  <resultMap type="HashTag" id="HashTagMap">
+    <id column="stdno" property="no" />
+    <result column="tag" property="hashtag" />
+  </resultMap>
+
+  <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
+         유지보수할 때 알아보기 쉽다.   
+         알아보기 쉬울 뿐만 아니라
+         스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고
+         그 메서드를 자동생성할 때 사용할 수 있다.
+  -->  
+  <insert id="insert" parameterType="HashTag" 
+        useGeneratedKeys="true" keyColumn="stdno" keyProperty="no">
+      insert into hashtag(stdno,tag) values(#{no},#{hashtag})
+  </insert>
+  
+    <select id="selectList" 
+          resultMap="HashTagMap" parameterType="int"> 
+  select * from hashtag where stdno=#{value} 
+  </select>
+  
+</mapper>

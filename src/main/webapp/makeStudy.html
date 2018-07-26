@@ -1,73 +1,84 @@
 ﻿<!doctype html>
 <html lang="ko">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/jquery.tag-editor.css">
-    <script src="node_modules/jquery/dist/jquery.js"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 
-    <style>
-        .container{
-            margin-bottom: 0.5%;
-            max-width: 600px;
-        }
-        .title{
-            font-size: 30px;
-            margin-bottom: 1em;
-            font-weight: bold;
-        }
-        .dg-subtitle{
-            font-size: 1.25rem;
-            margin-bottom: 1em;
-            font-weight: bold;
-        }
-        .step1, .step2, step3{
-            font-weight: bold;
-            color: #ef6c00;
-        }
-        .form-control:focus {
-            border-color: #ef6c00;
-            box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
-        }
-        #StudytitleFormControlInput{
-            margin-bottom: 1rem;
-        }
-        .btn {
-            background-color: #ef6c00;
-            color: white;
-            font-weight: bold;
-        }
-        .btn:hover{
-            background-color: rgb(240, 130, 0);
-            color: white;
-            font-weight: bold;
-        }
-    </style>
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/jquery.tag-editor.css">
+
+<style>
+.container {
+    margin-bottom: 0.5%;
+    max-width: 600px;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.dg-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.step1, .step2, .step3 {
+    font-weight: bold;
+    color: #ef6c00;
+}
+
+.form-control:focus {
+    border-color: #ef6c00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
+}
+
+#StudytitleFormControlInput {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #ef6c00;
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: rgb(240, 130, 0);
+    color: white;
+    font-weight: bold;
+}
+</style>
 
 
-    <title>makeStudy</title>
-  </head>
-  <body>
+<title>makeStudy</title>
+</head>
+<body>
     <!-- navbar start -->
     <header class="header">
         <div class="headerWrap">
             <h1 class="logo">
-                <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+                <a href="index.html"><img src="img/logo3.png" alt="로고"
+                    title="WeStudy"></a>
             </h1>
             <div class="utilMenu">
                 <ul>
                     <li class="search"><a href="search.html">검색</a></li>
                     <li><a href="makeStudy.html">스터디 만들기</a></li>
-                    <li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
-                    <li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
+                    <li><a id="login" style="" data-toggle="modal"
+                        data-target="#myModal"> 로그인 </a></li>
+                    <li><a id="signup" class="" data-toggle="modal"
+                        data-target="#register">회원가입</a></li>
                     <li class="utilMenuMobile">스터디그룹 만들기</li>
                     <li class="utilMenuMobile">가입한 스터디 목록</li>
                     <li class="menu"><a href="myProfile.html">menu</a></li>
@@ -79,7 +90,7 @@
                 <div class="profile_img">
                     <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
                 </div>
-            </div>  
+            </div>
         </div>
     </header>
     <!-- navbar end -->
@@ -87,14 +98,13 @@
     <!-- study make start -->
     <div class="container text-center">
         <div class="title">스터디 만들기</div>
-        <form name="form">
-            
+            <form name="form">
                 <div class="step1">1/3 단계</div>
                 <div class="dg-subtitle">스터디그룹 활동 지역</div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                    <select name="option1" onchange="changes(document.form.option1.value)" class="form-control" id="city">
+                    <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control">
                         <option value="" selected>:: 시/도 ::</option>
                         <option value="1">서울특별시</option>
                         <option value="2">부산광역시</option>
@@ -116,7 +126,7 @@
                     </select>
                 </div>
                     <div class="col-sm-6">
-                        <select name="option2" class="form-control" id="county">
+                        <select id="fCounty" name="option2" class="form-control">
                             <option>:: 시/군/구 ::</option>
                         </select>
                     </div>
@@ -124,83 +134,86 @@
             <hr>    
             <div class="step">
                 <div class="step2">2/3 단계</div>
-                <div class="dg-subtitle">스터디그룹 관련 주제</div>
+                <div class="dg-subtitle">스터디그룹 관련 주제 및 인원</div>
                 <div class="row">
                     <div class="form-group col-sm">
-                        <select id="category" class="form-control">
+                        <select id="fCategory" class="form-control">
                             <option selected>주제 선택</option>
-                            <option>IT</option>
-                            <option>국가시험</option>
-                            <option>기사</option>
-                            <option>언어</option>
-                            <option>금융</option>
-                            <option>취업</option>
-                            <option>토론</option>
-                            <option>기타</option>
+                            <option value="IT">IT</option>
+                            <option value="국가시험">국가시험</option>
+                            <option value="기사">기사</option>
+                            <option value="언어">언어</option>
+                            <option value="금융">금융</option>
+                            <option value="취업">취업</option>
+                            <option value="토론">토론</option>
+                            <option value="기타">기타</option>
                         </select>
                     </div>
                 </div>
                 <textarea id="tagEditor" class="form-control area" type="text"></textarea>
+                <div class="row">
+                    <div class="form-group col-sm">
+                            <select id="fMaxPeople" class="form-control">
+                                <option selected>인원 선택</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                     </div>
+                 </div>
             </div>
             <hr>
+        
             <div class="step">
-                <div class="step2">3/3 단계</div>
+                <div class="step3">3/3 단계</div>
                 <div class="dg-subtitle">스터디그룹 이름 및 설명</div>
                 <div class="input-group">
-                    <input class="form-control" type="text" id="fTitle" placeholder="스터디 이름">
+                    <input class="form-control" type="text" id="fName" placeholder="스터디 이름을 한줄 문장으로 입력해주세요.">
                 </div>
                 <div class="input-group">
-                    <textarea class="form-control" id="fDescription" rows="5" placeholder="설명"></textarea>
+                    <textarea class="form-control" id="fInformation" rows="5" wrap="hard" placeholder="스터디를 상세하게 소개해보세요."></textarea>
                 </div>
                 <hr>
                 <div>
-                    <button class="btn btn-lg btn-block" id="createStudy">등록</button>
+                    <button id="addBtn" class="btn btn-lg btn-block" type="button">등록</button>
                 </div>
             </div>
         </form>
     </div>
     <!-- study make end -->
-    <script>
-    $("#createStudy").click(() => {
-    	$.ajax({
-    		type:"post",
-    		url: "../../json/study/add",
-    		data: {
-    			city: $(city).val(),
-    			county: $(county).val(),
-    			category: $(category).val(),
-    			name: $(fTitle).val(),
-    			info: $(fDescription).val()
-    			}
-    		}).done(function() {
-    			window.alert("스터디가 등록되었습니다!");
-    		});
-    	});
-    
-    </script>
+
 
     <footer class="footer">
         <p>Logo</p>
         <div>
-            <span>서울특별시 강남구 비트캠프 401호</span>
-            <span>Tel080-777-2299</span>
-            <span>개인정보취급관리자 홍길동</span>
-            <span>E-mail : we_study@westudy.com</span>
+            <span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
+                홍길동</span> <span>E-mail : we_study@westudy.com</span>
         </div>
         <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
     <!-- tagEditor start -->
     <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
     <script src="js/jquery.caret.min.js"></script>
     <script src="js/jquery.tag-editor.js"></script>
+    
     <script>
         $('#tagEditor').tagEditor({
             initialTags: [],
@@ -208,8 +221,6 @@
             placeholder: '태그를 입력해주세요.'
         });
     </script>
-    <!-- tagEditor end -->
-    
     <script>
     function changes(fr) {
         if(fr==1) {
@@ -341,7 +352,89 @@
         document.form.option2.options[i] = new Option(num[i],vnum[i]);
       }
     }
-    </script>
+// 태그에 id를 지정하면 window 객체에 자동 등록한다.
+// 따라서 다음과 같이 태그를 찾는 코드를 작성하지 않아도 된다.
+/*
+var fNo = document.querySelector("#fNo"),
+    fTitle = document.querySelector("#fTitle"),
+    fContent = document.querySelector("#fContent"),
+    fCreatedDate = document.querySelector("#fCreatedDate");
+*/
+//console.log(window.fTitle);
 
-  </body>
+// 웹 브라우저가 기본으로 제공하는 객체
+//console.log(location.href.split("?")[1].split("=")[1]);  // no값 => 예) 24
+
+if (location.href.split("?").length > 1) {
+    
+    var no = location.href.split("?")[1].split("=")[1];
+    //console.log(no);
+    
+    $.getJSON("json/study/" + no, function(data) {
+        $(fNo).val(data.no);
+        $(fTitle).val(data.title);
+        $(fDescription).val(data.description);
+    });  
+    
+    $("#updBtn").click(() => {
+        $.post("json/study/update", {
+            title: $(fTitle).val(),
+            description: $(fDescription).val(),
+            no: $(fNo).val()
+        }, () => {
+            location.href = "list.html";
+        });
+    });
+    
+    $("#delBtn").click(() => {
+        if (window.confirm("삭제하시겠습니까?") == false)
+           return;
+        
+        $.get("json/study/delete", {"no":no}, () => {
+            window.location.href = "list.html";
+        });
+    });
+    
+} else { // 새 글 등록시에는
+    /* $("#addBtn").click(() => {
+        $.post("json/study/add", {
+            title: $(fTitle).val(),
+            description: $(fDescription).val()
+        }, () => {
+            console.log("add success");
+            $.getJSON("json/study/one", function(data) {
+                console.log(data);
+                location.href = "groupMain.html?no=" + data;
+            });
+        });
+    }); */
+    $("#addBtn").click(() => {
+        $.post("json/studyInfo/add", {
+            city: $("#fCity option:checked").text(),
+            county: $("#fCounty option:checked").text(),
+            name: $(fName).val(),
+            information: $(fInformation).val(),
+            maxPeople: $(fMaxPeople).val(),
+            category: $("#fCategory option:checked").text()
+        }, () => {
+            console.log("add success");
+            $.post("json/studyInfo/addTag", {
+                tag: $("#tagEditor").val()
+            }, () => {
+                $.getJSON("json/studyInfo/one", function(data) {
+                    console.log(data);
+                    location.href = "groupMain.html?no=" + data;
+                });
+            });
+            
+        });
+        
+        
+        
+    });
+    
+}
+</script>
+
+</body>
 </html>
