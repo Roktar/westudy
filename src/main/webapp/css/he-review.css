@@ -7,7 +7,7 @@
 }
 
         div.class-list {
-            border: 1px solid gray;
+            border: 1px solid #ddd;
             margin-top : 2em;
             height : 50%;
             padding-top: 1em;
@@ -23,9 +23,10 @@
            .col-9 {
                margin: auto;
            }
-           body {
-            min-width: 660px;
-           }   
+           .review-line {
+              display: none;
+           }
+          
         }
 
         @media (min-width:800px) {
@@ -47,7 +48,7 @@
 
 
         img.main-logo {
-            margin: 3em;
+            margin: 3em 3em 1em 3em;
             
         }
 
@@ -58,14 +59,14 @@
         
         div.std_info {
            margin-left: 3em;
-            font-size: 16px;
+            font-size: 1em;
             margin-bottom: 1em;
-            
+           
         }
 
         div.std_info2 {
            margin-left: 3em;
-            font-size: 16px;
+            font-size: 1em;
             margin-bottom: 1em;
             padding-bottom: 3em;
         }
@@ -91,9 +92,9 @@
             
         }
 
-        div.std_class_titl{
+        div.stdclasstitl{
             font-weight: bold;
-            font-size: 24px;
+            font-size: 1.5em;
          
         }
     
@@ -102,6 +103,7 @@
         img.prof-img {
             margin-right: 1em;
             float: left;
+            
         }
 
 
@@ -157,14 +159,13 @@
             float:left;
             margin-top :0.9em;
             margin-right: 1em;
-            color: #BDBDBD;
-             font-weight: bold;
+            color: #BDBDBD !important;
+            font-weight: bold;
         }
 
         .user_class {
             font-size: small;
             color: #cccccc;
-            text-transform:uppercase;
             font-weight: 800;
         }
        
@@ -181,7 +182,7 @@
             position:relative;
             z-index:1;
             color : #333;
-            font-weight: bold;
+            
          
          
         }
@@ -221,7 +222,7 @@
      
 
         .std-main-box {
-           
+            border : 3px solid red;
             padding : 0;
         }
 
@@ -232,7 +233,7 @@
 
 
         .review_date {
-            margin-left: 5.9em;
+            margin-left: 5.7em;
             font-size: 14px;
             display: inline-block;
             margin-top: 1.3em;
@@ -294,17 +295,10 @@
             font-size: 15px;
             white-space: pre-wrap;
             font-family: nanum-gothic;
-            margin-left: 1.1em;
+            margin-left: 1em;
             padding-right: 2em;
         }
 
 
-      @media (max-width:770px) {
-          .justify-content-md-center {
-            min-width : 533px;
-
-          }
-      }
-
-
     
+
