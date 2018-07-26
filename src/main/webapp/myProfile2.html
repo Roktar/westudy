@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/br_profile.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/blueimp-file-upload/css/jquery.fileupload.css">
+    <script src='node_modules/jquery/dist/jquery.js'></script>
+    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src='js/common.js'></script>
+    <script src='node_modules/jquery/dist/jquery.js'></script>
+    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/br_profile.css">
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script>
+        //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = data.address; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 기본 주소가 도로명 타입일때 조합한다.
+                if(data.addressType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("sample5_address").value = fullAddr;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+                    }
+                });
+            }
+        }).open();
+    }
+        
+    new daum.Postcode({
+        onclose: function(state) {
+            //state는 우편번호 찾기 화면이 어떻게 닫혔는지에 대한 상태 변수 이며, 상세 설명은 아래 목록에서 확인하실 수 있습니다.
+            if(state === 'FORCE_CLOSE'){
+                //사용자가 브라우저 닫기 버튼을 통해 팝업창을 닫았을 경우, 실행될 코드를 작성하는 부분입니다.
+                document.write(sido);
+            } else if(state === 'COMPLETE_CLOSE'){
+                //사용자가 검색결과를 선택하여 팝업창이 닫혔을 경우, 실행될 코드를 작성하는 부분입니다.
+                //oncomplete 콜백 함수가 실행 완료된 후에 실행됩니다.
+                document.write(sigungu);
+            }
+        }
+    });        
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#header").load(serverRoot + "/header.html");
+            
+            $('#updateMember').click(function() {
+                $("#fName").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+                $("#fEmail").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+                $("#fBirth").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+                $("#fGender").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+                $("#fCity").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+                $("#fIntro").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+                $("#fPicture").text("ㄴ이ㅏㄹ져ㅣ혀ㅏ");
+            });
+            $('#profileEdit').click(function() {
+                $('textarea').removeAttr("readonly");
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div id="header"> </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                                                    내 정보 관리
+                        </a>
+                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                                                관심 분야 설정
+                        </a>
+                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                                                   메시지
+                        </a>
+                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                                                      비밀번호 변경
+                        </a>
+                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                                                     계정 삭제
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-box col">
+                <div class="inner-container-box">
+                    <h3>내 정보 관리</h3>
+                    <hr><br>
+                    <form>
+                        <div class="form-group-img">
+                            <img src="img/thumbnail.jpg" alt="..." class="rounded-circle thumbnail"><br>
+                            <label for="exampleInputEmail1">내 사진 설정</label><br>
+                            <span class="btn btn-primary btn-sm fileinput-button">
+                        <span>파일 선택</span>
+                            <input id="fileupload" type="file" name="files">
+                            </span>
+                        </div>
+                        <ul>
+                            <li>이름 : <span id="fName">윤봉길</span></li>
+                            <li>이메일 주소 : &nbsp;<span id="fEmail">bong@gmail.com </span></li>
+                            <li>생년월일 : &nbsp;<span class="fBirth">2012.03.02 </span> </li>
+                            <li>성별 : &nbsp;<span class="fGender">여</span> </li>
+                            <li>지역 : &nbsp;<span class="fCity">서울특별시</span> <span class="fCounty">강남구</span></li>
+                            <input type="text" id="sample5_address" placeholder="주소">
+                            <input type="button" onclick="sample5_execDaumPostcode()" class="btn btn-sm btn-secondary" value="변경"><br>
+                            <li> <textarea class="form-control" id="fIntro" rows="5" readonly></textarea> <a href="#" class="btn btn-sm btn-secondary edit" id="profileEdit">수정</a></li>
+                        </ul><br>
+                        <span class="btn btn-primary btn-block" id="updateMember">저장하기</span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#fileupload').fileupload({
+            url: 'json/member/photoUpload', // 서버에 요청할 URL
+            dataType: 'json',
+            /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+            done: function(e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+                console.log('done()...');
+                console.log(data.result);
+                $('.form-group-img img')
+                    .attr('src', 'files/' + data.result.filename + '_300x300.jpg');
+            }
+        });
+    </script>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
