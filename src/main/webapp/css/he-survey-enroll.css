@@ -212,7 +212,7 @@ input.vote-date {
 div.con-box-enroll {
     margin-top: 2em;
     border: 1px solid #ddd;
-    padding-right: 2.5em;
+    
     padding-top: 1em;
     padding-bottom: 1em;
     margin-bottom: 1em;
@@ -239,6 +239,11 @@ div.con-box-enroll {
     margin-top : 0.5em;
 }
 
+
+.list-form {
+    margin-bottom: 1em;
+}
+
 div.con-box-list {
     margin-top: 1em;
     border: 1px solid #ddd;
@@ -262,7 +267,7 @@ div.con-box-list {
 
 .enroll-bt {
     background-color: #ef6c00;
-    border : 1px solid #ef6c00;
+    
 }
 
 .enroll-btn {
