@@ -18,6 +18,7 @@ public class Member implements Serializable {
     private String tel;
     private char gender;
     private String interestedPlace;
+    private String authCode;
     private List<InterestField> interests;
     
     public String getProfile() {
@@ -86,10 +87,17 @@ public class Member implements Serializable {
     public void setInterests(List<InterestField> interests) {
         this.interests = interests;
     }
+    public String getAuthCode() {
+        return authCode;
+    }
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
+    }
     @Override
     public String toString() {
         return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
                 + ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", tel=" + tel
-                + ", gender=" + gender + ", interestedPlace=" + interestedPlace + ", interests=" + interests + "]";
+                + ", gender=" + gender + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode
+                + ", interests=" + interests + "]";
     }
 }

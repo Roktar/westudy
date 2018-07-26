@@ -48,6 +48,7 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public void insert(Map<String, String> params) {
+        // TODO Auto-generated method stub
         
         Member member = new Member();
         member.setEmail(params.get("email"));
@@ -61,10 +62,15 @@ public class MemberServiceImpl implements MemberService{
         params.remove("tel");
         
         memberDao.insert_basic(member);
-        System.out.println("회원가입완료");
         int refid = memberDao.selectOne(member.getEmail()).getNo(); // 기준 회원 선택
-        System.out.println("");
         
+        String personalAuthCode = new TempKeyGenerator().getKey(50, false);
+        
+        Map<String, Object> authInfo = new HashMap<>();
+        authInfo.put("no", refid);
+        authInfo.put("authCode", personalAuthCode);
+        emailDao.createAuthKey(authInfo);
+
         if(refid > 0) {
             for(Entry<String, String> entry : params.entrySet()) {
                 InterestField itr = new InterestField();
@@ -72,6 +78,18 @@ public class MemberServiceImpl implements MemberService{
                 itr.setCategory(entry.getValue());
                 interestFieldDao.insert(itr);
             }
+        }
+        try {
+            MailHandler sendMail = new MailHandler(mailSender);
+            sendMail.setSubject("[Westudy] 서비스 이메일 인증 요청 메일입니다.");
+            sendMail.setText( new StringBuffer().append("<h1>서비스 이용을 위해 아래 링크를 클릭하여 메일 인증을 해주시기 바랍니다.</h1>")
+                                                .append("<a href='http://westudy.java106.com:8888/westudy/json/auth/email/"+personalAuthCode)
+                                                .append("' target='_blank'> 이메일 인증하기 </a>")
+                                                .toString());
+            sendMail.setTo(member.getEmail());
+            sendMail.send();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -100,5 +118,11 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public int update(Member member) {
         return memberDao.update(member);
+    }
+
+    public void createAuthKey(String email, String authCode) throws Exception {
+        Member member = new Member();
+        member.setEmail(email);
+        member.setAuthCode(authCode);
     }
 }
