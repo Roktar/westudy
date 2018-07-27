@@ -16,11 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="js/message.js"></script>
-
-
-   
-
-    
    
 
 </head>
@@ -85,9 +80,8 @@
             <div class="col-sm-10 container-box">
                 <div class="inner-container-box">
                     <h3>메시지</h3><hr>
-
                     <div class="con-box-list">
-                            <div class='css3-tab'>
+                        <div class='css3-tab'>
                                 <input type='radio' name='a' id='tabOne' tabindex="1" checked>
                                 <input type='radio' name='a' id='tabTwo' tabindex="2">
                                 <input type='radio' name='a' id='addNew' tabindex="3">
@@ -96,7 +90,6 @@
                                         <label for='tabTwo'>보낸 쪽지함</label>
                                         <label for='addNew'>새 쪽지</label>
                                 </div>
-
                     <div class='css3-tab-content tab-one'>
                             <div class="table-responsive">
                                     <table class="table table-sm">
@@ -110,7 +103,6 @@
                                                             <th scope="col" style="width:75px;">보낸이</th>
                                                             <th scope="col">내용</th>
                                                             <th scope="col">날짜</th>
-                                                          
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -123,7 +115,6 @@
                                                             <td><a href="#">안중근씨</a></td>
                                                             <td style="max-width: 0;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a href="message-send.html"><a href="message-recieve.html">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
                                                             <td id="receive-date" style="text-align:center">2018.06.05</td>
-                                                           
                                                         </tr>
                                                         <tr>
                                                             <td scope="row">
@@ -145,12 +136,8 @@
                                                             <td><a href="#">유관순</a></td>
                                                             <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
                                                             <td id="receive-date" style="text-align:center">2018.07.02</td>
-                                                          
                                                         </tr>
-
-                                                        
                                                     </tbody>
-                                             
                                           </table>
                                           <div class="btntn">
                                           <button class="btn btn-secondary btn-sm delete">삭제</button>
@@ -211,17 +198,12 @@
                                                             <td><a href="#">유관순</a></td>
                                                             <td><a href="#">Lorem ipsum dolor sit amet,  Nam id ...</a></td>
                                                             <td id="receive-date" style="text-align:center">2018.07.02</td>
-                                                          
                                                         </tr>
-
-                                                        
                                                     </tbody>
-                                             
                                           </table>
                                                       <div class="btntn">
                                                       <button class="btn btn btn-secondary btn-sm dg-btn delete">삭제</button>
                                                       </div>
-                                                    
                                             </div>
                                        </div>
                             
@@ -231,14 +213,12 @@
                             <div class='css3-tab-content add-new'>
                                 <form>
                                         <div class="input-group mb-3 sendform">
-                                                <input type="text" class="form-control" placeholder="받는사람" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <input type="text" class="form-control" placeholder="받는사람" id="receiveAddress">
                                                 <div class="input-group-append">
                                                   <button class="btn btn-outline-secondary juso" type="button">주소록</button>
                                                 </div>
                                               </div>
-
                                               <div class="form-group">
-                                                    
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
                                                   </div>
                                                   <button class="btn btn-primary btn-sm sendbtn">보내기</button>
@@ -266,10 +246,22 @@
                 <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
             </footer>
             <!-- footer end -->
-
+            <script>
+            $(document).ready(function() { 
+                $('#receiveAddress').send({
+                });
+                
+                $.getJSON("json/memberMessage/list"+no, (data) => {
+                    $("<ul>")
+                        .html("<li>" + data.name + "</li>" + 
+                            "<li>" + data.email + "</li>" + 
+                            "<li>" + data.birthday + "</li>" + 
+                            "<li>" + data.gender + "</li>"
+                        ).appendTo(info);
+                })
+            });
+            
+            
+            </script>
 </body>
-
-
-
-
 </html>

@@ -73,8 +73,8 @@ public class MemberController {
         return memberService.changePassword(no, nowPassword, newPassword);
     }
 
-    @PostMapping("upload04")
-    public Object upload04(
+    @PostMapping("photoUpload")
+    public Object photoUpload(
             MultipartFile files) {
         
         HashMap<String,Object> jsonData = new HashMap<>();
@@ -90,10 +90,10 @@ public class MemberController {
             files.transferTo(path);
             
             // 써네일 이미지 생성
-            String thumbnailPath = path.getCanonicalPath() + "_50x50";
+            String thumbnailPath = path.getCanonicalPath() + "_300x300";
             System.out.println(thumbnailPath);
             Thumbnails.of(path)
-                      .size(50, 50)
+                      .size(300, 300)
                       .outputFormat("jpg")
                       .toFile(new File(thumbnailPath));
             

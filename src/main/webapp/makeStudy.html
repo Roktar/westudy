@@ -182,12 +182,33 @@
                 </div>
                 <hr>
                 <div>
-                    <button id="addBtn" class="btn btn-lg btn-block" type="button">등록</button>
+                    <button class="btn btn-lg btn-block" id="createStudy">등록</button>
                 </div>
             </div>
         </form>
     </div>
     <!-- study make end -->
+    <script>
+    $("#createStudy").click(() => {
+    	$.ajax({
+    		type:"post",
+    		url: serverRoot + "/json/study/add",
+    		data: {
+    			city: $(city).val(),
+    			county: $(county).val(),
+    			name: $(fTitle).val(),
+    			info: $(fDescription).val(),
+    			category: $(category).val(),
+    			cdt: Date.now(),
+    			mprs: 10,
+    			ctgr: $(category).val()
+    			}
+    		}).done(function() {
+    			window.alert("스터디가 등록되었습니다!");
+    		});
+    	});
+    
+    </script>
 
 
     <footer class="footer">
