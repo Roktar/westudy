@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/jquery.tag-editor.css">
     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/common.js"></script>
 
     <style>
         .container{
@@ -164,13 +165,16 @@
     $("#createStudy").click(() => {
     	$.ajax({
     		type:"post",
-    		url: "../../json/study/add",
+    		url: serverRoot + "/json/study/add",
     		data: {
     			city: $(city).val(),
     			county: $(county).val(),
-    			category: $(category).val(),
     			name: $(fTitle).val(),
-    			info: $(fDescription).val()
+    			info: $(fDescription).val(),
+    			category: $(category).val(),
+    			cdt: Date.now(),
+    			mprs: 10,
+    			ctgr: $(category).val()
     			}
     		}).done(function() {
     			window.alert("스터디가 등록되었습니다!");

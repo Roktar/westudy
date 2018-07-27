@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.MemberMessageDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.MemberMessage" id="MemberMessageMap">
+    <id column="msgno" property="no"/>
+    <result column="cont" property="content"/>
+    <result column="date" property="createdDate"/>
+    <association property ="sender" javaType="bitcamp.java106.pms.domain.Member">
+      <id column="memno" property="no"/>
+      <result column="name" property="name"/>      
+    </association>
+    <association property ="receiver" javaType="bitcamp.java106.pms.domain.Member">
+      <id column="memno" property="no"/>
+      <result column="name" property="name"/>      
+    </association>    
+  </resultMap>
+
+  <select id="selectListSender" 
+          resultMap="MemberMessageMap" 
+          parameterType="string">
+    
+    select m.name, mm.cont, mm.date 
+    from member_message mm, member m
+    where mm.rcvr = #{receiver.no} and mm.sndr = m.memno
+    order by date
+  </select>
+
+  <select id="selectListReceiver" 
+          resultMap="MemberMessageMap" 
+          parameterType="string">
+    select m.name, mm.cont, mm.date 
+    from member_message mm, member m
+    where mm.sndr = #{sender.no} and mm.rcvr = m.memno
+    order by date
+  </select>
+  
+  <insert id="insert" parameterType="MemberMessage"
+          useGeneratedKeys="true" keyColumn="stdno" keyProperty="no">x
+    insert into member_message( cont, date, sndr, rcvr ) 
+    values(#{content}, now(), #{sender.no}, #{receiver.no} );
+  </insert>
+      
+  <select id="selectOne" parameterType="int" resultMap="MemberMessageMap">
+    select *
+    from member_message 
+    where msgno=#{value}
+  </select>
+  
+   <delete id="delete" parameterType="int">
+    delete from member_message where msgno=#{value}
+  </delete>
+
+</mapper>

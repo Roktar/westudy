@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>내 정보 관리</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/blueimp-file-upload/css/jquery.fileupload.css">
+    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>        
     <script src='node_modules/jquery/dist/jquery.js'></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="js/holder.min.js"></script>
+    <script src="js/common.js"></script>
     <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
     <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
@@ -16,6 +19,10 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/br_profile.css">
     <script>
+    $(document).ready(function() { 
+        $("#header").load(serverRoot+"/header.html");
+    });
+
         Holder.addTheme("dark", {
             background: "#000",
             foreground: "#aaa",
@@ -23,12 +30,9 @@
             font: "Monaco",
             fontweight: "normal"
         });
+        
+        
     </script>
-    <style>
-    .test{
-        border: 1px solid red;
-    }
-    </style>
 </head>
 
 <body>
@@ -120,6 +124,15 @@
     <!-- blueimp start -->
     
     <script>
+
+    var no = -1;
+    $.get("json/auth/loginstat", {}, res=> {
+        console.log("[" + res + "]" + ", " + typeof(res));
+        console.log(res.no);
+        no = res.no;
+    })
+    
+
     $('#fileupload').fileupload({
         url: 'json/member/photoUpload', // 서버에 요청할 URL
         dataType: 'json',
@@ -131,9 +144,9 @@
                 .attr('src', 'files/' + data.result.filename + '_300x300.jpg');
         }
     });
-    </script>
-          <script>
-                    $.getJSON("json/member/1", (data) => {
+    
+    setTimeout( function() {
+        $.getJSON("json/member/"+no, (data) => {
                             $("<ul>")
                                 .html("<li>" + data.name + "</li>" + 
                                     "<li>" + data.email + "</li>" + 
@@ -142,7 +155,8 @@
                                     "<li>" + data.city + data.county + "</li>" +
                                     "<li>" + data.introduce +"</li>"
                                 ).appendTo(info);
-                    });
+        })
+        }, 500);
                     </script>
     
 </body>
