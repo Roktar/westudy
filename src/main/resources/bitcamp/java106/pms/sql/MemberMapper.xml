@@ -16,6 +16,7 @@
     <result column="tel" property="tel"/>
     <result column="gen" property="gender"/>
     <result column="itrloc" property="interestedPlace"/>
+    <result column="auth" property="authCode"/>
   </resultMap>
     
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
@@ -67,10 +68,10 @@
         itrloc=#{interestedPlace},
         where email=#{id}
     </update>
-
-
-
-  
+      
+  <update id="userAuth" parameterType="map">
+    update member set auth = #{authCode} where memno = #{no}
+  </update>
 </mapper>
 
 
