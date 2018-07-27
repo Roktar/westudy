@@ -37,11 +37,6 @@ public class MemberMessageController {
          return memberMessageService.list();
      }
 
-     @RequestMapping("list")
-     public Object list() {
-         return memberMessageService.list();
-     }
-          
      @RequestMapping("{no}")
      public MemberMessage view(@PathVariable int no) throws Exception {
          return memberMessageService.get(no);
