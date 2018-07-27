@@ -203,14 +203,14 @@
                     
                      <div class="form-group">
                           <label for="exampleFormControlTextarea1"></label>
-                          <textarea class="form-control" id="textArea" rows="6" placeholder="스터디 후기를 자유롭게 적어주세요!"></textarea>
+                          <textarea id="fContent" class="form-control" rows="6" placeholder="스터디 후기를 자유롭게 적어주세요!"></textarea>
                      </div>
                    </form>
 				</div>
 
 				<div class="modal-footer">
 				
-					<button id="btnSubmit" type="submit" class="input-view btn btn-primary btn-sm">등록</button>
+					<button id="addBtn" type="button" class="input-view btn btn-primary btn-sm">등록</button>
 					<button id="closeBtn" class="cancel-view btn btn-secondary btn-sm" data-dismiss="modal">취소</button>
 				
 				</div>
@@ -248,42 +248,50 @@
  </script>
  
 <script>
- if (location.href.split("?").length > 1) {
-	var tags = $(".input-view");
-    tags.css("display", "none");
-    
+   
+
+
+if (location.href.split("?").length > 1) {
+
 	var no = location.href.split("?")[1].split("=")[1];
 	
-	$.getJSON(serverRoot + "/json/review/" + no, function(data) {
-		$(fNo).val(data.no);
-        $(phoTitle).val(data.title);
-        $(textArea).val(data.state);
-     
-        
+	$.getJSON(serverRoot + "/json/review/" + no, function(res) {
+        $(example).val(res[item].rating);
+        $(fContent).val(res[item].content);
 	});
 	
-	
+	$("#updBtn").click(() => {
+		$.post(serverRoot + "/json/review/update", {
+			title: $(fTitle).val(),
+			content: $(fContent).val(),
+			no: $(fNo).val()
+		}, () => {
+			location.href = "list.html";
+		});
+	});
 	
     $("#delBtn").click(() => {
         if (window.confirm("삭제하시겠습니까?") == false) 
         	return;
         
-        $.get(serverRoot + "/json/board/delete", {"no": no}, () => {
+        $.get(serverRoot + "/json/review/delete", {"no": no}, () => {
         	location.href = "list.html";
         });
 	});
 	
 } else { // 새 글 등록
    
-    $("#btnSubmit").click(() => {
+    
+    $("#addBtn").click(() => {
     	$.post(serverRoot + "/json/review/add", {
-    		rating: $(star).val(),
-            state: $(textArea).val()
+    		rating: $(example).val(),
+            content: $(fContent).val()
     	}, () => {
-    		location.href = "Mystudy.html";
+    		location.href = "list.html";
     	});
     });
 }
+
 </script>
 
 </html>

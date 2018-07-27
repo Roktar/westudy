@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java106.pms.domain.Review;
+import bitcamp.java106.pms.domain.Study;
 import bitcamp.java106.pms.service.ReviewService;
 
 @RestController
@@ -26,19 +27,20 @@ public class ReviewController {
   
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(Review testReview) throws Exception{
-    	reviewService.add(testReview);
-    }
+     public void add(Review review) throws Exception {
+             reviewService.add(review);
+     }
+     
     
     
     @RequestMapping("{no}")
     public Review view(@PathVariable int no) throws Exception {
-        return reviewService.get(no);
+        return reviewService.get(no);  
     }
     
     @RequestMapping("list")
-    public List<Review> list(
-            @RequestParam("name") String name) throws Exception {
+    public List<Review> list(    
+            @RequestParam("category") String name) throws Exception {
     	return reviewService.selectList(name);
     }
 }

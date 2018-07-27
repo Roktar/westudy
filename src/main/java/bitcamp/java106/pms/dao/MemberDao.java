@@ -13,4 +13,6 @@ public interface MemberDao {
     Member selectOneSimpleCase(String id);
     int changePassword(Map<String, Object> params);
     int update(Member member);
+    void createAuthKey(String email, String key);
+    void userAuth(Map<String, Object> params);
 }

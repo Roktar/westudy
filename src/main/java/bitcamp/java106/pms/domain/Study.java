@@ -12,7 +12,7 @@ public class Study implements Serializable {
     private int no;
     private String city;
     private String county;
-    private String name;
+    private String sname;
     private String information;
     @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
     private Date createdDate;
@@ -38,10 +38,10 @@ public class Study implements Serializable {
         this.county = county;
     }
     public String getName() {
-        return name;
+        return sname;
     }
     public void setName(String name) {
-        this.name = name;
+        this.sname = name;
     }
     public String getInformation() {
         return information;

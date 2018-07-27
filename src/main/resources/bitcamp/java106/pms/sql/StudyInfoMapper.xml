@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 이름은 SQL문을 찾을 때 사용하는 그룹명이다.
+       따라서 SQL 문을 사용하는 DAO 클래스 이름과 같게 하면
+       유지보수할 때 알아보기 쉽다. 
+       단순히 알아보기 쉬울 뿐만 아니라 
+       스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다.
+-->
+<mapper namespace="bitcamp.java106.pms.dao.StudyInfoDao">
+  <resultMap type="StudyInfo" id="StudyMap">
+    <id column="stdno" property="no" />
+    <result column="city" property="city" />
+    <result column="county" property="county" />
+    <result column="name" property="name" />
+    <result column="info" property="information" />
+    <result column="cdt" property="createdDate" />
+    <result column="mprs" property="maxPeople" />
+    <result column="ctgr" property="category" />
+  </resultMap>
+
+  <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
+         유지보수할 때 알아보기 쉽다.   
+         알아보기 쉬울 뿐만 아니라
+         스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고
+         그 메서드를 자동생성할 때 사용할 수 있다.
+  -->  
+  <insert id="insert" parameterType="StudyInfo" 
+        useGeneratedKeys="true" keyColumn="stdno" keyProperty="no"> <!-- 자동증가된 PK값을 Board 객체에 담아준다. -->
+    insert into study_info(city,county,name,info,cdt,mprs,ctgr) 
+    values(#{city},#{county},#{name},#{information},now(),#{maxPeople},#{category})
+  </insert>
+  
+  <select id="selectlimitOne" resultMap="StudyMap">
+  select * from study_info order by stdno desc limit 1
+  </select>
+  
+  <select id="selectList" 
+          resultMap="StudyMap" parameterType="map"> 
+    select * 
+    from study_info order by stdno desc limit #{startRowNo}, #{pageSize}
+    <!-- study_info.stdno,name,county -->
+  </select>
+  
+  <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
+        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
+  -->
+  <select id="selectOne" resultMap="StudyMap" parameterType="int">
+  select stdno,name,info 
+  from study_info 
+  where stdno=#{value}
+  </select>
+  
+  <!-- <update id="update" parameterType="Study">
+    update pms2_study set 
+    titl=#{title}, dscrt=#{description} 
+    where bno=#{no}
+  </update> -->
+  
+  <delete id="delete" parameterType="int">
+    delete from study_info where stdno=#{value}
+  </delete>
+  
+  
+</mapper>
