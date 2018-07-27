@@ -201,44 +201,51 @@
 
 							<!-- 마감 tab end! -->
 
-							<!-- 쪽지 보내기 탭-->
-							<div class='css3-tab-content add-new'>
-								<form>
-									<div class="input-group mb-3 sendform">
-										<input type="text" class="form-control" placeholder="받는사람"
-											aria-label="Recipient's username"
-											aria-describedby="basic-addon2">
-										<div class="input-group-append">
-											<button class="btn btn-outline-secondary juso" type="button">주소록</button>
-										</div>
-									</div>
-
-									<div class="form-group">
-
-										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="9"></textarea>
-									</div>
-									<button class="btn btn-primary btn-sm sendbtn">보내기</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	<footer class="footer">
-		<p>Logo</p>
-		<div>
-			<span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
-				홍길동</span> <span>E-mail : we_study@westudy.com</span>
-		</div>
-		<p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-	</footer>
-
+                            <!-- 쪽지 보내기 탭-->
+                            <div class='css3-tab-content add-new'>
+                                <form>
+                                    <div class="input-group mb-3 sendform">
+                                        <input type="text" class="form-control" placeholder="받는사람"
+                                            aria-label="Recipient's username"
+                                            aria-describedby="basic-addon2" id="fReceiver">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary juso" type="button">주소록</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control"
+                                            id="fNewContent" rows="9"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm sendbtn" id="newMessageSend">보내기</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
+                홍길동</span> <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+    <script>
+    $(document).ready(function() {
+        $('#newMessageSend').click(() => {
+            $.post('json/memberMessage/add', {
+                content: $('#fNewContent').val(),
+                date: Date.now(),
+                receiver: $('#fReceiver').val()
+            }, () => {
+            	 console.log("success add");
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>

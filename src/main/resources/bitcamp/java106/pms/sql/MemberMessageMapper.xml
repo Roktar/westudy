@@ -39,9 +39,9 @@
   </select>
   
   <insert id="insert" parameterType="MemberMessage"
-          useGeneratedKeys="true" keyColumn="stdno" keyProperty="no">x
-    insert into member_message( cont, date, sndr, rcvr ) 
-    values(#{content}, now(), #{sender.no}, #{receiver.no} );
+          useGeneratedKeys="true" keyColumn="msgno" keyProperty="no">
+    insert into member_message( cont, date, rcvr ) 
+    values(#{content}, now(), #{receiver.no} );
   </insert>
       
   <select id="selectOne" parameterType="int" resultMap="MemberMessageMap">

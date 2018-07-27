@@ -22,6 +22,7 @@ public class MemberMessageController {
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
      public void add(MemberMessage memberMessage) throws Exception {
+        System.out.println(memberMessage);
              memberMessageService.add(memberMessage);
      }
      

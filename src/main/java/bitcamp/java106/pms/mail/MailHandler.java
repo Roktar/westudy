@@ -3,11 +3,12 @@ package bitcamp.java106.pms.mail;
 import java.io.UnsupportedEncodingException;
 
 import javax.activation.DataSource;
-import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 
 public class MailHandler {
     JavaMailSender mailSender;

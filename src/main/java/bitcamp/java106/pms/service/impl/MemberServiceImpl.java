@@ -10,6 +10,8 @@ import bitcamp.java106.pms.dao.InterestFieldDao;
 import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.domain.InterestField;
 import bitcamp.java106.pms.domain.Member;
+import bitcamp.java106.pms.mail.MailHandler;
+import bitcamp.java106.pms.mail.TempKeyGenerator;
 import bitcamp.java106.pms.service.MemberService;
 
 @Service
