@@ -1,16 +1,13 @@
 
 
-var list_group = $('.reviewbox');
-
-
-var i = 1;
-
 
 $(document).ready(function() {
-	$.get("json/review/list", {category:'언어'}, (data) => {
+	$.get("json/review/list/" + , {}, (data) => {
 		let list_group = $('.reviewbox');
+		var i = 1;
 
 		for(var item of data) {
+			console.log(item);
 			$('<li class="list-group-item">' +
 					'<a href="#"><img src="img/'+ item.pimg +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
 					'<div id="user_inform">' +
@@ -47,12 +44,14 @@ $(document).ready(function() {
 			$('#review-score' + i).barrating('set', item.rating);
 			i++;
 		}
-		console.log(data);
 		let review_count = $('.stdclasstitl2');
+		$('<span class="stdclasstitl2">'+ item.study.category +'</span>').appendTo(review_count);
 		$('<span class="reviewcount">('+ data.length +')</span>').appendTo(review_count);
-		
-	});
+
+		});
 });
+
+
 
 
 

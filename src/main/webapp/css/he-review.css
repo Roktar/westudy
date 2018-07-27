@@ -212,7 +212,7 @@
       
        .list-group-item {
            border: 0;
-           padding-left: 0;
+           padding: 1.5em;
        }
 
        .review-line {
@@ -268,7 +268,7 @@
             font-weight: bold;
         }
 
-        a.cls-list-link {
+        cls-list-link {
             border : 2px;
             padding :1.5em;
         }

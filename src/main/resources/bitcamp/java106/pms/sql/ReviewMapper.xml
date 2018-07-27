@@ -33,14 +33,13 @@
   
 
  <select id="count" parameterType="map" resultType="int">
-        SELECT category, count(*) 
+        SELECT category, count(*) as cnt
         FROM study_review r left join study_info s on r.category = s.ctgr 
-        WHERE category = 'IT' GROUP BY category
+        WHERE category = #{category} GROUP BY category
   </select>
   
     
-  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review"
-  		  >
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">
    insert into study_review(rating,cont)
    values(#{rating},#(content))
   </insert>
