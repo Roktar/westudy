@@ -9,5 +9,5 @@ public interface ReviewService {
     Review get(int no);
     int add(Review review);
 	List<Review> selectList(String category);
-  
+	List<Review> count();
 }

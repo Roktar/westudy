@@ -79,11 +79,8 @@
         }
 
       
-        hr.line2 {
-            border: 1px solid gray;
-            margin-top : 1em;
-            
-        }
+    
+        
 
         hr.line3 {
             width: 80%;
@@ -93,6 +90,8 @@
         }
 
         div.stdclasstitl{
+        	height:50px;
+        	border-bottom:2px solid gray;
             font-weight: bold;
             font-size: 1.5em;
          
@@ -213,6 +212,7 @@
        .list-group-item {
            border: 0;
            padding: 1.5em;
+           cursor: pointer;
        }
 
        .review-line {

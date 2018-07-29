@@ -33,6 +33,15 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.selectList(category);
 	}
 
+	@Override
+	public List<Review> count() {
+		return reviewDao.count();
+	}
+
+
+
+
+
 
    
 }

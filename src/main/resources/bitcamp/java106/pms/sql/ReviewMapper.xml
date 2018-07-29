@@ -32,10 +32,11 @@
 </select>
   
 
- <select id="count" parameterType="map" resultType="int">
-        SELECT category, count(*) as cnt
-        FROM study_review r left join study_info s on r.category = s.ctgr 
-        WHERE category = #{category} GROUP BY category
+ <select id="count" parameterType="int" resultMap="ReviewMap">
+  		SELECT ctgr, count(*) as cnt 
+  		FROM study_review r left join study_info s on r.stdno = s.stdno 
+  		GROUP BY ctgr 
+  		ORDER BY FIELD (ctgr, 'it','언어','국가시험','기사','금융','취업','토론','기타')
   </select>
   
     

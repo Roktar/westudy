@@ -43,4 +43,9 @@ public class ReviewController {
             @RequestParam("category") String name) throws Exception {
     	return reviewService.selectList(name);
     }
+    
+    @RequestMapping("count")
+    public List<Review> count() throws Exception {
+    	return reviewService.count();
+    }
 }

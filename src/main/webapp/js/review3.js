@@ -2,8 +2,11 @@
 
 
 $(document).ready(function() {
-	$.get("json/review/list/" + , {}, (data) => {
+	
+	
+	$.get("json/review/list" , {category:'기사'}, data =>  {
 		let list_group = $('.reviewbox');
+		
 		var i = 1;
 
 		for(var item of data) {

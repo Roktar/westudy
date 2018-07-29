@@ -17,17 +17,15 @@ public class Review implements Serializable {
     private String category;
     private Member member;
     private StudyInfo study;
+    private int count;
  
-    
-    
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "Review [no=" + no + ", content=" + content + ", rating=" + rating + ", createdDate=" + createdDate
-				+ ", category=" + category + ", member=" + member + ", study=" + study + "]";
+				+ ", category=" + category + ", member=" + member + ", study=" + study + ", count=" + count + "]";
 	}
+	
 	public StudyInfo getStudy() {
 		return study;
 	}
@@ -69,6 +67,12 @@ public class Review implements Serializable {
 	}
 	public void setMember(Member member) {
 		this.member = member;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 
     
