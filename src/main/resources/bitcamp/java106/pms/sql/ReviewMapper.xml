@@ -25,12 +25,10 @@
   
 <select id="selectList" 
           resultMap="ReviewMap"
-          parameterType="map">
+          parameterType="string">
   select r.rvwno, sname, s.ctgr, r.cont, r.rating, r.cdt, mname 
   from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
-  where s.ctgr = #{category}  order by r.rvwno desc
-  limit #{startRowNo}, #{pageSize}
-  
+  where s.ctgr = #{category}
 </select>
   
 
@@ -40,12 +38,6 @@
   		GROUP BY ctgr 
   		ORDER BY FIELD (ctgr, 'it','언어','국가시험','기사','금융','취업','토론','기타')
   </select>
-  
-<select id="countOne" parameterType="String" resultMap="ReviewMap">
-  		SELECT ctgr, count(*) as cnt 
-  		FROM study_review r left join study_info s on r.stdno = s.stdno
-  		WHERE s.ctgr = #{category}
-</select>
   
     
   <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">

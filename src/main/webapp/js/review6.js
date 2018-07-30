@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-	
 	$.get("json/review/count" , data =>  {
 		var k = 0;
 		console.log(data);
@@ -9,17 +7,9 @@ $(document).ready(function() {
 					k +')">'+ item.study.category +' <span class="review_no">('+ item.count +')</span></div>').appendTo(".cls-list");
 			k++;
 		}
-		
 	});
-	var stn = 1;
-	var end = 5;	
-	$.get("json/review/list" , {
-		pageNo: stn,
-	    pageSize : end,
-		category:'IT'
-		
-			
-	   }, data =>  {
+	
+	$.get("json/review/list" , {category:'IT'}, data =>  {
 		let list_group = $('.reviewbox');
 		
 		var i = 1;
@@ -64,7 +54,7 @@ $(document).ready(function() {
 		}
 		let review_count = $('.stdclasstitl2');
 		$('<span class="stdclasstitl2">'+ item.study.category +'</span>').appendTo(review_count);
-		$('<span class="reviewcount">('+ item.count +')</span>').appendTo(review_count);
+		$('<span class="reviewcount">('+ data.length +')</span>').appendTo(review_count);
 		
 		});
 });
@@ -78,14 +68,7 @@ function mkreview(c) {
 	$(review_count).empty();
 	$(".reviewbox").empty();
 	var ctg = category[c].ct;
-	var stn = 1;
-	var end = 5;
-	$.get("json/review/list" , {
-		pageNo: stn,
-	    pageSize : end,	
-		category:ctg
-		
-	}, data =>  {
+	$.get("json/review/list" , {category:ctg}, data =>  {
 		let list_group = $('.reviewbox');
 		
 		var i = 1;
@@ -130,7 +113,7 @@ function mkreview(c) {
 		}
 		
 		$('<span class="stdclasstitl2">'+ item.study.category +'</span>').appendTo(review_count);
-		$('<span class="reviewcount">('+ item.count +')</span>').appendTo(review_count);
+		$('<span class="reviewcount">('+ data.length +')</span>').appendTo(review_count);
 
 		});
 }

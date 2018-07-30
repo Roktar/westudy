@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import bitcamp.java106.pms.dao.EmailAuthDao;
 import bitcamp.java106.pms.dao.InterestFieldDao;
 import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.domain.InterestField;
@@ -18,10 +20,15 @@ import bitcamp.java106.pms.service.MemberService;
 public class MemberServiceImpl implements MemberService{
     MemberDao memberDao;
     InterestFieldDao interestFieldDao;
+    EmailAuthDao emailDao;
     
-    public MemberServiceImpl(MemberDao memberDao, InterestFieldDao interestFieldDao) {
+    private JavaMailSender mailSender;
+    
+    public MemberServiceImpl(MemberDao memberDao, InterestFieldDao interestFieldDao, EmailAuthDao emailDao, JavaMailSender mailSender) {
         this.memberDao = memberDao;
         this.interestFieldDao = interestFieldDao;
+        this.emailDao = emailDao;
+        this.mailSender = mailSender;
     }
     
     @Override
