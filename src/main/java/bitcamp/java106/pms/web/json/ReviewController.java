@@ -1,7 +1,6 @@
 package bitcamp.java106.pms.web.json;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java106.pms.domain.Review;
-import bitcamp.java106.pms.domain.Study;
 import bitcamp.java106.pms.service.ReviewService;
 
 @RestController
@@ -38,14 +36,21 @@ public class ReviewController {
         return reviewService.get(no);  
     }
     
-    @RequestMapping("list")
-    public List<Review> list(    
-            @RequestParam("category") String name) throws Exception {
-    	return reviewService.selectList(name);
+    @RequestMapping("list{page}")
+    public List<Review> list( 
+    		@RequestParam("pageNo") int pageNo,
+    		@RequestParam("pageSize") int pageSize,
+            @RequestParam("category") String name) {
+    	return reviewService.selectList(pageNo, pageSize, name);
     }
     
     @RequestMapping("count")
     public List<Review> count() throws Exception {
     	return reviewService.count();
+    }
+    
+    @RequestMapping("countOne")
+    public Review countOne(String category) throws Exception {
+    	return reviewService.countOne(category);
     }
 }
