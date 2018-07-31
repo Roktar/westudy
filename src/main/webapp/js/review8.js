@@ -142,15 +142,16 @@ function mkreview(c) {
 
 
 
-
-	  $(document).on('click', '.plusbtn', function(c) {
-	    	var stn = 2;
+$(document).on('click', '.plusbtn', function(c) {
+	    
+	
+			var stn = 2;
 	    	var end = 3;	
 	    	$.get("json/review/list" , {
 	    		pageNo: stn,
 	    	    pageSize : end,
-	    		category:'IT'
-	    		
+	    	    category: ctg
+	    	    
 	    	   }, data =>  {
 	    		let list_group = $('.reviewbox');
 	    		
@@ -195,9 +196,8 @@ function mkreview(c) {
 	    			})
 	    			$('#review-score' + i).barrating('set', item.rating);
 	    			i++;
-	    		}
-	    	})
-	  	});
-
+	      			}
+		    	})
+		  	});
 
 
