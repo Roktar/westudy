@@ -128,6 +128,14 @@
 		background-color: #d6d6d6;
 		margin-bottom: 20px;
 		text-align: center;
+		
+		
+	/* 	border-radius: 5px;
+    position: relative;
+    background-color: #eee;
+    box-shadow: 0 1px 1px 1px #ccc;
+    margin-bottom: 20px;
+    text-align: center; */
 	}
 	.ove {
 		display: block;
@@ -201,8 +209,17 @@
 		overflow: hidden;
 	}
 	.study-icon {
-		margin-top: -50px;
+		margin-top:-50px;
+		width: 10em;
+		height : 10em;
+		border-radius: 5em;
 		transform: scale(0.8);
+		display:inline-block;
+		overflow : hidden;
+	}
+	
+	.study-icon img {
+		width:100%;
 	}
 	.study .study-hover {
 		display: none;

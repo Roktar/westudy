@@ -10,7 +10,7 @@ $(document).ready(function() {
 	});
 	
 	var stn = 1;
-	var end = 3;	
+	var end = 10;	
 	$.get("json/review/list" , {
 		pageNo: stn,
 	    pageSize : end,
@@ -24,7 +24,7 @@ $(document).ready(function() {
 		for(var item of data) {
 			console.log(item);
 			$('<li class="list-group-item">' +
-					'<a href="#"><img src="img/'+ item.pimg +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
+					'<div class="prof-img"><img src="files/'+ item.member.photo +'" alt="profile"></div>'+
 					'<div id="user_inform">' +
 					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
 					'<div class="user_score">'+
@@ -84,7 +84,7 @@ function mkreview(c) {
 	console.log("mkreview_st: "+st);
 	var ctg = category[c].ct;
 	var stn = 1;
-	var end = 3;
+	var end = 10;
 	$.get("json/review/list" , {
 		pageNo: stn,
 	    pageSize : end,	
@@ -98,7 +98,7 @@ function mkreview(c) {
 		for(var item of data) {
 			console.log(item);
 			$('<li class="list-group-item" id="categ">' +
-					'<a href="#"><img src="img/'+ item.pimg +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
+					'<a href="#"><img src="files/'+ item.member.photo +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
 					'<div id="user_inform">' +
 					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
 					'<div class="user_score">'+
@@ -153,7 +153,8 @@ function mkreview(c) {
 	
 
 var st = 2;
-var ed = 3;	
+var ed = 10;	
+var s = 10;
 
 function moreView(c) {
 	var category = [
@@ -170,15 +171,16 @@ function moreView(c) {
 	    		
 	    		var i = 1;
 	    		
+	    	
 	    		
 	    		for(var item of data) {
 	    			console.log(item);
 	    			$('<li class="list-group-item" id="categ">' +
-	    					'<a href="#"><img src="img/'+ item.pimg +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
+	    					'<a href="#"><img src="files/'+ item.member.photo +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
 	    					'<div id="user_inform">' +
 	    					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
 	    					'<div class="user_score">'+
-	    					'<select id="review-score'+ i +'">'+
+	    					'<select id="review-score'+ s +'">'+
 	    					'<option value="1">1</option>'+
 	    					'<option value="2">2</option>'+
 	    					'<option value="3">3</option>'+
@@ -205,14 +207,16 @@ function moreView(c) {
 	    			
 	    			
 	    			/*별점 */ 	
-	    			$('#review-score' + i).barrating({
+	    			$('#review-score' + s).barrating({
 	    				theme: 'css-stars',
 	    				readonly: true
 	    			})
-	    			$('#review-score' + i).barrating('set', item.rating);
-	    			i++;
+	    			$('#review-score' + s).barrating('set', item.rating);
+	    			s++;
 	      			}
 		    	})
+		    	s++;
+	    		console.log("moreview_s: "+s);
 		    	st++;
 		    	console.log("moreview_st: "+st);
 					

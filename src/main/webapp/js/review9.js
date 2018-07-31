@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	$.get("json/review/count" , data =>  {
 		var k = 0;
 		for(var item of data) {
@@ -15,6 +14,7 @@ $(document).ready(function() {
 		pageNo: stn,
 	    pageSize : end,
 		category:'IT'
+		
 			
 	   }, data =>  {
 		let list_group = $('.reviewbox');
@@ -51,7 +51,6 @@ $(document).ready(function() {
 					'<hr class="review-line">'+
 			'</li>').appendTo(list_group);
 
-			
 			/*별점 */ 	
 			$('#review-score' + i).barrating({
 				theme: 'css-stars',
@@ -59,9 +58,8 @@ $(document).ready(function() {
 			})
 			$('#review-score' + i).barrating('set', item.rating);
 			i++;
-			}
-		$('<button type="button" class="btn btn-primary plusbtn" onclick="moreView(0)">더보기</button>').appendTo(".plusDiv");
-
+		}
+				
 		});
 	
 	$.get("json/review/countOne" , {category:'IT'}, data => {
@@ -80,8 +78,6 @@ function mkreview(c) {
 	]
 	$(review_count).empty();
 	$(".reviewbox").empty();
-	st = 2;
-	console.log("mkreview_st: "+st);
 	var ctg = category[c].ct;
 	var stn = 1;
 	var end = 3;
@@ -123,6 +119,7 @@ function mkreview(c) {
 					'<img src="img/'+ item.img +'"  class="img-fluid rounded-circle study-prof" alt="study-profile">'+
 					'</div>'+
 					'<hr class="review-line">'+
+					
 			'</li>').appendTo(list_group);
 			
 		
@@ -134,12 +131,9 @@ function mkreview(c) {
 			$('#review-score' + i).barrating('set', item.rating);
 			i++;
 		}
-		$('.plusDiv').empty();
-		$('<button type="button" class="btn btn-primary plusbtn" onclick="moreView('+ c +')">더보기</button>').appendTo(".plusDiv");
+		
 		});
 	
-	
-
 	$.get("json/review/countOne" , {category:ctg}, data => {
 		let review_count = $('.stdclasstitl2');
 		$('<span class="stdclasstitl2">'+ data.study.category +'</span>').appendTo(review_count);
@@ -152,25 +146,22 @@ function mkreview(c) {
 
 	
 
-var st = 2;
-var ed = 3;	
 
-function moreView(c) {
-	var category = [
-		{ct:"IT"}, {ct:"언어"},{ct:"국가시험"},{ct:"기사"},{ct:"금융"},{ct:"취업"},{ct:"토론"},{ct:"기타"}
-	]
-	var ctg = category[c].ct;
+
+$(document).on('click', '.plusbtn', function(c) {
+			var totalcount;
+			var stn = 2;
+	    	var end = 3;	
 	    	$.get("json/review/list" , {
-	    		pageNo: st,
-	    	    pageSize : ed,
-	    	    category:ctg
+	    		pageNo: stn,
+	    	    pageSize : end,
+	    	    category: 'it'
 	    	    
 	    	   }, data =>  {
 	    		let list_group = $('.reviewbox');
 	    		
 	    		var i = 1;
-	    		
-	    		
+
 	    		for(var item of data) {
 	    			console.log(item);
 	    			$('<li class="list-group-item" id="categ">' +
@@ -202,8 +193,7 @@ function moreView(c) {
 	    					
 	    			'</li>').appendTo(list_group);
 	    			
-	    			
-	    			
+	    		
 	    			/*별점 */ 	
 	    			$('#review-score' + i).barrating({
 	    				theme: 'css-stars',
@@ -213,9 +203,13 @@ function moreView(c) {
 	    			i++;
 	      			}
 		    	})
-		    	st++;
-		    	console.log("moreview_st: "+st);
-					
-		  	}
-	
+		  	});
+
+
+
+
+	$.get("json/review/countOne", data => {
+	var t = 0;
+				$('<button type="button" class="btn btn-primary plusbtn" onclick="moreView()">더보기</button>').appendTo(".plusDiv");
+	});
 

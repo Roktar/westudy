@@ -15,11 +15,14 @@ public class Member implements Serializable {
     private String introduce;
     private String name;
     private Date birthday;
+    private String photo;
     private String tel;
     private char gender;
     private String interestedPlace;
     private String authCode;
     private List<InterestField> interests;
+    
+    
     
     public String getProfile() {
         return profile;
@@ -93,11 +96,20 @@ public class Member implements Serializable {
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
     }
-    @Override
-    public String toString() {
-        return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
-                + ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", tel=" + tel
-                + ", gender=" + gender + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode
-                + ", interests=" + interests + "]";
-    }
+    
+    public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	@Override
+	public String toString() {
+		return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
+				+ ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", photo=" + photo
+				+ ", tel=" + tel + ", gender=" + gender + ", interestedPlace=" + interestedPlace + ", authCode="
+				+ authCode + ", interests=" + interests + "]";
+	}
+	
+	
 }

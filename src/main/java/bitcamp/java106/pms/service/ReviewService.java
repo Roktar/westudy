@@ -10,5 +10,6 @@ public interface ReviewService {
     int add(Review review);
 	List<Review> selectList(int pageNo, int pageSize, String category);
 	List<Review> count();
+	List<Review> selectListAll();
 	Review countOne(String category);
 }

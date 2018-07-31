@@ -49,6 +49,11 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.countOne(category);
 	}
 
+	@Override
+	public List<Review> selectListAll() {
+		return reviewDao.selectListAll();
+	}
+
 
 
 

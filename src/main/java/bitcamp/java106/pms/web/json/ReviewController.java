@@ -44,6 +44,12 @@ public class ReviewController {
     	return reviewService.selectList(pageNo, pageSize, name);
     }
     
+    @RequestMapping("listall")
+    public List<Review> selectListAll() throws Exception {
+    	return reviewService.selectListAll();
+    }
+    
+    
     @RequestMapping("count")
     public List<Review> count() throws Exception {
     	return reviewService.count();
