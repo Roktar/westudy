@@ -15,4 +15,5 @@ public interface MemberDao {
     int update(Member member);
     void createAuthKey(String email, String key);
     void userAuth(Map<String, Object> params);
+	Object selectOneByNo(int user);
 }

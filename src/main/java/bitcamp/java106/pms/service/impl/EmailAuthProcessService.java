@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java106.pms.dao.EmailAuthDao;
 import bitcamp.java106.pms.dao.MemberDao;
+import bitcamp.java106.pms.domain.Member;
 
 @Service
 public class EmailAuthProcessService {
@@ -30,7 +31,7 @@ public class EmailAuthProcessService {
         try {
         int user = emailDao.getUserNo(authCode);
             if(user > -1) {
-                int memberNo = memberDao.selectOneByNo(user).getNo();
+                int memberNo =((Member) memberDao.selectOneByNo(user)).getNo();
                 Map<String, Object> params = new HashMap<>();
                 params.put("no", memberNo);
                 params.put("authCode", "authorized");
