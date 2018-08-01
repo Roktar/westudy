@@ -14,7 +14,6 @@
     <result column="mname" property="name"/>
     <result column="birth" property="birthday"/>
     <result column="tel" property="tel"/>
-    <result column="gen" property="gender"/>
     <result column="itrloc" property="interestedPlace"/>
     <result column="auth" property="authCode"/>
   </resultMap>
@@ -24,16 +23,16 @@
         values(#{email}, password(#{password}), #{name}, #{tel} )
   </insert>
       
-  <select id="selectOne" parameterType="int" resultMap="MemberMap">
+  <select id="selectOne" parameterType="String" resultMap="MemberMap">
     select *
     from member 
-    where memno=#{value}
+    where email=#{value}
   </select>
   
-  <select id="selectOneTypeInt" parameterType="int" resultMap="MemberMap">
+  <select id="selectOneByNo" parameterType="int" resultMap="MemberMap">
     select *
     from member 
-    where email=#{id}
+    where memno = #{no}
   </select>
   
   <select id="selectOneSimpleCase" parameterType="String" resultMap="MemberMap">

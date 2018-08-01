@@ -17,7 +17,6 @@ public class Member implements Serializable {
     private Date birthday;
     private String photo;
     private String tel;
-    private char gender;
     private String interestedPlace;
     private String authCode;
     private List<InterestField> interests;
@@ -72,12 +71,6 @@ public class Member implements Serializable {
     public void setTel(String tel) {
         this.tel = tel;
     }
-    public char getGender() {
-        return gender;
-    }
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
     public String getInterestedPlace() {
         return interestedPlace;
     }
@@ -103,13 +96,12 @@ public class Member implements Serializable {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	@Override
-	public String toString() {
-		return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
-				+ ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", photo=" + photo
-				+ ", tel=" + tel + ", gender=" + gender + ", interestedPlace=" + interestedPlace + ", authCode="
-				+ authCode + ", interests=" + interests + "]";
-	}
-	
+    @Override
+    public String toString() {
+        return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
+                + ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", photo=" + photo
+                + ", tel=" + tel + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode + ", interests="
+                + interests + "]";
+    }
 	
 }

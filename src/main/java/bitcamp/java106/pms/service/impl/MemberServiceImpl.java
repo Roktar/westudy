@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import bitcamp.java106.pms.dao.EmailAuthDao;
 import bitcamp.java106.pms.dao.InterestFieldDao;
 import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.domain.InterestField;
@@ -20,10 +22,16 @@ public class MemberServiceImpl implements MemberService{
     MemberDao memberDao;
     InterestFieldDao interestFieldDao;
     
-    public MemberServiceImpl(MemberDao memberDao, InterestFieldDao interestFieldDao) {
+    EmailAuthDao emailDao;
+    
+    private JavaMailSender mailSender;
+    
+    public MemberServiceImpl(MemberDao memberDao, InterestFieldDao interestFieldDao, EmailAuthDao emailDao, JavaMailSender mailSender) {
         this.memberDao = memberDao;
         this.interestFieldDao = interestFieldDao;
-    }
+        this.emailDao = emailDao;
+        this.mailSender = mailSender;
+    }    
     
     @Override
     public Member selectOne(String id) {
@@ -32,7 +40,7 @@ public class MemberServiceImpl implements MemberService{
     
     @Override
     public Member get(int id) {
-        return memberDao.selectOne(id);
+        return memberDao.selectOneByNo(id);
     }
     
     @Override
@@ -73,6 +81,8 @@ public class MemberServiceImpl implements MemberService{
         authInfo.put("no", refid);
         authInfo.put("authCode", personalAuthCode);
         emailDao.createAuthKey(authInfo);
+        
+        System.out.println("no:"+ refid);
 
         if(refid > 0) {
             for(Entry<String, String> entry : params.entrySet()) {
@@ -86,7 +96,7 @@ public class MemberServiceImpl implements MemberService{
             MailHandler sendMail = new MailHandler(mailSender);
             sendMail.setSubject("[Westudy] 서비스 이메일 인증 요청 메일입니다.");
             sendMail.setText( new StringBuffer().append("<h1>서비스 이용을 위해 아래 링크를 클릭하여 메일 인증을 해주시기 바랍니다.</h1>")
-                                                .append("<a href='http://westudy.java106.com:8888/westudy/json/auth/email/"+personalAuthCode)
+                                                .append("<a href='http://localhost:8888/FinalProject/json/auth/email/"+personalAuthCode)
                                                 .append("' target='_blank'> 이메일 인증하기 </a>")
                                                 .toString());
             sendMail.setTo(member.getEmail());

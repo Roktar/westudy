@@ -21,20 +21,20 @@
 
   <select id="selectListSender" 
           resultMap="MemberMessageMap" 
-          parameterType="string">
+          parameterType="int">
     
     select m.name, mm.cont, mm.date 
     from member_message mm, member m
-    where mm.rcvr = #{receiver.no} and mm.sndr = m.memno
+    where mm.sndr = #{no}
     order by date
   </select>
 
   <select id="selectListReceiver" 
           resultMap="MemberMessageMap" 
-          parameterType="string">
+          parameterType="int">
     select m.name, mm.cont, mm.date 
     from member_message mm, member m
-    where mm.sndr = #{sender.no} and mm.rcvr = m.memno
+    where mm.rcvr = #{no}
     order by date
   </select>
   
