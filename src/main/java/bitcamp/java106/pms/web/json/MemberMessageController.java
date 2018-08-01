@@ -34,9 +34,15 @@ public class MemberMessageController {
      }
      
      @RequestMapping("list")
-     public Object list() {
+     public Object selectListSender() {
          return memberMessageService.list();
      }
+     
+     @RequestMapping("list")
+     public Object selectListReceiver() {
+         return memberMessageService.list();
+     }
+
 
      @RequestMapping("{no}")
      public MemberMessage view(@PathVariable int no) throws Exception {

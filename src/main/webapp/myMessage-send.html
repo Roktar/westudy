@@ -234,6 +234,26 @@
         <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
     </footer>
     <script>
+    
+    var no = -1;
+    $.get("json/auth/loginstat", {}, res=> {
+        console.log("[" + res + "]" + ", " + typeof(res));
+        console.log(res.no);
+        no = res.no;
+    })
+
+    
+       setTimeout( function() {
+       $.getJSON("json/memberMessage/"+no, (data) => {
+                        $("<ul>")
+                            .html("<li>" + data.name + "</li>" + 
+                                "<li>" + data.email + "</li>" + 
+                                "<li>" + data.birthday + "</li>" + 
+                                "<li>" + data.gender + "</li>"
+                            ).appendTo(info);
+                    })
+                    }, 500);
+    
     $(document).ready(function() {
         $('#newMessageSend').click(() => {
             $.post('json/memberMessage/add', {

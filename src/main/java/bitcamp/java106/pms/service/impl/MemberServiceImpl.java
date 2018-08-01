@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService{
     
     @Override
     public Member get(int id) {
-        return memberDao.selectOneTypeInt(id);
+        return memberDao.selectOneByNo(id);
     }
     
     @Override
