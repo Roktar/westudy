@@ -11,7 +11,7 @@
     <result column="pwd" property="password"/>
     <result column="intrd" property="introduce"/>
     <result column="pfp" property="profile"/>
-    <result column="name" property="name"/>
+    <result column="mname" property="name"/>
     <result column="birth" property="birthday"/>
     <result column="tel" property="tel"/>
     <result column="gen" property="gender"/>
@@ -20,7 +20,7 @@
   </resultMap>
     
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
-    insert into member( email, pwd, name, tel)
+    insert into member( email, pwd, mname, tel)
         values(#{email}, password(#{password}), #{name}, #{tel} )
   </insert>
       
@@ -72,6 +72,18 @@
   <update id="userAuth" parameterType="map">
     update member set auth = #{authCode} where memno = #{no}
   </update>
+  
+ <select id="selectList" 
+          resultMap="MemberMap"
+          parameterType="int">
+  select memno, name, email, birth 
+  from member
+</select>
+
+<delete id="delete" parameterType="int">
+    delete from dhGm where usrno=#{value}
+</delete> 
+  
 </mapper>
 
 

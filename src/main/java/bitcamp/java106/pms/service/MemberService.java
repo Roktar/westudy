@@ -1,5 +1,6 @@
 package bitcamp.java106.pms.service;
 
+import java.util.List;
 import java.util.Map;
 
 import bitcamp.java106.pms.domain.Member;
@@ -12,5 +13,8 @@ public interface MemberService {
     Member selectOneSimpleCase(String id);
     Object changePassword(int no, String nowPassword, String newPassword);
     int update(Member member);
+    
+	List<Member> list();
+	int delete(int no);
 } 
  
