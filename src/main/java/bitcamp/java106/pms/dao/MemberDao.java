@@ -6,7 +6,7 @@ import bitcamp.java106.pms.domain.Member;
 
 public interface MemberDao {
     Member selectOne(String id);
-    Member selectOne(int no);
+    Member selectOneTypeInt(int no);
     Member validation(Map<String, Object> params);
     void insert_basic(Member member);
     int count(Map<String, Object> params);
@@ -15,5 +15,5 @@ public interface MemberDao {
     int update(Member member);
     void createAuthKey(String email, String key);
     void userAuth(Map<String, Object> params);
-	Object selectOneByNo(int user);
+	Member selectOneByNo(int user);
 }

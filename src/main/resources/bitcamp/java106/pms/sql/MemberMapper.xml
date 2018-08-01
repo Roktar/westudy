@@ -11,29 +11,28 @@
     <result column="pwd" property="password"/>
     <result column="intrd" property="introduce"/>
     <result column="pfp" property="profile"/>
-    <result column="name" property="name"/>
+    <result column="mname" property="name"/>
     <result column="birth" property="birthday"/>
     <result column="tel" property="tel"/>
-    <result column="gen" property="gender"/>
     <result column="itrloc" property="interestedPlace"/>
     <result column="auth" property="authCode"/>
   </resultMap>
     
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
-    insert into member( email, pwd, name, tel)
+    insert into member( email, pwd, mname, tel)
         values(#{email}, password(#{password}), #{name}, #{tel} )
   </insert>
       
-  <select id="selectOne" parameterType="int" resultMap="MemberMap">
+  <select id="selectOne" parameterType="String" resultMap="MemberMap">
     select *
     from member 
-    where memno=#{value}
+    where email=#{value}
   </select>
   
-  <select id="selectOneTypeInt" parameterType="int" resultMap="MemberMap">
+  <select id="selectOneByNo" parameterType="int" resultMap="MemberMap">
     select *
     from member 
-    where email=#{id}
+    where memno = #{no}
   </select>
   
   <select id="selectOneSimpleCase" parameterType="String" resultMap="MemberMap">

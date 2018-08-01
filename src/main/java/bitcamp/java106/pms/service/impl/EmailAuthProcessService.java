@@ -29,18 +29,15 @@ public class EmailAuthProcessService {
     
     public void process(String authCode, HttpServletResponse response) {
         try {
-        int user = emailDao.getUserNo(authCode);
-            if(user > -1) {
-                int memberNo =((Member) memberDao.selectOneByNo(user)).getNo();
-                Map<String, Object> params = new HashMap<>();
-                params.put("no", memberNo);
-                params.put("authCode", "authorized");
-                memberDao.userAuth(params);
-                emailDao.removeAuth(memberNo);
-                System.out.println(sc.getContextPath());
-                response.sendRedirect( sc.getContextPath() + "/html/email/auth_ok.html" );
-                return;
-            }
+            int user = emailDao.getUserNo(authCode);
+            int memberNo = memberDao.selectOneByNo(user).getNo();
+            Map<String, Object> params = new HashMap<>();
+            params.put("no", memberNo);
+            params.put("authCode", "authorized");
+            memberDao.userAuth(params);
+            emailDao.removeAuth(memberNo);
+            response.sendRedirect( sc.getContextPath() + "/html/email/auth_ok.html" );
+            return;
         } catch(Exception e) { 
             try {
                 response.sendRedirect( sc.getContextPath() + "/html/email/auth_fail.html" );
