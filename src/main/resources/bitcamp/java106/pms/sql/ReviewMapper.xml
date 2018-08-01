@@ -54,14 +54,11 @@
   
     
   <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">
-   insert into study_review(rating,cont)
-   values(#{rating},#(content))
+   insert into study_review(cont, rating, cdt, stdno, memno) 
+   values (#(content), #{rating}, now(), #{no}, #{no})
   </insert>
   
-  <!-- 
-  <update id="update_additional">
-    update member
-  </update> -->
+
     
   <select id="get" parameterType="int" resultMap="ReviewMap">
     select *

@@ -23,8 +23,9 @@ $(document).ready(function() {
 
 		for(var item of data) {
 			console.log(item);
+			console.log("photo = "+item.member.photo);
 			$('<li class="list-group-item">' +
-					'<div class="prof-img"><img src="files/'+ item.member.photo +'" alt="profile"></div>'+
+					'<div class="prof-img"><img src="files/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+
 					'<div id="user_inform">' +
 					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
 					'<div class="user_score">'+
@@ -98,7 +99,7 @@ function mkreview(c) {
 		for(var item of data) {
 			console.log(item);
 			$('<li class="list-group-item" id="categ">' +
-					'<a href="#"><img src="files/'+ item.member.photo +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
+					'<a href="#"><img src="files/'+ item.member.photo +'_350x350.jpg"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
 					'<div id="user_inform">' +
 					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
 					'<div class="user_score">'+
@@ -176,7 +177,7 @@ function moreView(c) {
 	    		for(var item of data) {
 	    			console.log(item);
 	    			$('<li class="list-group-item" id="categ">' +
-	    					'<a href="#"><img src="files/'+ item.member.photo +'"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
+	    					'<a href="#"><img src="files/'+ item.member.photo +'_350x350.jpg"  width="65rem" height="65rem" class="rounded-circle prof-img" alt="profile"></a>'+
 	    					'<div id="user_inform">' +
 	    					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
 	    					'<div class="user_score">'+
