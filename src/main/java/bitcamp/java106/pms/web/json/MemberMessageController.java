@@ -11,7 +11,7 @@ import bitcamp.java106.pms.domain.MemberMessage;
 import bitcamp.java106.pms.service.MemberMessageService;
 
 @RestController
-@RequestMapping("/memberMessage")
+@RequestMapping("/message")
 public class MemberMessageController {
     MemberMessageService memberMessageService;
 
@@ -33,14 +33,14 @@ public class MemberMessageController {
         memberMessageService.delete(no);
      }
      
-     @RequestMapping("list")
-     public Object selectListSender() {
-         return memberMessageService.list();
+     @RequestMapping("list/send/{no}")
+     public Object selectListSender(@PathVariable("no") int senderNo) {
+         return memberMessageService.sendList(senderNo);
      }
      
-     @RequestMapping("list")
-     public Object selectListReceiver() {
-         return memberMessageService.list();
+     @RequestMapping("list/receive/{no}")
+     public Object selectListReceiver(@PathVariable("no") int receiverNo) {
+         return memberMessageService.receiveList(receiverNo);
      }
 
 
