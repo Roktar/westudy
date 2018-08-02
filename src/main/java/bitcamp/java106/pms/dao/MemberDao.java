@@ -6,7 +6,7 @@ import java.util.Map;
 import bitcamp.java106.pms.domain.Member;
 
 public interface MemberDao {
-    Member selectOne(String id);
+    Member selectOne(String id);  
     Member validation(Map<String, Object> params);
     void insert_basic(Member member);
     int count(Map<String, Object> params);
