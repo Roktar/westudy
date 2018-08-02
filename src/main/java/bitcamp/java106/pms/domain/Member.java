@@ -20,10 +20,19 @@ public class Member implements Serializable {
     private String interestedPlace;
     private String authCode;
     private List<InterestField> interests;
+  
     
     
     
-    public String getProfile() {
+ 
+    @Override
+	public String toString() {
+		return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
+				+ ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", photo=" + photo
+				+ ", tel=" + tel + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode + ", interests="
+				+ interests + "]";
+	}
+	public String getProfile() {
         return profile;
     }
     public void setProfile(String profile) {
@@ -96,12 +105,6 @@ public class Member implements Serializable {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-    @Override
-    public String toString() {
-        return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
-                + ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", photo=" + photo
-                + ", tel=" + tel + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode + ", interests="
-                + interests + "]";
-    }
-	
+
+   
 }
