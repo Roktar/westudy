@@ -9,14 +9,14 @@
     <id column="msgno" property="no"/>
     <result column="cont" property="content"/>
     <result column="date" property="createdDate"/>
-    <association property ="sender" javaType="bitcamp.java106.pms.domain.Member">
+    <collection property ="sender" javaType="bitcamp.java106.pms.domain.Member">
       <id column="memno" property="no"/>
       <result column="name" property="name"/>      
-    </association>
-    <association property ="receiver" javaType="bitcamp.java106.pms.domain.Member">
+    </collection>
+    <collection property ="receiver" javaType="bitcamp.java106.pms.domain.Member">
       <id column="memno" property="no"/>
       <result column="name" property="name"/>      
-    </association>    
+    </collection>    
   </resultMap>
 
   <select id="selectListSender" 

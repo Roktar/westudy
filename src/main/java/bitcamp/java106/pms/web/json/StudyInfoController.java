@@ -46,7 +46,7 @@ public class StudyInfoController {
     public Object list(
             @MatrixVariable(defaultValue="1") int pageNo,
             @MatrixVariable(defaultValue="4") int pageSize) {
-
+        
         return studyInfoService.list(pageNo, pageSize);
     }
     

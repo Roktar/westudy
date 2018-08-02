@@ -21,8 +21,13 @@ public class MemberMessageServiceImpl implements MemberMessageService {
     }
 
     @Override
-    public List<MemberMessage> list() {
-        return memberMessageDao.selectList();
+    public List<MemberMessage> sendList(int senderNo) {
+        return memberMessageDao.selectListSend(senderNo);
+    }
+    
+    @Override
+    public List<MemberMessage> receiveList(int receiverNo) {
+        return memberMessageDao.selectListReceive(receiverNo);
     }
 
     @Override
