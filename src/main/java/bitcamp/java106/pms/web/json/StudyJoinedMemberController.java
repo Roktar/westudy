@@ -13,7 +13,7 @@ import bitcamp.java106.pms.service.StudyJoinedMemberService;
 
 @RestController
 @RequestMapping("/joinedmember")
-public class StudyJoinedMemberController {
+public class StudyJoinedMemberController { 
    StudyJoinedMemberService studyJoinedMemberService;
 
     @Autowired ServletContext sc;
