@@ -11,7 +11,6 @@ import bitcamp.java106.pms.service.StudyJoinedMemberService;
 
 
 
-
 @Service
 public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
     MemberDao memberDao;
@@ -31,6 +30,11 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
 	@Override
 	public int delete(int no) {
 		return studyJoinedMemberDao.delete(no);
+	}
+	
+	@Override
+	public StudyJoinedMember selectOne(int no) {
+		return studyJoinedMemberDao.selectOne(no);
 	}
 }
 

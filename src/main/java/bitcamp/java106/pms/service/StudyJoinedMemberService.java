@@ -7,6 +7,8 @@ import bitcamp.java106.pms.domain.StudyJoinedMember;
 
 public interface StudyJoinedMemberService {
 	List<StudyJoinedMember> list();
+	StudyJoinedMember selectOne(int no);
 	int delete(int no);
+	
 } 
  

@@ -9,4 +9,5 @@ import bitcamp.java106.pms.domain.StudyJoinedMember;
 public interface StudyJoinedMemberDao {
 	List<StudyJoinedMember> selectList();
 	int delete(int no);
+	StudyJoinedMember selectOne(int no);
 }
