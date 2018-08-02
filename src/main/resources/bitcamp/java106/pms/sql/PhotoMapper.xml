@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.PhotoDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.Photo" id="PhotoMap">
+    <id column="phno" property="no"/>
+    <result column="pho" property="photo"/>
+    <result column="titl" property="title"/>
+    <result column="cdt" property="createdDate"/>
+  </resultMap>
+    
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Photo">
+    insert into study_photo_list(pho, titl, cdt)
+        values(#{photo}, #{title}, now())
+  </insert>
+  
+  <select id="listByDate" parameterType="map" resultMap="PhotoMap">
+    select phno,pho,titl,cdt
+    from study_photo_list
+    where cdt
+    between #{preDate} and #{nowDate}
+    order by phno desc
+  </select>
+  
+  <select id="listByOne" parameterType="int" resultMap="PhotoMap">
+    select phno,pho,titl
+    from study_photo_list
+    where phno=#{value}
+  </select>
+  
+  <delete id="delete" parameterType="int">
+    delete from study_photo_list where phno=#{value}
+  </delete>
+</mapper>
+
+
+
+
+
+
+
