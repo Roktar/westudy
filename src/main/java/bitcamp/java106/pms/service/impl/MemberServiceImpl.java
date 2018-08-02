@@ -141,10 +141,10 @@ public class MemberServiceImpl implements MemberService{
     
     @Override
 	public List<Member> list() {
-		return memberDao.selectList();
+		return null;
 	}
     @Override
 	public int delete(int no) {
-		return memberDao.delete(no);
+		return 0;
 	}
 }

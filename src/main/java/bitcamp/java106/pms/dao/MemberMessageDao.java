@@ -2,7 +2,6 @@ package bitcamp.java106.pms.dao;
 
 import java.util.List;
 
-import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.domain.MemberMessage;
 
 public interface MemberMessageDao {
