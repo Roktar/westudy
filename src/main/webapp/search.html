@@ -200,7 +200,7 @@
                     <div class="col-sm-3 searchOption">
                         <div class="input-group mb-3">
                             <input id="tagText" type="text" name="hashtag" 
-                                 class="form-control" placeholder="포함단어 입력">
+                                 class="form-control" placeholder="해시태그 입력">
                             <div class="input-group-append">
                                 <button id="searchBtn" type="button">검색</button>
                             </div>
@@ -218,9 +218,9 @@
         <div class="box resultCount">
             총 <font color="#ef6c00"><bold id="searchCnt">0</bold></font>개의 스터디가 검색되었습니다.
         </div>
-        <div>
+        <!-- <div>
           검색 : <input type="text" id="keyword">
-        </div>
+        </div> -->
     </div>
 
     <!-- study list start -->
@@ -477,7 +477,7 @@ $(document).ready(function() {
     $("#searchBtn").click(() => {
         
         $('#searchrow').html("");
-        
+        $('#searchCnt').html("0");
         
         $.post("json/studyInfo/listSearch", {
             city : $("#fCity option:checked").text(),
@@ -485,6 +485,11 @@ $(document).ready(function() {
             category : $("#fCategory option:checked").text(),
             hashtag : $("#tagText").val()
         }, function(data) {
+            
+            if (data.length <= 0) {
+                alert("검색 결과가 없습니다.");
+            }
+            
             for (var item of data) {
                 console.log(item);
                 $(`<div class='col-sm-4 box' data-no='${item.no}'>`).html(`<div class='imgWrap'>
