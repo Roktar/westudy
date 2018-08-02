@@ -99,7 +99,8 @@
                                 <li>이름</li>
                                 <li>이메일 주소</li>
                                 <li>생년월일</li>
-                                <li>성별</li>
+                                <li>관심 지역</li>
+                                <li>소개</li>
                             </ul>
                         </div>
                         <div class="col-4">
@@ -123,7 +124,8 @@
                             .html("<li>" + data.name + "</li>" + 
                             	"<li>" + data.email + "</li>" + 
                                 "<li>" + data.birthday + "</li>" + 
-                                "<li>" + data.gender + "</li>"
+                                "<li>" + data.interestedPlace + "</li>" +
+                                "<li style='width: 500px ; height: 200px'>" + data.introduce + "</li>"
                             ).appendTo(info);
                     })
                     }, 500);

@@ -21,6 +21,7 @@ public class StudyInfo implements Serializable {
     private int maxPeople;
     private String category;
     
+    
     @Override
     public String toString() {
         return "StudyInfo [no=" + no + ", city=" + city + ", county=" + county + ", name=" + name + ", information="
