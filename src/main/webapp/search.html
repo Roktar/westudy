@@ -474,47 +474,45 @@ $(document).ready(function() {
     });
     
     var index = 0;
-    $.ajaxSetup({ async:false });
     $("#searchBtn").click(() => {
+        
+        $('#searchrow').html("");
+        
+        
         $.post("json/studyInfo/listSearch", {
             city : $("#fCity option:checked").text(),
             county : $("#fCounty option:checked").text(),
             category : $("#fCategory option:checked").text(),
             hashtag : $("#tagText").val()
         }, function(data) {
-            console.log("Search success");
             for (var item of data) {
                 console.log(item);
-                $("<div class='col-sm-4 box'>").html("<div class='imgWrap'>" +
-                        "<a href='groupMain.html?no=" + item.no +"'><img src='img/searchtestimg.png'></a></div>" +
-                        "<div class='studyDetail'><div><a href='#'><h6 class='studyTitle text-center font-weight-bold'>" + item.name + " <span class='badge badge-warning'>" + "모집중" + "</span></h6></a></div></a>" +
-                        "<div class='studyHashTag text-center'></div><hr>" +
-                        "<div class='list-details text-muted'><span class='float-left'><p>" + item.city + " , " + item.county + "</p></span><span class='float-right'><i class='fas fa-user'></i><span>" + " 4" + " / " + item.maxPeople + "</span></span></div></div>").appendTo(searchrow);
+                $(`<div class='col-sm-4 box' data-no='${item.no}'>`).html(`<div class='imgWrap'>
+                        <a href='groupMain.html?no=${item.no}'><img src='img/searchtestimg.png'></a></div>
+                        <div class='studyDetail'><div><a href='#'><h6 class='studyTitle text-center font-weight-bold'>${item.name} <span class='badge badge-warning'>모집중</span></h6></a></div></a>
+                        <div class='studyHashTag text-center'></div><hr>
+                        <div class='list-details text-muted'><span class='float-left'><p>${item.city} , ${item.county}</p></span><span class='float-right'><i class='fas fa-user'></i><span> 4 / ${item.maxPeople}</span></span></div></div>`).appendTo(searchrow);
             
-                var hashtags = $(".studyHashTag");
-                var count = item.no;
-                (function(count) {
-                $.getJSON("json/studyInfo/listTag/" + count, (data2) => {
-                    
+                let itemNo = item.no;
+                $.getJSON("json/studyInfo/listTag/" + itemNo, (data2) => {
                     for (var i of data2) {
-                        $(hashtags[index]).append($("<span class='hashtags' style='margin-right:5px'>" + i.hashtag + "</span>"));
+                        $('div[data-no="' + itemNo + '"] div.studyHashTag.text-center').append($("<span class='hashtags' style='margin-right:5px'>" + i.hashtag + "</span>"));
                     }
                     index++;
+                    
+                    var k = $("#tagText").val();
+                    var temp = $(".container .col-sm-4.box .studyHashTag > span:contains('" + k + "')");
+                    console.log($(temp).parents(".col-sm-4").length);
+                    var length = $(temp).parents(".col-sm-4").length;
+                    searchCnt.innerHTML = length;
                 });
-                })(count);
+                
             }
             
-            var k = $(".hashtags").val();
             
-            var temp = $(".container .col-sm-4.box .studyHashTag > span:contains('" + k + "')");
-            
-            console.log($(temp).parents(".col-sm-4").length);
-            
-            var length = $(temp).parents(".col-sm-4").length;
-            $("#searchCnt").html(length);
            
         });
-        $.ajaxSetup({ async:true });
+        
     });
     
     
