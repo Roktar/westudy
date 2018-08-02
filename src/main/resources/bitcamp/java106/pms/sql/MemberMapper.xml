@@ -71,6 +71,18 @@
   <update id="userAuth" parameterType="map">
     update member set auth = #{authCode} where memno = #{no}
   </update>
+  
+ <select id="selectList" 
+          resultMap="MemberMap"
+          parameterType="int">
+  select memno, name, email, birth 
+  from member
+</select>
+
+<delete id="delete" parameterType="int">
+    delete from dhGm where usrno=#{value}
+</delete> 
+  
 </mapper>
 
 

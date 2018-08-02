@@ -6,7 +6,7 @@ div.paragraphBox {
     background-color: white;
     width: 40rem;
     height: 50rem;
-    margin: 2rem auto;
+    margin: 150px auto auto auto;
     padding: 1rem;
     overflow-y: scroll;
 }
@@ -21,4 +21,8 @@ div.paragraphBox h2 {
 div.paragraphBox {
     line-height: 1.5rem;
     font-size: 0.8rem;
+}
+
+h3{
+	font-size: 1.2rem;
 }

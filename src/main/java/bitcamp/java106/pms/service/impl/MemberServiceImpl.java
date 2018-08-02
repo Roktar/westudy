@@ -1,6 +1,7 @@
 package bitcamp.java106.pms.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -39,7 +40,7 @@ public class MemberServiceImpl implements MemberService{
     
     @Override
     public Member get(int id) {
-        return memberDao.selectOneTypeInt(id);
+        return memberDao.selectOneByNo(id);
     }
     
     @Override
@@ -137,4 +138,13 @@ public class MemberServiceImpl implements MemberService{
         member.setEmail(email);
         member.setAuthCode(authCode);
     }
+    
+    @Override
+	public List<Member> list() {
+		return memberDao.selectList();
+	}
+    @Override
+	public int delete(int no) {
+		return memberDao.delete(no);
+	}
 }

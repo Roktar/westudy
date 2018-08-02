@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -108,4 +109,16 @@ public class MemberController {
     public void update(Member member) throws Exception {
         memberService.update(member);
     }
+    
+    @RequestMapping("delete")
+	public void delete (
+			@RequestParam("no") int no) throws Exception{
+		memberService.delete(no);
+	}
+	
+	@RequestMapping("list")
+	 public Object list() {
+        return memberService.list();
+    }
+    
 }

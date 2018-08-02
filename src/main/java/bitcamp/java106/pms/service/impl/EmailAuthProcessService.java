@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java106.pms.dao.EmailAuthDao;
 import bitcamp.java106.pms.dao.MemberDao;
-import bitcamp.java106.pms.domain.Member;
 
 @Service
 public class EmailAuthProcessService {
