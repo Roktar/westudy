@@ -425,7 +425,6 @@
 			});
 
 			$("#header").load(serverRoot + "/header.html");
-<<<<<<< HEAD
 
 			/* 내 주변 스터디 */
 	        $.getJSON("json/studyInfo/list", (data) => {
@@ -446,47 +445,7 @@
 	                    });
 	                }
 	        });
-=======
-			   var index = 0;
-			$.ajaxSetup({ async:false });
-			$.getJSON("json/studyInfo/list", (data) => {
-					for (var item of data) {
-						console.log(item);
-						 $("<li class='l-col'>").html("<div id='mystudy' class='study' style='background: #fff; border:solid 1px #d2d2d2'>" +
-						 "<a href='groupMain.html?no=" + item.no +"' style='display: block; width: 100%;'>" +
-						 "<div class='ove'><span class='ove_span'></span></div></a>" +
-						 "<div class='info_area'><h2 class='infoareah2'>" + item.name + "</h2>" +
-						 "<div class='tags'><span class='tag_area_name'>" + item.county + "</span></div></div>").appendTo(lrow);
-					
-						var tagss = $(".tags");
-						var count = item.no;
-						console.log("count=" + count);
-						
-						console.log("studyInfo/list");
-						(function(count) {
-							$.getJSON("json/studyInfo/listTag/" + count, (data2) => {
-								console.log("studyInfo/listTag");
-								//console.log(data2);
-								console.log(count);
-								console.log(index);
-								for (var i of data2) {
-									//console.log(i);
-									//console.log(index);
-									//console.log($(tagss[index]));
-									//console.log(data2);
-									
-									//console.log(i.hashtag);
-									$(tagss[index]).append($("<span class='hashtags'>" + i.hashtag + "</span>"));
-									//console.log(index);
-								}
-								index++;
-								//console.log("index="+index);
-							});
-						})(count);
-					}
-			});
-			$.ajaxSetup({ async:true });
->>>>>>> branch 'master' of https://github.com/Roktar/FinalProject.git
+
 		});
 	</script>
 </body>

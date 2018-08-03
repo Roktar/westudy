@@ -211,8 +211,8 @@ let fetchList2 = function(){
         isEnd = false;
          return;
     }
-    
-    
+    console.log(upNowDate);
+    console.log(upPreDate);
 //    let startNo = $(".grid-item").last().data("no") || 0;
     
     $.ajax({
@@ -226,14 +226,14 @@ let fetchList2 = function(){
         	console.log(data);
             let length = data.length;  
             
-            if(length == 0){
-            	for (this.upPreDate = yyyy + "-" + (--MM) + "-" + "01"; data.length > 0; MM--){
-            		
-            		fetchList2();
-            		
-            	}
-            	
-            }
+//            if(length == 0){
+//            	for (this.upPreDate = yyyy + "-" + (--MM) + "-" + "01"; data.length > 0; MM--){
+//            		
+//            		fetchList2();
+//            		
+//            	}
+//            	
+//            }
             
             if( length < 5 ){ 
                     isEnd = true;
