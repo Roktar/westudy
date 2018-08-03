@@ -29,11 +29,11 @@
     <mvc:annotation-driven enable-matrix-variables="true" />
         
     <!-- 로그인 여부 검사 인터셉터 등록 -->
-      <!-- <mvc:interceptors>
+      <mvc:interceptors>
         <mvc:interceptor>
         <mvc:mapping path="/**" />
         <mvc:exclude-mapping path="/auth/**"/>
             <bean class="bitcamp.java106.pms.web.interceptor.AuthCheckInterceptor" />
         </mvc:interceptor>
-    </mvc:interceptors> -->
+    </mvc:interceptors>
 </beans>

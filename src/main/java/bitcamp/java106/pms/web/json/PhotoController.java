@@ -1,7 +1,9 @@
 package bitcamp.java106.pms.web.json;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -32,16 +34,19 @@ public class PhotoController {
     
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public int add(String title, MultipartFile[] files) throws Exception {
+    public int add(String title, int memNo, int studyNo, MultipartFile[] files) throws Exception {
         
         String filesDir = sc.getRealPath("/files");
-        
+        System.out.println(memNo);
+        System.out.println(studyNo);
         
         Photo[] photos = new Photo[files.length];
          
         for (int i = 0; i  < files.length; i++) {
             Photo photo = new Photo();
             photo.setTitle(title);
+            photo.setMemNo(memNo);
+            photo.setStudyNo(studyNo);
             String filename = UUID.randomUUID().toString();
             photo.setPhoto(filename);
             
@@ -66,6 +71,7 @@ public class PhotoController {
                 e.printStackTrace();
             }
             photos[i] = photo;
+            
         }
         return photoService.insert(photos);
           
@@ -73,30 +79,34 @@ public class PhotoController {
     
     @RequestMapping("list")
     public List<Photo> list(@RequestParam("nowDate") String nowDate,
-                            @RequestParam("preDate") String preDate) {  
-        
-       List<Photo> photos = photoService.listByDate(nowDate, preDate);
+                            @RequestParam("preDate") String preDate,
+                            @RequestParam("studyNo") String studyNo) {  
+        System.out.println(studyNo);
+       List<Photo> photos = photoService.listByDate(nowDate, preDate, studyNo);
        try {           
            for(Photo photo : photos) {
                photo.setTitle(photo.getTitle());
            }
        }catch(Exception e){
+           return null;
            
        }
        return photos;
-        
     }
     
     @RequestMapping("{no}")
-    public Photo view(@PathVariable int no) throws Exception {
-        System.out.println(no);
-        System.out.println(photoService.listByOne(no));
-        return photoService.listByOne(no);
+    public Photo view(@PathVariable int no,
+                      @RequestParam("studyNo") String studyNo) throws Exception {
+        Map<String,Object> params = new HashMap<>();
+        params.put("no", no);
+        params.put("studyNo", studyNo);
+        System.out.println(photoService.listByOne(params));
+        return photoService.listByOne(params);
     }
     
     @RequestMapping("delete{no}")
     public void delete(@PathVariable int no) throws Exception {
-        System.out.println(no);
+        
         photoService.delete(no);
     }
     

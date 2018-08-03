@@ -37,7 +37,8 @@ public class AuthController {
             HttpServletRequest request,
             HttpServletResponse response,
             HttpSession session) throws Exception {
-        
+        System.out.println(id);
+        System.out.println(password);
         System.out.println("id:" + id);
         System.out.println("pw:" + password);
                 
