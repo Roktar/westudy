@@ -1,8 +1,13 @@
  $(document).ready(function() {
 	 
+	  var no = -1;
+      $.get("json/auth/loginstat", {}, res=> {
+          console.log("[" + res + "]" + ", " + typeof(res));
+          console.log(res.no);
+          memno = res.no;
+      })
 	 
-	 
-	 $.get("json/review/listall", {}, (data) => {
+	 $.get("json/member/"+no, (data) => {
 		 let list_group = $('.mystudy');
 		 
 
@@ -17,8 +22,6 @@
 		}
 	});
  });
-	
-
 
 
 

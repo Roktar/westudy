@@ -1,5 +1,7 @@
 package bitcamp.java106.pms.web.json;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +48,10 @@ public class StudyJoinedMemberController {
        return studyJoinedMemberService.selectOne(no);
    }
 	
+	@RequestMapping("listall")
+	 public List<StudyJoinedMember> selectListWithStudy(
+			 @RequestParam("no") int mnumber) {
+      return studyJoinedMemberService.selectListWithStudy(mnumber);
+  }
 	
 }

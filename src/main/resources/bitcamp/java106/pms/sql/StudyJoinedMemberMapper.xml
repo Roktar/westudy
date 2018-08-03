@@ -40,7 +40,7 @@
   AND status=1<!-- url에서 가져오 -->
 </select>
 
-<select id="ListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
+<select id="selectListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
   select j.stdno , j.memno, s.name, s.ctgr
   from study_joined_member j left join study_info s on j.stdno = s.stdno
   where j.memno=#{value}

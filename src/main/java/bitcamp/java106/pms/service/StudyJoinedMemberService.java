@@ -10,5 +10,6 @@ public interface StudyJoinedMemberService {
 	StudyJoinedMember selectOne(int no);
 	int delete(int no);
 	int add(StudyJoinedMember studyJoinedMember, int mnumber);
+	List<StudyJoinedMember> selectListWithStudy(int mnumber);
 } 
  

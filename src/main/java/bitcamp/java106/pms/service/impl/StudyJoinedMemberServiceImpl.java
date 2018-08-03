@@ -55,5 +55,10 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
 	public StudyJoinedMember selectOne(int no) {
 		return studyJoinedMemberDao.selectOne(no);
 	}
+
+	@Override
+	public List<StudyJoinedMember> selectListWithStudy(int mnumber) {
+		return studyJoinedMemberDao.selectListWithStudy(mnumber);
+	}
 }
 
