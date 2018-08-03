@@ -34,8 +34,6 @@ $(document).ready(function(){
 
 
 
-
-
         $(document).ready(function(){
     //최상단 체크박스 클릭
     $("#checkall2").click(function(){
@@ -50,3 +48,29 @@ $(document).ready(function(){
         }
     })
 })
+
+
+var list_group = $('.memberbox');
+
+
+var i = 1;
+
+
+$(document).ready(function() {
+	$.get("json/joinedMember/list", {}, (data) => {
+		let list_group = $('.memberbox');
+		
+		for(var item of data) {
+			$('<tr>' +
+			'<td>'+
+			'<input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk2">'+
+			'</td>'+
+			'<td>'+item.member.mname+'</td>'+
+			'<td>'+item.member.email+'</td>'+
+			'<td>'+item.registedDate+'</td>'+
+			'</tr>').appendTo(list_group);
+			
+			i++;
+		}
+	});
+});
