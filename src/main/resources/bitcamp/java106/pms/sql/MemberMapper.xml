@@ -91,6 +91,13 @@
     from member
     where email = #{id}
 </select>
+
+
+<update id="upload" parameterType="map">
+    update member
+    set pfp=#{profile}
+    where memno=#{memberno}
+</update>
   
 </mapper>
 

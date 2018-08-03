@@ -147,4 +147,16 @@ public class MemberServiceImpl implements MemberService{
 	public int delete(int no) {
 		return 0;
 	}
+    
+
+    @Override
+    public Object upload(String filename, HashMap<String, Object> jsonData, int memberno) {
+        // TODO Auto-generated method stub
+        Map<String, Object> map = new HashMap<>();
+        map.put("memberno", memberno);
+        map.put("profile", filename);
+        memberDao.upload(map);
+        
+        return jsonData;
+    }
 }

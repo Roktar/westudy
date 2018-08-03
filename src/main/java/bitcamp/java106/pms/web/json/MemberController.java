@@ -120,5 +120,28 @@ public class MemberController {
 	 public Object list() {
         return memberService.list();
     }
+	
+	@PostMapping("upload01")
+    public Object upload01(int memberNo, MultipartFile files) {
+        System.out.println(memberNo);
+        
+        HashMap<String,Object> jsonData = new HashMap<>();
+        
+        String filesDir = sc.getRealPath("/img");
+        
+        String filename = UUID.randomUUID().toString();
+        jsonData.put("filename", filename);
+        jsonData.put("filesize", files.getSize());
+        jsonData.put("originname", files.getOriginalFilename());
+        try {
+            File path = new File(filesDir + "/" + filename);
+            System.out.println(path);
+            files.transferTo(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return memberService.upload(filename, jsonData, memberNo);
+    }
     
 }

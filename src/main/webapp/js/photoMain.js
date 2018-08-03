@@ -39,7 +39,7 @@ $(document).ready(function(){
          imgFiles = data.files;
          var imagesDiv = $('#ad-images-div');
          imagesDiv.html("");
-         for (var i = 0; i < data.files.length; i++) {
+         for (var i = 0; i < data.files.length; i++) { 
            try {
              if (data.files[i].preview.toDataURL) {
               var imgWrapper = $('<div>')
