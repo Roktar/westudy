@@ -15,7 +15,7 @@ public class StudyJoinedMember implements Serializable {
     private Date registedDate;
     private int grade;
     
-	
+	private Member member;
 	
 	public Date getRegistedDate() {
 		return registedDate;
@@ -41,4 +41,5 @@ public class StudyJoinedMember implements Serializable {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+	
 }
