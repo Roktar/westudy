@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.StudyJoinedMemberDao">
+
+  <resultMap type="StudyJoinedMember" id="StudyJoinedMemberMap">
+    <id column="stdno" property="studyNo"/>
+    <result column="memno" property="memNo"/>
+    <result column="rdt" property="registedDate"/>
+    <result column="grade" property="grade"/>
+    
+  </resultMap>
+    
+  <select id="selectList" resultMap="StudyJoinedMemberMap">
+  select stdno, memno, rdt, grade 
+  from study_joined_member
+  </select>
+
+ <select id="selectOne" parameterType="int" resultMap="StudyJoinedMemberMap">
+  select j.stdno, memno, sname, s.ctgr
+  from study_joined_member j left join study_info s on j.stdno = s.stdno
+  where memno=#{value}
+  </select>
+
+
+<delete id="update" parameterType="int">
+    delete from study_joined_member where stdno=#{value}
+</delete> 
+  
+</mapper>
+
+
+
+
+
+
+

@@ -5,7 +5,7 @@
 
 <mapper namespace="bitcamp.java106.pms.dao.MemberDao">
 
-  <resultMap type="bitcamp.java106.pms.domain.Member" id="MemberMap">
+  <resultMap type="Member" id="MemberMap">
     <id column="memno" property="no"/>
     <result column="email" property="email"/>
     <result column="pwd" property="password"/>
@@ -15,9 +15,15 @@
     <result column="birth" property="birthday"/>
     <result column="tel" property="tel"/>
     <result column="itrloc" property="interestedPlace"/>
+    <result column="gen" property="gender"/>
     <result column="auth" property="authCode"/>
   </resultMap>
     
+ <select id="selectList" resultMap="MemberMap" parameterType="map">
+  select memno, mname, gen, email, auth, intrd, birth , tel, itrloc, pfp
+  from member
+</select>
+
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
     insert into member( email, pwd, mname, tel)
         values(#{email}, password(#{password}), #{name}, #{tel} )

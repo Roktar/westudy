@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Member implements Serializable {
  
     private static final long serialVersionUID = 1L;
@@ -14,24 +16,29 @@ public class Member implements Serializable {
     private String profile;
     private String introduce;
     private String name;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date birthday;
     private String photo;
     private String tel;
     private String interestedPlace;
     private String authCode;
+    private String gender;
     private List<InterestField> interests;
-  
+ 
     
     
     
  
-    @Override
+   
+	
+	@Override
 	public String toString() {
 		return "Member [no=" + no + ", email=" + email + ", password=" + password + ", profile=" + profile
 				+ ", introduce=" + introduce + ", name=" + name + ", birthday=" + birthday + ", photo=" + photo
-				+ ", tel=" + tel + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode + ", interests="
-				+ interests + "]";
+				+ ", tel=" + tel + ", interestedPlace=" + interestedPlace + ", authCode=" + authCode + ", gender="
+				+ gender + ", interests=" + interests + "]";
 	}
+	
 	public String getProfile() {
         return profile;
     }
@@ -106,5 +113,13 @@ public class Member implements Serializable {
 		this.photo = photo;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
    
 }

@@ -26,7 +26,7 @@ public class StudyBoard implements Serializable {
     public int getNo() {
         return no;
     }
-    public void setNo(int no) {
+    public void setNo(int no) { 
         this.no = no;
     }
     public Study getStudy() {
