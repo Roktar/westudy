@@ -14,10 +14,31 @@ public class Photo implements Serializable {
     private String title;
     @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
     private Date createdDate;
+    private int memNo;
+    private int studyNo;
+    
+    
     
     @Override
     public String toString() {
-        return "Photo [no=" + no + ", photo=" + photo + ", title=" + title + ", createdDate=" + createdDate + "]";
+        return "Photo [no=" + no + ", photo=" + photo + ", title=" + title + ", createdDate=" + createdDate + ", memNo="
+                + memNo + ", studyNo=" + studyNo + "]";
+    }
+
+    public int getMemNo() {
+        return memNo;
+    }
+
+    public void setMemNo(int memNo) {
+        this.memNo = memNo;
+    }
+
+    public int getStudyNo() {
+        return studyNo;
+    }
+
+    public void setStudyNo(int studyNo) {
+        this.studyNo = studyNo;
     }
     
     public String getTitle() {

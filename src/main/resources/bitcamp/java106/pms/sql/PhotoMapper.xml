@@ -10,29 +10,32 @@
     <result column="pho" property="photo"/>
     <result column="titl" property="title"/>
     <result column="cdt" property="createdDate"/>
+    <result column="memno" property="memNo"/>
+    <result column="stdno" property="studyNo"/>
   </resultMap>
     
   <insert id="insert" parameterType="bitcamp.java106.pms.domain.Photo">
-    insert into study_photo_list(pho, titl, cdt)
-        values(#{photo}, #{title}, now())
+    insert into study_photo_list(pho, titl, cdt, stdno, memno)
+        values(#{photo}, #{title}, now(), #{studyNo}, #{memNo})
   </insert>
   
   <select id="listByDate" parameterType="map" resultMap="PhotoMap">
-    select phno,pho,titl,cdt
+    select phno,pho,titl,cdt,memNo
     from study_photo_list
-    where cdt
-    between #{preDate} and #{nowDate}
+    where stdNo = #{studyNo} and 
+    cdt between #{preDate} and #{nowDate}
     order by phno desc
   </select>
   
-  <select id="listByOne" parameterType="int" resultMap="PhotoMap">
-    select phno,pho,titl
+  <select id="listByOne" parameterType="map" resultMap="PhotoMap">
+    select phno,pho,titl,stdNo
     from study_photo_list
-    where phno=#{value}
+    where stdNo = #{studyNo} and phno=#{no}
   </select>
   
   <delete id="delete" parameterType="int">
-    delete from study_photo_list where phno=#{value}
+    delete from study_photo_list 
+    where phno=#{value}
   </delete>
 </mapper>
 

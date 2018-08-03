@@ -15,39 +15,13 @@
     href="node_modules/blueimp-file-upload/css/jquery.fileupload-ui.css">
 <link type="text/css" rel="stylesheet" href="css/hover-box.css">
 <link rel="stylesheet" href="css/photoMain.css">
+<link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
 
 </head>
 
 <body>
-	<header class="header">
-		<div class="headerWrap">
-			<h1 class="logo">
-				<a href="index.html"> <img src="img/logo3.png" alt="로고"
-					title="WeStudy">
-				</a>
-			</h1>
-			<div class="utilMenu">
-				<ul>
-					<li class="search"><a href="search.html">검색</a></li>
-					<li><a href="makeStudy.html">스터디 만들기</a></li>
-					<li><a id="login" style="" data-toggle="modal"
-						data-target="#myModal"> 로그인 </a></li>
-					<li><a id="signup" class="" data-toggle="modal"
-						data-target="#register">회원가입</a></li>
-					<li class="utilMenuMobile">스터디그룹 만들기</li>
-					<li class="utilMenuMobile">가입한 스터디 목록</li>
-					<li class="menu"><a href="myProfile.html">menu</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="menuToggle" style="display: none">
-			<div>
-				<div class="profile_img">
-					<a href="#" title="프로필 페이지로 이동">프로필 사진</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<div id="header"> </div>
+	
 	<div id="topCon" class="container">
 		<div class="col text-right" style="padding: 0">
 			<h3 style="float: left">사진</h3>
@@ -76,10 +50,10 @@
 				<div class="modal-body">
 
 					<div class="input-group mb-3">
-						<input id="phoTitle" type="text" class="form-control"
-							placeholder="제목">
+						<input id="phoTitle" type="text" class="form-control" placeholder="제목">
 					</div>
 					<input id="fileupload" type="file" name="files" multiple>
+
 					<div id="ad-images-div"></div>
 
 				</div>
@@ -94,7 +68,7 @@
 	</div>
 	
 	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal fade" id="viewModal" role="dialog">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -129,21 +103,19 @@
 
 <script src='node_modules/jquery/dist/jquery.min.js'></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-<script
-    src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
 <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
 <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script
-    src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script
-    src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
-<script
-    src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 <script src="js/masonry.pkgd.min.js"></script>
 <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="js/common.js"></script>
 <script src="js/photoMain.js"></script>
+<script src="node_modules/slidebars/dist/slidebars.js"></script>
 </body>
 
 <script>
@@ -154,15 +126,15 @@
 			$('#phoTitle').val('');
 		});
 	
-	});
 
-	$(document).ready(function() {
 		$('#upload-btn').click(function(){
 	       $('#dAD').on('show.bs.modal', function() {
 	           $('#ad-images-div').empty();
 	           $('#phoTitle').val('');
 	       });
 		});
+		
+		$("#header").load(serverRoot + "/header.html");
     });
 	 
 </script>

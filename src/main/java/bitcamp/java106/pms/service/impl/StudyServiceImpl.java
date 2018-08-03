@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java106.pms.dao.StudyDao;
+import bitcamp.java106.pms.domain.HashTag;
 import bitcamp.java106.pms.domain.Study;
 import bitcamp.java106.pms.service.StudyService;
 
@@ -17,10 +18,6 @@ public class StudyServiceImpl implements StudyService {
         this.studyDao = studyDao;
     }
 
-    @Override
-    public List<Study> list() {
-        return studyDao.selectList();
-    }
 
     @Override
     public Study get(int no) {
@@ -41,5 +38,33 @@ public class StudyServiceImpl implements StudyService {
     @Override
     public int delete(int no) {
         return studyDao.delete(no);
+    }
+
+
+    @Override
+    public List<Study> list(int pageNo, int pageSize) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+    @Override
+    public List<HashTag> listTag(int no) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+    @Override
+    public int addTag(String[] tag) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+
+    @Override
+    public int getLimitOne() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }

@@ -30,30 +30,29 @@ public class PhotoServiceImpl implements PhotoService{
     }
 
     @Override
-    public void update(Photo photo) {
-        // TODO Auto-generated method stub
-        
-    }
-
-
-    @Override
     public List<Photo> listByGroup(Map<String, Object> map) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public List<Photo> listByDate(String nowDate, String preDate) {
-        Map<String,Object> params = new HashMap<>();
-        params.put("nowDate", nowDate);
-        params.put("preDate", preDate);
+    public List<Photo> listByDate(String nowDate, String preDate, String studyNo) {
+        try {
+            Map<String,Object> params = new HashMap<>();
+            params.put("nowDate", nowDate);
+            params.put("preDate", preDate);
+            params.put("studyNo", studyNo);
+            
+            return photoDao.listByDate(params);
+        }catch(Exception e){
+            return null;
+        }
         
-        return photoDao.listByDate(params);
     }
 
     @Override
-    public Photo listByOne(int no) {
-        return photoDao.listByOne(no);
+    public Photo listByOne(Map<String,Object> params) {
+        return photoDao.listByOne(params);
     }
 
     

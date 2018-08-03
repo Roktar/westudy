@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import bitcamp.java106.pms.domain.StudySchedule;
-import bitcamp.java106.pms.domain.TestBase;
 
 public interface StudyScheduleDao {
     List<StudySchedule> selectList(Map<String, Object> map);

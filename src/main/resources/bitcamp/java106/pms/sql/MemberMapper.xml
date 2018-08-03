@@ -19,10 +19,7 @@
     <result column="auth" property="authCode"/>
   </resultMap>
     
- <select id="selectList" resultMap="MemberMap" parameterType="map">
-  select memno, mname, gen, email, auth, intrd, birth , tel, itrloc, pfp
-  from member
-</select>
+ 
 
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
     insert into member( email, pwd, mname, tel)

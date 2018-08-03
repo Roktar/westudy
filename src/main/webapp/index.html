@@ -425,7 +425,7 @@
 			});
 
 			$("#header").load(serverRoot + "/header.html");
-
+			   var index = 0;
 			$.ajaxSetup({ async:false });
 			$.getJSON("json/studyInfo/list", (data) => {
 					for (var item of data) {
