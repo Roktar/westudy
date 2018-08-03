@@ -17,7 +17,7 @@
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
-      <id column="sname" property="name"/>
+      <id column="name" property="name"/>
       <id column="ctgr" property="category"/>
    </association>
   </resultMap>
@@ -41,7 +41,7 @@
 </select>
 
 <select id="ListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
-  select j.stdno , j.memno, s.sname, s.ctgr
+  select j.stdno , j.memno, s.name, s.ctgr
   from study_joined_member j left join study_info s on j.stdno = s.stdno
   where j.memno=#{value}
 </select>

@@ -13,7 +13,7 @@ import bitcamp.java106.pms.domain.StudyJoinedMember;
 import bitcamp.java106.pms.service.StudyJoinedMemberService;
 
 @RestController
-@RequestMapping("/joinedmember")
+@RequestMapping("/joinedMember")
 public class StudyJoinedMemberController { 
    StudyJoinedMemberService studyJoinedMemberService;
 
