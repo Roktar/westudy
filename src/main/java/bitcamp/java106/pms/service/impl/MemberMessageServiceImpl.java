@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.dao.MemberMessageDao;
+import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.domain.MemberMessage;
 import bitcamp.java106.pms.service.MemberMessageService;
 
@@ -44,6 +45,11 @@ public class MemberMessageServiceImpl implements MemberMessageService {
     @Override
     public int delete(int no) {
         return memberMessageDao.delete(no);
+    }
+
+    @Override
+    public int find(String id) {
+        return memberDao.find(id);
     }
 
 }

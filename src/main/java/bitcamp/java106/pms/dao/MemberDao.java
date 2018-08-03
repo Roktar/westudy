@@ -1,6 +1,5 @@
 package bitcamp.java106.pms.dao;
 
-import java.util.List;
 import java.util.Map;
 
 import bitcamp.java106.pms.domain.Member;
@@ -16,4 +15,5 @@ public interface MemberDao {
     void createAuthKey(String email, String key);
     void userAuth(Map<String, Object> params);
 	Member selectOneByNo(int user);
+    int find(String id);
 }

@@ -11,4 +11,5 @@ public interface MemberMessageService {
     int delete(int no);
     List<MemberMessage> sendList(int senderNo);
     List<MemberMessage> receiveList(int receiverNo);
+    int find(String id);
 }
