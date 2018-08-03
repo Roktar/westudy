@@ -19,13 +19,13 @@
     </association>
     <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
-      <id column="sname" property="name"/>
+      <id column="name" property="name"/>
       <id column="ctgr" property="category"/>
     </association>
   </resultMap>
   
 <select id="selectList" resultMap="ReviewMap" parameterType="map">
-  select r.rvwno, sname, s.ctgr, r.cont, r.rating, r.cdt, mname, pfp 
+  select r.rvwno, s.name, s.ctgr, r.cont, r.rating, r.cdt, mname, pfp 
   from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
   where s.ctgr = #{category}  order by r.rvwno desc
   limit #{startRowNo}, #{pageSize}
@@ -33,7 +33,7 @@
 
   
 <select id="selectListAll" resultMap="ReviewMap" parameterType="map">
-  select r.rvwno, sname, r.cont, pfp 
+  select r.rvwno, s.name, r.cont, pfp 
   from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno  order by r.rvwno desc
   limit 0, 4
 </select>
