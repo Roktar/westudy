@@ -430,14 +430,14 @@ if (location.href.split("?").length > 1) {
             });
         });
     }); */
-    $("#addBtn").click(() => {
+	$("#addBtn").click(() => {
         $.post("json/studyInfo/add", {
             city: $("#fCity option:checked").text(),
             county: $("#fCounty option:checked").text(),
             name: $(fName).val(),
             information: $(fInformation).val(),
             maxPeople: $(fMaxPeople).val(),
-            category: $("#fCategory option:checked").text()
+            category: $("#fCategory option:checked").text(),
         }, () => {
             console.log("add success");
             $.post("json/studyInfo/addTag", {
@@ -445,14 +445,18 @@ if (location.href.split("?").length > 1) {
             }, () => {
                 $.getJSON("json/studyInfo/one", function(data) {
                     console.log(data);
+                    
+                    $.post("json/joinedmember/add", {
+                        mnumber: mnumber
+                    }, () => {
+                        console.log("joinedmember success");
+                    });
+                    
                     location.href = "groupMain.html?no=" + data;
                 });
             });
             
         });
-        
-        
-        
     });
     
 }

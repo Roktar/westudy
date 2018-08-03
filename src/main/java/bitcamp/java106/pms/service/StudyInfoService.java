@@ -9,6 +9,7 @@ public interface StudyInfoService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
     // 업무 용어를 사용하라!
     List<StudyInfo> list(int pageNo, int pageSize);
+    List<StudyInfo> listSearch(String city, String county, String category, String hashtag);
     List<HashTag> listTag(int no);
     StudyInfo get(int no);
     int add(StudyInfo studyInfo);

@@ -36,6 +36,17 @@ public class StudyInfoController {
         studyInfoService.addTag(tags);
     }
 
+    @RequestMapping("listSearch")
+    public Object listSearch(@RequestParam("city") String city, 
+                            @RequestParam("county") String county,
+                            @RequestParam("category") String category,
+                            @RequestParam("hashtag") String hashtag) {
+        System.out.println("controller===>" + city + "," + county + "," + category + "," + hashtag);
+        
+        return studyInfoService.listSearch(city,county,category,hashtag);
+        
+    }
+    
     @RequestMapping("delete")
     //@ResponseStatus(HttpStatus.OK) // 응답 상태 코드 값의 default는 "200(OK)" 이다.
     public void delete(@RequestParam("no") int no) throws Exception {
