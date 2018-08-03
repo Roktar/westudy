@@ -2,54 +2,39 @@ package bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Time;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public class StudySchedule implements Serializable {
-
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
     
     private int no;
-    private Study study;
-    private String place;
-    private double lattitude;
+    private int refStudyNo;
+    private String placeAddress;
+    private String placeDetail;
+    private double latitude;
     private double longitude;
     private String title;
-    private String topic;
-    private String detail;
+    private String content;
     @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
-    private Date startTime;
-    @Override
-    public String toString() {
-        return "StudySchedule [no=" + no + ", place=" + place + ", lattitude=" + lattitude + ", longitude=" + longitude
-                + ", title=" + title + ", topic=" + topic + ", detail=" + detail + ", startTime=" + startTime + "]";
-    }
+    private Date StartDate;
+    private Time time;
+    private List<StudyScheduleDetail> schedules;
+    
     public int getNo() {
         return no;
     }
     public void setNo(int no) {
         this.no = no;
     }
-    public Study getStudy() {
-        return study;
+    public double getLatitude() {
+        return latitude;
     }
-    public void setStudy(Study study) {
-        this.study = study;
-    }
-    public String getPlace() {
-        return place;
-    }
-    public void setPlace(String place) {
-        this.place = place;
-    }
-    public double getLattitude() {
-        return lattitude;
-    }
-    public void setLattitude(double lattitude) {
-        this.lattitude = lattitude;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
     public double getLongitude() {
         return longitude;
@@ -63,27 +48,53 @@ public class StudySchedule implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getTopic() {
-        return topic;
+    public String getContent() {
+        return content;
     }
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setContent(String content) {
+        this.content = content;
     }
-    public String getDetail() {
-        return detail;
+    public Date getStartDate() {
+        return StartDate;
     }
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setStartDate(Date startDate) {
+        StartDate = startDate;
     }
-    public Date getStartTime() {
-        return startTime;
+    public Time getTime() {
+        return time;
     }
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setTime(Time time) {
+        this.time = time;
     }
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    public List<StudyScheduleDetail> getSchedules() {
+        return schedules;
     }
-    
-    
+    public void setSchedules(List<StudyScheduleDetail> schedules) {
+        this.schedules = schedules;
+    }
+    public int getRefStudyNo() {
+        return refStudyNo;
+    }
+    public void setRefStudyNo(int refStudyNo) {
+        this.refStudyNo = refStudyNo;
+    }
+    public String getPlaceDetail() {
+        return placeDetail;
+    }
+    public void setPlaceDetail(String placeDetail) {
+        this.placeDetail = placeDetail;
+    }
+    public String getPlaceAddress() {
+        return placeAddress;
+    }
+    public void setPlaceAddress(String placeAddress) {
+        this.placeAddress = placeAddress;
+    }
+    @Override
+    public String toString() {
+        return "StudySchedule [no=" + no + ", refStudyNo=" + refStudyNo + ", placeAddress=" + placeAddress
+                + ", placeDetail=" + placeDetail + ", latitude=" + latitude + ", longitude=" + longitude + ", title="
+                + title + ", content=" + content + ", StartDate=" + StartDate + ", time=" + time + ", schedules="
+                + schedules + "]";
+    }
 }
