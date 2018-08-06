@@ -313,6 +313,7 @@ div.photos {
 
 img.card-img-top {
     border-radius: 0px;
+    max-height: 20em;
 }
 
 a.photoBtn {

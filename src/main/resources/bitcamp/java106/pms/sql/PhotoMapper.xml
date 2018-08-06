@@ -37,6 +37,14 @@
     delete from study_photo_list 
     where phno=#{value}
   </delete>
+  
+  <select id="listByGroup" parameterType="java.lang.String" resultMap="PhotoMap">
+    select phno,titl,pho,cdt 
+    FROM study_photo_list 
+    where stdNo = #{studyNo}
+    order by phno DESC 
+    limit 3
+  </select>
 </mapper>
 
 

@@ -60,9 +60,9 @@ public class PhotoController {
                 .outputFormat("jpg")
                 .toFile(mainthumPho);
                 
-                String onethumPho = path.getCanonicalPath() + "_380x380";
+                String onethumPho = path.getCanonicalPath() + "_242x242";
                 Thumbnails.of(path)
-                .size(380, 380)
+                .size(242, 242)
                 .outputFormat("jpg")
                 .toFile(onethumPho);
                 
@@ -112,8 +112,8 @@ public class PhotoController {
     
     @RequestMapping("groupList")
     public List<Photo> view(@RequestParam("studyNo") String studyNo) throws Exception {
-        
-        
+        System.out.println(photoService.listByGroup(studyNo));
+        System.out.println(studyNo);
         return photoService.listByGroup(studyNo);
     }
     

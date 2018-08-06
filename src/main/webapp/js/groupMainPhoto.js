@@ -1,11 +1,12 @@
 /*----------insert----------*/
 "use strict"
-var studyNo;
+var studyNo = window.location.search.substring(1).split("=")[1];;
 
 $(document).ready(function(){
+	$('<a href="photoMain.html?no='+ studyNo +'" class="btn btn-sm photoBtn">더보기</a>').appendTo('#photoBox');
 
     $.ajax({
-        url: serverRoot + "/json/photo/list?nowDate="+nowDate+"&"+"preDate="+preDate+"&studyNo="+studyNo,
+        url: "json/photo/groupList?studyNo="+studyNo,
         type: "GET",
 
         dataType: "json",
@@ -14,12 +15,10 @@ $(document).ready(function(){
             $.each(data, function(index, data){
                 var item = data;
                 $('<div class="card">' +
-                        '<div class="hvrbox">' + 
-                            '<img class="card-img-top" src="files/'+ item.photo +'_350x350.jpg" alt="Card image cap">' +
-                                '<div class="card-body">'+
-                                    '<p class="card-text">'+ item.title +'</p>'+
-                                    '<p class="card-text"><small class="text-muted">'+ item.createdDate +'</small></p>'+
-                                '</div>'+    
+                    '<img class="card-img-top" src="files/'+ item.photo +'_242x242.jpg" alt="Card image cap">' +
+                        '<div class="card-body">'+
+                            '<p class="card-text">'+ item.title +'</p>'+
+                            '<p class="card-text"><small class="text-muted">'+ item.createdDate +'</small></p>'+
                         '</div>'+
                     '</div>').appendTo('#photoGM');        
             });

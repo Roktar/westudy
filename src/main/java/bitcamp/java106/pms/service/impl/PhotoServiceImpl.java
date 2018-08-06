@@ -31,7 +31,8 @@ public class PhotoServiceImpl implements PhotoService{
 
     @Override
     public List<Photo> listByGroup(String studyNo) {
-        
+        System.out.println("service");
+        System.out.println(studyNo);
         return photoDao.listByGroup(studyNo);
     }
 
