@@ -30,9 +30,9 @@ public class PhotoServiceImpl implements PhotoService{
     }
 
     @Override
-    public List<Photo> listByGroup(Map<String, Object> map) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Photo> listByGroup(String studyNo) {
+        
+        return photoDao.listByGroup(studyNo);
     }
 
     @Override

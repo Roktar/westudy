@@ -110,5 +110,11 @@ public class PhotoController {
         photoService.delete(no);
     }
     
+    @RequestMapping("groupList")
+    public List<Photo> view(@RequestParam("studyNo") String studyNo) throws Exception {
+        
+        
+        return photoService.listByGroup(studyNo);
+    }
     
 }

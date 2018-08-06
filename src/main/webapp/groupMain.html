@@ -20,17 +20,16 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/group.css">
+    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
 
     <style>
         .modal {
             text-align: center;
         }
-
         .modal-dialog {
             text-align: left;
             vertical-align: middle;
         }
-
         .modal:before {
             display: inline-block;
             vertical-align: middle;
@@ -42,32 +41,8 @@
 </head>
 
 <body>
-    <!--
-    <script>
-        $(".memberAdd").click(function() {
-            $('.invitation').css('display', 'block');
-        });
-
-    </script>
--->
-    <header class="header">
-        <div class="headerWrap">
-            <h1 class="logo">
-                <a href="index.html">
-                    <img src="img/logo3.png" alt="로고" title="WeStudy">
-                </a>
-            </h1>
-            <div class="utilMenu">
-                <ul>
-                    <li class="search"></li>
-                    <li>스터디 만들기</li>
-                    <li>로그인</li>
-                    <li>회원가입</li>
-                    <li class="menu"></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+   
+    <div id="header"> </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -461,6 +436,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal end -->
     <div class="forcolor">
         <div class="container">
@@ -628,7 +604,7 @@
                                     <a class="page-link" href="#">1</a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
+                                    <a class="page-link" href="#">2</a> 
                                 </li>
                                 <li class="page-item">
                                     <a class="page-link" href="#">3</a>
@@ -638,67 +614,58 @@
                                 </li>
                             </ul>
                         </nav>
-                        <a href="#" class="btn btn-sm writeBtn">글쓰기</a>
+                        <a data-toggle="modal" class="btn btn-sm writeBtn" href="#boardM">글쓰기</a>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        <!--board end -->
+
+        <!--board Modal -->
+    <div class="modal fade" id="boardM" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">업로드</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="input-group mb-3">
+                        <input id="phoTitle" type="text" class="form-control" placeholder="제목">
+                    </div>
+                    <input id="fileupload" type="file" name="files" multiple>
+
+                    <div id="ad-images-div"></div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id='upload-btn' class="btn btn-default" type='button' data-dismiss="modal">등록</button>
+                    <button id="closeBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--board Modal end -->
     <div class="container">
         <div class="innerContainer">
             <div class="row">
                 <div class="col menu menu2">
-                    <h6 class="menu">
+                    <h6 id ="photoBox"class="menu">
                         <a name="album">앨범 </a>
-                        <!-- <a href="#" class="badge badge-warning">전체 사진</a>-->
-                            <a href="photoMain.html" class="btn btn-sm photoBtn">더보기</a>
+                            
                     </h6>
-                    <a href="photoModal.html" class="btn btn-sm photoBtn">더보기</a>
-                    </h6>
+                    
                     <hr>
-                    <div class="photos">
-                        <div class="row">
-                            <div class="col-md-4 card1">
-                                <a href="#">
-                                    <div class="card mb-4 box-shadow card1">
-                                        <img class="card-img-top" src="img/study1.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">처음 만나서 다함께 찍었습니다!</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <small class="text-muted">2018/07/09</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="#">
-                                    <div class="card mb-4 box-shadow">
-                                        <img class="card-img-top" src="img/study1.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">처음 만나서 다함께 찍었습니다!</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <small class="text-muted">2018/07/09</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4 card3">
-                                <a href="#">
-                                    <div class="card mb-4 box-shadow card3">
-                                        <img class="card-img-top" src="img/study1.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">처음 만나서 다함께 찍었습니다!</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <small class="text-muted">2018/07/09</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="photoGM" class="card-deck"></div>
                 </div>
             </div>
         </div>
@@ -718,12 +685,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="js/groupMainPhoto.js"></script>
     <script src="node_modules/slidebars/dist/slidebars.js"></script>
-    <script src="js/common.js"></script>
     
     <script>
+        $("#header").load("header.html");
     $(document).ready(function() {
-    	$("#header").load(serverRoot + "/header.html");
     
         $(".memberAdd").click(function () {
             $('.invitation').css('display', 'block');
