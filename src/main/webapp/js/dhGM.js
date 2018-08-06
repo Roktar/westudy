@@ -1,131 +1,76 @@
+function readURL(input) {
+ 
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+ 
+        reader.onload = function (e) {
+            $('#image_section').attr('src', e.target.result);
+        }
+ 
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+ 
+$("#imgInput").change(function(){
+    readURL(this);
+});
+
+// 체크박스 전체선택
+
+$(document).ready(function(){
+    //최상단 체크박스 클릭
+    $("#checkall").click(function(){
+        //클릭되었으면
+        if($("#checkall").prop("checked")){
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+            $("input[name=chk]").prop("checked",true);
+            //클릭이 안되있으면
+        }else{
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+            $("input[name=chk]").prop("checked",false);
+        }
+    })
+})
+
+
+
+        $(document).ready(function(){
+    //최상단 체크박스 클릭
+    $("#checkall2").click(function(){
+        //클릭되었으면
+        if($("#checkall2").prop("checked")){
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+            $("input[name=chk2]").prop("checked",true);
+            //클릭이 안되있으면
+        }else{
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+            $("input[name=chk2]").prop("checked",false);
+        }
+    })
+})
+
+
 var list_group = $('.memberbox');
-var no = location.href.split("?")[1].split("=")[1];
-console.log(no);
+
+
 var i = 1;
 
-$(document).ready(function() {
-	list();
-    var no = -1;
-     $.get("json/auth/loginstat", {}, res=> {
-         console.log("[" + res + "]" + ", " + typeof(res));
-         console.log(res.no);
-         no = res.no;
-     }).done(function(data){
-        console.log(data);
-        
-        $.get("json/joinedMember/"+no, (data) => {
-           let mystudy = $('.mystudy');
-           let ownstudy = $('.ownstudy');
-           for(var item of data) {
-              console.log(item)
-              
-              if (item.grade == 0) {
-              $('<div>'+
-                    '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html">\''+ item.study.name +'\'</a>'+
-                    '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">탈퇴</button>'+
-                    '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value"><button class="btn btn-primary btn-sm review">후기 작성</button></a>'+
-              '</div>').appendTo(mystudy);
-              } else if (item.grade == 1) {
-                 $('<div>'+
-                        '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html">\''+ item.study.name +'\'</a>'+
-                        '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">탈퇴</button>'+
-                  '</div>').appendTo(ownstudy);
-              }
-           }
-           
-           $("#addBtn").click(() => {
-                $.ajax({
-                   type : 'POST',
-                   url : 'json/review/add',
-                   data: {
-                      category : 'IT',
-                      content: $(fContent).val(),
-                      rating : 3,
-                      "member.no": 6,
-                      "study.no" : 29
-                      /* category: 'IT',
-                      rating : 3,
-                      studyNo : 29,
-                      memNo : memno */
-                   },
-                   
-                   success:function(result){
-                   location.href = "Mystudy.html";
-                }
-                });
-              });
-          
-        
-     });
-        
-        
-
-  });
-});
-
-
-
-
 
 $(document).ready(function() {
-	
-});
-
-function list(){
-	
-	
-	$.ajax({
-		url: "/FinalProject/json/joinedMember/list/?no=" + no,
-		method : "post",
-		data:{},
-		dataType:"json",
-		success: function(data){
+	$.get("json/joinedMember/list", {}, (data) => {
+		let list_group = $('.memberbox');
+		
+		for(var item of data) {
+			$('<tr>' +
+			'<td>'+
+			'<input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="chk2">'+
+			'</td>'+
+			'<td>'+item.member.mname+'</td>'+
+			'<td>'+item.member.email+'</td>'+
+			'<td>'+item.registedDate+'</td>'+
+			'</tr>').appendTo(list_group);
 			
-			console.log("list");
-			let list_group = $('.memberbox');
-	        
-	        for(var item of data) {
-	            $('<tr>' +
-	            		'<form>'+
-	                    '<td>'+item.member.name+'</td>'+
-	                    '<td>'+item.member.email+'</td>'+
-	                    '<td>'+item.registedDate+'</td>'+
-	            '<td>'+
-	            '<button onclick="dep('+item.memNo+');">추방</button>'+
-	            '</td>'+
-	            '</form>'+
-	            '</tr>').appendTo(list_group);
-	            
-	            i++;
-	          //console.log(JSON.stringify(item));
-	        };
+			i++;
 		}
 	});
-};
-
-function dep(memno) {
-	console.log(memno);
-	
-	if(confirm('회원을 추방하시겠습니까?')){
-		
-		$.ajax({
-			url: "/FinalProject/json/joinedMember/update/?no=" +no,
-			method: "POST",
-			data:{'memNo':memno},
-			dataType: "json",
-			success: function(data){
-				if( data ) { 
-					console.log(JSON.stringify(data));
-					console.log("성공")
-					$('.memberbox').empty();
-					list();
-				} else {
-					console.log('업데이트 실패');
-				}
-			
-			}
-		});
-		
-	}
-};
-
+});
