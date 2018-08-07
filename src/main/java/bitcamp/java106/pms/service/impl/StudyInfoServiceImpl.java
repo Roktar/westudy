@@ -77,8 +77,8 @@ public class StudyInfoServiceImpl implements StudyInfoService {
     }
     
     @Override
-    public int update(StudyInfo studyInfo) {
-        return studyInfoDao.update(studyInfo);
+    public Object update(StudyInfo studyInfo) {
+        return (studyInfoDao.update(studyInfo) > 0 ? "success" : "fail");
     }
     
     @Override
@@ -89,6 +89,39 @@ public class StudyInfoServiceImpl implements StudyInfoService {
     @Override
     public int getLimitOne() {
         return studyInfoDao.selectlimitOne().getNo();
+    }
+
+    @Override
+    public Object setPhoto(String fileName, int studyNo, Map<String, Object> data) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("fileName", fileName);
+        params.put("stdno", studyNo);
+
+        try {
+            Method m = studyInfoDao.getClass().getMethod("photo", Map.class);
+            m.invoke(studyInfoDao, params);
+        } catch(Exception e) {
+            return "";
+        }
+        return data;
+    }
+
+    @Override
+    public Object updateTag(String[] tags) {
+        int no = Integer.parseInt( tags[tags.length -1].split("=")[1] );
+
+        try {
+            hashTagDao.delete(no); // 기존에 등록된 태그를 전부 지우고 새로 등록
+            for(int i=0; i< tags.length -1; i++) {
+                HashTag tag = new HashTag();
+                tag.setNo(no);
+                tag.setHashtag(URLDecoder.decode(tags[i].split("=")[1], "UTF-8"));
+                HashTagDao.class.getClass().getMethod("insert", HashTag.class).invoke(hashTagDao, tag);
+            }
+        } catch(Exception e) {
+            return "fail";
+        }
+        return "success";
     }
 
 }

@@ -67,11 +67,6 @@ public class StudyInfoController {
         return studyInfoService.listTag(no);
     }
     
-    @RequestMapping("update")
-    @ResponseStatus(HttpStatus.OK)
-    public void update(StudyInfo studyInfo) throws Exception {
-        studyInfoService.update(studyInfo);
-    }
     
     @RequestMapping("{no}")
     public StudyInfo view(@PathVariable("no") int no) throws Exception {
@@ -81,6 +76,46 @@ public class StudyInfoController {
     @RequestMapping("one")
     public int one() throws Exception {
         return studyInfoService.getLimitOne();
+    }
+    
+    @PostMapping("update_info")
+    @ResponseStatus(HttpStatus.OK)
+    public Object update(StudyInfo studyInfo) throws Exception {
+        return studyInfoService.update(studyInfo);
+    }
+
+    @PostMapping("update_tags")
+    @ResponseStatus(HttpStatus.OK)
+    public Object updateTag(@RequestBody String tags) throws Exception {
+        return studyInfoService.updateTag(tags.split("&"));
+    }
+
+    @PostMapping("photo")
+    public Object photoUpload(int studyNo, MultipartFile files) {
+        
+        HashMap<String,Object> jsonData = new HashMap<>();
+        
+        String filesDir = sc.getRealPath("/img/studyImgs");
+        
+        String filename = UUID.randomUUID().toString();
+        jsonData.put("filename", filename);
+        jsonData.put("filesize", files.getSize());
+        jsonData.put("originname", files.getOriginalFilename());
+        try {
+            File path = new File(filesDir + "/" + filename);
+            files.transferTo(path);
+            
+            String thumbnailPath = path.getCanonicalPath() + "_300x300";
+            System.out.println(thumbnailPath);
+            Thumbnails.of(path)
+                      .size(300, 300)
+                      .outputFormat("jpg")
+                      .toFile(new File(thumbnailPath));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return studyInfoService.setPhoto(filename, studyNo, jsonData);
     }
     
 }

@@ -1,7 +1,9 @@
 package bitcamp.java106.pms.web.json;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +25,28 @@ public class MemberMessageController {
     
     @PostMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-     public void add(MemberMessage memberMessage) throws Exception {
-        memberMessageService.add(memberMessage);
+     public int add(int sender, int receiver, String content) throws Exception {
+        return memberMessageService.add(sender, receiver, content);
      }
      
-     @GetMapping("delete")
-     public void delete(@RequestParam("no") int no) throws Exception {
-        memberMessageService.delete(no);
+     @DeleteMapping("delete{type}")
+     public Object delete(@MatrixVariable("no") int no,
+    		 			  @MatrixVariable("type") int type) throws Exception {
+        return memberMessageService.delete(no, type);
      }
      
-     @RequestMapping("list/send/{no}")
-     public Object selectListSender(@PathVariable("no") int senderNo) {
-         return memberMessageService.sendList(senderNo);
+     @GetMapping("list/send/{no}/{pages}")
+     public Object selectListSender(@PathVariable("no") int senderNo,
+                                    @MatrixVariable(name="page", defaultValue="1") int page, 
+                                    @MatrixVariable(name="pageSize", defaultValue="10") int pageSize) {
+                  return memberMessageService.sendList(senderNo, page, pageSize);
      }
      
-     @RequestMapping("list/receive/{no}")
-     public Object selectListReceiver(@PathVariable("no") int receiverNo) {
-         return memberMessageService.receiveList(receiverNo);
+     @GetMapping("list/receive/{no}/{pages}")
+     public Object selectListReceiver(@PathVariable("no") int receiverNo,
+                                      @MatrixVariable(name="page", defaultValue="1") int page, 
+                                      @MatrixVariable(name="pageSize", defaultValue="10") int pageSize) {
+         return memberMessageService.receiveList(receiverNo, page, pageSize);
      }
 
      @RequestMapping("{no}")
@@ -49,6 +56,10 @@ public class MemberMessageController {
      
      @GetMapping("find")
      public int findUser(String id) {
-         return memberMessageService.find(id);
+         try {
+             return memberMessageService.find(id);
+         } catch(Exception e) {
+             return -1;
+         }
      }
 }

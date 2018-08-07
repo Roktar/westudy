@@ -14,7 +14,9 @@ public interface StudyInfoService {
     StudyInfo get(int no);
     int add(StudyInfo studyInfo);
     int addTag(String[] tag);
-    int update(StudyInfo studyInfo);
+    Object update(StudyInfo studyInfo);
     int delete(int no);
     int getLimitOne();
+    Object setPhoto(String fileName, int studyNo, Map<String, Object> data);
+    Object updateTag(String[] tags);
 }

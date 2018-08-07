@@ -2,67 +2,312 @@
 <html lang="ko">
 
 <head>
-<meta charset="UTF-8">
-<title>Document</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans"
-	rel="stylesheet">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/message.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-	integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-	crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/message.css">
+    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+    <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+    
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/jquery-method-extend.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="js/common.js"></script>
+    
+    <style>
+        textarea:focus {
+            outline:none;
+        }
+    </style>
+
+    <script>
+        let targetNo = -1; // 상대 회원번호
+        let myNo = -1; // 내 회원번호
+        let myEmail = ""; // 내 이메일
+        let ReceiveList_curPage = 1; // 받은 쪽지 현재 페이지 번호
+        let SendList_curPage = 1; // 보낸 쪽지 현재 페이지 번호
+        let pageSize = 6; // 한 페이지에서 보여줄 쪽지의 수
+        
+        $(document).ready(function() {
+            $("#header").load(serverRoot + "/header.html");
+
+            $.getJSON(serverRoot + "/json/auth/loginstat", {}, res => {
+                myNo = res.no;
+                myEmail = res.email;
+            })
+
+            $(".btn.btn-outline-secondary.juso").click(function(event, data) {
+                if(myEmail == $(".findUser").val())
+                    return;
+
+                if($(".findUser").prop("readonly") && data == undefined) {
+                    $(".findUser").attr("readonly", false);
+                    targetNo = -1;
+                    return;
+                }
 
 
+                if(data != undefined)
+                    $(".findUser").val(data);
+
+                $.getJSON(serverRoot + "/json/message/find", {
+                    id:$('.findUser').val()
+                }, res => {
+                    if(res < 0) 
+                        return;
+                    $('.findUser').attr("readonly", true);
+                    targetNo = res;
+                });
+            });
+
+            $(".sendbtn").click(function() {
+                $.post(serverRoot + "/json/message/add", {
+                    content: $('#exampleFormControlTextarea1').val(),
+                    sender: myNo,
+                    receiver: targetNo 
+                }, res => {
+                    swal(   '메시지 전송',
+                            '메시지를 전송하였습니다!',
+                            'success');
+                    $('.findUser').attr("readonly", false);
+                    $('.findUser').val('');
+                    $('#exampleFormControlTextarea1').val('');
+                    targetNo = -1;
+                });
+            });
+
+            $("label[for=tabOne]").click(function() {
+                let tableBody = $('.table-responsive > .table tbody')[0];
+                let btnBody = $('.pagination')[0];
+
+                $(tableBody).empty();
+                $(btnBody).empty();
+
+                $('.css3-tab-content.tab-two #blankCheckbox').prop("checked", false);
+                
+                $.getJSON(serverRoot + "/json/message/list/receive/" + myNo + "/page=" + ReceiveList_curPage + ";pageSize=" + pageSize, {}, data => {
+                    for(let list of data) {
+                        let tr = $("<tr>");
+                        let msgTr = $("<tr>");
+
+                        let checkTd = $("<td scope='row'>");
+                        let checkDiv = $("<div class='form-check'>");
+                        let checkbox = $("<input type='checkbox' class='form-check-input position-static chk' aria-label='...'>");
+                        let msgNo = $("<input type='hidden' value='" + list.no + "'>");
+
+                        let nameTd = $("<td>");
+                        let nameA = $("<span>");
+                        $(nameA).text(list.sender.name);
+
+                        let contTd = $("<td>");
+                        let contA = $("<a href='#' onclick='viewDetail(event, " + list.no + ", 0); return false;'>");
+                        $(contA).text(list.content);
+
+                        let dayTd = $("<td>");
+                        $(dayTd).text(list.createdDate);
+
+                        let responseTd = $("<td>");
+                        let responseBtn = $("<button class='btn btn-light btn-sm dg-btn reply' style='margin:10% 60% 0% 0%;' onclick='toTransPage(\"" + list.sender.email + "\")' >");
+                        $(responseBtn).text("답장");
+                        $(responseTd).append(responseBtn);
+
+                        $(checkDiv).append(checkbox);
+                        $(checkDiv).append(msgNo);
+                        $(checkTd).append(checkDiv);
+
+                        $(nameTd).append(nameA);
+
+                        $(contTd).append(contA);
+
+                        $(tr).append(checkTd);
+                        $(tr).append(nameTd);
+                        $(tr).append(contTd);
+                        $(tr).append(dayTd);
+                        $(tr).append(responseTd);
+                        
+                        $(tableBody).append(tr);
+                    }
+
+                    let prev_li = $('<li class="page-item">');
+                    let next_li = $('<li class="page-item">');
+                    let prev_a = $("<a class='page-link'>");
+                    let next_a = $("<a class='page-link'>");
+                    $(prev_a).text("<");
+                    $(next_a).text(">");
+    
+                    if(ReceiveList_curPage == 1)
+                        $(prev_a).addClass("disabled");
+                    else {
+                        $(prev_a).click(function() {
+                            ReceiveList_curPage--;
+                            $("label[for=tabOne]").trigger("click");
+                        });
+                    }
+    
+                    if(data.length != pageSize)
+                        $(next_a).addClass("disabled");
+                    else {
+                        $(next_a).click(function() {
+                            ReceiveList_curPage++;
+                            $("label[for=tabOne]").trigger("click");
+                        })
+                    }
+    
+                    $(prev_li).append(prev_a);
+                    $(next_li).append(next_a);
+                    $(btnBody).append(prev_li);
+                    $(btnBody).append(next_li);
+                });
+            });
+
+            $("label[for=tabTwo]").click(function() {
+                let tableBody = $('.table-responsive > .table tbody')[1];
+                let btnBody = $('.pagination')[1];
+
+                $(tableBody).empty();
+                $(btnBody).empty();
+
+                $('.css3-tab-content.tab-one #checkall').prop("checked", false);
+                
+                $.getJSON(serverRoot + "/json/message/list/send/" + myNo + "/page=" + SendList_curPage + ";pageSize="+pageSize, {}, data => {
+                    for(let list of data) {
+                        let tr = $("<tr>");
+
+                        let checkTd = $("<td scope='row'>");
+                        let checkDiv = $("<div class='form-check'>");
+                        let checkbox = $("<input type='checkbox' class='form-check-input position-static chk' aria-label='...'>");
+                        let msgNo = $("<input type='hidden' value='" + list.no + "'>");
+
+                        let nameTd = $("<td>");
+                        let nameA = $("<a href='#'>");
+                        $(nameA).text(list.receiver.name);
+
+                        let contTd = $("<td>");
+                        let contA = $("<a href='#' onclick='viewDetail(event, " + list.no + ", 1); return false;'>");
+                        $(contA).text(list.content);
+
+                        let dayTd = $("<td>");
+                        $(dayTd).text(list.createdDate);
+
+                        $(checkDiv).append(checkbox);
+                        $(checkDiv).append(msgNo);
+                        $(checkTd).append(checkDiv);
+
+                        $(nameTd).append(nameA);
+
+                        $(contTd).append(contA);
+
+                        $(tr).append(checkTd);
+                        $(tr).append(nameTd);
+                        $(tr).append(contTd);
+                        $(tr).append(dayTd);
+
+                        $(tableBody).append(tr);
+                    }
+
+                    let prev_li = $('<li class="page-item">');
+                    let next_li = $('<li class="page-item">');
+                    let prev_a = $("<a class='page-link'>");
+                    let next_a = $("<a class='page-link'>");
+                    $(prev_a).text("<");
+                    $(next_a).text(">");
+    
+                    if(SendList_curPage == 1)
+                        $(prev_a).addClass("disabled");
+                    else {
+                        $(prev_a).click(function() {
+                            SendList_curPage--;
+                            $("label[for=tabTwo]").trigger("click");
+                        });
+                    }
+    
+                    if(data.length != pageSize)
+                        $(next_a).addClass("disabled");
+                    else {
+                        $(next_a).click(function() {
+                            SendList_curPage++;
+                            $("label[for=tabTwo]").trigger("click");
+                        });
+                    }
+    
+                    $(prev_li).append(prev_a);
+                    $(next_li).append(next_a);
+                    $(btnBody).append(prev_li);
+                    $(btnBody).append(next_li);
+                });
+            });
+
+            //$('input[type=radio]#tabOne')
 
 
+            $('.css3-tab-content.tab-one #checkall').click(function() {
+                if($('.css3-tab-content.tab-one #checkall').is(":checked"))
+                    $('.css3-tab-content.tab-one input[type=checkbox]').attr("checked", true);
+                else
+                    $('.css3-tab-content.tab-one input[type=checkbox]').attr("checked", false);
+            });
+            
+            $('.css3-tab-content.tab-two #blankCheckbox').click(function() {
+                if($('.css3-tab-content.tab-two #blankCheckbox').is(":checked"))
+                    $('.css3-tab-content.tab-two input[type=checkbox]').attr("checked", true);
+                else
+                    $('.css3-tab-content.tab-two input[type=checkbox]').attr("checked", false);
+            });
+        });
+        
+        window.onload = function() {
+            $("label[for=tabOne]").trigger("click");
+        }
 
+        function viewDetail(event, no, type) {
+            location.href="myMessage-" + (type == 0 ? "recieve" : "send" ) + ".html?msgNo="+no;
+        }
+
+        function toTransPage(sender) {
+            $($("input[type=radio]")[2]).trigger("click");
+            $(".btn.btn-outline-secondary.juso").trigger("click", sender);
+        }
+
+        function deleteMessage(type) {
+            for(let item of (type == 0 ? $(".tab-one tbody input[type=checkbox]:checked") : $(".tab-two tbody input[type=checkbox]:checked"))) {
+                $.delete(serverRoot + "/json/message/delete;no="+ $($($(item).parent()).children()[1]).val() + ";type="+type, res => {
+                    if(res == "success") {
+                        swal('쪽지 삭제',
+                        '쪽지가 삭제되었습니다',
+                        'success');
+                        (type == 0 ? $("label[for=t-abOne]").trigger("click") : $("label[for=tabTwo]").trigger("click"));
+                        return;
+                    }
+
+                    swal('쪽지 삭제',
+                    '쪽지를 삭제하지 못했습니다.',
+                    'delete')
+                });
+            }
+        }
+    </script>
 </head>
 
 <body>
-	<!-- header start -->
-	<header class="header">
-		<div class="headerWrap">
-			<h1 class="logo">
-				<a href="index.html"><img src="img/logo3.png" alt="로고"
-					title="WeStudy"></a>
-			</h1>
-			<div class="utilMenu">
-				<ul>
-					<li class="search"></li>
-					<li>스터디 만들기</li>
-					<li>로그인</li>
-					<li>회원가입</li>
-					<li class="menu"></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+    <div id="header"></div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2" style="text-align: center">
-				<div class="col-box-list">
-					<div class="class_titl">내정보</div>
-					<hr class="line3">
-					<div class="list-group cls-list">
-						  <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" style="text-align: center">
+                <div class="col-box-list">
+                    <div class="class_titl">내정보</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
                             내 정보 관리
-                        </a>
-                        <a href="Mystudy.html" class="list-group-item list-group-item-action cls-list-link">
-                            내 스터디
                         </a>
                         <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
                             관심 분야 설정
@@ -76,214 +321,116 @@
                         <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
                             계정 삭제
                         </a>
-					</div>
-				</div>
-			</div>
-			<div class="container-box col">
-				<div class="inner-container-box">
-					<h3>메시지</h3>
-					<hr>
+                    </div>
+                </div>
+            </div>
+            <div class="container-box col">
+                <div class="inner-container-box">
+                    <h3>메시지</h3>
+                    <hr>
 
-					<div class="con-box-list">
-						<div class='css3-tab'>
-							<input type='radio' name='a' id='tabOne' tabindex="1" checked>
-							<input type='radio' name='a' id='tabTwo' tabindex="2"> <input
-								type='radio' name='a' id='addNew' tabindex="3">
-							<div class="css3-tab-nav">
-								<label for='tabOne'>받은 쪽지함</label> <label for='tabTwo'>보낸
-									쪽지함</label> <label for='addNew'>새 쪽지</label>
-							</div>
+                    <div class="con-box-list">
+                        <div class='css3-tab'>
+                            <input type='radio' name='a' id='tabOne' tabindex="1" checked>
+                            <input type='radio' name='a' id='tabTwo' tabindex="2">
+                            <input type='radio' name='a' id='addNew' tabindex="3">
+                            <div class="css3-tab-nav">
+                                <label for='tabOne'>받은 쪽지함</label>
+                                <label for='tabTwo'>보낸 쪽지함</label>
+                                <label for='addNew'>새 쪽지</label>
+                            </div>
 
-							<div class='css3-tab-content tab-one'>
-								<div class="table-responsive">
-									<table class="table table-sm">
-										<thead>
-											<tr class="table-active">
-												<th scope="col">
-													<div class="form-check">
-														<input id="checkall"
-															class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="...">
-													</div>
-												</th>
-												<th scope="col">보낸사람</th>
-												<th scope="col">내용</th>
-												<th scope="col">날짜</th>
-												<th scope="col">차단</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>
-													<div class="form-check">
-														<input class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="..." name="chk">
-													</div>
-												</td>
-												<td><a href="#">안중근</a></td>
-												<td><a href="mymessage-recieve.html">Lorem ipsum
-														dolor sit amet, Nam id ...</a></td>
-												<td>2018.06.05</td>
-												<td><button type="button"
-														class="btn btn-secondary btn-sm">차단</button></td>
-											</tr>
-											<tr>
-												<td scope="row">
-													<div class="form-check">
-														<input class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="..." name="chk">
-													</div>
-												</td>
-												<td><a href="#">윤봉길</a></td>
-												<td><a href="#">Lorem ipsum dolor sit amet, Nam id
-														...</a></td>
-												<td>2018.07.01</td>
-												<td><button type="button"
-														class="btn btn-secondary btn-sm">차단</button></td>
-											</tr>
-											<tr>
-												<td scope="row">
-													<div class="form-check">
-														<input class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="...">
-													</div>
-												</td>
-												<td><a href="#">유관순</a></td>
-												<td><a href="#">Lorem ipsum dolor sit amet, Nam id
-														...</a></td>
-												<td>2018.07.02</td>
-												<td><button type="button"
-														class="btn btn-secondary btn-sm">차단</button></td>
-											</tr>
-										</tbody>
-									</table>
-									<button class="btn btn-light btn-sm dg-btn delete">삭제</button>
-									<button class="btn btn-light btn-sm dg-btn reply">답장</button>
-								</div>
-							</div>
-							<!-- 진행중 tab end! -->
+                            <div class='css3-tab-content tab-one'>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr class="table-active">
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input id="checkall" class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                    </div>
+                                                </th>
+                                                <th scope="col">보낸사람</th>
+                                                <th scope="col">내용</th>
+                                                <th scope="col">날짜</th>
+                                                <th scope="col">답장</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <ul class="pagination justify-content-center">
+                                    </ul>
+                                    <button class="btn btn-light btn-sm dg-btn delete" onclick='deleteMessage(0);'>삭제</button>
+                                    <!-- <button class="btn btn-light btn-sm dg-btn reply">답장</button> -->
+                                </div>
+                            </div>
+                            <!-- 진행중 tab end! -->
 
 
-							<!-- 마감 tab start! -->
+                            <!-- 마감 tab start! -->
+                            <div class='css3-tab-content tab-two'>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr class="table-active">
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="fofo">
+                                                    </div>
+                                                </th>
+                                                <th scope="col">받은사람</th>
+                                                <th scope="col">내용</th>
+                                                <th scope="col">날짜</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <ul class="pagination justify-content-center">
+                                    </ul>
+                                    <button class="btn btn-light btn-sm dg-btn delete" onclick='deleteMessage(1);'>삭제</button>
+                                </div>
+                            </div>
 
-							<div class='css3-tab-content tab-two'>
-								<div class="table-responsive">
-									<table class="table table-sm">
-										<thead>
-											<tr class="table-active">
-												<th scope="col">
-													<div class="form-check">
-														<input class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="..." name="fofo">
-													</div>
-												</th>
-												<th scope="col">받은사람</th>
-												<th scope="col">내용</th>
-												<th scope="col">날짜</th>
-												<th scope="col">차단</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td scope="row">
-													<div class="form-check">
-														<input class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="...">
-													</div>
-												</td>
-												<td><a href="#">안중근</a></td>
-												<td><a href="mymessage-send.html">Lorem ipsum dolor
-														sit amet, Nam id ...</a></td>
-												<td>2018.06.05</td>
-												<td><button type="button"
-														class="btn btn-secondary btn-sm">차단</button></td>
-											</tr>
-											<tr>
-												<td scope="row">
-													<div class="form-check">
-														<input class="form-check-input position-stati chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="...">
-													</div>
-												</td>
-												<td><a href="#">윤봉길</a></td>
-												<td><a href="#">Lorem ipsum dolor sit amet, Nam id
-														...</a></td>
-												<td>2018.07.01</td>
-												<td><button type="button"
-														class="btn btn-secondary btn-sm">차단</button></td>
-											</tr>
-											<tr>
-												<td scope="row">
-													<div class="form-check">
-														<input class="form-check-input position-static chk"
-															type="checkbox" id="blankCheckbox" value="option1"
-															aria-label="...">
-													</div>
-												</td>
-												<td><a href="#">유관순</a></td>
-												<td><a href="#">Lorem ipsum dolor sit amet, Nam id
-														...</a></td>
-												<td>2018.07.02</td>
-												<td><button type="button"
-														class="btn btn-secondary btn-sm">차단</button></td>
-											</tr>
-										</tbody>
-									</table>
-									<button class="btn btn-light btn-sm dg-btn delete">삭제</button>
+                            <!-- 마감 tab end! -->
 
-								</div>
-							</div>
+                            <!-- 쪽지 보내기 탭-->
+                            <div class='css3-tab-content add-new'>
+                                <form>
+                                    <div class="input-group mb-3 sendform">
+                                        <input type="text" class="form-control findUser" placeholder="받는사람" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary juso" style="margin-top:0em; z-index:0;" type="button">회원찾기</button>
+                                        </div>
+                                    </div>
 
-							<!-- 마감 tab end! -->
+                                    <div class="form-group">
 
-							<!-- 쪽지 보내기 탭-->
-							<div class='css3-tab-content add-new'>
-								<form>
-									<div class="input-group mb-3 sendform">
-										<input type="text" class="form-control" placeholder="받는사람"
-											aria-label="Recipient's username"
-											aria-describedby="basic-addon2">
-										<div class="input-group-append">
-											<button class="btn btn-outline-secondary juso" type="button">주소록</button>
-										</div>
-									</div>
-
-									<div class="form-group">
-
-										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="9"></textarea>
-									</div>
-									<button class="btn btn-primary btn-sm sendbtn">보내기</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	<footer class="footer">
-		<p>Logo</p>
-		<div>
-			<span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
-				홍길동</span> <span>E-mail : we_study@westudy.com</span>
-		</div>
-		<p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-	</footer>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm sendbtn">보내기</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동</span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
 
 </body>
-
-
-
-
 </html>

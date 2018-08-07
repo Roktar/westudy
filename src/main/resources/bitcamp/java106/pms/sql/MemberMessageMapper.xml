@@ -9,49 +9,75 @@
     <id column="msgno" property="no"/>
     <result column="cont" property="content"/>
     <result column="date" property="createdDate"/>
-    <collection property ="sender" javaType="bitcamp.java106.pms.domain.Member">
-      <id column="memno" property="no"/>
-      <result column="name" property="name"/>      
-    </collection>
-    <collection property ="receiver" javaType="bitcamp.java106.pms.domain.Member">
-      <id column="memno" property="no"/>
-      <result column="name" property="name"/>      
-    </collection>    
+    
+    <association property = "sender" javaType="bitcamp.java106.pms.domain.Member">
+      <id column="s_memno" property="no"/>
+      <result column="s_name" property="name"/>     
+      <result column="s_email" property="email"/> 
+    </association>
+    
+    <association property ="receiver" javaType="bitcamp.java106.pms.domain.Member">
+      <id column="r_memno" property="no"/>
+      <result column="r_name" property="name"/>      
+      <result column="r_email" property="email"/>
+    </association>    
+    <!-- 
+    association의 컬럼값은 실제 테이블의 속성값이 아니어도 된다.
+     -->
   </resultMap>
 
-  <select id="selectListSender" 
-          resultMap="MemberMessageMap" 
-          parameterType="int">
-    
-    select m.name, mm.cont, mm.date 
-    from member_message mm, member m
-    where mm.sndr = #{no}
-    order by date
+  <select id="selectListSend" resultMap="MemberMessageMap" parameterType="map">
+	select mm.msgno, mm.cont, mm.rcvr, mm.date, 
+	       sndr.memno as s_memno, sndr.name as s_name, sndr.email as s_email,
+	       rcvr.memno as r_memno, rcvr.name as r_name, rcvr.email as r_email
+	from member_message mm 
+	    inner join member sndr on mm.sndr = sndr.memno 
+	    inner join member rcvr on mm.rcvr = rcvr.memno
+	where mm.sndr = #{sender.no}
+    order by date DESC
+    limit #{startRowNo}, #{pageSize}
   </select>
 
-  <select id="selectListReceiver" 
-          resultMap="MemberMessageMap" 
-          parameterType="int">
-    select m.name, mm.cont, mm.date 
-    from member_message mm, member m
-    where mm.rcvr = #{no}
-    order by date
+  <select id="selectListReceive" resultMap="MemberMessageMap" parameterType="map">
+    select mm.msgno, mm.cont, mm.rcvr, mm.date, 
+           sndr.memno as s_memno, sndr.name as s_name, sndr.email as s_email,
+           rcvr.memno as r_memno, rcvr.name as r_name, rcvr.email as r_email
+    from member_message mm 
+           inner join member sndr on mm.sndr = sndr.memno 
+           inner join member rcvr on mm.rcvr = rcvr.memno
+    where mm.rcvr = #{receiver.no}
+    order by date DESC
+    limit #{startRowNo}, #{pageSize}
   </select>
-  
-  <insert id="insert" parameterType="MemberMessage"
-          useGeneratedKeys="true" keyColumn="msgno" keyProperty="no">
-    insert into member_message( cont, date, rcvr ) 
-    values(#{content}, now(), #{receiver.no} );
+    
+  <insert id="add" parameterType="map">
+    insert into member_message(cont, sndr, rcvr, date)
+    values (#{content}, #{sender.no}, #{receiver.no}, now())
   </insert>
       
   <select id="selectOne" parameterType="int" resultMap="MemberMessageMap">
-    select *
-    from member_message 
-    where msgno=#{value}
+	select mm.msgno, mm.cont, mm.rcvr, mm.date, 
+	       sndr.memno as s_memno, sndr.name as s_name, 
+	       rcvr.memno as r_memno, rcvr.name as r_name 
+	from member_message mm 
+	    inner join member sndr on mm.sndr = sndr.memno 
+	    inner join member rcvr on mm.rcvr = rcvr.memno
+	where mm.msgno = #{no}
   </select>
+  <!-- left outer join을 써도 된다 -->
   
    <delete id="delete" parameterType="int">
-    delete from member_message where msgno=#{value}
+   
+   update member_message SET
+   <choose>
+   	<when test="type == 'receive'">
+   		rcvr = null
+   	</when>
+   	<otherwise>
+   		sndr = null
+   	</otherwise>
+   </choose>
+   where msgno=#{no}
   </delete>
 
 </mapper>
