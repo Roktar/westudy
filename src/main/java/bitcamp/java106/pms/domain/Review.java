@@ -10,6 +10,8 @@ public class Review implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private int no;
+    private int studyNo;
+    private int memNo;
     private String content;
     private int rating;
     @JsonFormat(pattern="yyyy-MM-dd")
