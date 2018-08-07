@@ -54,7 +54,10 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.selectListAll();
 	}
 
-
+	@Override
+	public int delete(int no) {
+	    return reviewDao.delete(no);
+	}
 
 
 

@@ -59,4 +59,14 @@ public class ReviewController {
     public Review countOne(String category) throws Exception {
     	return reviewService.countOne(category);
     }
+    
+    @RequestMapping("delete")
+    public String delete(@RequestParam("no") int no) throws Exception {
+        
+        int count = reviewService.delete(no);
+        if (count == 0) {
+            throw new Exception("해당 게시물이 없습니다.");
+        }
+        return "redirect:review2";
+    }
 }

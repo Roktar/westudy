@@ -54,5 +54,16 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
 	public List<StudyJoinedMember> selectListWithStudy(int mnumber) {
 		return studyJoinedMemberDao.selectListWithStudy(mnumber);
 	}
+	
+	@Override
+	public List<StudyJoinedMember> get(int no) {
+			return studyJoinedMemberDao.selectMyStudy(no);
+		
+	}
+	
+	@Override
+	public List<StudyJoinedMember> list(){
+		return studyJoinedMemberDao.selectList();
+	}
 }
 

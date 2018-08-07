@@ -64,4 +64,21 @@ public class StudyJoinedMemberController {
       return studyJoinedMemberService.selectListWithStudy(mnumber);
   }
 	
+	@RequestMapping("list")
+	 public Object selectList() {
+       return studyJoinedMemberService.list();
+   }
+	
+	@RequestMapping("listAll")
+	 public Object selectList(
+			 @RequestParam("category") String category) throws Exception {
+      return studyJoinedMemberService.listAll(category);
+  }
+	
+	@RequestMapping("listAll")
+	 public Object selectList(
+			 @RequestParam("category") String category) throws Exception {
+      return studyJoinedMemberService.listAll(category);
+  }
+	
 }

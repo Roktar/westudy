@@ -9,15 +9,17 @@
     <id column="stdno" property="studyNo"/>
     <result column="memno" property="memNo"/>
     <result column="rdt" property="registedDate"/>
-    <result column="status" property="status"/>
+    <result column="grade" property="grade"/>
     <association property="member" javaType="Member">
       <id column="memno" property="no"/>
-      <id column="mname" property="name"/>
+       <result column="mname" property="name"/>
+      <result column="email" property="email"/>
+     <result column="pfp" property="photo"/>
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
-      <id column="name" property="name"/>
-      <id column="ctgr" property="category"/>
+       <result column="name" property="name"/>
+      <result column="ctgr" property="category"/>
    </association>
   </resultMap>
     
@@ -45,10 +47,34 @@
   <!-- url에서 가져오 -->
 </select>
 
+
+<select id="selectListAll" resultMap="StudyJoinedMemberMap">
+  select 
+	  sjm.stdno, 
+	    sjm.memno, 
+	    sjm.rdt, 
+	    sjm.grade, 
+	    s.ctgr,
+	    s.name,
+	    m.mname,
+	    m.pfp
+  from study_joined_member sjm
+  	   left join study_info s on sjm.stdno=s.stdno
+  	   left join member m on sjm.memno=m.memno
+  where s.ctgr = #{value}
+</select>
+
 <select id="selectListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
   select j.stdno , j.memno, s.name, s.ctgr
   from study_joined_member j left join study_info s on j.stdno = s.stdno
   where j.memno=#{value}
+</select>
+
+<select id="selectMyStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
+  select j.stdno , j.memno, s.name, s.ctgr, j.grade
+  from study_joined_member j left join study_info s on j.stdno = s.stdno 
+  where j.memno=#{value}
+  order by grade
 </select>
 
 <update id="update" parameterType="int">

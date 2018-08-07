@@ -13,5 +13,10 @@ public interface StudyJoinedMemberService {
 	List<StudyJoinedMember> list(int no);
 	int update(int memNo);
 	int add(StudyJoinedMember studyJoinedMember, int mnumber);
+	
+	/*하은*/
+	List<StudyJoinedMember> list();
+	List<StudyJoinedMember> get(int no);
+	List<StudyJoinedMember> listAll(String category);
 } 
  

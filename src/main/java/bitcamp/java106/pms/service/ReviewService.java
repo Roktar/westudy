@@ -12,4 +12,5 @@ public interface ReviewService {
 	List<Review> count();
 	List<Review> selectListAll();
 	Review countOne(String category);
+	int delete(int no);
 }

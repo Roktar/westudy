@@ -13,4 +13,12 @@ public interface StudyJoinedMemberDao {
 	List<StudyJoinedMember> selectList(int no);
 	int update(int memNo);
 	int insert(Map<String,Object> params);
+	
+	
+	/*하은*/
+	List<StudyJoinedMember> selectList();
+    List<StudyJoinedMember> selectMyStudy(int no);
+	List<StudyJoinedMember> selectListAll(String category);
 }
+  
+   
