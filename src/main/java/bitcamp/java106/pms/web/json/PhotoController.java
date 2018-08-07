@@ -60,9 +60,9 @@ public class PhotoController {
                 .outputFormat("jpg")
                 .toFile(mainthumPho);
                 
-                String onethumPho = path.getCanonicalPath() + "_242x242";
+                String onethumPho = path.getCanonicalPath() + "_380x380";
                 Thumbnails.of(path)
-                .size(242, 242)
+                .size(380, 380)
                 .outputFormat("jpg")
                 .toFile(onethumPho);
                 
@@ -116,5 +116,4 @@ public class PhotoController {
         System.out.println(studyNo);
         return photoService.listByGroup(studyNo);
     }
-    
 }

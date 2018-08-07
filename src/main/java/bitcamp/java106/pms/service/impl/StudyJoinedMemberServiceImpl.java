@@ -11,6 +11,8 @@ import bitcamp.java106.pms.dao.StudyJoinedMemberDao;
 import bitcamp.java106.pms.domain.StudyJoinedMember;
 import bitcamp.java106.pms.service.StudyJoinedMemberService;
 
+
+
 @Service
 public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
     MemberDao memberDao;
@@ -40,9 +42,13 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
     }
 	
 	@Override
-	public List<StudyJoinedMember> list(int no){
-		
-		return studyJoinedMemberDao.selectList(no);
+	public List<StudyJoinedMember> list(){
+		return studyJoinedMemberDao.selectList();
+	}
+	
+	@Override
+	public int delete(int no) {
+		return studyJoinedMemberDao.delete(no);
 	}
 	
 	@Override
@@ -53,17 +59,6 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
 	@Override
 	public List<StudyJoinedMember> selectListWithStudy(int mnumber) {
 		return studyJoinedMemberDao.selectListWithStudy(mnumber);
-	}
-	
-	@Override
-	public List<StudyJoinedMember> get(int no) {
-			return studyJoinedMemberDao.selectMyStudy(no);
-		
-	}
-	
-	@Override
-	public List<StudyJoinedMember> list(){
-		return studyJoinedMemberDao.selectList();
 	}
 }
 

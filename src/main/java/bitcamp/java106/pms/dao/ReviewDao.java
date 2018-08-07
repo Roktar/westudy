@@ -10,6 +10,6 @@ public interface ReviewDao {
     List<Review> selectList(Map<String, Object> params);
     List<Review> selectListAll();
     List<Review> count();
-    Review countOne(String category);
-    int delete(int no); 
+    Review countOne(String category); 
+    
 }

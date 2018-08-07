@@ -31,25 +31,15 @@ public class StudyJoinedMemberController {
         studyJoinedMemberService.add(studyJoinedMember, mnumber);
     }
     
-   @RequestMapping("update")
-   	public boolean update (
-   			@RequestParam("memNo") int memNo) throws Exception{
-       	
-       	boolean success = false;
-       	
-       	int chk  = studyJoinedMemberService.update(memNo);
-       	System.out.println("update 성공여부  : [" + chk + "]");
-       	
-       	if( chk == 1 ) {
-       		success = true;
-       	}
-       	return success;
-    }
+    @RequestMapping("delete")
+	public void delete (
+			@RequestParam("no") int no) throws Exception{
+    	studyJoinedMemberService.delete(no);
+	}
 	
 	@RequestMapping("list")
-	 public List<StudyJoinedMember> selectList(int no) {
-		List<StudyJoinedMember> list = studyJoinedMemberService.list(no); 
-        return list;
+	 public Object selectList() {
+        return studyJoinedMemberService.list();
     }
 	
 	@RequestMapping("one")
@@ -64,14 +54,4 @@ public class StudyJoinedMemberController {
       return studyJoinedMemberService.selectListWithStudy(mnumber);
   }
 	
-	@RequestMapping("list2")
-	 public Object selectList() {
-       return studyJoinedMemberService.list();
-   }
-	
-	@RequestMapping("listAll2")
-	 public Object selectList(
-			 @RequestParam("category") String category) throws Exception {
-      return studyJoinedMemberService.listAll(category);
-  }	
 }

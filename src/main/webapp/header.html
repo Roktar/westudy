@@ -139,7 +139,7 @@ let no = -1;
               } );
             $.get("json/auth/loginstat", {}, res=> {
             console.log("[" + res + "]" + ", " + typeof(res));
-        no = res.no;
+            no = res.no;
     
             if(typeof(res) == "object" ) {
                 $('#login-before').css('display', 'none');

@@ -9,17 +9,16 @@
     <id column="stdno" property="studyNo"/>
     <result column="memno" property="memNo"/>
     <result column="rdt" property="registedDate"/>
-    <result column="grade" property="grade"/>
+    <result column="status" property="status"/>
     <association property="member" javaType="Member">
       <id column="memno" property="no"/>
-       <result column="mname" property="name"/>
-      <result column="email" property="email"/>
-     <result column="pfp" property="photo"/>
+      <id column="mname" property="name"/>
+     
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
-       <result column="name" property="name"/>
-      <result column="ctgr" property="category"/>
+      <id column="name" property="name"/>
+      <id column="ctgr" property="category"/>
    </association>
   </resultMap>
     
@@ -33,35 +32,12 @@
   <select id="selectList" 
           resultMap="StudyJoinedMemberMap"
           >
-  select 
-    sjm.stdno, 
-    sjm.memno, 
-    sjm.rdt, 
-    sjm.grade, 
-    m.mname, 
-    m.email
-  from study_joined_member sjm
-  left join member m on sjm.memno=m.memno
-  where sjm.stdno=#{studyNo} 
-  and grade=1
-  <!-- url에서 가져오 -->
-</select>
-
-
-<select id="selectListAll" resultMap="StudyJoinedMemberMap">
-  select 
-	  sjm.stdno, 
-	    sjm.memno, 
-	    sjm.rdt, 
-	    sjm.grade, 
-	    s.ctgr,
-	    s.name,
-	    m.mname,
-	    m.pfp
-  from study_joined_member sjm
-  	   left join study_info s on sjm.stdno=s.stdno
-  	   left join member m on sjm.memno=m.memno
-  where s.ctgr = #{value}
+  select study_joined_member.stdno, member.mname, member.email, study_joined_member.rdt, study_joined_member.status
+  from study_joined_member
+  left join member
+  on study_joined_member.memno=member.memno
+  where study_joined_member.stdno=1 
+  AND status=1<!-- url에서 가져오 -->
 </select>
 
 <select id="selectListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
@@ -70,20 +46,11 @@
   where j.memno=#{value}
 </select>
 
-<select id="selectMyStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
-  select j.stdno , j.memno, s.name, s.ctgr, j.grade
-  from study_joined_member j left join study_info s on j.stdno = s.stdno 
-  where j.memno=#{value}
-  order by grade
-</select>
-
 <update id="update" parameterType="int">
     
     UPDATE study_joined_member
-    SET grade=2
-    WHERE memno=#{memNo}
-    AND stdno=#{studyNo} 
-     <!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
+    SET status=2
+    WHERE memno=#{valeu}, stdno=#{value} <!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
   </update>
 </mapper>
 
