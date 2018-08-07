@@ -20,7 +20,7 @@ $(document).ready(function(){
                             '<p class="card-text">'+ item.title +'</p>'+
                             '<p class="card-text"><small class="text-muted">'+ item.createdDate +'</small></p>'+
                         '</div>'+
-                    '</div>').appendTo('#photoGM');
+                    '</div>').appendTo('#photoGM');        
             });
             
             
@@ -28,5 +28,25 @@ $(document).ready(function(){
     
     });   
 
-});
+});											
 /*----------list(main) end----------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -127,7 +127,7 @@
 	    <!-- 분류 메뉴 -->
 	    
 	    <div class="wrap center">
-	        <div class="section" style="padding-top: 0; display:none;" id="login-after">
+	        <div class="section" style="padding-top: 0">
 	            <div class="resizeWidth">
 	                <p class="titlehead text-center" style="margin:2rem 0;">내 주변 스터디</p>
 	                <a href="#" class="right" style="color:#333; margin-top:-3%;">더보기</a>
@@ -203,19 +203,6 @@
 	        </div>
         </div>
         
-        <div class="section" style="padding-top: 0; display:none;" id="login-before">
-            <div class="resizeWidth">
-                <p class="titlehead text-center" style="margin:2rem 0;">인기 스터디</p>
-                <a href="#" class="right" style="color:#333; margin-top:-3%;">더보기</a>
-            </div>
-
-            <div class="l-wrapper" style="margin: 0 auto">
-                <ul id="lrow" class="l-row">
-                    
-                </ul>
-            </div>
-         </div>
-        
         <!-- 신규 스터디 -->
 	    <div class="center del-float" style="overflow:auto">
 	        <p class="titlehead" style="margin:2rem 0;">신규 스터디</p>
@@ -274,31 +261,8 @@
 	
 	<script src='node_modules/jquery/dist/jquery.js'></script>
 	<script src="js/common.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-	
-	<script>
-        var memno = -1;
-        
-        $(document).ready(function() {
-        	
-	        $.get("json/auth/loginstat", {}, res=> {
-	            memno = res.no;
-	            
-	            if(typeof(res) == "object" ) { // 로그인 후
-	            	$("#login-after.section").css("display", "block");
-	            	$("#login-before.section").css("display", "none");
-	            } else { //로그인 전
-	            	$("#login-after.section").css("display", "none");
-	            	$("#login-before.section").css("display", "block");
-	            }
-	        })
-        
-        });
-        
-    </script>
-    
 	<script src="js/mainReview.js"></script>
-	
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="slider/jquery.bxslider.min.js"></script>
 	<script src="node_modules/slidebars/dist/slidebars.js"></script>
 	<script>
@@ -320,7 +284,7 @@
             /* 내 주변 스터디 */
             $.getJSON("json/studyInfo/list", (data) => {
                     for (var item of data) {
-                        /* console.log(item); */
+                        console.log(item);
                          $("<li class='l-col'>").html(`<div id='mystudy' data-no='${item.no}' class='study' style='background: #fff; border:solid 1px #d2d2d2'>
                            <a href='groupMain.html?no=${item.no}' style='display: block; width: 100%;'>
                            <div class='ove'><span class='ove_span'></span></div></a>
@@ -329,7 +293,7 @@
                     
                         let itemNo = item.no;
                         $.getJSON("json/studyInfo/listTag/" + itemNo, (data2) => {
-                            /* console.log(itemNo); */
+                            console.log(itemNo);
                             for (var i of data2) {
                                 $('div[data-no="' + itemNo + '"] div.tags').append($("<span class='hashtags'>" + i.hashtag + "</span>"));
                             }

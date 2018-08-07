@@ -4,24 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+     crossorigin="anonymous">
     <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+     crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+     crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+     crossorigin="anonymous"></script>
+    <!--다음지도-->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d17e3728271d3ca5110f531984b776f"></script>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/group.css">
+    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
 
     <style>
         .modal {
             text-align: center;
         }
-
         .modal-dialog {
             text-align: left;
             vertical-align: middle;
         }
-
         .modal:before {
             display: inline-block;
             vertical-align: middle;
@@ -33,32 +41,8 @@
 </head>
 
 <body>
-    <!--
-    <script>
-        $(".memberAdd").click(function() {
-            $('.invitation').css('display', 'block');
-        });
-
-    </script>
--->
-    <header class="header">
-        <div class="headerWrap">
-            <h1 class="logo">
-                <a href="index.html">
-                    <img src="img/logo3.png" alt="로고" title="WeStudy">
-                </a>
-            </h1>
-            <div class="utilMenu">
-                <ul>
-                    <li class="search"></li>
-                    <li>스터디 만들기</li>
-                    <li>로그인</li>
-                    <li>회원가입</li>
-                    <li class="menu"></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+   
+    <div id="header"> </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -121,7 +105,6 @@
         </li>
     </ul>
     <div class="container">
-        <!-- 스터디 소개 start -->
         <div class="innerContainer">
             <div class="row">
                 <div class="col menu">
@@ -152,271 +135,528 @@
                 </div>
             </div>
         </div>
-        <!-- 스터디 소개 end -->
-        
-        <!-- 오늘의 일정 start -->
+    </div>
+    <div class="forcolor">
+        <div class="container">
+            <div class="innerContainer">
+                <div class="row">
+                    <div class="col menu menu2">
+                        <h6 class="menu">
+                            오늘의 일정
+                            <a href="calendar.html" class="badge badge-warning">전체 일정
+                            </a>
+                        </h6>
+                        <hr>
+                        <div class="scheduleDetail">
+                            <span class="scheduleTilte">강남 자바스터디 7회차</span>
+                            <div class="row">
+                                <div class="col-sm scheduleDetails">
+                                    <span class="scheduleLocation">장소</장소>
+                                    </span>
+                                    <br>
+                                    <a href="#">
+                                        <img src="img/mapMarker.png" class="rounded-0 mapMarker mapMarker-center">
+                                    </a>
+                                    <span class="scheduleLocationDetail">서울특별시 강남구 강남대로 84길 24-4</span>
+                                </div>
+                                <div class="col-sm scheduleDetails">
+                                    <span class="scheduleTopic">스터디 주제</span>
+                                    <br>
+                                    <span class="scheduleTopics">큐 이해 및 구현</span>
+                                    <br>
+                                    <span class="scheduleTopics">배열과 리스트 이해</span>
+                                    <br>
+                                    <span class="scheduleTopics">스택 이해 및 구현</span>
+                                    <br>
+                                </div>
+                                <div class="col-sm scheduleDetails">
+                                    <span class="scheduleTimeline">타임라인</span>
+                                    <br>
+                                    <span class="scheduleTimelineDetail">반복문&IF문 강의</span>
+                                    <br>
+                                    <span class="scheduleTimelineDetail">휴식</span>
+                                    <br>
+                                    <span class="scheduleTimelineDetail">연습문제</span>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <a href="groupCheckin.html" class="btn btn-block checkin">출석하러 가기
+                        </a>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <h6 class="menu">장소보기</h6>
+                    <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col menu menu2" id="map" style="width: 100%; height: 600px;">
+                        </div>
+                    </div>
+                    <!--DAUM지도-->
+                    <script>
+                        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+                        var options = { //지도를 생성할 때 필요한 기본 옵션
+                            center: new daum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+                            level: 3 //지도의 레벨(확대, 축소 정도)
+                        };
+                        var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+                    </script>
+                    <!--DAUM지도-->
+
+                <div class="row">
+                    <div class="col menu menu2">
+                        <h6 class="menu">
+                            설문조사
+                            <a href="surveylist.html" class="badge badge-warning">전체 설문
+                            </a>
+                        </h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm survey-">
+                                <div class="survey">
+                                    <span class="pollTitle">새로운 교재 선정</span>
+                                    <br>
+                                    <br>
+                                    <div class="surveyInner">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">Head First Java</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio2">자바의 정석
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio3">자바 네트워크 프로그래밍 - 개정4판</label>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm poll">투표하기</button>
+                                </div>
+                            </div>
+                            <div class="col-sm survey-">
+                                <div class="survey">
+                                    <span class="pollTitle">다음 회식 장소</span>
+                                    <br>
+                                    <br>
+                                    <div class="surveyInner">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">버터핑거</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio2">자바의 정석
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio3">자바 네트워크 프로그래밍 - 개정4판</label>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm poll">투표하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div class="innerContainer">
             <div class="row">
-                <div class="col menu menu2">
+                <div class="col checkedMembers menu">
                     <h6 class="menu">
-                        오늘의 일정
-                        <a href="calendar.html" class="badge badge-warning">전체 일정
-                        </a>
+                        <a name="members">회원 </a>
+                        <span class="badge badge-warning">모집중</span>&nbsp;
+                        <span class="badge badge-warning">8/10</span>
                     </h6>
                     <hr>
-                    <div class="scheduleDetail">
-                        <span class="scheduleTilte">강남 자바스터디 7회차</span>
-                        <div class="row">
-                            <div class="col-sm scheduleDetails">
-                                <span class="scheduleLocation">장소</장소>
-                                </span>
-                                <br>
-                                <a href="#">
-                                    <img src="img/mapMarker.png" class="rounded-0 mapMarker mapMarker-center">
-                                </a>
-                                <span class="scheduleLocationDetail">서울특별시 강남구 강남대로 84길 24-4</span>
-                            </div>
-                            <div class="col-sm scheduleDetails">
-                                <span class="scheduleTopic">스터디 주제</span>
-                                <br>
-                                <span class="scheduleTopics">큐 이해 및 구현</span>
-                                <br>
-                                <span class="scheduleTopics">배열과 리스트 이해</span>
-                                <br>
-                                <span class="scheduleTopics">스택 이해 및 구현</span>
-                                <br>
-                            </div>
-                            <div class="col-sm scheduleDetails">
-                                <span class="scheduleTimeline">타임라인</span>
-                                <br>
-                                <span class="scheduleTimelineDetail">반복문&IF문 강의</span>
-                                <br>
-                                <span class="scheduleTimelineDetail">휴식</span>
-                                <br>
-                                <span class="scheduleTimelineDetail">연습문제</span>
-                                <br>
+                    <script>
+                    
+                    </script>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-sm">
+                                    <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail">
+                                </div>
+                                <div class="col-sm memberProfile">
+                                    <span class="memberClass">회원
+                                        <br>
+                                    </span>
+                                    <span class="memberName">윤봉길
+                                        <br>
+                                    </span>
+                                </div>
+                                <div class="col-sm message">
+                                    <a href="message.html">
+                                        <img src="img/message.png" alt="..." class="message" onclick="">
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-sm">
+                                    <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail">
+                                </div>
+                                <div class="col-sm memberProfile">
+                                    <span class="memberClass">회원
+                                        <br>
+                                    </span>
+                                    <span class="memberName">윤봉길
+                                        <br>
+                                    </span>
+                                </div>
+                                <div class="col-sm message">
+                                    <a href="message.html">
+                                        <img src="img/message.png" alt="..." class="message">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-sm">
+                                    <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail">
+                                </div>
+                                <div class="col-sm memberProfile">
+                                    <span class="memberClass">회원
+                                        <br>
+                                    </span>
+                                    <span class="memberName">윤봉길
+                                        <br>
+                                    </span>
+                                </div>
+                                <div class="col-sm message">
+                                    <a href="message.html">
+                                        <img src="img/message.png" alt="..." class="message">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-sm">
+                                    <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail">
+                                </div>
+                                <div class="col-sm memberProfile">
+                                    <span class="memberClass">회원
+                                        <br>
+                                    </span>
+                                    <span class="memberName">윤봉길
+                                        <br>
+                                    </span>
+                                </div>
+                                <div class="col-sm message">
+                                    <a href="message.html">
+                                        <img src="img/message.png" alt="..." class="message">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-sm">
+                                    <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail">
+                                </div>
+                                <div class="col-sm memberProfile">
+                                    <span class="memberClass">회원
+                                        <br>
+                                    </span>
+                                    <span class="memberName">윤봉길
+                                        <br>
+                                    </span>
+                                </div>
+                                <div class="col-sm message">
+                                    <a href="message.html">
+                                        <img src="img/message.png" alt="..." class="message">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row eachMember">
+                                <div class="col-sm">
+                                    <img src="img/thumbnail2.jpg" alt="..." class="rounded-circle thumbnail">
+                                </div>
+                                <div class="col-sm memberProfile">
+                                    <span class="memberClass">회원
+                                        <br>
+                                    </span>
+                                    <span class="memberName">윤봉길
+                                        <br>
+                                    </span>
+                                </div>
+                                <div class="col-sm message">
+                                    <a href="message.html">
+                                        <img src="img/message.png" alt="..." class="message">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-block invitationbtn" data-toggle="modal" data-target="#exampleModal">친구 초대</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 회원 초대 Modal start -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="invitation">초대 이메일 발송이 완료되었습니다!</div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">친구 초대</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="emailInput">이메일 주소 입력(쉼표로 구분)</label>
+                            <textarea class="form-control" id="emailInput" rows="4"></textarea>
+                            <button type="button" class="btn btn-primary btn-block memberAdd">초대장 보내기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal end -->
+    <div class="forcolor">
+        <div class="container">
+            <div class="innerContainer">
+                <div class="row">
+                    <div class="col menu menu2">
+                        <h6 class="menu">
+                            <a name="board">게시판 </a>
+                        </h6>
+                        <table class="table table-sm table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">글번호</th>
+                                    <th scope="col">제목</th>
+                                    <th scope="col">작성자</th>
+                                    <th scope="col">작성일</th>
+                                    <th scope="col">파일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
+                                    </td>
+                                    <td>장하은</td>
+                                    <td>2017-01-01</td>
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/fileIcon.png" class="fileIcon">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" placeholder="검색어를 입력하세요">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" style="background-color: white; color: #bbb; border: 1px solid #ccc;">검색</button>
+                            </div>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">이전</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a> 
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">다음</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a data-toggle="modal" class="btn btn-sm writeBtn" href="#boardM">글쓰기</a>
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <!-- 오늘의 일정 end -->
-        
-        <!-- 게시판 start -->
-        <div class="innerContainer">
-            <div class="row">
-                <div class="col menu menu2">
-                    <h6 class="menu">
-                        <a name="board">게시판 </a>
-                    </h6>
-                    <table class="table table-sm table-hover">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">글번호</th>
-                                <th scope="col">제목</th>
-                                <th scope="col">작성자</th>
-                                <th scope="col">작성일</th>
-                                <th scope="col">파일</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>
-                                    <a href="#">안녕하세요 만나서 반갑습니다. 다같이 열심히 해요.</a>
-                                </td>
-                                <td>장하은</td>
-                                <td>2017-01-01</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/fileIcon.png" class="fileIcon">
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" placeholder="검색어를 입력하세요">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" style="background-color: white; color: #bbb; border: 1px solid #ccc;">검색</button>
-                        </div>
+    </div>
+        <!--board end -->
+
+        <!--board Modal -->
+    <div class="modal fade" id="boardM" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">업로드</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="input-group mb-3">
+                        <input id="phoTitle" type="text" class="form-control" placeholder="제목">
                     </div>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">이전</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a> 
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">다음</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <a data-toggle="modal" class="btn btn-sm writeBtn" href="#boardM">글쓰기</a>
+                    <input id="fileupload" type="file" name="files" multiple>
+
+                    <div id="ad-images-div"></div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id='upload-btn' class="btn btn-default" type='button' data-dismiss="modal">등록</button>
+                    <button id="closeBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+
                 </div>
             </div>
         </div>
-        <!-- 게시판 end -->
-        
-        <!-- board Modal start -->
-	    <div class="modal fade" id="boardM" role="dialog">
-	        <div class="modal-dialog">
-	
-	            <!-- Modal content start-->
-	            <div class="modal-content">
-	                <div class="modal-header">
-	                    <h4 class="modal-title">업로드</h4>
-	                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-	                </div>
-	
-	                <div class="modal-body">
-	
-	                    <div class="input-group mb-3">
-	                        <input id="phoTitle" type="text" class="form-control" placeholder="제목">
-	                    </div>
-	                    <input id="fileupload" type="file" name="files" multiple>
-	
-	                    <div id="ad-images-div"></div>
-	
-	                </div>
-	
-	                <div class="modal-footer">
-	                    <button id='upload-btn' class="btn btn-default" type='button' data-dismiss="modal">등록</button>
-	                    <button id="closeBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-	
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	    <!-- board Modal end -->
-        
-        <!-- 앨범 start -->
+    </div>
+    
+    <!--board Modal end -->
+
+    <div class="container">
         <div class="innerContainer">
             <div class="row">
                 <div class="col menu menu2">
@@ -430,10 +670,8 @@
                 </div>
             </div>
         </div>
-        <!-- 앨범 end -->
-        
     </div>
-    
+    </div>
     <footer class="footer">
         <p>Logo</p>
         <div>
@@ -445,32 +683,38 @@
         </div>
         <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
     </footer>
-    
-    <script src='node_modules/jquery/dist/jquery.js'></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="node_modules/slidebars/dist/slidebars.js"></script>
-    <script src="js/common.js"></script>
-    <script>
-       $("#header").load(serverRoot + "/header.html");
-    </script>
-    <script>
-        $(document).ready(function() {
-	        
-	        var studyName = document.querySelectorAll(".studyName");
-	        var no = location.href.split("?")[1].split("=")[1];
-	        //console.log(no);
-        
-	        $.getJSON("json/studyInfo/" + no, function(data) {
-	            console.log(data);
-	            console.log(studyName);
-	            console.log(data.no);
-	            $(studyName).text(data.name);
-	            $(fInformation).text(data.information);
-	        });
-        });
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="js/groupMainPhoto.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    
+    <script>
+        $("#header").load("header.html");
+    $(document).ready(function() {
+    
+        $(".memberAdd").click(function () {
+            $('.invitation').css('display', 'block');
+        });
+        
+        //console.log(location.href.split("?")[0]);
+        //console.log(location.href.split("?")[1]);
+        //console.log(location.href.split("?")[1].split("=")[1]);
+        //console.log(window.fTitle);
+        
+        var studyName = document.querySelectorAll(".studyName");
+        var no = location.href.split("?")[1].split("=")[1];
+        //console.log(no);
+        
+        $.getJSON("json/studyInfo/" + no, function(data) {
+            console.log(data);
+            console.log(studyName);
+            console.log(data.no);
+            $(studyName).text(data.name);
+            $(fInformation).text(data.information);
+        }); 
+    });
+    </script>
 
 </body>
 

@@ -13,7 +13,6 @@
     <association property="member" javaType="Member">
       <id column="memno" property="no"/>
       <id column="mname" property="name"/>
-     
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
@@ -32,12 +31,18 @@
   <select id="selectList" 
           resultMap="StudyJoinedMemberMap"
           >
-  select study_joined_member.stdno, member.mname, member.email, study_joined_member.rdt, study_joined_member.status
-  from study_joined_member
-  left join member
-  on study_joined_member.memno=member.memno
-  where study_joined_member.stdno=1 
-  AND status=1<!-- url에서 가져오 -->
+  select 
+    sjm.stdno, 
+    sjm.memno, 
+    sjm.rdt, 
+    sjm.grade, 
+    m.mname, 
+    m.email
+  from study_joined_member sjm
+  left join member m on sjm.memno=m.memno
+  where sjm.stdno=#{studyNo} 
+  and grade=1
+  <!-- url에서 가져오 -->
 </select>
 
 <select id="selectListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
@@ -49,8 +54,10 @@
 <update id="update" parameterType="int">
     
     UPDATE study_joined_member
-    SET status=2
-    WHERE memno=#{valeu}, stdno=#{value} <!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
+    SET grade=2
+    WHERE memno=#{memNo}
+    AND stdno=#{studyNo} 
+     <!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
   </update>
 </mapper>
 
