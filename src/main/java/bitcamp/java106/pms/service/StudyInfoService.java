@@ -17,4 +17,5 @@ public interface StudyInfoService {
     int update(StudyInfo studyInfo);
     int delete(int no);
     int getLimitOne();
+    int count();
 }

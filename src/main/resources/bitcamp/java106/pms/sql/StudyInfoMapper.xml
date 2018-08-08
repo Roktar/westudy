@@ -44,6 +44,11 @@
     <!-- study_info.stdno,name,county -->
   </select>
   
+  <select id="studyCount" resultType="int">
+    select count(*) 
+    from study_info
+  </select>
+  
   <select id="selectSearchList" 
           resultMap="StudyMap" parameterType="map"> 
     select * 

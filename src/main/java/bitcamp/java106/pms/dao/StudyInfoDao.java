@@ -14,4 +14,5 @@ public interface StudyInfoDao {
     int update(StudyInfo studyInfo);
     StudyInfo selectOne(int no);
     StudyInfo selectlimitOne();
+    int studyCount();
 }
