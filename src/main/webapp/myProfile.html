@@ -13,12 +13,23 @@
     <link rel="stylesheet" href="css/br_profile.css">
     
     <title>내 정보 관리</title>
+    
+    <style>
+        #fileupload{
+            visibility: hidden;
+        }
+    </style>
+    
 </head>
 
 <body>
-    <div id="header"></div>
     
     <div id="container" canvas="container">
+    
+    <!-- header start -->
+	<div id="header"></div>
+	<!-- header end -->
+	
        <div class="container">
            <div class="row">
                 <div class="col-sm-2" style="text-align: center">
@@ -50,7 +61,7 @@
                         <h3>내 정보 관리</h3><hr>
                         <div class="form-group-img">
                             <div id='images-div'>
-                                <img id="profileImage" src="holder.js/200x200">
+                                <img id="profileImage" src="holder.js/200x200?text=클릭해서 사진을 추가해주세요.(200x200)">
                             </div>
                             <div class="row">
                                 <div class="col-sm-4 offset-sm-4">
@@ -143,6 +154,13 @@
     <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
     <script>
     "use strict"
+    
+    $(function() {
+        $('#images-div').click(function (e) {
+            e.preventDefault(); $('#fileupload').click(); 
+        }) 
+    });
+    
     $('#fileupload').fileupload({
         dataType: 'json',
         add: function (e, data) {
