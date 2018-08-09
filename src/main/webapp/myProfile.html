@@ -20,93 +20,95 @@
         }
     </style>
     
+    
 </head>
 
 <body>
-    
     <!-- header start -->
-	<div id="header"></div>
-	<!-- header end -->
-	
-    <div id="container" canvas="container">
-       <div class="container">
-           <div class="row">
-                <div class="col-sm-2" style="text-align: center">
-                    <div class="col-box-list">
-                       <div class="class_titl">내정보</div>
-                        <hr class="line3">
-                        <div class="list-group cls-list">
-                            <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
-                                내 정보 관리
-                            </a>
-                            <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
-                                관심 분야 설정
-                            </a>
-                            <a href="message.html" class="list-group-item list-group-item-action cls-list-link">
-                                메시지
-                            </a>
-                            <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
-                                비밀번호 변경
-                            </a>
-                            <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
-                                계정 삭제
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container-box col">
-                    <div class="inner-container-box">
-                        <h3>내 정보 관리</h3><hr>
-                        <div class="form-group-img">
-                            <div id='images-div'>
-                                <img id="profileImage" src="holder.js/200x200?text=클릭해서 사진을 추가해주세요.(200x200)">
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-4 offset-sm-4">
-                                    <div class="row">
-                                      <input class="col-10 form-control-sm form-control-file" id="fileupload" type="file" name="files" data-url="json/member/upload01" multiple>
-                                      <div class="col" id="btnArea"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-2 info-title">
-                                <ul>
-                                    <li>이름</li>
-                                    <li>이메일 주소</li>
-                                    <li>생년월일</li>
-                                    <li>성별</li>
-                                </ul>
-                            </div>
-                            <div class="col-10">
-                                <div id="info"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           </div>
-       </div>
-           
-           
-	    <footer class="footer">
-	        <p>Logo</p>
-	        <div>
-	            <span>서울특별시 강남구 비트캠프 401호</span>
-	            <span>Tel080-777-2299</span>
-	            <span>개인정보취급관리자 홍길동</span>
-	            <span>E-mail : we_study@westudy.com</span>
+    <div id="header"> </div>
+    <!-- header end -->
+    
+    <!-- container start -->
+    <div canvas="container" id="container">
+        
+        <div class="container">
+	        <div class="row justify-content-md-center">
+	            <div class="col-sm-2 test" style="text-align: center">
+	                <div class="col-box-list">
+	                   <div class="class_titl">내정보</div>
+	                    <hr class="line3">
+	                    <div class="list-group cls-list">
+	                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+	                            내 정보 관리
+	                        </a>
+	                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+	                            관심 분야 설정
+	                        </a>
+	                        <a href="message.html" class="list-group-item list-group-item-action cls-list-link">
+	                            메시지
+	                        </a>
+	                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+	                            비밀번호 변경
+	                        </a>
+	                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+	                            계정 삭제
+	                        </a>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            <div class="col-sm-10">
+	                    <div class="inner-container-box">
+	                        <h3>내 정보 관리</h3><hr>
+	                        <div class="form-group-img">
+	                            <div id='images-div'>
+	                                <img id="profileImage" src="holder.js/200x200?text=클릭해서 사진을 추가해주세요.(200x200)">
+	                            </div>
+	                            <div class="row">
+	                                <div class="col-sm-4 offset-sm-4">
+	                                    <div class="row">
+	                                      <input class="col-10 form-control-sm form-control-file" id="fileupload" type="file" name="files" data-url="json/member/upload01" multiple>
+	                                      <div class="col" id="btnArea"></div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="row">
+	                            <div class="col-4 info-title">
+	                                <ul>
+	                                    <li>이름</li>
+	                                    <li>이메일 주소</li>
+	                                    <li>생년월일</li>
+	                                    <li>성별</li>
+	                                </ul>
+	                            </div>
+	                            <div class="col-8">
+	                                <div id="info"></div>
+	                            </div>
+	                        </div>
+	                    </div>
+	            </div>
+	            
 	        </div>
-	        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-	    </footer>
-	    
-	    
+        </div>
+        
+        <!-- footer start -->
+        <footer class="footer" style="max-width:100%;">
+            <p>Logo</p>
+    
+            <div>
+                <span>서울특별시 강남구 비트캠프 401호</span>
+                <span>Tel080-777-2299</span>
+                <span>개인정보취급관리자 홍길동</span>
+                <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+        </footer>
+        <!-- footer end -->
+        
     </div>
-    
-    
-    
+    <!-- container end -->
     
     <script src='node_modules/jquery/dist/jquery.js'></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
