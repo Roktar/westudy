@@ -45,34 +45,30 @@ $(document).ready(function() {
 	}).done(function(data){
 	    console.log("memNo :"+ memNo);
 	    console.log("no :" + stdno);
-	    
-	    $.ajax({
-	        url : "/FinalProject/json/joinedMember/gradeList",
-	        method : "POST",
-	        data : {'memNo': memNo, 'no' : stdno},
-	        dataType : "json",
-	        success : function(data) {
-	        	if(item == undefined){
-	        		$("#grade2").css('display','block');
-	        	} else{
-		        	for(var item of data){
-		        		console.log("item.grade : " + item.grade);
-		        		switch(item.grade){
-		        		case 0 :
-		        			$("#grade0").css('display','block');
-		        			console.log("그룹관리");
-		        			break;
-		        		case 1 :
-		        			console.log("회원입니다");
-		        			break;
-		        		default :
-		        			$("#grade2").css('display','block');
-		        			console.log("그룹가입");
-		        			break;
-		        		}
-		        	}
-	        	}
-	        }
-	    })
+    	$.ajax({
+    		url : "/FinalProject/json/joinedMember/gradeList",
+    		method : "POST",
+    		data : {'memNo': memNo, 'no' : stdno},
+    		dataType : "json",
+    		success : function(data) {
+    			for(var item of data){
+					console.log("item.grade : " + item.grade);
+					switch(item.grade){
+					case 0 :
+						$("#grade0").css('display','block');
+						$("#grade2").css('display','none');
+						console.log("그룹관리");
+						break;
+					case 1 :
+						$("#grade2").css('display','none');
+						console.log("회원입니다");
+						break;
+					default :
+						console.log("그룹가입");
+						break;
+					}
+    			}
+    		}
+    	})
 	})
 });
