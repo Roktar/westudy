@@ -12,18 +12,16 @@
     <result column="intrd" property="introduce"/>
     <result column="pfp" property="profile"/>
     <result column="mname" property="name"/>
-    <result column="birth" property="birthday"/>
     <result column="tel" property="tel"/>
-    <result column="itrloc" property="interestedPlace"/>
-    <result column="gen" property="gender"/>
     <result column="auth" property="authCode"/>
+    <result column="city" property="city" />
+    <result column="county" property="county" />
   </resultMap>
-    
  
 
   <insert id="insert_basic" parameterType="bitcamp.java106.pms.domain.Member">
-    insert into member( email, pwd, mname, tel)
-        values(#{email}, password(#{password}), #{name}, #{tel} )
+    insert into member( email, pwd, mname, tel, city, county)
+        values(#{email}, password(#{password}), #{name}, #{tel}, #{city}, #{county})
   </insert>
       
   <select id="selectOne" parameterType="String" resultMap="MemberMap">
