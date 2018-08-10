@@ -9,5 +9,5 @@ public interface StudyAwaitingMemberDao {
 	List<StudyAwaitingMember> selectList(int no);
 	int accept(Map<String, Object> paramMap);
 	int insert(Map<String, Object> paramMap);
-	int add(int no);
+	int add(Map<String, Object> paramMap);
 }

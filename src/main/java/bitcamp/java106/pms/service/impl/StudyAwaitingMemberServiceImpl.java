@@ -37,7 +37,7 @@ public class StudyAwaitingMemberServiceImpl implements StudyAwaitingMemberServic
 	
 	@Override
 	public int accept(java.util.Map<String, Object> paramMap) {
-		System.out.println("거절임플임플 :: type = [" + paramMap.get("Type") + "]");
+		System.out.println("거절임플임플 :: type = [" + paramMap.get("type") + "]");
 		return studyAwaitingMemberDao.accept(paramMap);
 	}
 	
@@ -48,9 +48,9 @@ public class StudyAwaitingMemberServiceImpl implements StudyAwaitingMemberServic
 	}
 
 	@Override
-	public int add(int no) {
+	public int add(java.util.Map<String, Object> paramMap) {
 		System.out.println("요청");
-		return studyAwaitingMemberDao.add(no);
+		return studyAwaitingMemberDao.add(paramMap);
 	}
 }
 
