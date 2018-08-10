@@ -58,4 +58,6 @@ public class StudyJoinedMember implements Serializable {
 	public void setStudy(StudyInfo study) {
 		this.study = study;
 	}
+	
+	
 }

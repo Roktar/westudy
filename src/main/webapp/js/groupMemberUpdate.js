@@ -59,7 +59,7 @@ function dep(memno, no) {
 	
 	if(confirm('회원을 추방하시겠습니까?')){
 		$.ajax({
-			url: "/FinalProject/json/joinedMember/update",
+			url: "/FinalProject/json/joinedMember/exclude",
 			method: "POST",
 			data:{'memNo':memno, 'no' : no},
 			dataType: "json",
