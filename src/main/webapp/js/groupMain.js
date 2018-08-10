@@ -52,7 +52,6 @@ $(document).ready(function() {
 	        data : {'memNo': memNo, 'no' : stdno},
 	        dataType : "json",
 	        success : function(data) {
-	        	console.log("item : " + item);
 	        	if(item == undefined){
 	        		$("#grade2").css('display','block');
 	        	} else{
