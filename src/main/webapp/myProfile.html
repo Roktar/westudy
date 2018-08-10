@@ -62,7 +62,7 @@
 	                        <h3>내 정보 관리</h3><hr>
 	                        <div class="form-group-img">
 	                            <div id='images-div'>
-	                                <img id="profileImage" src="holder.js/200x200?text=클릭해서 사진을 추가해주세요.(200x200)">
+	                                <img id="profileImage" src="#">
 	                            </div>
 	                            <div class="row">
 	                                <div class="col-sm-4 offset-sm-4">
@@ -139,12 +139,20 @@
         
         setTimeout( function() {
         $.getJSON("json/member/"+memno, (data) => {
+        	/* console.log(data); */
+        	console.log(data.profile);
             $("<ul>")
                 .html("<li>" + data.name + "</li>" + 
                     "<li>" + data.email + "</li>" + 
                     "<li>" + data.birthday + "</li>" + 
                     "<li>" + data.gender + "</li>"
                 ).appendTo(info);
+            
+            if(data.profile != "undefined"){
+	            $("#profileImage").attr("src", "img/" + data.profile);
+            } else {
+            	$("#profileImage").attr("src", "holder.js/200x200?text=클릭해서 사진을 추가해주세요.(200x200)");
+            }
         })
         }, 500);
     </script>
@@ -166,7 +174,6 @@
         dataType: 'json',
         add: function (e, data) {
             console.log('add()...');
-            data.context = $('<button/>').text('Upload');
             data.submit();// 해당 파일의 서버 전송을 시작한다.
         },
         done: function (e, data) {
