@@ -97,6 +97,11 @@
     where memno=#{memberno}
 </update>
   
+<select id="checkId" parameterType="Member" resultType="int">
+    SELECT COUNT(*)
+    FROM member
+    WHERE email=#{id}
+</select>
 </mapper>
 
 

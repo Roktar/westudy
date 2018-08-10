@@ -148,3 +148,15 @@
    color: white;
    font-weight: bold;
 }
+#chkMsg{
+    font-size: 0.8em;
+    color: red;
+    display: none;
+}
+#idMsg{
+    font-size: 0.8em;
+    color: red;
+    display: none;
+}
+    
+}

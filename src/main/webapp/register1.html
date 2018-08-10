@@ -35,15 +35,19 @@
         <form name="form">
             <div class="form-group">
                 <label for="exampleInputEmail1">이메일 주소 아이디</label>
-                <input type="email" class="form-control form-control-sm" id="email" placeholder="이메일 주소를 입력해주세요.">
+                <input type="email" class="form-control form-control-sm" id="email" placeholder="이메일 주소를 입력해주세요." oninput="checkId()" name="id" required class="id">
+                <label for="exampleInputPassword1" id="idMsg" style="display:none;">중복된 이메일 주소 입니다.</label>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="inputed">
                 <label for="exampleInputPassword1">비밀번호</label>
-                <input type="password" class="form-control form-control-sm" id="password" placeholder="비밀번호를 입력해주세요">
+                <input type="password" class="form-control form-control-sm" name="upwd" required class="pass"
+                    id="password" placeholder="비밀번호를 입력해주세요" oninput="checkPwd()">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">비밀번호 확인 </label>
-                <input type="password" class="form-control form-control-sm" id="checkpassword" placeholder="비밀번호를 입력해주세요">
+                <input type="password" class="form-control form-control-sm repwd" name="psw-repeat" required class="pass"
+                    id="checkpassword" placeholder="비밀번호를 입력해주세요" oninput="checkPwd()">
+            <label for="exampleInputPassword1" id="chkMsg">암호가 일치하지 않습니다.</label>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">이름</label>
@@ -56,35 +60,35 @@
                 
             <div class="form-group">
                 <label for="exampleInputPassword1">관심 지역</label>
-	            <div class="row" style="margin-top:-9.2em; margin-bottom:-10em;">
-	                <div class="col-sm-6" id="city">
-	                <select id="city" name="option1" onchange="changes(document.form.option1.value)" class="form-control fCity">
-	                    <option value="" selected>:: 시/도 ::</option>
-	                    <option value="1">서울특별시</option>
-	                    <option value="2">부산광역시</option>
-	                    <option value="3">대구광역시</option>
-	                    <option value="4">인천광역시</option>
-	                    <option value="5">광주광역시</option>
-	                    <option value="6">대전광역시</option>
-	                    <option value="7">울산광역시</option>
-	                    <option value="8">세종특별자치시</option>
-	                    <option value="9">경기도</option>
-	                    <option value="10">강원도</option>
-	                    <option value="11">충청북도</option>
-	                    <option value="12">충청남도</option>
-	                    <option value="13">전라북도</option>
-	                    <option value="14">전라남도</option>
-	                    <option value="15">경상북도</option>
-	                    <option value="16">경상남도</option>
-	                    <option value="17">제주특별자치도</option>
-	                </select>
-	            </div>
-	                <div class="col-sm-6" id="county">
-	                    <select id="county" name="option2" class="form-control fCounty">
-	                        <option>:: 시/군/구 ::</option>
-	                    </select>
-	                </div>
-	            </div>
+                <div class="row" style="margin-top:-9.2em; margin-bottom:-10em;">
+                    <div class="col-sm-6" id="city">
+                    <select id="city" name="option1" onchange="changes(document.form.option1.value)" class="form-control fCity">
+                        <option value="" selected>:: 시/도 ::</option>
+                        <option value="1">서울특별시</option>
+                        <option value="2">부산광역시</option>
+                        <option value="3">대구광역시</option>
+                        <option value="4">인천광역시</option>
+                        <option value="5">광주광역시</option>
+                        <option value="6">대전광역시</option>
+                        <option value="7">울산광역시</option>
+                        <option value="8">세종특별자치시</option>
+                        <option value="9">경기도</option>
+                        <option value="10">강원도</option>
+                        <option value="11">충청북도</option>
+                        <option value="12">충청남도</option>
+                        <option value="13">전라북도</option>
+                        <option value="14">전라남도</option>
+                        <option value="15">경상북도</option>
+                        <option value="16">경상남도</option>
+                        <option value="17">제주특별자치도</option>
+                    </select>
+                </div>
+                    <div class="col-sm-6" id="county">
+                        <select id="county" name="option2" class="form-control fCounty">
+                            <option>:: 시/군/구 ::</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <br><br>
             <h2>관심사 고르기</h2>
@@ -114,7 +118,9 @@
                 <label for="selectbox10">기타</label>
             </section>
             <hr>
-            <div class="btn btn-primary btn-block" id="signup" type="submit">가입하기</div>
+            <div> 
+            <button class="btn btn-secondary btn-block" id="signup" type="submit" disabled="disabled">가입하기</button>
+            </div>
     </form>
     </div>
     <footer class="footer">

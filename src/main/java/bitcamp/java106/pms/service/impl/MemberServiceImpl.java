@@ -163,4 +163,8 @@ public class MemberServiceImpl implements MemberService{
         
         return jsonData;
     }
+    @Override
+	public int checkId(String email) {
+		return memberDao.checkId(email);
+	}
 }
