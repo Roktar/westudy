@@ -11,10 +11,6 @@
 	<link rel="stylesheet" href="css/dhGM.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/common.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="js/dhGM.js"></script>
 </head>
 
 <body>
@@ -64,21 +60,11 @@
 					<div class="class_titl">관리자 페이지</div>
 					<hr class="line3">
 					<div class="list-group cls-list">
-						<a href="dhGI.html" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
-						<a href="dhGM.html" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
-							그룹멤버 관리 </a>
-							<a href="dhGR.html" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
-									그룹요청 관리 </a>
-						<div class="dropdown sv-list-pr">
-							<a class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 설문조사 관리</a>
-							<div class="sv-list" aria-labelledby="dropdownMenuButton">
-								<a class="sv-list-a sv-list-bordertop" href="surveylist.html">설문 내역
-								</a>
-								<a class="sv-list-a" href="survey-enroll.html">설문 등록</a>
-							</div>
-
-						</div>
-
+						<a id="groupInfoUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
+                        <a id="groupMemberUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                            그룹멤버 관리 </a>
+                        <a id="groupRequestUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                            그룹요청 관리 </a>
 					</div>
 				</div>
 			</div>
@@ -115,8 +101,10 @@
 	</footer>
 
 </body>
-<script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+<script src="js/groupMemberUpdate.js"></script>
 
-
-</script>
 </html>
