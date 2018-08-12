@@ -10,6 +10,7 @@
     <id column="memno" property="memNo"/>
     <result column="rdt" property="registedDate"/>
     <result column="grade" property="grade"/>
+    
     <association property="member" javaType="Member">
       <id column="memno" property="no"/>
       <result column="mname" property="name"/>
@@ -20,6 +21,10 @@
       <id column="stdno" property="no"/>
       <result column="name" property="name"/>
       <result column="ctgr" property="category"/>
+   </association>
+   
+   <association property="review" javaType="Review">
+      <id column="rvwno" property="no"/>
    </association>
   </resultMap>
     
@@ -51,10 +56,18 @@
 </select>
 
 <select id="selectMyStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
-  select j.stdno , j.memno, s.name, s.ctgr, j.grade
+  <!-- select j.stdno , j.memno, s.name, s.ctgr, j.grade
   from study_joined_member j left join study_info s on j.stdno = s.stdno 
   where j.memno=#{value}
-  order by grade
+  order by grade -->
+  SELECT *
+from study_joined_member jm
+inner join study_info si
+    on jm.stdno = si.stdno
+left outer join study_review sr
+    on si.stdno = sr.stdno
+    and jm.memno = sr.memno
+  where jm.memno = #{value}
 </select>
 
 <!-- 회원 추방기능 -->
@@ -111,8 +124,6 @@
 </select>
 
 
-
-
 <update id="update" parameterType="int">
     update study_joined_member set
     rdt=now(),
@@ -122,9 +133,3 @@
     
   
 </mapper>
-
-
-
-
-
-

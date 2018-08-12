@@ -76,6 +76,7 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
       return studyJoinedMemberDao.update(studyJoinedMember);
    }
 
+  
    
    @Override
    public StudyJoinedMember getLeader(int no){

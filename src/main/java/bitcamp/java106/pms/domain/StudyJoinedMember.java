@@ -1,11 +1,7 @@
 package bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
-
-
 import java.sql.Date;
-import bitcamp.java106.pms.domain.StudyInfo;
-import bitcamp.java106.pms.domain.Member;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -21,6 +17,7 @@ public class StudyJoinedMember implements Serializable {
     
 	private Member member;
 	private StudyInfo study;
+	private Review review;
 	
 	public Date getRegistedDate() {
 		return registedDate;
@@ -58,6 +55,10 @@ public class StudyJoinedMember implements Serializable {
 	public void setStudy(StudyInfo study) {
 		this.study = study;
 	}
-	
-	
+	public Review getReview() {
+		return review;
+	}
+	public void setReview(Review review) {
+		this.review = review;
+	}
 }
