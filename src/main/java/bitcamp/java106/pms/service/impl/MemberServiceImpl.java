@@ -167,4 +167,14 @@ public class MemberServiceImpl implements MemberService{
 	public int checkId(String email) {
 		return memberDao.checkId(email);
 	}
+
+	@Override
+	public Member get(String email) {
+		return memberDao.findByEmail(email);
+	}
+
+	@Override
+	public int add(Member member) {
+		return memberDao.add(member);
+	}
 }

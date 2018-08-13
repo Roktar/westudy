@@ -84,7 +84,7 @@
     delete from dhGm where usrno=#{value}
 </delete> 
 
-<select id="find" parameterType="String" resultType="int">
+<select id="findMember" parameterType="String" resultType="int">
     select memno 
     from member
     where email = #{id}
