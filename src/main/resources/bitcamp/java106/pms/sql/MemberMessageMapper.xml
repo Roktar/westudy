@@ -28,8 +28,8 @@
 
   <select id="selectListSend" resultMap="MemberMessageMap" parameterType="map">
 	select mm.msgno, mm.cont, mm.rcvr, mm.date, 
-	       sndr.memno as s_memno, sndr.name as s_name, sndr.email as s_email,
-	       rcvr.memno as r_memno, rcvr.name as r_name, rcvr.email as r_email
+	       sndr.memno as s_memno, sndr.mname as s_name, sndr.email as s_email,
+	       rcvr.memno as r_memno, rcvr.mname as r_name, rcvr.email as r_email
 	from member_message mm 
 	    inner join member sndr on mm.sndr = sndr.memno 
 	    inner join member rcvr on mm.rcvr = rcvr.memno
@@ -40,8 +40,8 @@
 
   <select id="selectListReceive" resultMap="MemberMessageMap" parameterType="map">
     select mm.msgno, mm.cont, mm.rcvr, mm.date, 
-           sndr.memno as s_memno, sndr.name as s_name, sndr.email as s_email,
-           rcvr.memno as r_memno, rcvr.name as r_name, rcvr.email as r_email
+           sndr.memno as s_memno, sndr.mname as s_name, sndr.email as s_email,
+           rcvr.memno as r_memno, rcvr.mname as r_name, rcvr.email as r_email
     from member_message mm 
            inner join member sndr on mm.sndr = sndr.memno 
            inner join member rcvr on mm.rcvr = rcvr.memno
