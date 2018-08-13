@@ -66,11 +66,15 @@ public class MemberServiceImpl implements MemberService{
         member.setPassword(params.get("password"));
         member.setName(params.get("name"));
         member.setTel(params.get("tel"));
+        member.setCity(params.get("city"));
+        member.setCounty(params.get("county"));
         
         params.remove("email");
         params.remove("password");
         params.remove("name");
         params.remove("tel");
+        params.remove("city");
+        params.remove("county");
         
         memberDao.insert_basic(member);
         int refid = memberDao.selectOne(member.getEmail()).getNo(); // 기준 회원 선택
@@ -159,4 +163,8 @@ public class MemberServiceImpl implements MemberService{
         
         return jsonData;
     }
+    @Override
+	public int checkId(String email) {
+		return memberDao.checkId(email);
+	}
 }

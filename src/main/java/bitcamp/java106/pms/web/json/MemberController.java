@@ -143,5 +143,9 @@ public class MemberController {
         
         return memberService.upload(filename, jsonData, memberNo);
     }
-    
+	
+	@RequestMapping("checkId")
+	public int checkId(@RequestParam("email") String email) {
+		return memberService.checkId(email);
+	}
 }

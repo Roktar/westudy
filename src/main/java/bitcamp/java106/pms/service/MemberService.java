@@ -18,5 +18,6 @@ public interface MemberService {
 	List<Member> list();
 	int delete(int no);
 	
+	int checkId(String email);
 } 
  

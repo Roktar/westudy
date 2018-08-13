@@ -9,175 +9,8 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/br_register.css">
-
-	<style>
-	   .container{
-	       width: 600px;
-	       margin-top: 150px;
-	       margin-bottom: 200px;
-	   }
-	
-	    #selectbox1 { display: none; }
-        #selectbox1, div:#selectbox1 { display: none; }
-        #selectbox1:checked ~ div:#selectbox1 { display: block; }
-        #selectbox2 { display: none; }
-        #selectbox2, div:#selectbox2 { display: none; }
-        #selectbox2:checked ~ div:#selectbox2 { display: block; }
-        
-        #selectbox3 { display: none; }
-        #selectbox3 ~ div:#selectbox3 { display: none; }
-        #selectbox3:checked ~ div:#selectbox3 { display: block; }
-        
-        #selectbox4 { display: none; }
-        #selectbox4 ~ div:#selectbox4 { display: none; }
-        #selectbox4:checked ~ div:#selectbox4 { display: block; }
-        
-        #selectbox5 { display: none; }
-        #selectbox5 ~ div:#selectbox5 { display: none; }
-        #selectbox5:checked ~ div:#selectbox5 { display: block; }
-        
-        #selectbox6 { display: none; }
-        #selectbox6 ~ div:#selectbox6 { display: none; }
-        #selectbox6:checked ~ div:#selectbox6 { display: block; }
-        
-        #selectbox7 { display: none; }
-        #selectbox7 ~ div:#selectbox7 { display: none; }
-        #selectbox7:checked ~ div:#selectbox7 { display: block; }
-        
-        #selectbox8 { display: none; }
-        #selectbox8 ~ div:#selectbox8 { display: none; }
-        #selectbox8:checked ~ div:#selectbox8 { display: block; }
-        
-        #selectbox9 { display: none; }
-        #selectbox9 ~ div:#selectbox9 { display: none; }
-        #selectbox9:checked ~ div:#selectbox9 { display: block; }
-        
-        #selectbox10 { display: none; }
-        #selectbox10 ~ div:#selectbox10 { display: none; }
-        #selectbox10:checked ~ div:#selectbox10 { display: block; }
-        section.buttons > label {
-          display: block;
-          text-align: center;
-          line-height: 30px;
-          border: 1px solid #dddddd;
-          background: white;
-          color: black;
-          width: 114px; height: 30px;
-          box-sizing: border-box;
-          float: left;
-        }
-        input:nth-of-type(1):checked ~ section.buttons >  label:nth-of-type(1) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(2):checked ~ section.buttons >  label:nth-of-type(2) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(3):checked ~ section.buttons >  label:nth-of-type(3) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(4):checked ~ section.buttons >  label:nth-of-type(4) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(5):checked ~ section.buttons >  label:nth-of-type(5) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(6):checked ~ section.buttons >  label:nth-of-type(6) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(7):checked ~ section.buttons >  label:nth-of-type(7) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(8):checked ~ section.buttons >  label:nth-of-type(8) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(9):checked ~ section.buttons >  label:nth-of-type(9) {
-          background: #ef6c00;
-          color: white;
-        }
-        input:nth-of-type(10):checked ~ section.buttons >  label:nth-of-type(10) {
-          background: #ef6c00;
-          color: white;
-        }
-        
-        section.buttons {
-          /* border: 4px dashed red; */
-          overflow: hidden;
-        }
-        #signup {
-            float : right;
-        }
-	</style>
-	
-	<script src="node_modules/jquery/dist/jquery.js" > </script>
+    <link rel="stylesheet" href="css/register.css">
 </head>
-
-<script src="js/common.js"> </script>
-
-<script>
-
-	$(document).ready(function() {
-
-		$(signup).click(function() {
-			let in_email = $(email);
-			let pass = $(password);
-			let checkpass = $(checkpassword);
-			let nm = $(memname);
-			let t = $(tel);
-			let interest = [];
-
-			if( $(in_email).val() == "" || $(pass).val() == "" || $(checkpass).val() == ""
-						    || $(nm).val() == "" || $(tel).val() == "" ) {
-				alert("입력되지않은 항목이 있습니다.");
-				return;
-			}
-
-			if( $(pass).val() != $(checkpass).val() ) {
-				alert("입력된 비밀번호가 다릅니다.");
-				return;
-			}
-
-			for(let c of $('input[type=checkbox]')) {
-				if($(c).is(":checked"))
-					interest.push( decodeURIComponent( $('.buttons label[for=' + $(c).attr("id") + ' ]').text() ));
-			}
-
-			$.post(serverRoot+"/json/member/add", {
-				email:decodeURIComponent( $(email).val() ),
-				password:decodeURIComponent($(password).val() ),
-				name:decodeURIComponent($(nm).val() ),
-				tel:decodeURIComponent($(t).val() ),
-				interests:interest
-			}, res => {
-				location.href="registerd.html"
-			});
-		});
-	});
-
-	function count_ck(obj){
-	    var chkbox = document.getElementsByName("chk");
-	    var chkCnt = 0;
-	    for(var i = 0; i < chkbox.length; i++){
-	        if(chkbox[i].checked){
-	            chkCnt++;
-	        }
-	    }
-	    if(chkCnt>3){
-	        alert("3개 이상 선택할 수 없습니다.");
-	        obj.checked = false;
-	        return false;
-	    }
-	}
-</script>
-
-
 <body>
     <header class="header">
         <div class="headerWrap">
@@ -199,18 +32,22 @@
     <div class="container col-sm-4">
         <h2>개인정보</h2>
         <hr>
-        <form>
+        <form name="form">
             <div class="form-group">
                 <label for="exampleInputEmail1">이메일 주소 아이디</label>
-                <input type="email" class="form-control form-control-sm" id="email" placeholder="이메일 주소를 입력해주세요.">
+                <input type="email" class="form-control form-control-sm" id="email" placeholder="이메일 주소를 입력해주세요." oninput="checkId()" name="id" required class="id">
+                <label for="exampleInputPassword1" id="idMsg" style="display:none;">중복된 이메일 주소 입니다.</label>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="inputed">
                 <label for="exampleInputPassword1">비밀번호</label>
-                <input type="password" class="form-control form-control-sm" id="password" placeholder="비밀번호를 입력해주세요">
+                <input type="password" class="form-control form-control-sm" name="upwd" required class="pass"
+                    id="password" placeholder="비밀번호를 입력해주세요" oninput="checkPwd()">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">비밀번호 확인 </label>
-                <input type="password" class="form-control form-control-sm" id="checkpassword" placeholder="비밀번호를 입력해주세요">
+                <input type="password" class="form-control form-control-sm repwd" name="psw-repeat" required class="pass"
+                    id="checkpassword" placeholder="비밀번호를 입력해주세요" oninput="checkPwd()">
+            <label for="exampleInputPassword1" id="chkMsg">암호가 일치하지 않습니다.</label>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">이름</label>
@@ -221,12 +58,44 @@
                 <input type="text" class="form-control form-control-sm" id="tel" placeholder="연락처를 입력해주세요">
             </div>
                 
+            <div class="form-group">
+                <label for="exampleInputPassword1">관심 지역</label>
+                <div class="row" style="margin-top:-9.2em; margin-bottom:-10em;">
+                    <div class="col-sm-6" id="city">
+                    <select id="city" name="option1" onchange="changes(document.form.option1.value)" class="form-control fCity">
+                        <option value="" selected>:: 시/도 ::</option>
+                        <option value="1">서울특별시</option>
+                        <option value="2">부산광역시</option>
+                        <option value="3">대구광역시</option>
+                        <option value="4">인천광역시</option>
+                        <option value="5">광주광역시</option>
+                        <option value="6">대전광역시</option>
+                        <option value="7">울산광역시</option>
+                        <option value="8">세종특별자치시</option>
+                        <option value="9">경기도</option>
+                        <option value="10">강원도</option>
+                        <option value="11">충청북도</option>
+                        <option value="12">충청남도</option>
+                        <option value="13">전라북도</option>
+                        <option value="14">전라남도</option>
+                        <option value="15">경상북도</option>
+                        <option value="16">경상남도</option>
+                        <option value="17">제주특별자치도</option>
+                    </select>
+                </div>
+                    <div class="col-sm-6" id="county">
+                        <select id="county" name="option2" class="form-control fCounty">
+                            <option>:: 시/군/구 ::</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <br><br>
-		    <h2>관심사 고르기</h2>
-		    <hr>
-		    <p>관심사는 총 3개까지 설정하실 수 있습니다.</p>
-		    
-		    <input id="selectbox1" type="checkbox" name="chk" onClick="count_ck(this);"/>
+            <h2>관심사 고르기</h2>
+            <hr>
+            <p>관심사는 총 3개까지 설정하실 수 있습니다.</p>
+            
+            <input id="selectbox1" type="checkbox" name="chk" onClick="count_ck(this);"/>
             <input id="selectbox2" type="checkbox" name="chk" onClick="count_ck(this);"/>
             <input id="selectbox3" type="checkbox" name="chk" onClick="count_ck(this);"/>
             <input id="selectbox4" type="checkbox" name="chk" onClick="count_ck(this);"/>
@@ -248,9 +117,11 @@
                 <label for="selectbox9">기타</label>
                 <label for="selectbox10">기타</label>
             </section>
-			<hr>
-            <div class="btn btn-primary btn-block" id="signup">가입하기</div>
-	</form>
+            <hr>
+            <div> 
+            <button class="btn btn-secondary btn-block" id="signup" type="submit" disabled="disabled">가입하기</button>
+            </div>
+    </form>
     </div>
     <footer class="footer">
         <p>Logo</p>
@@ -262,6 +133,17 @@
         </div>
         <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script src="js/jquery.caret.min.js"></script>
+    <script src="js/jquery.tag-editor.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src="js/common.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js" > </script>
+    <script src="js/common.js"> </script>
+    <script src="js/register.js"> </script>
 </body>
 
 </html>

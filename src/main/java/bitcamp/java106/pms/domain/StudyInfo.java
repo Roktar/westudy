@@ -22,7 +22,6 @@ public class StudyInfo implements Serializable {
     private int maxPeople;
     private String category;
     
-    private String picture;
     private List<HashTag> tags;
     
     @Override
@@ -95,21 +94,15 @@ public class StudyInfo implements Serializable {
     public void setCategory(String category) {
         this.category = category;
     }
-    
+
     public List<HashTag> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<HashTag> tags) {
-		this.tags = tags;
-	}
-
-    public String getPicture() {
-        return picture;
+        return tags;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setTags(List<HashTag> tags) {
+        this.tags = tags;
     }
+    
+    
     
 }

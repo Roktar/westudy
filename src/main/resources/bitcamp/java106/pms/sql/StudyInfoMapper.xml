@@ -19,7 +19,6 @@
     <result column="cdt" property="createdDate" />
     <result column="mprs" property="maxPeople" />
     <result column="ctgr" property="category" />
-    <result column="pic" property="picture" />
   </resultMap>
 
   <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
@@ -45,6 +44,11 @@
     <!-- study_info.stdno,name,county -->
   </select>
   
+  <select id="studyCount" resultType="int">
+    select count(*) 
+    from study_info
+  </select>
+  
   <select id="selectSearchList" 
           resultMap="StudyMap" parameterType="map"> 
     select * 
@@ -61,20 +65,15 @@
   where stdno=#{value}
   </select>
   
+  <!-- <update id="update" parameterType="Study">
+    update pms2_study set 
+    titl=#{title}, dscrt=#{description} 
+    where bno=#{no}
+  </update> -->
+  
   <delete id="delete" parameterType="int">
     delete from study_info where stdno=#{value}
   </delete>
-
-  <update id="update" parameterType="StudyInfo">
-  	update study_info 
-		   SET sname = #{name}, city = #{city}, county = #{county}, 
-		       info = #{information}, ctgr = #{category}
-  	where stdno = #{no}
-  </update>
   
-  <update id="photo" parameterType="map">
-    update study_info
-    SET pic = #{fileName}
-    where stdno = #{stdno}
-  </update>
+  
 </mapper>

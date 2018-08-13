@@ -32,15 +32,20 @@ public class StudyAwaitingMemberController {
     }
     
     @RequestMapping("acceptRequest")
-   	public boolean accept (@RequestParam("memNo") int memNo, @RequestParam("type") int type, @RequestParam("no") int no) throws Exception{
+   	public boolean accept (
+   			@RequestParam("memNo") int memNo, 
+   			@RequestParam("type") int type, 
+   			@RequestParam("no") int no) throws Exception{
+    	
        	boolean success = true;
        	
        	Map<String, Object>  paramMap = new HashMap<String, Object>();
        	paramMap.put("memNo", memNo);
        	paramMap.put("type", type);
        	paramMap.put("no", no);
-       
-   		try {
+       	System.out.println("memNo : " + memNo + "type : " + type + "no : " + no);
+
+       	try {
    	       	studyAwaitingMemberService.accept(paramMap);
    	       	
    	       	if ( type == 2 ) {
@@ -57,12 +62,20 @@ public class StudyAwaitingMemberController {
     }
     
     @RequestMapping("add")
-    public boolean add (@RequestParam("memNo") int memNo) throws Exception{
+    public boolean add (
+    		 @RequestParam(value="memNo", defaultValue="1") int memNo,
+			 @RequestParam(value="no", defaultValue="1") int no) throws Exception{
+    	
     	boolean success = true;
        
+     	Map<String, Object>  paramMap = new HashMap<String, Object>();
+       	paramMap.put("memNo", memNo);
+       	paramMap.put("no", no);
+       	System.out.println("memNo : " + memNo + "no : " + no);
+    
    		try {
 	   			System.out.println("memNo : [" + memNo + "]");
-				studyAwaitingMemberService.add(memNo);
+				studyAwaitingMemberService.add(paramMap);
    		} catch (Exception e) {
 			System.out.println("요청 DB에러 발생");
 			success = false;

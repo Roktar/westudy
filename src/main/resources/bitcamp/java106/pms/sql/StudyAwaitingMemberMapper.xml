@@ -41,7 +41,7 @@
 		m.email
 		from study_awaiting_join saj
 		left join member m on saj.memno=m.memno
-		where saj.stdno=#{studyNo}
+		where saj.stdno=#{no}
 		and res=0
 		<!-- url에서 가져오 -->
 	</select>
@@ -51,7 +51,7 @@
 		UPDATE study_awaiting_join
 		SET res= #{type}
 		WHERE memno=#{memNo}
-		AND stdno= #{studyNo}
+		AND stdno= #{no}
 		<!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
 	</update>
 
@@ -59,15 +59,15 @@
 		INSERT INTO study_joined_member (
 		stdno, memno, grade, rdt
 		) values (
-		#{studyNo}, #{memNo}, 1, now()
+		#{no}, #{memNo}, 1, now()
 		)
 	</update>
 	
-	<insert id="add" parameterType="int">
+	<insert id="add" parameterType="hashmap">
 		INSERT INTO study_awaiting_join (
-		1, 1, res, reqdt
+		stdno, memno, res, reqdt
 		) values (
-		#{studyNo}, #{memNo}, 0, now()
+	   #{no}, #{memNo}, 0, now()
 		)
 	</insert>
 </mapper>

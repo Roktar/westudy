@@ -1,109 +1,198 @@
 $(document).ready(function() {
-	  
-	  var no = -1;
-      $.get("json/auth/loginstat", {}, res=> {
-          console.log("[" + res + "]" + ", " + typeof(res));
-          console.log(res.no);
-          no = res.no;
-          
-      }).done(function(data){
-    	   
-    	  $.get("json/joinedMember/"+no, (data) => {
-    		  let mystudy = $('.mystudy');
-    		  let ownstudy = $('.ownstudy');
-    		  
-    		  console.log(data)
-    		  var i = 0;
-    		  var k = 0;
-    		  var s = 2;
-    		
-    		  for(var item of data) {
-    			  if (item.grade == 0) {
-    			  $('<div>'+
-    					  '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html"><span id="stdname">\''+ item.study.name +'\'</span></a>'+
-    					  '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">탈퇴</button>'+
-    					  '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value"><button class="btn btn-primary btn-sm review" id="rbtn'+ i +'">후기 작성</button></a>'+
-    			  '</div>').appendTo(mystudy);
-    			      i++;
-    			 
-    			  
-    			
-    			  
-    			  } else if (item.grade == 1) {
-    				  $('<div>'+
-        					  '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html"><span id="stdname">\''+ item.study.name +'\'</span></a>'+
-        					  '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">탈퇴</button>'+
-        					  '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value"><button class="btn btn-primary btn-sm review" id="rbtn'+ s +'">후기 작성</button></a>'+
-        			  '</div>').appendTo(ownstudy);
-    				  s++;
-    			  }
-    			  console.log(k);
-    			  (function(k) {
-        			  
-        			  $('#rbtn' + k).click(function()  {
-        				  console.log(this);
-        				  this.sno = data[k].studyNo;
-        				  this.mno = data[k].memNo;
-        				  this.ctg = data[k].study.category;
-      	  				console.log(this.sno);
-      	  				console.log(this.mno);
-      	  				console.log(this.ctg);
-      	  			
-      	  		     $("#addBtn").click(() => {
-      	  		     $('#modal').modal('hide');
-      	  		    	$.ajax({
-      	  		    		type : 'POST',
-      	  		    		url : 'json/review/add',
-      	  		    		data: {
-      	  		    			category : this.ctg,
-      	  		    			content: $(fContent).val(),
-      	  		    			rating : $(example).val(),
-      	  		    			"member.no": this.mno,
-      	  		    			"study.no" : this.sno
-      	  		    		}
-      	  		    	 }).done(function(){
-      	  		    		
-      	  		    	 /*swal({
-      	  		    		 type: 'success',
-      	  		    		 title: '작성 완료!',
-      	  		    		 preConfirm: () => {
-      	  		    		 $('#modal').modal('hide');
-      	  		    		 location.reload("Mystudy.html")
-      	  		    		 
-      	  		    		 }
-      	  		    	 })*/
-      	  		    	
-      	  		    		swal({
-      	  		    		 type: 'success',
-      	                      title: '작성 완료!',
-      	                      showConfirmButton: false,
-      	                      timer: 700
-           	  		    		 
+   $.get("json/auth/loginstat", {}, res=> {
+       no = res.no;
+     }).done(function(data){
+   
+        console.log(no)
+         $.get("json/joinedMember/"+no, (data) => {
+            
+            console.log(data);
+            let mystudy = $('.mystudy');
+              let ownstudy = $('.ownstudy');
+               for(var item of data) {
+            	   console.log(item);
+            	   var _chkHtml = 'onclick="Rwrite('+ item.study.no +', this)">후기 작성';
+            	   if( item.review != null ){
+            		   _chkHtml = 'onclick="Rview('+ item.study.no +')">후기 보기';
+            	   }
+               
+               if (item.grade == 0) {
+               $('<div class="studybox">'+
+                     '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html"><span id="stdname">\''+ item.study.name +'\'</span></a>'+
+                     '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">관리</button>'+
+                     '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value"><button id="vBtn" class="btn btn-primary btn-sm review"' + _chkHtml + '</button></a>'+
+               '</div>').appendTo(mystudy);
+                  
+              
+              
+               
+               } else if (item.grade == 1) {
+            	   
+            	   var _html = '<div><span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html">'
+            	   + '<span id="stdname">\''+ item.study.name +'\'</span></a>'
+            	   + '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal" onclick="Out('+ item.study.no +')">탈퇴</button>'
+            	   + '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value">'
+            	   + '<button id="vBtn" class="btn btn-primary btn-sm review"'
+            	   + _chkHtml
+            	   + '</button></a>'
+            	   + '</div>'
+            	   
+                  $(_html).appendTo(ownstudy);
+                  
+               }
+           }
+               
+           
+    })
+})
+        
+        
+        
+        $('.modal').on('hidden.bs.modal', function (e) {
+              console.log('modal reset');
+            $(this).find('form')[0].reset();
+            
+            $('#example').barrating('set', 1);
+            $(addBtn).css('display', 'block');
+            $(closeBtn).css('display', 'block');
+            $(updBtn).css('display', 'none');
+            $(delBtn).css('display', 'none');
+        });
+});
 
-      	  		    		}).then((result) => {
-      	  		    			location.href="review2.html";
-      	  		    		})
-      	  		    		 
-      	  		    		 
-      	  		       })
-      	  		     });
-      	  		     
-      	  		  })
-        			  })(k);
-      	  		 k++;
-    			  
-    		  }
-    	  })
-	});
+
+
+
+
+function Rwrite(stdno, node) {
+	console.log('*** Rwrite 작성 ');
+   console.log("stdno : " + stdno);
+   console.log("memno : " + no);
+   
+   console.log(node)
+    var stdno = stdno;
+    $("#addBtn").click(() => {
+           $('#dAD').css("display", "none");
+             $.ajax({
+                type : 'POST',
+                url : 'json/review/add',
+                data: {
+                   category : this.ctg,
+                   content: $(fContent).val(),
+                   rating : $(example).val(),
+                   "member.no": no,
+                   "study.no" : stdno
+                }
+              }).done(function(){
+             
+                swal({
+                 type: 'success',
+                    title: '작성 완료!',
+                    showConfirmButton: false,
+                    timer: 500
+                }).then((result) => {
+                    location.href="Mystudy2.html";
+
+                   console.log(node);
+                   $('.modal-backdrop').remove();
+                    $($($($($(node).parent()).parent()).children()[3]).children()).css("display", "block");
+                   $(node).css("display", "none");
+                })
+             }).fail(function() {
+                $($($($($(node).parent()).parent()).children()[3]).children()).css("display", "block");
+                $(node).css("display", "none");
+                console.log(node);
+             })
+           });
+}
+
+
+function Rview(stdno) {
+	console.log('*** Rview 보기 ');
+     $(addBtn).css('display', 'none');
+     $(closeBtn).css('display', 'none');
+     $(updBtn).css('display', 'block');
+     $(delBtn).css('display', 'block');
+   console.log("stdno : " + stdno);
+   console.log("memno : " + no);
+   $.getJSON("json/review/myReview", {
+           studyNo : stdno,
+           memNo : no
+         }, data => {
+         $(fContent).text(data.content);
+         $(example).barrating('set', data.rating);
+       }).done(function(data){
+               console.log(data.no);
+               console.log(data);
+                    rvwno = data.no;
+                    
+                  $("#updBtn").click(() => {
+                $.post("json/review/update", {
+                        content: $(fContent).val(),
+                        rating : $(example).val(),
+                        no: rvwno
+                        
+                }, () => {
+                   location.href = "Mystudy.html";
+                });
+             });
+                  
+                 console.log(rvwno);
+                  $("#delBtn").click(() => {
+                    $.get("json/review/delete", {
+                          no : rvwno
+                    }, () => {
+                       location.href = "Mystudy.html";
+                    });
+                 });
+                  
+            });
+   
+   
+   
+
+               
+               
+         
       
-
-     
-      
- });
-
- 
- 
+}
 
 
 
+function Out(stdno) {
+     const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-primary',
+        cancelButtonClass: 'btn btn-secondary',
+        buttonsStyling: false,
+      })
+      swalWithBootstrapButtons({
+           title: '스터디를 탈퇴하시겠습니까?',
+           type: 'warning',
+           showCancelButton: true,
+           confirmButtonText: '네 탈퇴할래요!',
+           cancelButtonText: '아니요!',
+           reverseButtons: true
+         }).then((result) => {
+           if (result.value) {
+                $.ajax({
+                   url: 'json/joinedMember/update',
+                 type: 'POST',
+                 data:{
+                             grade : '2',
+                             studyNo : stdno,
+                             memNo : no
+                 }
+                    
+           })
+             swalWithBootstrapButtons({
+             title: '탈퇴 완료!',
+               text: '새로운 스터디를 찾아보세요!',
+               type: 'success'
+             }).then(function(){
+                location.href="Mystudy.html"
+               }
+             )
+           }  
+         })
 
+}

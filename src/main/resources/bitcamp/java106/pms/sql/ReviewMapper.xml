@@ -8,26 +8,24 @@
   <resultMap type="Review" id="ReviewMap">
     <id column="rvwno" property="no"/>
     <result column="cont" property="content"/>
-    <result column="stdno" property="studyNo"/>
-    <result column="memno" property="memNo"/>
     <result column="rating" property="rating"/>
     <result column="cdt" property="createdDate"/>
-    <result column="cnt" property="count"/>
     <result column="category" property="category"/>
+    <result column="cnt" property="count"/>
     <association property="member" javaType="Member">
-       <id column="memno" property="no"/>
-      <result column="mname" property="name"/>
-      <result column="pfp" property="photo"/>
+      <id column="memno" property="no"/>
+      <id column="mname" property="name"/>
+      <id column="pfp" property="photo"/>
     </association>
     <association property="study" javaType="StudyInfo">
-       <id column="stdno" property="no"/>
-      <result column="name" property="name"/>
-      <result column="ctgr" property="category"/>
+      <id column="stdno" property="no"/>
+      <id column="name" property="name"/>
+      <id column="ctgr" property="category"/>
     </association>
   </resultMap>
   
 <select id="selectList" resultMap="ReviewMap" parameterType="map">
-  select r.rvwno, r.stdno, r.memno, s.ctgr, s.name, r.cont, r.rating, r.cdt, mname, pfp 
+  select r.rvwno, s.name, s.ctgr, r.cont, r.rating, r.cdt, mname, pfp 
   from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
   where s.ctgr = #{category}  order by r.rvwno desc
   limit #{startRowNo}, #{pageSize}
@@ -55,10 +53,9 @@
 </select>
   
     
-  <insert id="insert" parameterType="Review" 
-        useGeneratedKeys="true" keyColumn="rvwno" keyProperty="no">
-   insert into study_review(category, cont, rating, cdt, stdno, memno) 
-   values (#{category}, #{content}, #{rating}, now(), #{study.no}, #{member.no})
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">
+   insert into study_review(cont, rating, cdt, stdno, memno) 
+   values (#(content), #{rating}, now(), #{no}, #{no})
   </insert>
   
 
@@ -68,11 +65,6 @@
     from study_review
     where title=#{no}
   </select>
-  
-  <delete id="delete" parameterType="int">
-    delete from study_review where rvwno=#{value}
-  </delete>
-  
   
   
 </mapper>

@@ -8,5 +8,4 @@ public interface HashTagDao {
              
     int insert(HashTag hashTag);
     List<HashTag> selectList(int no);
-    void delete(int no);
 }

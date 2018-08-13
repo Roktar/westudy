@@ -9,6 +9,7 @@ public interface StudyAwaitingMemberService {
 	List<StudyAwaitingMember> list(int no);
 	int accept(Map<String, Object> paramMap);
 	int insert(Map<String, Object> paramMap);
-	int add(int no);
+	
+	int add(Map<String, Object> paramMap);
 } 
  
