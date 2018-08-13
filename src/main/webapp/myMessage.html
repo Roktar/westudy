@@ -42,6 +42,8 @@
             $.getJSON(serverRoot + "/json/auth/loginstat", {}, res => {
                 myNo = res.no;
                 myEmail = res.email;
+                $("label[for=tabOne]").trigger("click");
+
             })
 
             $(".btn.btn-outline-secondary.juso").click(function(event, data) {
@@ -264,7 +266,6 @@
         });
         
         window.onload = function() {
-            $("label[for=tabOne]").trigger("click");
         }
 
         function viewDetail(event, no, type) {
