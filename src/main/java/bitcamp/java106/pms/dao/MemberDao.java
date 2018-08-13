@@ -20,4 +20,8 @@ public interface MemberDao {
     
     int checkId(String email);
     Member findMember(String id);
+    
+    // facebook, kakao
+    Member findByEmail(String email);
+    int add(Member member);
 }

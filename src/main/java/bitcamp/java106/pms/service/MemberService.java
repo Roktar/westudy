@@ -19,5 +19,9 @@ public interface MemberService {
 	int delete(int no);
 	
 	int checkId(String email);
+	
+	// facebook, kakao
+	Member get(String email);
+    int add(Member member);
 } 
  
