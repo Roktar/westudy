@@ -137,4 +137,10 @@ public class StudyInfoServiceImpl implements StudyInfoService {
         }
         return "success";
     }
+    
+    
+    @Override
+	public List<StudyInfo> selectListRandom() {
+		return studyInfoDao.selectListRandom();
+	}
 }

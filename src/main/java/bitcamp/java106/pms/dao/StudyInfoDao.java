@@ -16,4 +16,5 @@ public interface StudyInfoDao {
     StudyInfo selectlimitOne();
     int studyCount();
     int photo(Map<String, Object> params);
+    List<StudyInfo> selectListRandom();
 }
