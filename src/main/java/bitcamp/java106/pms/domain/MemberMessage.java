@@ -6,15 +6,16 @@ import java.sql.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class MemberMessage implements Serializable {
- 
     private static final long serialVersionUID = 1L;
     
     private int no;
     private String content;
     private Member sender;
     private Member receiver;
+    
     @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")    
     private Date createdDate;
+    
     @Override
     public String toString() {
         return "MemberMessage [no=" + no + ", content=" + content + ", sender=" + sender + ", receiver=" + receiver
@@ -50,7 +51,4 @@ public class MemberMessage implements Serializable {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
-    
-    
-    
 }
