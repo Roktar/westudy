@@ -14,8 +14,9 @@ $(document).ready(function(){
         success: function(data){            
             $.each(data, function(index, data){
                 var item = data;
+                
                 $('<div class="card">' +
-                    '<img class="card-img-top" src="files/'+ item.photo +'_242x242.jpg" alt="Card image cap">' +
+                    '<img class="card-img-top" src="files/'+ item.photo +'_380x380.jpg" alt="Card image cap">' +
                         '<div class="card-body">'+
                             '<p class="card-text">'+ item.title +'</p>'+
                             '<p class="card-text"><small class="text-muted">'+ item.createdDate +'</small></p>'+

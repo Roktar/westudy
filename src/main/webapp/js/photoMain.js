@@ -238,6 +238,7 @@ let fetchList2 = function(){
             
             
             $.each(data, function(index, data){
+            	console.log(data);
                 var item = data;
                 
                 elem[index] = $('<div class="grid-item">' +

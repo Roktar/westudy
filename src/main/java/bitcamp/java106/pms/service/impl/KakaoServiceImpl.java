@@ -9,8 +9,6 @@ import bitcamp.java106.pms.service.KakaoService;
 public class KakaoServiceImpl implements KakaoService {
     
     public <T> T me(String accessToken, Class<T> type) {
-        // 클라이언트가 보낸 액세스 토큰을 가지고 
-        // 페이스북 서버에 로그인 사용자 정보를 요청한다.
         RestTemplate restTemplate = new RestTemplate();
         
         try {
