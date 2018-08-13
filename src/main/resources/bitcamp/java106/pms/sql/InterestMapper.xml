@@ -10,9 +10,13 @@
     <result column="itr" property="category" />
   </resultMap>
     
- <insert id="insert" parameterType="InterestField">
+ <insert id="insert" parameterType="bitcamp.java106.pms.domain.InterestField">
   insert into member_interest values(#{category}, ${no})
  </insert>
+ 
+ <delete id="delete" parameterType="int">
+    delete from member_interest where memno = #{no}
+ </delete>
     
 </mapper>
 

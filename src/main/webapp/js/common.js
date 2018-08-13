@@ -1,1 +1,1 @@
-var serverRoot = "http://westudy.java106.com:8888/FinalProject";
+var serverRoot = "http://localhost:8888/FinalProject";

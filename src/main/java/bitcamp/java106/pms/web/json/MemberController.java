@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -148,4 +149,9 @@ public class MemberController {
 	public int checkId(@RequestParam("email") String email) {
 		return memberService.checkId(email);
 	}
+	
+    @PostMapping("upd_itr")
+    public Object updateInterest(@RequestBody String qs, HttpSession session) {
+        return memberService.updateInterest( qs.split("&"), ((Member)session.getAttribute("loginUser")).getNo() );
+    }
 }

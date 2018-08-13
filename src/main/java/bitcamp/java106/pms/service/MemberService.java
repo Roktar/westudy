@@ -20,6 +20,8 @@ public interface MemberService {
 	
 	int checkId(String email);
 	
+	Object updateInterest(String[] itrs, int no);
+
 	// facebook, kakao
 	Member get(String email);
     int add(Member member);

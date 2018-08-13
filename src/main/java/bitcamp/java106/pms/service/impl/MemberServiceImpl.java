@@ -1,5 +1,6 @@
 package bitcamp.java106.pms.service.impl;
 
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -177,4 +178,20 @@ public class MemberServiceImpl implements MemberService{
 	public int add(Member member) {
 		return memberDao.add(member);
 	}
+	
+    @Override
+    public Object updateInterest(String[] itrs, int no) {
+        interestFieldDao.delete(no);
+        try {
+            for(String s : itrs) {
+                InterestField itr = new InterestField();
+                itr.setNo(no);
+                itr.setCategory( URLDecoder.decode(s.split("=")[1], "UTF-8") );
+                interestFieldDao.insert(itr);
+            }
+        } catch(Exception e) {
+            return "fail";
+        }
+        return "success";
+    }
 }

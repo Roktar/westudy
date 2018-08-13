@@ -7,7 +7,7 @@ import bitcamp.java106.pms.domain.InterestField;
 
 public interface InterestFieldDao {
     void insert(InterestField inf);
-    void delete(Map<String, Object> params);
+    void delete(int no);
     List<InterestField> selectList(int memNo);
     
 }
