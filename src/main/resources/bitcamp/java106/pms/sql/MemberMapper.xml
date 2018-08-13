@@ -102,6 +102,11 @@
     FROM member
     WHERE email=#{id}
 </select>
+
+
+<select id="findByEmail" parameterType="String" resultMap="MemberMap">
+        select * from member where email=#{email}
+</select>  
   
 </mapper>
 
