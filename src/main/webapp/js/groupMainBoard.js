@@ -75,6 +75,7 @@ $(document).ready(function(){
 
        $('#upload-btn').unbind("click");
        $('#upload-btn').click(function() {
+    	   
            data.submit();
        });
        
@@ -89,7 +90,12 @@ $(document).ready(function(){
      },
      
      submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-	       console.log('submit()...');
+    	 swal({
+	    		type: 'success',
+	    		title: '게시물 업로드 완료',
+	    		showConfirmButton: false,
+	    		timer: 2000
+	    	})
 	       data.formData = {
 	    	   title: $('#boaTitle').val(),
 	    	   content: $('#boaContent').val(),
