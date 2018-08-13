@@ -1,10 +1,7 @@
 div.container {
     max-width: 1200px;
-<<<<<<< HEAD:frontend/css/group.css
     margin: 0px auto 0px auto;
-=======
     padding: 0px;
->>>>>>> 64006f5920d7df1dead85c786318028718810f26:src/main/webapp/css/group.css
 }
 
 div.innerContainer {
@@ -13,13 +10,10 @@ div.innerContainer {
 
 ul.nav {
     background-color: #ef6c00;
-<<<<<<< HEAD:frontend/css/group.css
     color: white; 
 /*    padding-bottom: 1rem;*/
 /*    margin-bottom: 1rem;*/
 /*    font-weight: bold;*/
-=======
->>>>>>> 64006f5920d7df1dead85c786318028718810f26:src/main/webapp/css/group.css
 }
 
 a.nav-link {
@@ -315,13 +309,7 @@ div.photos {
 
 img.card-img-top {
     border-radius: 0px;
-<<<<<<< HEAD
     max-height: 16em;
-=======
-}
-img.card-img-top:hover {
-    opacity: 0.4;
->>>>>>> branch 'master' of https://github.com/Roktar/FinalProject.git
 }
 
 a.photoBtn {

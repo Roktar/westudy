@@ -1,4 +1,4 @@
-/*----------insert----------*/
+/*----------list(main) end----------*/
 "use strict"
 var studyNo = window.location.search.substring(1).split("=")[1];;
 
