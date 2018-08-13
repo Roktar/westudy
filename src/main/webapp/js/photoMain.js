@@ -9,6 +9,7 @@ $(document).ready(function(){
 	$.getJSON(serverRoot + '/json/auth/loginstat',{}, res =>{
 		console.log("loginData = " + res.no);
 		memNo = res.no;
+		
 	});
 	
 	$(function() {
@@ -308,7 +309,6 @@ function doDep(event, no) {
    });
 
 }
-
 
 /*----------delete end----------*/
 

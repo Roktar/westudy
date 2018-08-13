@@ -313,7 +313,7 @@ div.photos {
 
 img.card-img-top {
     border-radius: 0px;
-    max-height: 20em;
+    max-height: 16em;
 }
 
 a.photoBtn {
@@ -428,3 +428,57 @@ div.col-sm.memberProfile span{
     margin-left: 1rem;
     margin-right: 2rem;
 }
+
+div#files-div{
+	min-height: 10rem;
+    max-height: 12rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: -0.5em;
+    overflow: scroll;
+}
+#fileupload{
+	visibility: hidden;
+}
+
+#boaTitle{
+	width: 94%;
+	margin-bottom:1em;
+}
+#boaContent{
+	width: 100%;
+	height: 7rem;
+}
+
+#ad-file-div{
+	margin-top: -0.5em;
+}
+
+.fileWrap{
+	margin-bottom: 1em;
+}
+#modalBoaCont{
+	text-align:left;
+	min-height:15rem;
+}
+#modalBoaFile{
+	float: left;
+}
+#fileuploadOne{
+	visibility: hidden;
+}
+div#filesOne-div{
+    min-height: 4rem;
+    max-height: 10rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    overflow: scroll;
+}
+#boaOneContent{
+	min-height: 15rem;
+}
+
+#searchDiv{
+	width: 100%;
+}
+

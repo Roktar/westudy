@@ -19,6 +19,7 @@
     "npm": "^6.2.0",
     "popper": "^1.0.1",
     "popper.js": "^1.14.3",
-    "slidebars": "^2.0.2"
+    "slidebars": "^2.0.2",
+    "sweetalert2": "^7.26.10"
   }
 }

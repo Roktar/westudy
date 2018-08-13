@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcamp.java106.pms.dao.StudyFreeBoardDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.StudyFreeBoard" id="StudyFreeBoardMap">
+    <id column="frno" property="no"/>
+    <result column="stdno" property="studyNo"/>
+    <result column="memno" property="memNo"/>
+    <result column="titl" property="title"/>
+    <result column="cont" property="content"/>
+    <result column="cdt" property="createdDate"/>
+    <result column="file" property="file"/>
+    <result column="orifi" property="originFile"/>
+    <association property="member" javaType="Member">
+      <id column="memno" property="no"/>
+      <result column="mname" property="name"/>
+    </association>
+  </resultMap>
+    
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.StudyFreeBoard">
+    insert into study_freeboard(titl, cont, cdt, file, orifi, stdno, memno)
+        values(#{title}, #{content}, now(), #{file}, #{originFile},#{studyNo}, #{memNo})
+  </insert>
+  
+  <select id="selectList" parameterType="map" resultMap="StudyFreeBoardMap">
+    select b.frno, b.titl, b.cdt, b.file, m.mname 
+    from study_freeboard b left join member m on b.memno=m.memno
+    where stdno = #{studyNo}
+    order by frno desc
+    limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  <select id="getCount" resultType="int">
+    select count(*)
+    from study_freeboard
+    where stdno = #{studyNo}
+  </select>
+  
+  <select id="listByOne" parameterType="map" resultMap="StudyFreeBoardMap">
+    select b.frno, b.titl, b.cont, b.cdt, b.file, b.orifi, b.memno, b.stdno, m.mname 
+    from study_freeboard b left join member m on b.memno=m.memno
+    where b.stdno = #{studyNo} and b.frno=#{no}
+  </select>
+  
+  <delete id="delete" parameterType="int">
+    delete from study_freeboard 
+    where frno=#{value}
+  </delete>
+  
+  <update id="update" parameterType="bitcamp.java106.pms.domain.StudyFreeBoard">
+    update study_freeboard set
+        titl = #{title},
+        cont = #{content}, 
+        cdt = now(),
+        <if test="file != null">
+            <choose>
+                <when test="originFile != null">
+	               file = #{file},
+                </when>
+                <otherwise>
+                    file = #{file}
+                </otherwise>
+            </choose>
+        </if>
+        <if test="originFile != null">
+            orifi = #{originFile}
+        </if>
+        
+    where frno = #{no} and stdno = #{studyNo} and memno = #{memNo}
+        
+    
+  </update>
+  
+  <select id="search" parameterType="map" resultMap="StudyFreeBoardMap">
+    select b.frno, b.titl, b.cdt, b.file, m.mname 
+    from study_freeboard b left join member m on b.memno=m.memno
+    where stdno = #{studyNo} and titl LIKE concat('%', #{title}, '%')
+    order by frno desc
+    limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  <select id="getSearchCount" parameterType="map" resultType="int">
+    select count(*)
+    from study_freeboard
+    where stdno = #{studyNo} and titl LIKE concat('%', #{title}, '%')
+  </select>
+</mapper>
+
+
+
+
+
+
+
