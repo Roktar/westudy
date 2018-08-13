@@ -111,6 +111,7 @@
 <script src="js/masonry.pkgd.min.js"></script>
 <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
 <script src="js/common.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
 <script src="js/photoMain.js"></script>
 <script src="node_modules/slidebars/dist/slidebars.js"></script>
 </body>
@@ -131,22 +132,9 @@
         
         $("#header").load(serverRoot + "/header.html");
     });
+
 </script>
 
-<!-- 등록 확인 버튼 sweet alert -->
-<script>
-	$(document).ready(function() {
-	    $("#upload-btn").click(function(e) {
-	    	swal({
-	    		type: 'success',
-	    		title: '사진 업로드 완료',
-	    		showConfirmButton: false,
-	    		timer: 1000
-	    	})
-	    });
-	});
-</script>
-<!-- 등록 확인 버튼 sweet alert -->
 
 
 </html>

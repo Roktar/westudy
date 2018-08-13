@@ -76,6 +76,12 @@ $(document).ready(function(){
      },
      
      submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+    	 swal({
+	    		type: 'success',
+	    		title: '사진 업로드 완료',
+	    		showConfirmButton: false,
+	    		timer: 1000
+	    	})
 	       console.log('submit()...');
 	       data.formData = {
 	    	   title: $('#phoTitle').val(),
@@ -214,7 +220,6 @@ let fetchList2 = function(){
     }
     console.log(upNowDate);
     console.log(upPreDate);
-//    let startNo = $(".grid-item").last().data("no") || 0;
     
     $.ajax({
         url: serverRoot + "/json/photo/list?nowDate="+upNowDate+"&"+"preDate="+upPreDate+"&studyNo="+studyNo,
@@ -226,15 +231,6 @@ let fetchList2 = function(){
         success: function(data){
         	console.log(data);
             let length = data.length;  
-            
-//            if(length == 0){
-//            	for (this.upPreDate = yyyy + "-" + (--MM) + "-" + "01"; data.length > 0; MM--){
-//            		
-//            		fetchList2();
-//            		
-//            	}
-//            	
-//            }
             
             if( length < 5 ){ 
                     isEnd = true;
@@ -287,9 +283,9 @@ function showImg(no) {
         dataType: "json",
         
         success: function(data){
-        	
+        	console.log(data.photo);
         	$("#modalTitle").html(data.title);
-        	$("#modalImg").attr("src", serverRoot + "/files/"+ data.photo +"_380x380.jpg");	
+        	$("#modalImg").attr("src", "files/"+ data.photo +"_380x380.jpg");	
         }
 	
 	})
