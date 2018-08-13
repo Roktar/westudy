@@ -31,22 +31,16 @@
     <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
     
     <script src="js/common.js"></script>
-    <script src="js/groupInfoUpdate.js"></script>
     <script>
-        var no = location.href.split("?")[1].split("=")[1];
-        
-        
         let myNo = -1;
         let studyNo = window.location.search.substring(1).split("=")[1];
         let initTags = [];
         let studyInfo = null;
 
-        
-
         $(document).ready(function() {
-        	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);
-            $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+no);
-            $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+no);
+        	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
+            $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+studyNo);
+            $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+studyNo);
         	
             $("#header").load(serverRoot + "/header.html");
 
@@ -59,8 +53,7 @@
              });  
 
             $.get(serverRoot + "/json/studyInfo/" + studyNo, {}, res => {
-                studyInfo = res;
-
+                console.log(res);
                 $('#studyName').val(res.name);
 
                 $('#fCity').val( cityChanger(res.city) );
@@ -86,7 +79,6 @@
                 });
 
                 $(".image-thumbnail").attr("src", (res.picture != "" ? "img/studyImgs/" + res.picture : "img/img.jpg") );
-
             });
             
             $("#updateBtn").click(function() {
@@ -118,7 +110,6 @@
                     }
                 });
                 
-                console.log(tags);
                 $.post(serverRoot + "/json/studyInfo/update_tags", {
                     tags,
                     no : studyNo
@@ -162,6 +153,9 @@
         });
 
         function changes(fr) {
+            let num = 0;
+            let vnum = 0;
+
             if(fr==1) {
                 //뿌려줄값을 배열로정렬
                 num = new Array("서울 전체","강남구","강동구", "강북구", "강서구", 

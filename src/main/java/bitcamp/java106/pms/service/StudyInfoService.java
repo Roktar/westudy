@@ -1,6 +1,7 @@
 package bitcamp.java106.pms.service;
 
 import java.util.List;
+import java.util.Map;
 
 import bitcamp.java106.pms.domain.HashTag;
 import bitcamp.java106.pms.domain.StudyInfo;
@@ -14,8 +15,11 @@ public interface StudyInfoService {
     StudyInfo get(int no);
     int add(StudyInfo studyInfo);
     int addTag(String[] tag);
-    int update(StudyInfo studyInfo);
+    Object update(StudyInfo studyInfo);
     int delete(int no);
     int getLimitOne();
     int count();
+    
+    Object setPhoto(String fileName, int studyNo, Map<String, Object> data);
+    Object updateTag(String[] tags);
 }
