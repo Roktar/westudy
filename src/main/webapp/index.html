@@ -273,42 +273,32 @@
 	<!-- javascript start -->
 	
 	<script src='node_modules/jquery/dist/jquery.js'></script>
-	<script src="js/common.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-	
-	<script>
-        var memno = -1;
-        
-        $(document).ready(function() {
-        	
-	        $.get("json/auth/loginstat", {}, res=> {
-	            memno = res.no;
-	            
-	            if(typeof(res) == "object" ) { // 로그인 후
-	            	$("#login-after.section").css("display", "block");
-	            	$("#login-before.section").css("display", "none");
-	            } else { //로그인 전
-	            	$("#login-after.section").css("display", "none");
-	            	$("#login-before.section").css("display", "block");
-	            }
-	        })
-        
-        });
-        
-    </script>
-    
+	<script src="js/common.js"></script>
 	<script src="js/mainReview.js"></script>
-	
 	<script src="slider/jquery.bxslider.min.js"></script>
-	<script src="node_modules/slidebars/dist/slidebars.js"></script>
-	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+	
 	<script>
-	   $("#header").load(serverRoot + "/header.html");
-	</script>
-	<!-- bxslider start -->
-	<script>
+	
+	var memno = -1;
         $(document).ready(function () {
+		    $("#header").load(serverRoot + "/header.html");
+        	
+        	$.get("json/auth/loginstat", {}, res=> {
+                memno = res.no;
+                
+                if(typeof(res) == "object" ) { // 로그인 후
+                    $("#login-after.section").css("display", "block");
+                    $("#login-before.section").css("display", "none");
+                } else { //로그인 전
+                    $("#login-after.section").css("display", "none");
+                    $("#login-before.section").css("display", "block");
+                }
+            })
+        
+            
             $('.slider').bxSlider({
                 auto: true,
                 speed: 500,

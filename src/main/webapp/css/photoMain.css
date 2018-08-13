@@ -143,3 +143,6 @@ img {
     width: 100%;
 }
 
+.btn-secondary {
+   background-color: #aaa;
+}
