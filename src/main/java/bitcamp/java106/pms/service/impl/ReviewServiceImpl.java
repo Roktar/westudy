@@ -2,17 +2,21 @@ package bitcamp.java106.pms.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.dao.ReviewDao;
+import bitcamp.java106.pms.dao.StudyInfoDao;
 import bitcamp.java106.pms.domain.Review;
 import bitcamp.java106.pms.service.ReviewService;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
     ReviewDao reviewDao;
-    
+   
+
     public ReviewServiceImpl(ReviewDao reviewDao) {
         this.reviewDao = reviewDao;
     }
@@ -25,7 +29,6 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public Review get(int no) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -54,10 +57,27 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.selectListAll();
 	}
 
+	@Override
+	public int delete(int no) {
+	    return reviewDao.delete(no);
+	}
 
+	@Override
+	public Review getMyReview(int memNo, int studyNo) {
+		HashMap<String,Object> params = new HashMap<>();
+       
+        params.put("memNo", memNo);
+        params.put("studyNo", studyNo);
+     
+		return reviewDao.getMyReview(params);
+	}
+	
 
-
-
+    @Override
+    public int update(Review review) {
+        return reviewDao.update(review);
+    }
+    
 
    
 }

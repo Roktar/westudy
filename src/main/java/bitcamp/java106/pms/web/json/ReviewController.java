@@ -26,9 +26,8 @@ public class ReviewController {
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
      public void add(Review review) throws Exception {
-             reviewService.add(review);
-     }
-     
+    	reviewService.add(review);
+    }
     
     
     @RequestMapping("{no}")
@@ -59,4 +58,26 @@ public class ReviewController {
     public Review countOne(String category) throws Exception {
     	return reviewService.countOne(category);
     }
+    
+    @RequestMapping("delete")
+    public void delete(@RequestParam("no") int no) throws Exception {
+        reviewService.delete(no);
+    }
+    
+    
+   @RequestMapping("myReview")
+    public Review getMyReview(
+    		@RequestParam("memNo") int memNo,
+    		@RequestParam("studyNo") int studyNo) {
+    	return reviewService.getMyReview(memNo, studyNo);
+    }
+    
+    
+    @RequestMapping("update")
+    public void update(Review review) throws Exception {
+        reviewService.update(review);
+    }
+    
+  
+    
 }

@@ -8,8 +8,11 @@ import bitcamp.java106.pms.domain.Review;
 public interface ReviewDao {
 	int insert(Review review);
     List<Review> selectList(Map<String, Object> params);
-    List<Review> selectListAll();
+    List<Review> selectListAll(); 
     List<Review> count();
-    Review countOne(String category); 
-    
+    Review countOne(String category);
+    int delete(int no);
+    int update(Review review);
+    Review getMyReview(Map<String, Object> params);
+
 }

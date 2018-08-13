@@ -14,14 +14,16 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/he-review.css">
     <link rel="stylesheet" href="css/css-stars-reviewpage.css">
-    <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
-    
- 
+     <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\all.css">
+         <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.css">
+     
+    <script src="node_modules\@fortawesome\fontawesome-free\js\all.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
- 
+    <script src="js/review.js"></script>
 
 <title>westudy</title>
 
@@ -32,7 +34,31 @@
 
 
  <!-- header start -->
- <div id="header"> </div>
+ <header class="header">
+        <div class="headerWrap">
+                <h1 class="logo">
+                        <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+                     </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"><a href="search.html">검색</a></li>
+                    <li><a href="makeStudy.html">스터디 만들기</a></li>
+                    <li><a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a></li>
+                    <li><a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a></li>
+                    <li class="utilMenuMobile">스터디그룹 만들기</li>
+                    <li class="utilMenuMobile">가입한 스터디 목록</li>
+                    <li class="menu"><a href="myProfile.html">menu</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="menuToggle" style="display: none">
+            <div>
+                <div class="profile_img">
+                    <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
+                </div>
+            </div>	
+        </div>
+    </header>
     <!-- header end -->
     <!-- </header> -->
     <!-- navbar end -->
@@ -41,7 +67,7 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-sm-9">
-                <div class="std-titl-titl">리얼 스터디 후기</div>
+               
                 <div class="col-box">
                     <div class="real-box">
                     <img src="img/logoh.png" width="100" height="20" class="main-logo">
@@ -52,27 +78,12 @@
                 </div>
                 </div>
 
+ 	
+
 
                 <div class="stdclasstitl"><span class="stdclasstitl2"></span> 
                     
-                <div class="dropdown show drop-list">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          분류별
-                        </a>
-                      
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="#">IT</a>
-                          <a class="dropdown-item" href="#">언어</a>
-                          <a class="dropdown-item" href="#">국가시험</a>
-                          <a class="dropdown-item" href="#">기사</a>
-                          <a class="dropdown-item" href="#">금융</a>
-                          <a class="dropdown-item" href="#">취업</a>
-                          <a class="dropdown-item" href="#">토론</a>
-                          <a class="dropdown-item" href="#">기타</a>
-
-                        </div>
-                </div>
-
+         
 
 
                         <!-- <hr class="line2"> -->
@@ -134,10 +145,6 @@
  
     <script src="js/holder.min.js"></script>
     <script>
-    
-    $(document).ready(function() {
-          $("#header").load("header.html");
-    });
         Holder.addTheme("dark", {
             background: "#000", 
             foreground: "#aaa", 
@@ -154,9 +161,8 @@
 
 <!-- <script src="js/review.js"></script> -->
 
-<script src="js/review.js"></script>
+
 <script type="text/javascript"></script>
-<script src="node_modules/slidebars/dist/slidebars.js"></script>
 
 
 
