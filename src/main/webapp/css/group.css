@@ -1,10 +1,7 @@
 div.container {
     max-width: 1200px;
-<<<<<<< HEAD:frontend/css/group.css
     margin: 0px auto 0px auto;
-=======
     padding: 0px;
->>>>>>> 64006f5920d7df1dead85c786318028718810f26:src/main/webapp/css/group.css
 }
 
 div.innerContainer {
@@ -13,13 +10,10 @@ div.innerContainer {
 
 ul.nav {
     background-color: #ef6c00;
-<<<<<<< HEAD:frontend/css/group.css
     color: white; 
 /*    padding-bottom: 1rem;*/
 /*    margin-bottom: 1rem;*/
 /*    font-weight: bold;*/
-=======
->>>>>>> 64006f5920d7df1dead85c786318028718810f26:src/main/webapp/css/group.css
 }
 
 a.nav-link {
@@ -315,9 +309,7 @@ div.photos {
 
 img.card-img-top {
     border-radius: 0px;
-}
-img.card-img-top:hover {
-    opacity: 0.4;
+    max-height: 16em;
 }
 
 a.photoBtn {
@@ -432,3 +424,57 @@ div.col-sm.memberProfile span{
     margin-left: 1rem;
     margin-right: 2rem;
 }
+
+div#files-div{
+	min-height: 10rem;
+    max-height: 12rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: -0.5em;
+    overflow: scroll;
+}
+#fileupload{
+	visibility: hidden;
+}
+
+#boaTitle{
+	width: 94%;
+	margin-bottom:1em;
+}
+#boaContent{
+	width: 100%;
+	height: 7rem;
+}
+
+#ad-file-div{
+	margin-top: -0.5em;
+}
+
+.fileWrap{
+	margin-bottom: 1em;
+}
+#modalBoaCont{
+	text-align:left;
+	min-height:15rem;
+}
+#modalBoaFile{
+	float: left;
+}
+#fileuploadOne{
+	visibility: hidden;
+}
+div#filesOne-div{
+    min-height: 4rem;
+    max-height: 10rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    overflow: scroll;
+}
+#boaOneContent{
+	min-height: 15rem;
+}
+
+#searchDiv{
+	width: 100%;
+}
+
