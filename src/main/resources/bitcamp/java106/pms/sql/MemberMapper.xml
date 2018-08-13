@@ -84,12 +84,18 @@
     delete from dhGm where usrno=#{value}
 </delete> 
 
-<select id="findMember" parameterType="String" resultType="int">
+<select id="find" parameterType="String" resultType="int">
     select memno 
     from member
     where email = #{id}
 </select>
 
+
+<select id="findMember" parameterType="String" resultMap="MemberMap">
+    select memno 
+    from member
+    where email = #{id}
+</select>
 
 <update id="upload" parameterType="map">
     update member
