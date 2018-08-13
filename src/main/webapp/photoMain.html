@@ -13,79 +13,79 @@
 <link type="text/css" rel="stylesheet" href="css/hover-box.css">
 <link rel="stylesheet" href="css/photoMain.css">
 <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+<link href="node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
 
 </head>
 
 <body>
-	<div id="header"> </div>
-	
-	<div id="topCon" class="container">
-		<div class="col text-right" style="padding: 0">
-			<h3 style="float: left">사진</h3>
-			<button type="file" class="btn btn-sm">
-				<a id="" data-toggle="modal" href="#dAD"> 업로드</a>
-			</button>
-		</div>
-		<hr>
-	</div>
+    <div id="header"> </div>
+    
+    <div id="topCon" class="container">
+        <div class="col text-right" style="padding: 0">
+            <h3 style="float: left">사진</h3>
+            <button type="file" class="btn btn-sm">
+                <a id="" data-toggle="modal" href="#dAD"> 업로드</a>
+            </button>
+        </div>
+        <hr>
+    </div>
 
 
   
   <div id="grid_container" class="container"></div>
   
-	<!--DAD Modal -->
-	<div class="modal fade" id="dAD" role="dialog">
-		<div class="modal-dialog">
+    <!--DAD Modal -->
+    <div class="modal fade" id="dAD" role="dialog">
+        <div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">업로드</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">업로드</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-				<div class="modal-body">
+                <div class="modal-body">
 
-					<div class="input-group mb-3">
-						<input id="phoTitle" type="text" class="form-control" placeholder="제목">
-					</div>
-					<input id="fileupload" type="file" name="files" multiple>
+                    <div class="input-group mb-3">
+                        <input id="phoTitle" type="text" class="form-control" placeholder="제목">
+                    </div>
+                    <input id="fileupload" type="file" name="files" multiple>
 
-					<div id="ad-images-div"></div>
+                    <div id="ad-images-div"></div>
 
-				</div>
+                </div>
 
-				<div class="modal-footer">
-					<button id='upload-btn' class="btn btn-default" type='button' data-dismiss="modal">등록</button>
-					<button id="closeBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <div class="modal-footer">
+                    <button id='upload-btn' class="btn btn-default" type='button' data-dismiss="modal">등록</button>
+                    <button id="closeBtn" class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="viewModal" role="dialog">
+        <div class="modal-dialog">
 
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="viewModal" role="dialog">
-		<div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="modalTitle"></h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body">
-					<img id="modalImg" src="" alt="">
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	
-	<footer class="footer">
+        </div>
+    </div>
+    
+    <footer class="footer">
             <p>Logo</p>
             <div>
                 <span>서울특별시 강남구 비트캠프 401호</span>
@@ -116,27 +116,38 @@
 </body>
 
 <script>
-
-	$(document).ready(function() {
-		$('#dAD').on('show.bs.modal', function() {
-			$('#ad-images-div').empty();
-			$('#phoTitle').val('');
-		});
-	
-
-		$('#upload-btn').click(function(){
-	       $('#dAD').on('show.bs.modal', function() {
-	           $('#ad-images-div').empty();
-	           $('#phoTitle').val('');
-	       });
-		});
-		
-		$("#header").load(serverRoot + "/header.html");
+    $(document).ready(function() {
+        $('#dAD').on('show.bs.modal', function() {
+            $('#ad-images-div').empty();
+            $('#phoTitle').val('');
+        });
+    
+        $('#upload-btn').click(function(){
+           $('#dAD').on('show.bs.modal', function() {
+               $('#ad-images-div').empty();
+               $('#phoTitle').val('');
+           });
+        });
+        
+        $("#header").load(serverRoot + "/header.html");
     });
-	 
 </script>
 
-
+<!-- 등록 확인 버튼 sweet alert -->
+<script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+<script>
+	$(document).ready(function() {
+	    $("#upload-btn").click(function(e) {
+	    	swal({
+	    		type: 'success',
+	    		title: '사진 업로드 완료',
+	    		showConfirmButton: false,
+	    		timer: 1000
+	    	})
+	    });
+	});
+</script>
+<!-- 등록 확인 버튼 sweet alert -->
 
 
 </html>

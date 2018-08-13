@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="bitcamp.java106.pms.dao.StudyAwaitingMemberDao">
+
+	<resultMap type="StudyAwaitingMember"
+		id="StudyAwaitingMemberMap">
+		<id column="stdno" property="studyNo" />
+		<id column="memno" property="memNo" />
+		<result column="reqdt" property="requestDate" />
+		<result column="res" property="response" />
+		<association property="member" javaType="Member">
+			<id column="memno" property="no" />
+			<result column="mname" property="name" />
+			<result column="email" property="email" />
+		</association>
+		<association property="study" javaType="StudyInfo">
+			<id column="stdno" property="no" />
+			<result column="name" property="name" />
+			<result column="ctgr" property="category" />
+		</association>
+		<association property="studyJoinedMember"
+			javaType="StudyJoinedMember">
+			<id column="stdno" property="studyNo" />
+			<id column="memno" property="memNo" />
+			<result column="rdt" property="registedDate" />
+			<result column="grade" property="grade" />
+		</association>
+	</resultMap>
+
+	<select id="selectList" resultMap="StudyAwaitingMemberMap">
+		select
+		saj.stdno,
+		saj.memno,
+		saj.reqdt,
+		saj.res,
+		m.mname,
+		m.email
+		from study_awaiting_join saj
+		left join member m on saj.memno=m.memno
+		where saj.stdno=#{no}
+		and res=0
+		<!-- url에서 가져오 -->
+	</select>
+
+
+	<update id="accept" parameterType="hashmap">
+		UPDATE study_awaiting_join
+		SET res= #{type}
+		WHERE memno=#{memNo}
+		AND stdno= #{no}
+		<!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
+	</update>
+
+	<update id="insert" parameterType="hashmap">
+		INSERT INTO study_joined_member (
+		stdno, memno, grade, rdt
+		) values (
+		#{no}, #{memNo}, 1, now()
+		)
+	</update>
+	
+	<insert id="add" parameterType="hashmap">
+		INSERT INTO study_awaiting_join (
+		stdno, memno, res, reqdt
+		) values (
+	   #{no}, #{memNo}, 0, now()
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+

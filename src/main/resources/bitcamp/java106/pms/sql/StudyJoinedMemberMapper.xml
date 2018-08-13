@@ -7,56 +7,129 @@
 
   <resultMap type="StudyJoinedMember" id="StudyJoinedMemberMap">
     <id column="stdno" property="studyNo"/>
-    <result column="memno" property="memNo"/>
+    <id column="memno" property="memNo"/>
     <result column="rdt" property="registedDate"/>
-    <result column="status" property="status"/>
+    <result column="grade" property="grade"/>
+    
     <association property="member" javaType="Member">
       <id column="memno" property="no"/>
-      <id column="mname" property="name"/>
+      <result column="mname" property="name"/>
+      <result column="email" property="email"/>
      
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
-      <id column="name" property="name"/>
-      <id column="ctgr" property="category"/>
+      <result column="name" property="name"/>
+      <result column="ctgr" property="category"/>
+   </association>
+   
+   <association property="review" javaType="Review">
+      <id column="rvwno" property="no"/>
    </association>
   </resultMap>
     
+<!-- 회원 가입 승인 -->
    <insert id="insert" parameterType="StudyJoinedMember" 
         useGeneratedKeys="true" keyColumn="stdno" keyProperty="studyNo">
-    insert into study_joined_member(stdno,memno,rdt,grade) 
-    values(#{studyNo},#{memNo},now(),#{grade})
+    insert into study_joined_member(
+        stdno,memno,rdt,grade
+    ) values(
+        #{studyNo},#{memNo},now(),#{grade}
+    )
   </insert>  
-    
     
   <select id="selectList" 
           resultMap="StudyJoinedMemberMap"
           >
-  select study_joined_member.stdno, member.mname, member.email, study_joined_member.rdt, study_joined_member.status
-  from study_joined_member
-  left join member
-  on study_joined_member.memno=member.memno
-  where study_joined_member.stdno=1 
-  AND status=1<!-- url에서 가져오 -->
+  select 
+    sjm.stdno, 
+    sjm.memno, 
+    sjm.rdt, 
+    sjm.grade, 
+    m.mname, 
+    m.email
+  from study_joined_member sjm
+  left join member m on sjm.memno=m.memno
+  where sjm.stdno=#{studyNo} 
+  and grade=1
+  <!-- url에서 가져오 -->
 </select>
 
-<select id="selectListWithStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
-  select j.stdno , j.memno, s.name, s.ctgr
-  from study_joined_member j left join study_info s on j.stdno = s.stdno
+<select id="selectMyStudy" resultMap="StudyJoinedMemberMap" parameterType="int">
+  <!-- select j.stdno , j.memno, s.name, s.ctgr, j.grade
+  from study_joined_member j left join study_info s on j.stdno = s.stdno 
   where j.memno=#{value}
+  order by grade -->
+  SELECT *
+from study_joined_member jm
+inner join study_info si
+    on jm.stdno = si.stdno
+left outer join study_review sr
+    on si.stdno = sr.stdno
+    and jm.memno = sr.memno
+  where jm.memno = #{value}
 </select>
+
+<!-- 회원 추방기능 -->
+<update id="exclude" parameterType="int">
+    UPDATE study_joined_member
+    SET grade=2
+    WHERE memno=#{memNo}
+    AND stdno=#{no} 
+  </update>
+
+<!-- grade에 따라 버튼 -->
+  <select id="gradeList"  resultMap="StudyJoinedMemberMap">
+     SELECT stdno, memno, grade
+     FROM study_joined_member
+     WHERE memno=#{memNo}
+     AND stdno=#{no}  
+  </select>
+  
+<!-- 하은 -->
+
+  <select id="selectListMember" 
+          resultMap="StudyJoinedMemberMap"
+          >
+  select 
+    sjm.stdno, 
+    sjm.memno, 
+    sjm.rdt, 
+    sjm.grade, 
+    m.mname, 
+    m.email,
+    m.pfp
+  from study_joined_member sjm
+  left join member m on sjm.memno=m.memno
+  where sjm.stdno=#{studyNo} 
+  and grade != 2
+</select>
+
+
+  <select id="count" parameterType="map" resultType="int">
+    select count(*) 
+    from study_joined_member
+    where stdno=#{studyNo}
+    and grade != 2
+   </select>
+
+
+<select id="getLeader" resultMap="StudyJoinedMemberMap">
+  select j.stdno, j.memno, j.grade, m.mname, m.pfp
+  from study_joined_member j
+  left join member m on j.memno=m.memno
+  where j.stdno=#{studyNo} 
+  and grade=0
+  <!-- url에서 가져오 -->
+</select>
+
 
 <update id="update" parameterType="int">
-    
-    UPDATE study_joined_member
-    SET status=2
-    WHERE memno=#{valeu}, stdno=#{value} <!-- memno:체크된 회원, 해당회원/ stdno: url에서 받아오 -->
+    update study_joined_member set
+    rdt=now(),
+    grade=#{grade}
+    where stdno=#{studyNo} AND memno=#{memNo}
   </update>
+    
+  
 </mapper>
-
-
-
-
-
-
-

@@ -20,31 +20,36 @@
 	width:100%;
 	margin:0 auto;
 }
+
 .header{
 	width:100%;
-	position: fixed;
+	/* position: fixed; */
 	top: 0;
 	left: 0;
 	background: #fff;
 	color: #333;
 	z-index: 9999;
-    border-bottom: 1px solid #ebebeb;
-	box-shadow: rgba(0, 0, 0, 0.08) 3px 4px 10px;
+    /* border-bottom: 1px solid #ebebeb;
+	box-shadow: rgba(0, 0, 0, 0.08) 3px 4px 10px; */
 	box-sizing: border-box;
 }
+
 .headerWrap{
 	max-width:1200px;
 	padding: 20px 0;
 	margin:0 auto;
 }
+
 .headerWrap:after {
 	display: block;
 	content: "";
 	clear: both;
 }
+
 .headerWrap .logo {
 	float:left;
 }
+
 .utilMenu{
 	/*position: absolute;
 	top: 30px;
@@ -125,7 +130,7 @@
 /* 부트스트랩 공통 css Start */
 .container {
 	max-width: 1200px;
-	margin-top:100px;
+	/* margin-top:100px; */
 }
 
 /* 부트스트랩 공통 css Start */

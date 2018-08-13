@@ -17,4 +17,6 @@ public interface MemberDao {
 	Member selectOneByNo(int user);
     int find(String id);
     int upload(Map<String, Object> map);
+    
+    int checkId(String email);
 }

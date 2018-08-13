@@ -1,30 +1,28 @@
 package bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
+
+
 import java.sql.Date;
+import bitcamp.java106.pms.domain.StudyInfo;
+import bitcamp.java106.pms.domain.Member;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class StudyJoinedMember implements Serializable {
+public class StudyAwaitingMember implements Serializable {
  
     private static final long serialVersionUID = 1L;
     
     private int studyNo;
     private int memNo;
     @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
-    private Date registedDate;
-    private int grade;
+    private Date requestDate;
+    private int response;
     
 	private Member member;
 	private StudyInfo study;
-	private Review review;
+	private StudyJoinedMember studyJoinedMember;
 	
-	public Date getRegistedDate() {
-		return registedDate;
-	}
-	public void setRegistedDate(Date registedDate) {
-		this.registedDate = registedDate;
-	}
 	public int getStudyNo() {
 		return studyNo;
 	}
@@ -36,12 +34,6 @@ public class StudyJoinedMember implements Serializable {
 	}
 	public void setMemNo(int memNo) {
 		this.memNo = memNo;
-	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
 	}
 	public Member getMember() {
 		return member;
@@ -55,10 +47,22 @@ public class StudyJoinedMember implements Serializable {
 	public void setStudy(StudyInfo study) {
 		this.study = study;
 	}
-	public Review getReview() {
-		return review;
+	public Date getRequestDate() {
+		return requestDate;
 	}
-	public void setReview(Review review) {
-		this.review = review;
+	public void setRequestDate(Date requestDate) {
+		this.requestDate = requestDate;
+	}
+	public int getResponse() {
+		return response;
+	}
+	public void setResponse(int response) {
+		this.response = response;
+	}
+	public StudyJoinedMember getStudyJoinedMember() {
+		return studyJoinedMember;
+	}
+	public void setStudyJoinedMember(StudyJoinedMember studyJoinedMember) {
+		this.studyJoinedMember = studyJoinedMember;
 	}
 }

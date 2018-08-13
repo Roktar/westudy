@@ -57,8 +57,19 @@ public class StudyInfoController {
     public Object list(
             @MatrixVariable(defaultValue="1") int pageNo,
             @MatrixVariable(defaultValue="4") int pageSize) {
-        
         return studyInfoService.list(pageNo, pageSize);
+    }
+    
+    @RequestMapping("list_search{page}")
+    public Object listSearch( 
+            @RequestParam(defaultValue="1") int pageNo,
+            @RequestParam(defaultValue="9") int pageSize) {
+        return studyInfoService.list(pageNo, pageSize);
+    }
+    
+    @RequestMapping("list_count")
+    public int listCount() {
+        return studyInfoService.count();
     }
     
     @RequestMapping("listTag/{no}")

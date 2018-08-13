@@ -2,6 +2,7 @@ package bitcamp.java106.pms.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -42,13 +43,14 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
     }
 	
 	@Override
-	public List<StudyJoinedMember> list(){
-		return studyJoinedMemberDao.selectList();
+	public List<StudyJoinedMember> list(int no){
+		return studyJoinedMemberDao.selectList(no);
 	}
 	
 	@Override
-	public int delete(int no) {
-		return studyJoinedMemberDao.delete(no);
+	public int exclude(Map<String, Object> paramMap) {
+		System.out.println("임플memNo  : [" + paramMap.get("memNo") +"] , 임플no :[" + paramMap.get("no") +"]");
+		return studyJoinedMemberDao.exclude(paramMap);
 	}
 	
 	@Override
@@ -57,8 +59,41 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
 	}
 
 	@Override
-	public List<StudyJoinedMember> selectListWithStudy(int mnumber) {
-		return studyJoinedMemberDao.selectListWithStudy(mnumber);
+	   public List<StudyJoinedMember> get(int no) {
+	         return studyJoinedMemberDao.selectMyStudy(no);
+	   }
+
+	@Override
+	public List<StudyJoinedMember> gradeList(Map<String, Object> paramMap) {
+		System.out.println("임플memNo : [" + paramMap.get("memNo") +"], 임플no : [" + paramMap.get("no") +"], 임플grade : [" + paramMap.get("grade") +"]");
+		return studyJoinedMemberDao.gradeList(paramMap);
 	}
+	
+	//하은
+
+   @Override
+   public int update(StudyJoinedMember studyJoinedMember) {
+      return studyJoinedMemberDao.update(studyJoinedMember);
+   }
+
+  
+   
+   @Override
+   public StudyJoinedMember getLeader(int no){
+      return studyJoinedMemberDao.getLeader(no);
+   }
+   
+   @Override
+   public List<StudyJoinedMember> selectListMember(int no){
+      return studyJoinedMemberDao.selectListMember(no);
+   }
+   
+    
+    @Override
+    public int count(int no) {
+        return studyJoinedMemberDao.count(no);
+    }
 }
+
+
 

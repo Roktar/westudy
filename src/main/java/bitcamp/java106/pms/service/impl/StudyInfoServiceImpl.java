@@ -29,7 +29,12 @@ public class StudyInfoServiceImpl implements StudyInfoService {
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
         
-        return studyInfoDao.selectList(params);
+        List<StudyInfo> lists =  studyInfoDao.selectList(params);
+        
+        for(StudyInfo info : lists)
+            info.setTags(hashTagDao.selectList(info.getNo()));
+        
+        return lists;
     }
     
     @Override
@@ -91,4 +96,9 @@ public class StudyInfoServiceImpl implements StudyInfoService {
         return studyInfoDao.selectlimitOne().getNo();
     }
 
+    @Override
+    public int count() {
+        // TODO Auto-generated method stub
+        return studyInfoDao.studyCount();
+    }
 }
