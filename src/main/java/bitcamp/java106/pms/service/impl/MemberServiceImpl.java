@@ -168,15 +168,13 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.checkId(email);
 	}
 
-    @Override
-    public Member get(String email) {
-        // TODO Auto-generated method stub
-        return memberDao.findByEmail(email);
-    }
+	@Override
+	public Member get(String email) {
+		return memberDao.findByEmail(email);
+	}
 
-    @Override
-    public int add(Member member) {
-        // TODO Auto-generated method stub
-        return memberDao.add(member);
-    }
+	@Override
+	public int add(Member member) {
+		return memberDao.add(member);
+	}
 }

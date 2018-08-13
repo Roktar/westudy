@@ -15,4 +15,5 @@ public interface StudyInfoDao {
     StudyInfo selectOne(int no);
     StudyInfo selectlimitOne();
     int studyCount();
+    int photo(Map<String, Object> params);
 }

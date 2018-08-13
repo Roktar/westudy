@@ -14,11 +14,12 @@
     <id column="stdno" property="no" />
     <result column="city" property="city" />
     <result column="county" property="county" />
-    <result column="name" property="name" />
+    <result column="sname" property="name" />
     <result column="info" property="information" />
     <result column="cdt" property="createdDate" />
     <result column="mprs" property="maxPeople" />
     <result column="ctgr" property="category" />
+    <result column="pic" property="picture" />
   </resultMap>
 
   <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
@@ -55,25 +56,28 @@
     from study_info join hashtag on study_info.stdno=hashtag.stdno
     where city=#{city} and county=#{county} and ctgr=#{category} and tag LIKE CONCAT('%',#{hashtag},'%')
   </select>
-  
-  <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
-        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
-  -->
+
   <select id="selectOne" resultMap="StudyMap" parameterType="int">
-  select stdno,name,info 
-  from study_info 
-  where stdno=#{value}
+	  select * 
+	  from study_info 
+	  where stdno = #{value}
   </select>
-  
-  <!-- <update id="update" parameterType="Study">
-    update pms2_study set 
-    titl=#{title}, dscrt=#{description} 
-    where bno=#{no}
-  </update> -->
   
   <delete id="delete" parameterType="int">
     delete from study_info where stdno=#{value}
   </delete>
   
+    <update id="update" parameterType="StudyInfo">
+    update study_info 
+           SET sname = #{name}, city = #{city}, county = #{county}, 
+               info = #{information}, ctgr = #{category}
+    where stdno = #{no}
+  </update>
   
+  <update id="photo" parameterType="map">
+  update study_info
+  SET pic = #{fileName}
+  where stdno = #{stdno}
+  </update>
+
 </mapper>
