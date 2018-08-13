@@ -10,7 +10,7 @@
     
     <!-- 로그인 후 시작-->
     <div class="text-center align-middle" id="login-after">
-        <i class="fas fa-user-circle fa-7x" style="margin-top:30px"></i>
+        <i id="pfp" class="fas fa-user-circle fa-7x" style="margin-top:30px"></i>
         <br>
         <span class="font-weight-bold" id="user" ></span>
         
@@ -86,8 +86,8 @@
                    <a class="right link-font" href="#">회원가입</a>
                    <div id="signin" class="btn btn-success text-center resizeWidth add-margin-top"> 로그인 </div> 
                    <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-                   <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 로그인하기 </div> 
-                   <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 로그인하기 </div> 
+                   <a href="javascript:checkLoginState();" scope="public_profile,email"><img src="img/facebookbtn.png"></a>
+                   <a id="custom-login-btn" href="javascript:loginWithKakao()"><img src="img/kakaologin.png"></a>
                   </div>
                   <div class="modal-footer">
                   </div>
@@ -118,6 +118,7 @@
   </div>
  </div>
 <!-- 로그인 model End -->
+
 <script>
 let no = -1;
   ( function ( $ ) {
@@ -144,6 +145,7 @@ let no = -1;
             if(typeof(res) == "object" ) {
                 $('#login-before').css('display', 'none');
                 $('#user').text( res.email );
+                $('#pfp').text( res.profile_image );
                 $('#login-after').css('display', 'block');
                 $('#userPic').css('display', 'block');
                 $('#userLogout').css('display', 'block');
@@ -225,6 +227,105 @@ let no = -1;
         location.reload();
     });
     
+    
+
+    /* 페이스북 로그인 */
+    function autoServerLogin(accessToken) {
+        $.getJSON(
+            'json/auth/facebookLogin', 
+            {'accessToken': accessToken}, 
+            function(result) {
+              if (result.status == 'success') {
+                  const toast = swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      showConfirmButton: false,
+                      timer: 1000
+                    });
+
+                    toast({
+                      type: 'success',
+                      title: '로그인 성공'
+                    }).then(function() {
+                          location.href = 'index.html';
+                    })
+              } else {
+                  window.alert('로그인 실패입니다!');
+              }
+        });
+    }
+    function statusChangeCallback(response) {
+          console.log(response);
+
+          if (response.status === 'connected') { // 로그인이 정상적으로 되었을 때,
+              autoServerLogin(response.authResponse.accessToken);
+          
+          } else { // 로그인이 되지 않았을 때,
+              console.log("로그인 되지 않았음");
+          }
+        }
+          
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) { 
+          statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function() {
+        console.log("window.fbAsyncInit() 호출됨!");
+        FB.init({
+          appId      : '1776806589076181', // 개발자가 등록한 앱 ID
+          cookie     : true,  
+          xfbml      : true,  
+          version    : 'v3.0' 
+        });
+        FB.AppEvents.logPageView();  
+
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; 
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+    
+    Kakao.init("5baa68115423befedc9982e7d24c8971");
+    function loginWithKakao() {
+      Kakao.Auth.login({
+        success: function(authObj) {
+              console.log(authObj);
+              
+              $.getJSON(
+                      'json/auth/kakaoLogin', 
+                      {'accessToken': authObj.access_token}, 
+                      function(result) {
+                          console.log(result)
+                        if (result.status == 'success') {
+                            const toast = swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 1000
+                              });
+
+                              toast({
+                                type: 'success',
+                                title: '로그인 성공'
+                              }).then(function() {
+                                    location.href = 'index.html';
+                              })
+                        } else {
+                            console.log('로그인 실패입니다!');
+                        }
+                  });
+        }
+        });
+    }
+    
+    
 </script>
 
 <style>
@@ -232,6 +333,7 @@ let no = -1;
     padding: 2rem;
     border: 1px solid #dddddd;
 }
+
 .sidemenu:hover{
     color: #ef6c00;
 }
