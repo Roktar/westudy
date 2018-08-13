@@ -131,6 +131,13 @@ h2 {
 }
 
 
+
+
+#vBtn1, #vBtn2 {
+  display: none;  
+}
+
+
 div.container {
     padding: 2rem;
 }
@@ -155,6 +162,7 @@ a {
 
 .form-group {
     margin-bottom: 0;
+    margin-top: 0.5em;
 }
 
 .ttbtn {
@@ -179,3 +187,15 @@ a {
  	color: #aaa;
  	margin-right : 0.5em;
  }
+ 
+ 
+ #updBtn ,#delBtn {
+ display :none;
+ }
+ 
+ 
+ .starzone {
+ 	text-align : center;
+ }
+ 
+ 
