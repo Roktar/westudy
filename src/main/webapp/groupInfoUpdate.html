@@ -38,6 +38,10 @@
         let studyInfo = null;
 
         $(document).ready(function() {
+        	$('#groupImgeDiv').click(function(){
+                $('#groupImge').click;
+            })
+            
         	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
             $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+studyNo);
             $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+studyNo);
@@ -357,14 +361,14 @@
                         <div class="inner-container-box">
 
                             <div class="form-group-img">
-                                <div style="width: auto; overflow: hidden; margin: 0 auto;">
+                                <div id="groupImgeDiv" style="width: auto; overflow: hidden; margin: 0 auto;">
                                     <figure>
                                         
-                                        <img src="img/study2.jpg" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
+                                        <img src="" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
                                     </figure>
                                 </div>
                                 <form id="form" runat="server" action="">
-                                    <input type="file" multiple accept="image/*" id="imgInput" name="files" >
+                                    <input id="groupImge" type="file" multiple accept="image/*" id="imgInput" name="files" >
                                 </form>
                                 <br>
                             </div>

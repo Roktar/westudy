@@ -9,6 +9,7 @@
         
 
         $(document).ready(function() {
+        	
             $("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);
             $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+no);
             $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+no);
