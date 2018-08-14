@@ -182,6 +182,8 @@ public class StudyInfoController {
     /* 설문조사 메소드 */
     @PostMapping("add/survey")
     public Object addSurvey(@RequestBody String qs, @RequestParam("no") int studyNo) {
+        System.out.println(qs);
+        System.out.println(studyNo);
         return studySurveyService.add(qs.split("&"), studyNo);
     }
     
