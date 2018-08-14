@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java106.pms.domain.StudyInfo;
+import bitcamp.java106.pms.domain.StudySurvey;
 import bitcamp.java106.pms.service.StudyInfoService;
+import bitcamp.java106.pms.service.StudySurveyService;
 import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
@@ -29,9 +32,10 @@ import net.coobird.thumbnailator.Thumbnails;
 public class StudyInfoController {
     
     StudyInfoService studyInfoService;
+    StudySurveyService studySurveyService;
     @Autowired ServletContext sc;
 
-    public StudyInfoController(StudyInfoService studyInfoService) {
+    public StudyInfoController(StudyInfoService studyInfoService, StudySurveyService studySurveyService) {
         this.studyInfoService = studyInfoService;
     }
 
@@ -174,6 +178,23 @@ public class StudyInfoController {
     	System.out.println("nearList컨트롤러");
     	return nearList;
     }
+    
+    /* 설문조사 메소드 */
+    @PostMapping("add/survey")
+    public Object addSurvey(@RequestBody String qs, @RequestParam("no") int studyNo) {
+        return studySurveyService.add(qs.split("&"), studyNo);
+    }
+    
+    @GetMapping("survey/list")
+    public List<StudySurvey> surveyList(int no) {
+        return studySurveyService.list(no);
+    }
+    
+    @PostMapping("survey/vote")
+    public Object vote(int studyNo, int memNo, int surveyNo, int itemNo) {
+        return studySurveyService.vote(studyNo, memNo, surveyNo, itemNo);
+    }
+    /* 설문조사 */
 }
 
 // ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 추가

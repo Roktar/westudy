@@ -1,6 +1,10 @@
 package bitcamp.java106.pms.domain;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class StudySurvey implements Serializable {
 
@@ -8,12 +12,15 @@ public class StudySurvey implements Serializable {
     
     private int no;
     private String title;
-    private String status;
-    private Study study;
-    @Override
-    public String toString() {
-        return "StudySurvey [no=" + no + ", title=" + title + ", status=" + status + ", study=" + study + "]";
-    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+    private Date startDate;    
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+    private Date endDate;
+    private int answerNum;
+    private int studyNo;
+    private List<StudySurveyItem> items;
+    private int voteCount;
+    
     public int getNo() {
         return no;
     }
@@ -26,21 +33,47 @@ public class StudySurvey implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getStatus() {
-        return status;
+    public Date getStartDate() {
+        return startDate;
     }
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
-    public Study getStudy() {
-        return study;
+    public Date getEndDate() {
+        return endDate;
     }
-    public void setStudy(Study study) {
-        this.study = study;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    public int getAnswerNum() {
+        return answerNum;
+    }
+    public void setAnswerNum(int answerNum) {
+        this.answerNum = answerNum;
+    }
+    public int getStudyNo() {
+        return studyNo;
+    }
+    public void setStudyNo(int studyNo) {
+        this.studyNo = studyNo;
+    }
+    public List<StudySurveyItem> getItems() {
+        return items;
+    }
+    public void setItems(List<StudySurveyItem> items) {
+        this.items = items;
+    }
+    public int getVoteCount() {
+        return voteCount;
+    }
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
     }
     
-    
+    @Override
+    public String toString() {
+        return "StudySurvey [no=" + no + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
+                + ", answerNum=" + answerNum + ", studyNo=" + studyNo + ", items=" + items + ", voteCount=" + voteCount
+                + "]";
+    }
 }

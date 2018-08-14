@@ -20,5 +20,5 @@ public interface StudyJoinedMemberDao {
 	StudyJoinedMember getLeader(int no);
 	List<StudyJoinedMember> selectListMember(int no); 
 	int count(int no);
-
+	List<StudyJoinedMember> interList(Map<String, Object> paramMap);
 }

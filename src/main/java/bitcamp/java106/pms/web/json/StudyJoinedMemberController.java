@@ -113,4 +113,17 @@ public class StudyJoinedMemberController {
 		return studyJoinedMemberService.count(no);
 	}
 
+	
+	@RequestMapping("interList")
+	public List<StudyJoinedMember> interList(
+			@RequestParam(value="memNo", defaultValue="1") int memNo,
+			@RequestParam(value="studyNo", defaultValue="1") int studyNo) throws Exception{
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("memNo", memNo);
+		paramMap.put("studyNo", studyNo);
+		
+		List<StudyJoinedMember> interList = studyJoinedMemberService.interList(paramMap);
+		System.out.println("interList 컨트롤러");
+		return interList;
+	}
 }

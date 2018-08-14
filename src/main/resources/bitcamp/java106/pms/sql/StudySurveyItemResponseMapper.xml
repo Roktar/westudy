@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 이름은 SQL을 찾을 때 사용하는 그룹명이다.
+     따라서 SQL 문을 사용하는 DAO 클래스 이름과 같게 하면
+     유지보수할 때 알아보기 쉽다.
+     단순히 알아보기 쉬울 뿐만 아니라 
+     스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다. 
+-->
+<mapper namespace="bitcamp.java106.pms.dao.StudySurveyItemResponseDao">
+
+  <resultMap type="bitcamp.java106.pms.domain.StudySurveyItemResponse" id="resMap">
+    <id column="stdno" property="studyNo"/>
+    <id column="memno" property="memNo"/>
+    <id column="svno" property="surveyNo"/>
+    <id column="slno" property="itemNo"/>
+  </resultMap>
+  
+  <!-- 투표 참여 시 하나씩 추가  -->
+  <insert id="insert" parameterType="map">
+    insert into study_survey_response(stdno, memno, svno, slno) values (#{studyNo}, #{memNo}, #{surveyNo}, #{itemNo})
+  </insert>
+  
+  <!-- 특정 스터디의 특정 설문에 대한 특정 항목의 투표수를 반환 -->
+  <select id="selectOneVoteCount" parameterType="map" resultType="int">
+    select count(*) from study_survey_response
+    where stdno = #{studyNo} and svno = #{surveyNo} and slno = #{itemNo}
+  </select>
+  
+  <!-- 특정 스터디의 특정 설문에 대한 모든 투표수를 반환 -->
+ <select id="selectListVoteCount" parameterType="map" resultType="int">
+    select count(*) from study_survey_response
+    where stdno = #{studyNo} and svno = #{surveyNo}
+ </select> 
+ 
+ <select id="isVoted" parameterType="map" resultType="int">
+    select count(*) from study_survey_response
+    where stdno = #{studyNo} and memno = #{memNo} and svno = #{surveyNo}
+ </select>
+  
+</mapper>
+
+
+
+
+
+
+

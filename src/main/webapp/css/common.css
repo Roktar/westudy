@@ -198,3 +198,24 @@
 .badge{
     border-radius: .1rem;
 }
+
+
+
+ /*  slidebar */
+
+.userEmail {
+	display : block;
+	margin: 1em;
+}
+
+   .prof-img {
+      		margin-top: 2.5em;
+            display: inline-block;
+            width:7em;
+            height:7em;
+            overflow:hidden;
+            border-radius: 3.5em;
+        }
+		.prof-img img {
+		width:100%;
+		} 
