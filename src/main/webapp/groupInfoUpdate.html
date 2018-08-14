@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/groupInfoUpdate.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slidebar.css">
     <link rel="stylesheet" href="css/jquery.tag-editor.css">
     <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
     <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
@@ -340,7 +341,7 @@
 <body>
     <!-- header start -->
     <div id="header"></div>
-
+ <div id="container" canvas="container" style="padding : 3rem;">
     <div class="container">
         <div class="row">
             <div class="col-sm-2 menu-bar">
@@ -364,14 +365,14 @@
                         <div class="inner-container-box">
 
                             <div class="form-group-img">
-                                <div id="groupImgeDiv" style="width: auto; overflow: hidden; margin: 0 auto;">
+                                <div style="width: auto; overflow: hidden; margin: 0 auto;">
                                     <figure>
                                         
-                                        <img src="" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
+                                        <img src="img/study2.jpg" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
                                     </figure>
                                 </div>
                                 <form id="form" runat="server" action="">
-                                    <input id="groupImge" type="file" multiple accept="image/*" id="imgInput" name="files" >
+                                    <input type="file" multiple accept="image/*" id="imgInput" name="files" >
                                 </form>
                                 <br>
                             </div>

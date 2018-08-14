@@ -5,7 +5,6 @@ console.log(no);
 
 var i = 1;
 
-var serverRoot = "http://localhost:8888/FinalProject";
 
 $(document).ready(function() {
 	$("#header").load(serverRoot + "/header.html");

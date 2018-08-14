@@ -42,7 +42,7 @@ h3 {
 
 div.container-box {
     margin: 0 auto;
-    padding: 1em;
+ 
     line-height: 3rem;
 /*    width: 40%;*/
 }
@@ -152,7 +152,7 @@ div.modal-content {
 }
 
 div.container {
-    padding: 2rem;
+    padding: 3rem;
 }
 
 img.thumbnail {
@@ -251,7 +251,7 @@ div.list-group a{
 }
 
 .form-check {
-	text-align: center;
+   text-align: center;
 }
 
 

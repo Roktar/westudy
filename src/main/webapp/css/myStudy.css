@@ -42,7 +42,6 @@ h3 {
 
 div.container-box {
     margin: 0 auto;
-    padding: 1em;
     line-height: 3rem;
 /*    width: 40%;*/
 }
@@ -139,7 +138,7 @@ h2 {
 
 
 div.container {
-    padding: 2rem;
+    padding: 3rem;
 }
 
 
@@ -151,11 +150,11 @@ div.inner-container-box {
 
 
 .modal-content {
-	margin-top : 10em;
+   margin-top : 30em;
 }
 
 a {
-	color: black !important;
+   color: black !important;
 }
 
 
@@ -166,26 +165,26 @@ a {
 }
 
 .ttbtn {
-	float: right;
-	margin-left : 1em;
+   float: right;
+   margin-left : 1em;
 }
 
 .modal-footer {
-	justify-content : center;
+   justify-content : center;
 }
 
 .input-view, .cancel-view {
-	width: 230px;
-	
+   width: 500px;
+   
 }
 
 .ttbtn, .review {
-	margin-top: 0.6em;
+   margin-top: 0.6em;
 }
 
  .gg {
- 	color: #aaa;
- 	margin-right : 0.5em;
+    color: #aaa;
+    margin-right : 0.5em;
  }
  
  
@@ -195,7 +194,15 @@ a {
  
  
  .starzone {
- 	text-align : center;
+    text-align : center;
  }
+ 
+ 
+ .modal-backdrop{
+ z-index: -1; 
+ background-color : white;
+
+ } 
+ 
  
  
