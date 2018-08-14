@@ -7,6 +7,8 @@
 
   <resultMap type="Review" id="ReviewMap">
     <id column="rvwno" property="no"/>
+      <result column="stdno" property="studyNo"/>
+    <result column="memno" property="memNo"/>
     <result column="cont" property="content"/>
     <result column="rating" property="rating"/>
     <result column="cdt" property="createdDate"/>
@@ -25,53 +27,58 @@
   </resultMap>
   
 <select id="selectList" resultMap="ReviewMap" parameterType="map">
-  select r.rvwno, s.sname, s.ctgr, r.cont, r.rating, r.cdt, mname, pfp 
-  from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
-  where s.ctgr = #{category}  order by r.rvwno desc
-  limit #{startRowNo}, #{pageSize}
+ select r.rvwno, r.stdno, r.memno, s.ctgr, s.sname, r.cont, r.rating, r.cdt, mname, pfp 
+from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
+where s.ctgr = #{category} 
+order by r.rvwno desc limit #{startRowNo}, #{pageSize} 
 </select>
 
-  
 <select id="selectListAll" resultMap="ReviewMap" parameterType="map">
-  select r.rvwno, s.sname, r.cont, pfp 
-  from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno  order by r.rvwno desc
-  limit 0, 4
+  select r.rvwno, s.sname, r.cont, pfp , s.stdno
+from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
+order by r.rvwno desc limit 0, 4 
 </select>
-  
+
+<select id="getMyReview" parameterType="map" resultMap="ReviewMap"> 
+select r.rating, r.cdt, r.cont, r.memno, r.stdno, r.rvwno
+from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
+where m.memno=#{memNo} and s.stdno=#{studyNo}
+</select>
 
  <select id="count" parameterType="int" resultMap="ReviewMap">
-  		SELECT ctgr, count(*) as cnt 
-  		FROM study_review r left join study_info s on r.stdno = s.stdno 
-  		GROUP BY ctgr 
-  		ORDER BY FIELD (ctgr, 'it','언어','국가시험','기사','금융','취업','토론','기타')
+        SELECT ctgr, count(*) as cnt 
+        FROM study_review r left join study_info s on r.stdno = s.stdno 
+        GROUP BY ctgr 
+        ORDER BY FIELD (ctgr, 'it','언어','국가시험','기사','금융','취업','토론','기타')
   </select>
   
 <select id="countOne" parameterType="String" resultMap="ReviewMap">
-  		SELECT ctgr, count(*) as cnt 
-  		FROM study_review r left join study_info s on r.stdno = s.stdno
-  		WHERE s.ctgr = #{category}
+        SELECT ctgr, count(*) as cnt 
+        FROM study_review r left join study_info s on r.stdno = s.stdno
+        WHERE s.ctgr = #{category}
 </select>
-  
-    
-  <insert id="insert" parameterType="bitcamp.java106.pms.domain.Review">
-   insert into study_review(cont, rating, cdt, stdno, memno) 
-   values (#(content), #{rating}, now(), #{no}, #{no})
+   
+  <insert id="insert" parameterType="Review" 
+  keyProperty="no" keyColumn="rvwno" useGeneratedKeys="true"> 
+  insert into study_review(cont, rating, cdt, stdno, memno) 
+  values (#{content}, #{rating}, now(), #{study.no}, #{member.no}) 
   </insert>
-  
-
-    
-  <select id="get" parameterType="int" resultMap="ReviewMap">
+ 
+ <select id="get" parameterType="int" resultMap="ReviewMap">
     select *
     from study_review
     where title=#{no}
   </select>
   
+  <delete id="delete" parameterType="int"> 
+  delete from study_review 
+  where rvwno=#{value} 
+  </delete>
   
+  <update id="update" parameterType="Review">
+    update study_review set
+        cont=#{content}, 
+        rating=#{rating}
+        where rvwno=#{no}
+  </update>
 </mapper>
-
-
-
-
-
-
-
