@@ -16,7 +16,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 	<link href="js/datetimepicker/build/jquery.datetimepicker.min.css" rel="stylesheet">
 	<link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.css">
+    
+      <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4092c21f4b16222f8b8e8eeb68a23ac1&libraries=services"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4092c21f4b16222f8b8e8eeb68a23ac1"></script>
 	<script src="js/common.js"></script>
@@ -196,7 +198,11 @@
 
 					$("#insertedList").append(newDivNode);
 				} else {
-					alert("더이상 일정을 추가할 수 없습니다.");
+					swal({
+						  type: 'error',
+						  title: '더이상 일정을 추가할 수 없습니다.',
+						})
+
 					// sweetalert로 대체
 				}
 			});

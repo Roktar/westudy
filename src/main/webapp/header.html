@@ -1,4 +1,7 @@
-﻿﻿<!-- 사이드 메뉴 시작 -->
+﻿<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>﻿
+
+<!-- 사이드 메뉴 시작 -->
 <div off-canvas="id-2 right overlay" style="border: 1px solid #dddddd">
     <!-- 로그인 전 시작 -->
     <div class="text-center align-middle" id="login-before">
@@ -212,7 +215,11 @@ let no = -1;
             password:$(login_password).val()
         }, res => {
             if(res.state == "fail")
-                alert("login failed");
+            	swal({
+            		  type: 'error',
+            		  title: 'login failed',
+            		})
+
             else
                 location.href = "index.html";
         });
