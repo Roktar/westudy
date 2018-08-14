@@ -34,7 +34,7 @@ order by r.rvwno desc limit #{startRowNo}, #{pageSize}
 </select>
 
 <select id="selectListAll" resultMap="ReviewMap" parameterType="map">
-  select r.rvwno, s.sname, r.cont, pfp , s.stdno
+select r.rvwno, s.sname, r.cont, m.pfp , s.stdno
 from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
 order by r.rvwno desc limit 0, 4 
 </select>

@@ -139,7 +139,7 @@ FROM member_interest mi
 LEFT JOIN study_info si ON mi.itr=si.ctgr
 WHERE mi.memno=#{memNo}
 GROUP BY si.stdno
-limit 6;
+limit 1, 6;
 </select>
   
   
