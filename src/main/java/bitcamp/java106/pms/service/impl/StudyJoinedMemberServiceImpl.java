@@ -67,7 +67,8 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
 	public List<StudyJoinedMember> gradeList(Map<String, Object> paramMap) {
 		System.out.println("임플memNo : [" + paramMap.get("memNo") +"], 임플no : [" + paramMap.get("no") +"], 임플grade : [" + paramMap.get("grade") +"]");
 		return studyJoinedMemberDao.gradeList(paramMap);
-	}
+	} 
+	// grade가 1이면 투표가능하게 
 	
 	//하은
 

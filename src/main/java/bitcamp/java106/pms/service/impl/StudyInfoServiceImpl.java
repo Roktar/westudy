@@ -150,4 +150,6 @@ public class StudyInfoServiceImpl implements StudyInfoService {
 		System.out.println("임플city : [" + paramMap.get("city") +"], 임플no : [" + paramMap.get("no") +"], 임플county : [" + paramMap.get("county") +"]");
 		return studyInfoDao.nearList(paramMap);
 	}
+    
+    
 }

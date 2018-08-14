@@ -6,8 +6,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <title>westudy</title>
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="css/common.css">
@@ -15,55 +16,81 @@
         <link rel="stylesheet" href="css/he-survey-list.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
                 crossorigin="anonymous">
+        <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+        <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+        <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+        
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="node_modules/slidebars/dist/slidebars.js"></script>
+        <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/survey-enroll.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="js/holder.min.js"></script>
 
+        <script>
+                Holder.addTheme("dark", {
+                        background: "#000",
+                        foreground: "#aaa",
+                        size: 11,
+                        font: "Monaco",
+                        fontweight: "normal"
+                });
+        </script>
 
-        <title>westudy</title>
+        <script>
+                let studyNo = window.location.search.substring(1).split("=")[1];
+
+                $(document).ready(function() {
+
+                  $("#header").load( serverRoot + "/header.html" );
+
+                  $.getJSON(serverRoot + "/json/studyInfo/survey/list?no="+studyNo, {}, res => {
+                                    $("#header").load( serverRoot + "/header.html" );
+
+                        console.log(res);
+                        
+                        for(let survey of res) {
+                                let li = $('<li class="list-group-item">');
+                                let titleSpan = $('<span class="survey-titl">');
+                                $(titleSpan).text(survey.title);
+                                let dateSpan = $('<span class="vote-date">');
+                                $(dateSpan).text(survey.startDate + " ~ " + survey.endDate);
+
+                                $(li).append(titleSpan);
+                                $(li).append($("<br>"));
+                                $(li).append(dateSpan);
+                                $(li).append($("<hr>"));
+
+                                if(survey.answerNum == 1) {
+                                        let idx = 0;
+                                        for(let radio of survey.items) {
+                                                console.log(radio);
+                                                let div = $('<div class="custom-control custom-radio">');
+                                                let radioBt = $('<input type="radio" id="customRadio' + idx + '" name="customRadio" class="custom-control-input">');
+                                                let label = $("<label class='custom-control-label survey-list' for='customRadio" + idx + "'>");
+                                                $(label).text(radio.itemName);
+
+                                                $(div).append(radioBt);
+                                                $(div).append(label);
+                                                $(li).append(div);
+                                                
+                                                idx++;
+                                        }
+                                        let updBtn = $('<button type="button" class="btn btn-success btn-sm vote-btn" onclick="deleteSurvey(' + survey.no + ');">삭제</button>');
+                                        $(li).append(updBtn);
+                                }
+                                $(".surveybox").append(li);
+                        }
+                  });
+                });
+        </script>
 </head>
 
 <body>
-        <!-- header start -->
-        <header class="header">
-                <div class="headerWrap">
-                        <h1 class="logo">
-                                <a href="index.html">
-                                        <img src="img/logo3.png" alt="로고" title="WeStudy">
-                                </a>
-                        </h1>
-                        <div class="utilMenu">
-                                <ul>
-                                        <li class="search">
-                                                <a href="search.html">검색</a>
-                                        </li>
-                                        <li>
-                                                <a href="makeStudy.html">스터디 만들기</a>
-                                        </li>
-                                        <li>
-                                                <a id="login" style="" data-toggle="modal" data-target="#myModal"> 로그인 </a>
-                                        </li>
-                                        <li>
-                                                <a id="signup" class="" data-toggle="modal" data-target="#register">회원가입</a>
-                                        </li>
-                                        <li class="utilMenuMobile">스터디그룹 만들기</li>
-                                        <li class="utilMenuMobile">가입한 스터디 목록</li>
-                                        <li class="menu">
-                                                <a href="myProfile.html">menu</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div class="menuToggle" style="display: none">
-                        <div>
-                                <div class="profile_img">
-                                        <a href="#" title="프로필 페이지로 이동">프로필 사진</a>
-                                </div>
-                        </div>
-                </div>
-        </header>
-        <!-- header end -->
-        <!-- </header> -->
-
-
-
+      <div id="header"></div>
 
         <!-- survey start -->
 
@@ -136,69 +163,6 @@
                 </div>
                 <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
         </footer>
-
-        <!-- footer end -->
-
-        <!-- Bootstrap core JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="js/holder.min.js"></script>
-        <script>
-                Holder.addTheme("dark", {
-                        background: "#000",
-                        foreground: "#aaa",
-                        size: 11,
-                        font: "Monaco",
-                        fontweight: "normal"
-                });
-        </script>
-        <script>
-
-                var survey = [
-                        {title: "6월 27일 희망 회식장소 조사", date:"2018년 7월 5일 ~ 2018년 7월 10일", option1: "브라운치킨", option2: "놀란치킨", option3: "무아", option4: "기타" },
-                        {title: "이동현 오빠 강퇴",date:"2018년 8월 5일 ~ 2018년 8월 10일", option1: "찬성", option2: "반대"},
-                        {title: "7월 20일 희망 회식장소 조사", date:"2018년 9월 5일 ~ 2018년 9월 10일", option1: "킨", option2: "놀란치킨", option3: "무아", option4: "기타" },
-                        {title: "7월 27일 희망 회식장소 조사", date:"2018년 7월 5일 ~ 2018년 7월 10일", option1: "브라운치킨", option2: "놀란치킨", option3: "무아", option4: "기타" },
-                        {title: "7월 29일 희망 회식장소 조사", date:"2018년 7월 5일 ~ 2018년 7월 10일", option1: "브라운치킨", option2: "놀란치킨", option3: "무아", option4: "기타" },
-
-                ]
-
-                var surveybox = $('.surveybox')
-
-                var i = 1;
-                for (var item of survey) {
-                  
-
-                        $('<li class="list-group-item">' +
-                                '<span class="survey-titl">'+ item.title +'</span>' +
-                                '<br>' + 
-                                '<span class="vote-date">'+ item.date +'</span>' +
-                                        '<hr>' +
-                                                '<div class="custom-control custom-radio">' +
-                                                        '<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">' +
-                                                                '<label class="custom-control-label survey-list" for="customRadio1">'+ item.option1 +'</label>' +
-                                                                        '</div>' +
-                                                                                '<div class="custom-control custom-radio">' +
-                                                                                        '<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">' +
-                                                                                                '<label class="custom-control-label survey-list" for="customRadio2">'+ item.option2 +'</label>' +
-                                                                                                        '</div>' +
-                                                                                                                '<div class="custom-control custom-radio">' +
-                                                                                                                        '<input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">' +
-                                                                                                                                '<label class="custom-control-label survey-list" for="customRadio3">'+ item.option3 +'</label>' +
-                                                                                                                                        '</div>' +
-                                                                                                                                                '<div class="custom-control custom-radio">' +
-                                                                                                                                                        '<input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">' +
-                                                                                                                                                                '<label class="custom-control-label survey-list" for="customRadio4">'+ item.option4 +'</label>' +
-                                                                                                                                                                        '</div>' +
-                                                                                                                                                                                '<a href="survey-enroll.html">' +
-                                                                                                                                                                                        '<button type="button" class="btn btn-success btn-sm vote-btn">수정</button>' +
-                                                                                                                                                                                                '</a>' +
-                                                                                                                                                                                                        '</li>').appendTo(surveybox);
-                                                                                                                                                                                                        i++;
-                }
-        </script>
-
 </body>
 
 </html>

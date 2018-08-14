@@ -6,57 +6,167 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>westudy</title>
 
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
-
-
-<!-- Custom styles for this template -->
-
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/he-surveylisttab.css">
 <link rel="stylesheet" href="css/group.css">
+<link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+<link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
+<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
-<title>westudy</title>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/slidebars/dist/slidebars.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/survey-enroll.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="js/holder.min.js"></script>
+
+<script>
+        Holder.addTheme("dark", {
+            background: "#000", 
+            foreground: "#aaa", 
+            size: 11, 
+            font: "Monaco", 
+            fontweight: "normal" 
+        });
+</script>
+
+<script>
+	let studyNo = window.location.search.substring(1).split("=")[1];
+	let myNo = -1;
+	let myGrade = -1;
+	let dateOrigin = new Date();
+
+
+	$(document).ready(function() {
+		$("#header").load( serverRoot + "/header.html" );
+		
+		$.getJSON(serverRoot + "/json/auth/loginstat", {}, res => {
+			myNo = res.no;
+		});
+
+		$.getJSON(serverRoot + "/json/studyInfo/survey/list?no="+studyNo, {}, data => {
+			console.log(data);
+
+			for(let survey of data) {
+				let target;
+				let status = -1;
+
+				if( new Date() > new Date(survey.endDate) ) {
+					target = $(".tab-two  .list-group");
+					status = 0;
+				} else {
+					target = $(".tab-one  .list-group");
+					status = 1;
+				}
+
+				let li = $('<li class="list-group-item">');
+				$(li).attr("id", survey.no);
+				let h6 = $('<h6>');
+				$(h6).text(survey.title);
+				let spanProgress = ( status == 0 ? $('<span class="badge badge-secondary">') : $('<span class="badge badge-warning voting">') );
+				$(spanProgress).text( status == 0 ? "마감" : "진행중"); // 데이터 변경
+				$(h6).append(spanProgress);
+				let spanDate = $('<span class="vote-date">');
+				$(spanDate).text( "(" + survey.startDate + " ~ " + survey.endDate + ")" );
+				let spanVoted = $('<span class="vote-pno">');
+				$(spanVoted).text( "투표 수 : " + survey.voteCount ); // response 테이블을 참조하여 채울 것
+				
+				$(li).append(h6);
+				
+				if(status == 1)
+					$(li).append(spanDate);
+				$(li).append(spanVoted);
+				$(li).append($("<hr>"));
+
+				if(survey.answerNum == 1) {
+					let idx = 0;
+
+					for(let radio of survey.items) {
+						let div = $('<div class="custom-control custom-radio">');
+						let radioBt = $('<input type="radio" id="' + radio.no + '" name="customRadio" class="custom-control-input">');
+						let label = $("<label class='custom-control-label survey-list' for='" + radio.no + "'>");
+						$(label).text(radio.itemName);
+						$(div).append(radioBt);
+						$(div).append(label);
+
+						let divProgress = $("<div class='progress'>");
+						let divBar = $("<div class='progress-bar' role='progressbar' style='width:0%' aria-valuenow='25' aria-valuemin='0' aria-vlauemax='100'>"); // style로 조작
+						$(divBar).css("width", (radio.responseCount / survey.voteCount) * 100 + "%");
+						$(divBar).text( radio.responseCount + "표");
+						$(divProgress).append(divBar);
+						$(div).append(divProgress);
+
+						$(li).append(div);
+						idx++;
+					}
+					let voteBtn = $('<button type="button" class="btn btn-primary btn-sm btn-vote" onclick="vote('+ survey.no +');">투표</button>');
+					if(status == 1)
+						$(li).append(voteBtn);
+				}
+				$(target).append(li);
+			}
+		});
+
+	});
+
+	function vote(surveyNo, answerNum) {
+		if(myNo == -1) {
+			swal( "권한 없음",
+				  "투표 전 로그인을 먼저 진행해주세요.",
+				  "error");
+			return;
+		}
+
+		for(let items of $("#" + surveyNo + " .custom-control")) {
+			if( $($(items).children()).is(":checked") ) {
+				$.post(serverRoot + "/json/studyInfo/survey/vote", {
+					studyNo : studyNo,
+					memNo : myNo,
+					surveyNo : surveyNo,
+					itemNo : $($(items).children()).attr("id")
+				}, res => {
+					if(res == "success") {
+						showPopup("투표 완료", "투표하였습니다!", "success");
+						setTimeOut(function() {
+							location.href = window.location.href;
+						}, 3000);
+					} else if(res == "voted")
+						showPopup("투표 실패", "이미 투표하였습니다.", "info");
+					else
+						showPopup("투표 실패", "투표 중 오류가 발생했습니다.", "error");
+				});
+				return;
+			}
+		}
+	}
+
+	function showPopup(title, text, type) {
+		swal( title,
+		      text,
+			  type
+  		);
+	}
+
+</script>
+
 </head>
 
 <body>
-	<!-- header start -->
-	<header class="header">
-		<div class="headerWrap">
-			<h1 class="logo">
-				<a href="index.html"><img src="img/logo3.png" alt="로고"
-					title="WeStudy"></a>
-			</h1>
-			<div class="utilMenu">
-				<ul>
-					<li class="search"><a href="search.html">검색</a></li>
-					<li><a href="makeStudy.html">스터디 만들기</a></li>
-					<li><a id="login" style="" data-toggle="modal"
-						data-target="#myModal"> 로그인 </a></li>
-					<li><a id="signup" class="" data-toggle="modal"
-						data-target="#register">회원가입</a></li>
-					<li class="utilMenuMobile">스터디그룹 만들기</li>
-					<li class="utilMenuMobile">가입한 스터디 목록</li>
-					<li class="menu"><a href="myProfile.html">menu</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="menuToggle" style="display: none">
-			<div>
-				<div class="profile_img">
-					<a href="#" title="프로필 페이지로 이동">프로필 사진</a>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- header end -->
+	
+	<div id="header"></div>
+
 	<!-- </header> -->
     <ul class="nav justify-content-center" style="margin-top:100px;">
         <li class="nav-item">
@@ -91,325 +201,27 @@
 				<div class="survey-enroll">
 					<h3>설문조사 목록</h3>
 
-					<div class="search-survey">
-						<form class="form-inline search-surveyform">
-							<input class="form-control mr-sm-2" type="search"
-								placeholder="Search" aria-label="Search">
-							<button class="surv-search-btn">
-								<span class="fas fa-search fa-lg"></span>
-							</button>
-
-
-						</form>
-
-					</div>
-
 					<div class="con-box-list">
 						<div class='css3-tab'>
 							<input type='radio' name='a' id='tabOne' tabindex="1" checked>
 							<input type='radio' name='a' id='tabTwo' tabindex="2">
-
 							<div class="css3-tab-nav">
 								<label for='tabOne'>진행중</label> <label for='tabTwo'>마감</label>
 							</div>
-
 							<!-- 진행중 tab start! -->
-
 							<div class='css3-tab-content tab-one'>
 								<ul class="list-group">
-									<li class="list-group-item">
-										<h6>
-											7월 6일 스터디 장소 조사 <span class="badge badge-warning voting">진행중</span>
-										</h6> <span class="vote-date">(2018년 7월 5일 ~ 2018년 7월 10일)</span> <span
-										class="vote-pno">6명 참여중</span>
-										<hr>
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio1" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio1">강남
-												투썸플레이스</label>
-
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">2표</div>
-											</div>
-										</div>
-
-
-
-
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio2" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio2">강남
-												스터디카페</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 15%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">1표</div>
-											</div>
-										</div>
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio3" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio3">강남
-												언더그라운드</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 45%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">3표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio4" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio4">기타</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 0%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">0표</div>
-											</div>
-										</div>
-										<button type="button" class="btn btn-primary btn-sm btn-vote"
-											data-toggle="modal" data-target="#exampleModal">투표</button> <!-- Modal -->
-										<div class="modal fade" id="exampleModal" tabindex="-1"
-											role="dialog" aria-labelledby="exampleModalLabel"
-											aria-hidden="true">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title" id="exampleModalLabel">투표 완료!</h5>
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													<div class="modal-body">투표가 완료되었습니당.</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary"
-															data-dismiss="modal">닫기</button>
-														<button type="button" class="btn btn-primary">결과확인</button>
-													</div>
-												</div>
-											</div>
-										</div>
-
-
-									</li>
-
-									<li class="list-group-item">
-										<h6>
-											지각쟁이 이동현 강퇴 여부 조사 <span class="badge badge-warning voting">진행중</span>
-										</h6> <span class="vote-date">(2018년 7월 5일 ~ 2018년 7월 10일)</span> <span
-										class="vote-pno">100명 참여중</span>
-										<hr>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio6" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio6">찬성</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 100%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">100표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio7" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio7">반대</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 1%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">0.1표</div>
-											</div>
-										</div>
-
-										<button type="button" class="btn btn-primary btn-sm btn-vote">투표</button>
-
-									</li>
-
-									<li class="list-group-item">
-										<h6>
-											한시간 지각비 얼마가 적당한가요? <span class="badge badge-warning voting">진행중</span>
-										</h6> <span class="vote-date">(2018년 7월 5일 ~ 2018년 7월 10일)</span> <span
-										class="vote-pno">14명 참여중</span>
-										<hr>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio8" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio8">1000원</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 5%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">1표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio9" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio9">3000원</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">3표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio10" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio10">10000원</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 75%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">10표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio11" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio11">100000원
-											</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 55%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">6표</div>
-											</div>
-										</div>
-										<button type="button" class="btn btn-primary btn-sm btn-vote">투표</button>
-
-									</li>
 								</ul>
 							</div>
 							<!-- 진행중 tab end! -->
-
-
 							<!-- 마감 tab start! -->
-
 							<div class='css3-tab-content tab-two'>
 								<ul class="list-group">
-									<li class="list-group-item">
-										<h6>
-											6월 27일 스터디 장소 조사 <span class="badge badge-secondary">마감</span>
-										</h6> <span class="vote-pno">6명 참여 완료</span>
-										<hr>
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio1" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio1">강남
-												투썸플레이스</label>
-
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">2표</div>
-											</div>
-										</div>
-
-
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio2" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio2">강남
-												스터디카페</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 15%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">1표</div>
-											</div>
-										</div>
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio3" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio3">강남
-												언더그라운드</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 45%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">3표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio4" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio4">기타</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 0%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">0표</div>
-											</div>
-										</div>
-									</li>
-
-									<li class="list-group-item">
-										<h6>
-											6월 27일 스터디 장소 조사 <span class="badge badge-secondary">마감</span>
-										</h6> <span class="vote-pno">6명 참여 완료</span>
-										<hr>
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio1" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio1">강남
-												투썸플레이스</label>
-
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">2표</div>
-											</div>
-										</div>
-
-
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio2" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio2">강남
-												스터디카페</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 15%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">1표</div>
-											</div>
-										</div>
-
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio3" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio3">강남
-												언더그라운드</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 45%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">3표</div>
-											</div>
-										</div>
-										<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio4" name="customRadio"
-												class="custom-control-input"> <label
-												class="custom-control-label" for="customRadio4">기타</label>
-											<div class="progress">
-												<div class="progress-bar" role="progressbar"
-													style="width: 0%" aria-valuenow="25" aria-valuemin="0"
-													aria-valuemax="100">0표</div>
-											</div>
-										</div>
-									</li>
-
 								</ul>
 							</div>
 							<!-- 마감 tab end! -->
-
-
-
 						</div>
+						<!--
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center survey-pgn">
 								<li class="page-item"><a class="page-link" href="#"
@@ -425,62 +237,25 @@
 								</a></li>
 							</ul>
 						</nav>
-
-
+						-->
 					</div>
 					<!-- con-box-list end -->
-
-
-
 				</div>
 				<!-- survey-enroll end -->
 			</div>
 			<!-- col-sm-6 end -->
-
-
 		</div>
 		<!-- row end -->
-
-
 	</div>
 	<!-- container end -->
 
-
-
-
-
-
-
-	<!-- footer start -->
-
 	<footer class="footer">
 		<p>Logo</p>
-
 		<div>
 			<span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
 				홍길동</span> <span>E-mail : we_study@westudy.com</span>
 		</div>
 		<p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
 	</footer>
-
-	<!-- footer end -->
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script src="js/holder.min.js"></script>
-	<script>
-        Holder.addTheme("dark", {
-            background: "#000", 
-            foreground: "#aaa", 
-            size: 11, 
-            font: "Monaco", 
-            fontweight: "normal" 
-        });
-    </script>
-
 </body>
 </html>
