@@ -69,7 +69,7 @@ $(document).ready(function(){
 		   				   .click(doDel)
 		   				   .appendTo(fileDiv);
 		   $('<p style="display: inline-block;">' + data.files[i].name + '</p>').appendTo(fileWrapper);
-		   $('<button id="delBtn" class="btn btn-default" style="float: right;">삭제</button>')
+		   $('<button id="delBtn" class="btn btn-secondary" style="float: right;">삭제</button>')
 		   .appendTo(fileWrapper);
       };
 
@@ -155,7 +155,7 @@ function showBoa(no) {
 
 /*------ update start ------*/
 $(document).ready(function(){
-	$((memNo == dataMemNo ? '<button id="delete-btn" class="btn btn-default detail-view" onclick="doDep(' + dataMemNo + ');">삭제</button>' : '') +
+	$((memNo == dataMemNo ? '<button id="delete-btn" class="btn btn-secondary detail-view" onclick="doDep(' + dataMemNo + ');">삭제</button>' : '') +
       	  (memNo == dataMemNo ? '<button id="update-btn" class="btn btn-default detail-view">수정</button>' : '')).appendTo('#boaOneFoot')
       	
 
@@ -173,7 +173,7 @@ $(document).ready(function(){
 	    
 	    $('#update-btn').css("display","none");
 	    $('#delete-btn').css("display","none");
-	    $('<button id="closeBtn" class="btn btn-default input-view" data-dismiss="modal">취소</button>').appendTo('#boaOneFoot');
+	    $('<button id="closeBtn" class="btn btn-secondary input-view" data-dismiss="modal">취소</button>').appendTo('#boaOneFoot');
 	    $('<button id="updateOn-btn" class="btn btn-default input-view" type="button" data-dismiss="modal">수정</button>').appendTo('#boaOneFoot');
 	    
 	    
@@ -204,7 +204,7 @@ $(document).ready(function(){
 					   				   .click(doDel)
 					   				   .appendTo(fileDiv);
 					   $('<p style="display: inline-block;">' + data.files[i].name + '</p>').appendTo(fileWrapper);
-					   $('<button id="delBtn" class="btn btn-default" style="float: right;">삭제</button>')
+					   $('<button id="delBtn" class="btn btn-secondary" style="float: right;">삭제</button>')
 					   .appendTo(fileWrapper);
 			      };
 
