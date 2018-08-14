@@ -95,8 +95,8 @@
 
 					for(let radio of survey.items) {
 						let div = $('<div class="custom-control custom-radio">');
-						let radioBt = $('<input type="radio" id="' + radio.no + '" name="customRadio" class="custom-control-input">');
-						let label = $("<label class='custom-control-label survey-list' for='" + radio.no + "'>");
+						let radioBt = $('<input type="radio" id="r' + radio.no + '" name="customRadio" class="custom-control-input">');
+						let label = $("<label class='custom-control-label survey-list' for='r" + radio.no + "'>");
 						$(label).text(radio.itemName);
 						$(div).append(radioBt);
 						$(div).append(label);
@@ -122,6 +122,9 @@
 	});
 
 	function vote(surveyNo, answerNum) {
+		
+		console.log($("#" + surveyNo + " .custom-control"));
+		
 		if(myNo == -1) {
 			swal( "권한 없음",
 				  "투표 전 로그인을 먼저 진행해주세요.",
@@ -135,7 +138,7 @@
 					studyNo : studyNo,
 					memNo : myNo,
 					surveyNo : surveyNo,
-					itemNo : $($(items).children()).attr("id")
+					itemNo : $($(items).children()).attr("id").substring(1)
 				}, res => {
 					if(res == "success") {
 						showPopup("투표 완료", "투표하였습니다!", "success");

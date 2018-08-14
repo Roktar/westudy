@@ -33,6 +33,8 @@ public class StudySurveyServiceImpl implements StudySurveyService {
     public Object add(String[] params, int no) {
         StudySurvey survey = new StudySurvey();
         List<String> items = new ArrayList<>();
+
+        System.out.println("impl - addMethod");
         
         for(String p : params) {
             try {
@@ -85,7 +87,6 @@ public class StudySurveyServiceImpl implements StudySurveyService {
 
     @Override
     public List<StudySurvey> list(int no) {
-        System.out.println("no : " + no);
         List<StudySurvey> list = surveyDao.selectList(no);
         
         for(StudySurvey sv : list) {
