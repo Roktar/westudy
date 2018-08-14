@@ -18,6 +18,8 @@ public class StudyJoinedMember implements Serializable {
 	private Member member;
 	private StudyInfo study;
 	private Review review;
+	private HashTag hashtag;
+	private InterestField member_interest;
 	
 	public Date getRegistedDate() {
 		return registedDate;
@@ -60,5 +62,17 @@ public class StudyJoinedMember implements Serializable {
 	}
 	public void setReview(Review review) {
 		this.review = review;
+	}
+	public HashTag getHashtag() {
+		return hashtag;
+	}
+	public void setHashtag(HashTag hashtag) {
+		this.hashtag = hashtag;
+	}
+	public InterestField getMember_interest() {
+		return member_interest;
+	}
+	public void setMember_interest(InterestField member_interest) {
+		this.member_interest = member_interest;
 	}
 }

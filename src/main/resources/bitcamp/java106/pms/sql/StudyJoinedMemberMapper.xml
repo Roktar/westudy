@@ -21,6 +21,7 @@
       <id column="stdno" property="no"/>
       <result column="sname" property="name"/>
       <result column="ctgr" property="category"/>
+      <result column="pic" property="picture"/>
    </association>
    
    <association property="review" javaType="Review">
@@ -131,5 +132,15 @@ left outer join study_review sr
     where stdno=#{studyNo} AND memno=#{memNo}
   </update>
     
+    
+      <select id="interList" resultMap="StudyJoinedMemberMap" parameterType="int">
+SELECT mi.memno, mi.itr, si.stdno, si.sname, si.pic, si.ctgr, si.county
+FROM member_interest mi 
+LEFT JOIN study_info si ON mi.itr=si.ctgr
+WHERE mi.memno=#{memNo}
+GROUP BY si.stdno
+limit 6;
+</select>
+  
   
 </mapper>

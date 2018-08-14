@@ -94,6 +94,14 @@ public class StudyJoinedMemberServiceImpl implements StudyJoinedMemberService{
     public int count(int no) {
         return studyJoinedMemberDao.count(no);
     }
+    
+
+    @Override
+   	public List<StudyJoinedMember> interList(Map<String, Object> paramMap) {
+   		System.out.println("관심분야 임플");
+   		return studyJoinedMemberDao.interList(paramMap);
+   	}
+    
 }
 
 

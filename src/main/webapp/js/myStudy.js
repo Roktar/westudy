@@ -1,4 +1,6 @@
+  
 $(document).ready(function() {
+	  $("#header").load(serverRoot + "/header.html");
    $.get("json/auth/loginstat", {}, res=> {
        no = res.no;
      }).done(function(data){
