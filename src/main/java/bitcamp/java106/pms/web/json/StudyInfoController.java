@@ -2,6 +2,7 @@ package bitcamp.java106.pms.web.json;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -145,6 +146,11 @@ public class StudyInfoController {
         }
         
         return studyInfoService.setPhoto(filename, studyNo, jsonData);
+    }
+    
+    @RequestMapping("listRandom")
+ 	 public List<StudyInfo> selectListRandom() {
+        return studyInfoService.selectListRandom();
     }
 }
 

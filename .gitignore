@@ -12,5 +12,9 @@
 **/node_modules
 **/package-lock.json
 **/js/common.js
+<<<<<<< HEAD
+=======
+
+>>>>>>> 365558f4402e51a72c2d9ec09cc450d5360566de
 !build.gradle
 /.metadata/

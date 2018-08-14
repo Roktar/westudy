@@ -79,5 +79,12 @@
   SET pic = #{fileName}
   where stdno = #{stdno}
   </update>
+  
+   <select id="selectListRandom" 
+          resultMap="StudyMap" parameterType="map"> 
+    select * 
+    from study_info ORDER BY RAND() limit 4
+   
+  </select>
 
 </mapper>

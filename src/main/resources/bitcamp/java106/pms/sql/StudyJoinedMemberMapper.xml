@@ -19,7 +19,7 @@
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>
-      <result column="name" property="name"/>
+      <result column="sname" property="name"/>
       <result column="ctgr" property="category"/>
    </association>
    

@@ -2,6 +2,7 @@ div.container {
     max-width: 1200px;
     margin: 0px auto 0px auto;
     padding: 0px;
+
 }
 
 div.innerContainer {
@@ -53,6 +54,7 @@ div.carousel-caption p {
 
 h6.studyName {
     padding: 0.5rem;
+    margin-bottom: 1.5em;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
@@ -65,10 +67,13 @@ h5.studyName {
 }
 
 div.carousel-caption p,
-div.carousel-caption h5 {
+div.carousel-caption h5
+
+ {
     height: 5rem;
     width: 34rem;
     margin: 0 auto;
+    padding: 0.5em 1em 1em 1em;
 }
 
 
@@ -94,6 +99,11 @@ div.menu {
 a.calendar {
     float: right;
     margin: 0.5rem;
+}
+
+.studyInfo {
+	margin: 1em auto;
+    text-align: center;
 }
 
 span.scheduleTopic,
@@ -131,6 +141,15 @@ div.row.eachMember {
 
 span.memberName {
     font-weight: bold;
+    display: block;
+   
+}
+
+/* 하은 */
+span.leaderName {
+	font-weight: bold;
+    display: block;
+    margin-top: 0.5em;
 }
 
 li.eachMember {
@@ -223,6 +242,12 @@ div.col2 {
     padding: 2.5rem;
 }
 
+
+.carousel-caption {
+	padding-bottom : 5.5em;
+
+	}
+
 button.apply {
     float: right;
 }
@@ -309,7 +334,10 @@ div.photos {
 
 img.card-img-top {
     border-radius: 0px;
-    max-height: 16em;
+    height: 60%
+}
+img.card-img-top:hover {
+    opacity: 0.4;
 }
 
 a.photoBtn {
@@ -368,15 +396,49 @@ div.memDesc {
 
 div.studyLeader {
     width: 20%;
-    margin: 2rem auto;
+    margin: 1em auto;
     text-align: center;
 }
 
-img.leader-thumbnail {
-    height: 10rem;
-    width: 10rem;
-    display: inline-block;
+/* .memberClass {
+	margin-bottom: 1em;
+	display: block;
+} */
+
+
+/* 하은 */
+.memberClass {
+	display: block;
 }
+
+     
+.prof-img {
+    
+    margin: auto;
+    display: block;
+     width:7em;
+     height:7em;
+     overflow:hidden;
+     border-radius: 3.5em;
+     }
+.prof-img img {
+	width:100%;
+	 }
+	 
+
+/* 하은 */	 
+.member-img {
+    margin: auto;
+    display: block;
+     width:5em;
+     height:5em;
+     overflow:hidden;
+     border-radius: 2.5em;
+     }
+.member-img img {
+	width:100%;
+	 }	 
+     
 
 div.container {
 /*    margin: 0px;*/
@@ -404,13 +466,23 @@ div.col {
     margin: 0px;
 }
 
-img.message {
+/* img.message {
     height:4rem;
     width:4rem;
-/*    float: right;*/
+   float: right;
+    margin: 0px;
+    padding: 0px;
+} */
+
+/* 하은 */
+img.message {
+    height:3rem;
+    width:3rem;
+   float: right;
     margin: 0px;
     padding: 0px;
 }
+
 
 div.col-md-4 {
     padding: 0px;
@@ -424,7 +496,7 @@ div.col-sm.memberProfile span{
     margin-left: 1rem;
     margin-right: 2rem;
 }
-
+/*-------------------------------------------------------------------*/
 div#files-div{
 	min-height: 10rem;
     max-height: 12rem;
@@ -478,6 +550,15 @@ div#filesOne-div{
 	width: 100%;
 }
 
+.card-body {
+    flex: none;	
+}
+
 .btn-secondary {
    background-color: #aaa;
 }
+
+#photoGM{
+	height: 28rem;
+}
+/*-------------------------------------------------------------------*/

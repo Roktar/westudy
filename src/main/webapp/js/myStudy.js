@@ -18,7 +18,7 @@ $(document).ready(function() {
                
                if (item.grade == 0) {
                $('<div class="studybox">'+
-                     '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html"><span id="stdname">\''+ item.study.name +'\'</span></a>'+
+                     '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html?no='+ item.studyNo +'"><span id="stdname">\''+ item.study.name +'\'</span></a>'+
                      '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">관리</button>'+
                      '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value"><button id="vBtn" class="btn btn-primary btn-sm review"' + _chkHtml + '</button></a>'+
                '</div>').appendTo(mystudy);
@@ -28,7 +28,7 @@ $(document).ready(function() {
                
                } else if (item.grade == 1) {
             	   
-            	   var _html = '<div><span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html">'
+            	   var _html = '<div><span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html?no='+ item.studyNo +'">'
             	   + '<span id="stdname">\''+ item.study.name +'\'</span></a>'
             	   + '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal" onclick="Out('+ item.study.no +')">탈퇴</button>'
             	   + '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value">'
@@ -44,20 +44,24 @@ $(document).ready(function() {
                
            
     })
+    
+    
+    $('.modal').on('hidden.bs.modal', function (e) {
+        console.log('modal reset');
+      $(this).find('form')[0].reset();
+      $(fContent).html("");
+      
+      $('#example').barrating('set', 1);
+      $(addBtn).css('display', 'block');
+      $(closeBtn).css('display', 'block');
+      $(updBtn).css('display', 'none');
+      $(delBtn).css('display', 'none');
+  });
 })
         
         
         
-        $('.modal').on('hidden.bs.modal', function (e) {
-              console.log('modal reset');
-            $(this).find('form')[0].reset();
-            
-            $('#example').barrating('set', 1);
-            $(addBtn).css('display', 'block');
-            $(closeBtn).css('display', 'block');
-            $(updBtn).css('display', 'none');
-            $(delBtn).css('display', 'none');
-        });
+        
 });
 
 
@@ -68,7 +72,7 @@ function Rwrite(stdno, node) {
 	console.log('*** Rwrite 작성 ');
    console.log("stdno : " + stdno);
    console.log("memno : " + no);
-   
+   $('.modal-title').text('후기 작성');
    console.log(node)
     var stdno = stdno;
     $("#addBtn").click(() => {
@@ -113,6 +117,7 @@ function Rview(stdno) {
      $(closeBtn).css('display', 'none');
      $(updBtn).css('display', 'block');
      $(delBtn).css('display', 'block');
+     $('.modal-title').text('내 후기');
    console.log("stdno : " + stdno);
    console.log("memno : " + no);
    $.getJSON("json/review/myReview", {
@@ -133,7 +138,7 @@ function Rview(stdno) {
                         no: rvwno
                         
                 }, () => {
-                   location.href = "Mystudy.html";
+                   location.href = "Mystudy2.html";
                 });
              });
                   
@@ -149,10 +154,6 @@ function Rview(stdno) {
             });
    
    
-   
-
-               
-               
          
       
 }
@@ -169,8 +170,8 @@ function Out(stdno) {
            title: '스터디를 탈퇴하시겠습니까?',
            type: 'warning',
            showCancelButton: true,
-           confirmButtonText: '네 탈퇴할래요!',
            cancelButtonText: '아니요!',
+           confirmButtonText: '네 탈퇴할래요!',
            reverseButtons: true
          }).then((result) => {
            if (result.value) {
