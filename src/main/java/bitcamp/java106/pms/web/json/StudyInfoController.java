@@ -197,13 +197,19 @@ public class StudyInfoController {
         return studySurveyService.list(no);
     }
     
-    @PostMapping("survey/vote")
+    @PostMapping("survey/vote/radio")
     public Object vote(@RequestParam(value="studyNo", defaultValue="0") int studyNo, 
                        @RequestParam(value="memNo", defaultValue="0") int memNo, 
                        @RequestParam(value="surveyNo", defaultValue="0") int surveyNo, 
                        @RequestParam(value="itemNo", defaultValue="0") int itemNo) {
         return studySurveyService.vote(studyNo, memNo, surveyNo, itemNo);
     }
+    
+    @PostMapping("survey/vote/checkbox")
+    public Object voteCheckbox(@RequestBody String qs) {
+        return studySurveyService.vote(qs.split("&"));
+    }
+    
     /* 설문조사 */
 }
 

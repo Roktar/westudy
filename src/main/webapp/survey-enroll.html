@@ -19,6 +19,103 @@
     <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
     <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+    
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/survey-enroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="js/holder.min.js"></script>
+    
+    <script>
+        Holder.addTheme("dark", {
+            background: "#000",
+            foreground: "#aaa",
+            size: 11,
+            font: "Monaco",
+            fontweight: "normal"
+        });
+    </script>
+
+    <script>
+        let studyNo = window.location.search.substring(1).split("=")[1];
+        $(document).ready(function() {
+            $("#header").load( serverRoot + "/header.html" );
+
+            let nowDate = new Date();
+
+            $("#start").val( nowDate.getFullYear() + "-" + (nowDate.getMonth() < 10 ? "0"+(nowDate.getMonth()+1) : nowDate.getMonth()+1) + "-" + nowDate.getDate() );
+            $("#end").val( nowDate.getFullYear() + "-" + (nowDate.getMonth() < 10 ? "0"+(nowDate.getMonth()+1) : nowDate.getMonth()+1) + "-" + nowDate.getDate() );
+
+            $("#answerNumber").change(function() {
+                $(".red").remove();
+                let len = this.value;
+                
+                let target = $(".vote-list");
+
+                for(let i = 0; i < len; i++) {
+                    let defaultNode = $("<div class='red'>");
+                    let defaultInput = $("<input type='text' class='form-control list-form' aria-describedby='emailHelp' placeholder='항목을 입력해주세요' style='width:90%;'>");
+                    
+                    $(defaultNode).append(defaultInput);
+                    $(target).append(defaultNode);
+                }
+            });
+
+            $(".enroll-bt").click(function() {
+
+                if($($("#title")).val().length < 1) {
+                    showMessage("입력되지 않은 항목이 있습니다.", "error");
+                    return;
+                }
+                
+                let items = [];
+
+                for(let x of $(".red").children()) {
+                    if(x.value.length < 1) {
+                        showMessage("입력되지 않은 항목이 있습니다.", "error");
+                        return;
+                    }
+                    items.push( decodeURIComponent( x.value ) );
+                }
+                
+                for(let item of $("#addTable > tbody tr"))
+                    items.push( decodeURIComponent( $($(item).children()).children()[0].value ));
+                
+                let params = {
+                    title : decodeURIComponent( $($("#title")).val() ),
+                    answerNum : $("#answerNumber").val(),
+                    startDate : $("#start").val(),
+                    endDate : $("#end").val(),
+                    items : items
+                };
+
+                $.post(serverRoot+"/json/studyInfo/add/survey?no="+studyNo, params , res => {
+                    if(res == "success") {
+                        showMessage("설문조사가 등록되었습니다.", "success");
+                        location.href = "surveylist.html?no=" + studyNo;
+                    } else
+                        showMessage("설문조사 등록이 실패했습니다.", "error");
+                });
+            });
+        });
+
+        function showMessage(text, type) {
+            swal.mixin({
+                toast: true,
+                position: 'center',
+                showConfirmButton: false,
+                timer: 3000
+              })({
+                  type: type,
+                  title: text
+              });
+        }
+
+    </script>
 </head>
 
 <body>
@@ -127,7 +224,14 @@
     <!-- row end -->
     </div>
     <!-- container end -->
+
+
+
+
+
+
     <!-- footer start -->
+
     <footer class="footer">
         <p>Logo</p>
 
@@ -143,75 +247,7 @@
     <!-- footer end -->
 
     <!-- Bootstrap core JavaScript -->
-    <script>
-        Holder.addTheme("dark", {
-            background: "#000",
-            foreground: "#aaa",
-            size: 11,
-            font: "Monaco",
-            fontweight: "normal"
-        });
-    </script>
 
-    <script>
-        let studyNo = window.location.search.substring(1).split("=")[1];
-        $(document).ready(function() {
-            console.log("studyNo:", studyNo);
-            $("#header").load( serverRoot + "/header.html" );
-
-            $(".enroll-bt").click(function() {
-
-                if($($("#title")).val().length < 1 || $("#defaultItem").val().length < 1) {
-                    showMessage("입력되지 않은 항목이 있습니다.", "error");
-                    return;
-                }
-                
-                let items = [];
-                items.push( decodeURIComponent( $("#defaultItem").val() ) );
-
-                for(let item of $("#addTable > tbody tr"))
-                    items.push( decodeURIComponent( $($(item).children()).children()[0].value ));
-                
-                let params = {
-                    title : decodeURIComponent( $($("#title")).val() ),
-                    answerNum : $("#answerNumber").val(),
-                    startDate : $("#start").val(),
-                    endDate : $("#end").val(),
-                    items : items
-                };
-
-                $.post(serverRoot+"/json/studyInfo/add/survey?no="+studyNo, params , res => {
-                    if(res == "success")
-                        showMessage("설문조사가 등록되었습니다.", "success");
-                    else
-                        showMessage("설문조사 등록이 실패했습니다.", "error");
-                });
-            });
-        });
-
-        function showMessage(text, type) {
-            swal.mixin({
-                toast: true,
-                position: 'center',
-                showConfirmButton: false,
-                timer: 3000
-              })({
-                  type: type,
-                  title: text
-              });
-        }
-
-    </script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/slidebars/dist/slidebars.js"></script>
-    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/survey-enroll.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="js/holder.min.js"></script>
-    
 
 </body>
 

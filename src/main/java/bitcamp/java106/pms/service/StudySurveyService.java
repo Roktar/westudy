@@ -8,4 +8,5 @@ public interface StudySurveyService {
     Object add(String[] params, int studyNo);
     List<StudySurvey> list(int no);
     Object vote(int studyNo, int memNo, int surveyNo, int itemNo);
+    Object vote(String[] params);
 }
