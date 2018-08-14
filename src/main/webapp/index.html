@@ -129,15 +129,14 @@
 	    <div class="wrap center">
 	        <div class="section" style="padding-top: 0; display:none;" id="login-after">
 	            <div class="resizeWidth">
-	                <p class="titlehead text-center" style="margin:2rem 0;">내 주변 스터디</p>
-	                <a href="#" class="right" style="color:#333; margin-top:-3%;">더보기</a>
-	            </div>
-	
-	            <div class="l-wrapper" style="margin: 0 auto">
-	                <ul id="lrow" class="l-row">
-	                    
-	                </ul>
-	            </div>
+                    <p class="titlehead text-center" style="margin: 2rem 0;">내 주변 스터디</p>
+                </div>
+
+                <div class="l-wrapper" style="margin: 0 auto">
+                    <ul id="lrow" class="l-row">
+
+                    </ul>
+                </div>
 	
 	           <!-- 관심 스터디 -->
 	           <div class="center">
@@ -318,26 +317,39 @@
                 minSlides: 3,
                 maxSlides: 3
             });
+            nearList();
+            )};
 
-            /* 내 주변 스터디 */
-            $.getJSON("json/studyInfo/list", (data) => {
-                    for (var item of data) {
-                        /* console.log(item); */
-                         $("<li class='l-col'>").html(`<div id='mystudy' data-no='${item.no}' class='study' style='background: #fff; border:solid 1px #d2d2d2'>
-                           <a href='groupMain.html?no=${item.no}' style='display: block; width: 100%;'>
-                           <div class='ove'><span class='ove_span'></span></div></a>
-                           <div class='info_area'><h2 class='infoareah2'>${item.name}</h2>
-                           <div class='tags'><span class='tag_area_name'>${item.county}</span></div></div></div>`).appendTo(lrow);
-                    
-                        let itemNo = item.no;
-                        $.getJSON("json/studyInfo/listTag/" + itemNo, (data2) => {
-                            /* console.log(itemNo); */
-                            for (var i of data2) {
-                                $('div[data-no="' + itemNo + '"] div.tags').append($("<span class='hashtags'>" + i.hashtag + "</span>"));
+            function nearList(){
+                var nearList = $('.l-row');
+                
+                    $.get("json/auth/loginstat", {}, res=> {
+                        no = res.no;
+                    }).done(function(data){
+                        $.ajax({
+                        url : "/FinalProject/json/studyInfo/nearList",
+                        method : "POST",
+                        data: {"no" : no},
+                        dataType:"json",
+                        success:function(data){
+                            for(var item of data){
+                               $("<li class='l-col'>").html(`<div id='mystudy' data-no='${item.no}' class='study' style='background: #fff; border:solid 1px #d2d2d2'>
+                                       <a href='groupMain.html?no=${item.no}' style='display: block; width: 100%;'>
+                                       <div class='ove'><span class='ove_span'><img style="width:100%; height:100%"src="files/${item.picture}_350x350.jpg" class="as"></span></div></a>
+                                       <div class='info_area'><h2 class='infoareah2'>${item.name}</h2>
+                                       <div class='tags'><span class='tag_area_name'>${item.county}</span></div></div></div>`).appendTo(lrow);
+                              
+                               let itemNo = item.no;
+                                $.getJSON("json/studyInfo/listTag/" + itemNo, (data2) => {
+                                    for (var i of data2) {
+                                        $('div[data-no="' + itemNo + '"] div.tags').append($("<span class='hashtags'>" + i.hashtag + "</span>"));
+                                    }
+                                });
                             }
-                        });
-                    }
-            });
+                        }
+                    })
+                });
+            }     
             
             /* 인기 스터디 */
             $.getJSON("json/studyInfo/listRandom", (data) => {

@@ -23,4 +23,7 @@ public interface StudyInfoService {
     Object setPhoto(String fileName, int studyNo, Map<String, Object> data);
     Object updateTag(String[] tags);
     List<StudyInfo> selectListRandom();
+    
+    //동현
+    List<StudyInfo> nearList(Map<String, Object> paramMap);
 }

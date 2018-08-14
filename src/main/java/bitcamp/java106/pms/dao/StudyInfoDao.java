@@ -17,4 +17,7 @@ public interface StudyInfoDao {
     int studyCount();
     int photo(Map<String, Object> params);
     List<StudyInfo> selectListRandom();
+    
+    //동현
+    List<StudyInfo> nearList(Map<String, Object> paramMap);
 }

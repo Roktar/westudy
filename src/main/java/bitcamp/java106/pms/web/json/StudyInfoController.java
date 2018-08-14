@@ -3,6 +3,7 @@ package bitcamp.java106.pms.web.json;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -151,6 +152,27 @@ public class StudyInfoController {
     @RequestMapping("listRandom")
  	 public List<StudyInfo> selectListRandom() {
         return studyInfoService.selectListRandom();
+    }
+    
+    //동현
+    @RequestMapping("nearList")
+    public List<StudyInfo> nearList(
+    		@RequestParam(value = "city", defaultValue = "1") String city,
+    		@RequestParam(value = "county", defaultValue = "1") String county,
+    		@RequestParam(value = "no", defaultValue = "1") int no) throws Exception {
+    	
+    	Map<String, Object> paramMap = new HashMap<String, Object>();
+    	paramMap.put("city", city);
+    	paramMap.put("county", county);
+    	paramMap.put("no", no);
+    	
+    	System.out.println("city : " + city);
+    	System.out.println("county : " + county);
+    	System.out.println("memno : " + no);
+    	
+    	List<StudyInfo> nearList = studyInfoService.nearList(paramMap);
+    	System.out.println("nearList컨트롤러");
+    	return nearList;
     }
 }
 

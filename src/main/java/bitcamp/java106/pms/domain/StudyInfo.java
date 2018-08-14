@@ -16,15 +16,17 @@ public class StudyInfo implements Serializable {
     private String name;
     private String information;
     
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date createdDate;
     
     private int maxPeople;
     private String category;
     
-    private String picture;
+    private String Picture;
     private List<HashTag> tags;
     
+    private Member member;
+    private HashTag hashtag;
     
     @Override
     public String toString() {
@@ -97,19 +99,35 @@ public class StudyInfo implements Serializable {
         this.category = category;
     }
 
-	public List<HashTag> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<HashTag> tags) {
-		this.tags = tags;
-	}
-
-    public String getPicture() {
-        return picture;
+    public List<HashTag> getTags() {
+        return tags;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setTags(List<HashTag> tags) {
+        this.tags = tags;
     }
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public HashTag getHashtag() {
+		return hashtag;
+	}
+
+	public void setHashtag(HashTag hashtag) {
+		this.hashtag = hashtag;
+	}
+
+	public String getPicture() {
+		return Picture;
+	}
+
+	public void setPicture(String picture) {
+		Picture = picture;
+	}
 }

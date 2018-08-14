@@ -20,6 +20,17 @@
     <result column="mprs" property="maxPeople" />
     <result column="ctgr" property="category" />
     <result column="pic" property="picture" />
+    
+     <association property="member" javaType="Member">
+      <id column="memno" property="no"/>
+      <result column="city" property="city" />
+      <result column="county" property="county" />
+    </association>
+    
+    <association property="hashtag" javaType="HashTag">
+        <id column="stdno" property="no"></id>
+        <result column="tag" property="hashtag"></result>
+    </association>
   </resultMap>
 
   <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
@@ -86,5 +97,16 @@
     from study_info ORDER BY RAND() limit 4
    
   </select>
+  
+  <select id="nearList" resultMap="StudyMap" parameterType="int">
+        SELECT m.memno, m.city, m.county, si.stdno, si.sname, si.pic, si.ctgr, h.tag
+        FROM member m 
+        LEFT JOIN study_info si ON m.city=si.city
+        LEFT JOIN hashtag h ON si.stdno=h.stdno
+        WHERE m.memno=#{no}
+        AND m.county=si.county
+        ORDER BY rand()
+        limit 4;    
+</select>
 
 </mapper>

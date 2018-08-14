@@ -143,4 +143,11 @@ public class StudyInfoServiceImpl implements StudyInfoService {
 	public List<StudyInfo> selectListRandom() {
 		return studyInfoDao.selectListRandom();
 	}
+    
+    //동현
+    @Override
+	public List<StudyInfo> nearList(Map<String, Object> paramMap) {
+		System.out.println("임플city : [" + paramMap.get("city") +"], 임플no : [" + paramMap.get("no") +"], 임플county : [" + paramMap.get("county") +"]");
+		return studyInfoDao.nearList(paramMap);
+	}
 }
