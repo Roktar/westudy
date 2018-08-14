@@ -84,7 +84,10 @@ $(document).ready(function() {
 	        
 	        if (confirm(_msg)) {
 	        	if(memno == undefined){
-	        		alert("로그인 후 이용하실 수 있습니다.");  
+	        		swal({
+	  				  type: 'error',
+	  				  title:  '로그인 후 이용하실 수 있습니다.'
+	  				})
 	        	} else{
 		            $.ajax({
 		                url : "/FinalProject/json/awaitingMember/add",

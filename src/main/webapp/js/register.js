@@ -17,15 +17,14 @@ $(document).ready(function() {
         
         if( $(in_email).val() == "" || $(pass).val() == "" || $(checkpass).val() == ""
                         || $(nm).val() == "" || $(tel).val() == "" || $(city).val() == "" || $(county).val() == "" ) {
-            alert("입력되지않은 항목이 있습니다.");
+        	swal({
+				  type: 'error',
+				  title:  '입력되지 않은 항목이 있습니다.'
+				})
             return;
         }
         
-        if( $(email).val().indexOf('@') == -1){
-        	alert("이메일 형식이 올바르지 않습니다.")
-        	return;
-        }
-        
+       
 
         for(let c of $('input[type=checkbox]')) {
             if($(c).is(":checked"))
@@ -64,7 +63,10 @@ function count_ck(obj){
         }
     }
     if(chkCnt>3){
-        alert("3개 이상 선택할 수 없습니다.");
+    	swal({
+			  type: 'error',
+			  title:  '3개 이상 선택할 수 없습니다.'
+			})
         obj.checked = false;
         return false;
     }

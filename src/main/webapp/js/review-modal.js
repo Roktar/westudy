@@ -133,7 +133,11 @@ Dropzone.options.myDropzone = {
 
 		this.on("maxfilesexceeded", function(data) {
 
-			alert('최대 업로드 파일 수는 20개 입니다.');
+			swal({
+				  type: 'error',
+				  title: '최대 업로드 파일 수는 20개 입니다.',
+				})
+
 
 		});
 
@@ -174,7 +178,11 @@ Dropzone.options.myDropzone = {
 
 					}
 
-					alert(msg);
+					swal({
+						  type: 'error',
+						  title:  msg
+						})
+
 
 				}
 

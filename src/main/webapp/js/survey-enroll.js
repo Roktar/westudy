@@ -26,7 +26,11 @@ function frmCheck()
      if( frm.elements[i].name == "addText" )
      {
          if( !frm.elements[i].value ){
-             alert("텍스트박스에 값을 입력하세요!");
+        	 swal({
+        		  type: 'error',
+        		  title: '텍스트 박스에 값을 입력하세요.',
+        		})
+
                  frm.elements[i].focus();
 	 return;
           }
