@@ -2,7 +2,7 @@ var list_group = $('.memberbox');
 var no = location.href.split("?")[1].split("=")[1];
 console.log(no);
 var i = 1;
-var serverRoot = "http://localhost:8888/FinalProject";
+var serverRoot = "http://westudy.java106.com:8888/FinalProject";
 
 $(document).ready(function() {
 	$("#header").load(serverRoot + "/header.html");
