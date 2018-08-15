@@ -11,6 +11,12 @@
     <link type="text/css" rel="stylesheet" href="css/common.css">
     <link type="text/css" rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/myProfile.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="css/br_profile.css">
+    
+    <title>내 정보 관리</title>
+    
+=======
     <link rel="stylesheet" href="css/slidebar.css">
     <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
@@ -32,6 +38,7 @@
     
     
     
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
 </head>
 
 <body>
@@ -43,6 +50,89 @@
     <div canvas="container" id="container">
         
         <div class="container">
+<<<<<<< HEAD
+	        <div class="row justify-content-md-center">
+	            <div class="col-sm-2 test" style="text-align: center">
+	                <div class="col-box-list">
+	                   <div class="class_titl">내정보</div>
+	                    <hr class="line3">
+	                    <div class="list-group cls-list">
+	                        <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+	                            내 정보 관리
+	                        </a>
+	                        <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+	                            관심 분야 설정
+	                        </a>
+	                        <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+	                            메시지
+	                        </a>
+	                        <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+	                            비밀번호 변경
+	                        </a>
+	                        <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+	                            계정 삭제
+	                        </a>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            <div class="col-sm-10">
+	                    <div class="inner-container-box">
+	                        <h3>내 정보 관리</h3>
+	                        <hr>
+	                        <div id="imgeBox">
+	                               <img id="myPhoto" src="img/icon.png" alt="" >
+				                   <button id='uploadBtn' class="btn btn-default" type='button'>이미지 첨부</button>
+		                   <input id="fileupload" type="file" name="files" multiple>
+	                        </div>
+                           <div id="info">
+                               <ul class='list-group'>
+                                   <li class='list-group-item'>이름<input id='name' name="name" class='float-right inputPro' readonly></li>
+                                   <li class='list-group-item'>이메일<input id='email' name="email" class='float-right inputPro' readonly></li>
+                                   <li class='list-group-item'>연락처<input id='tel' name="tel" class='float-right inputPro' ></li>
+                                   <li id="cityCount"class='list-group-item datail-view'>지역</li>
+                                   <li id="updataCity" class='list-group-item input-view'>지역
+                                       <form name="form">
+                                           <div class="row">
+                                                <div class="col-sm-6">
+                                                <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control ">
+                                                    <option value="" selected>:: 시/도 ::</option>
+                                                    <option value="1">서울특별시</option>
+                                                    <option value="2">부산광역시</option>
+                                                    <option value="3">대구광역시</option>
+                                                    <option value="4">인천광역시</option>
+                                                    <option value="5">광주광역시</option>
+                                                    <option value="6">대전광역시</option>
+                                                    <option value="7">울산광역시</option>
+                                                    <option value="8">세종특별자치시</option>
+                                                    <option value="9">경기도</option>
+                                                    <option value="10">강원도</option>
+                                                    <option value="11">충청북도</option>
+                                                    <option value="12">충청남도</option>
+                                                    <option value="13">전라북도</option>
+                                                    <option value="14">전라남도</option>
+                                                    <option value="15">경상북도</option>
+                                                    <option value="16">경상남도</option>
+                                                    <option value="17">제주특별자치도</option>
+                                                </select>
+                                            </div>
+                                                <div class="col-sm-6">
+                                                    <select id="fCounty" name="option2" class="form-control">
+                                                        <option>:: 시/군/구 ::</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                       </form>
+                                   </li>
+                               </ul>
+		                        <button type="button" id="updateBtn" class="btn float-right">변경</button>
+                            </div>
+                        </div>
+                </div>  
+          </div>
+    </div>
+
+=======
            <div class="row justify-content-md-center">
                <div class="col-sm-2 test" style="text-align: center">
                    <div class="col-box-list">
@@ -137,6 +227,7 @@
            </div>
         </div>
         
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
         <!-- footer start -->
         <footer class="footer" style="max-width:100%;">
             <p>Logo</p>
@@ -153,23 +244,36 @@
         
     </div>
     <!-- container end -->
+<<<<<<< HEAD
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+    <script src="js/bs_myprofile.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+=======
     
     <script>
         $("#header").load(serverRoot+"/header.html");
     </script>
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
     
-    <script src="js/holder.min.js"></script>
-    <script>
-        Holder.addTheme("dark", {
-            background: "#000",
-            foreground: "#aaa",
-            size: 11,
-            font: "Monaco",
-            fontweight: "normal"
-        });
-    </script>
     
     <script>
+<<<<<<< HEAD
+        $("#header").load(serverRoot+"/header.html");
+    
+=======
        var memno = -1;
        $(document).ready( function () {
            $.get("json/auth/loginstat", (data) => {
@@ -195,6 +299,7 @@
         })
         }, 500);
         
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
         function changes(fr) {
             if(fr==1) {
                 //뿌려줄값을 배열로정렬
@@ -326,6 +431,10 @@
           }
         }
         
+<<<<<<< HEAD
+        
+    </script>    
+=======
         $("#updateBtn").click(() => {
             $.post("json/member/updateprofile", {
                 tel: $("#tel").text(),
@@ -368,6 +477,7 @@
     </script>
     <!-- file upload end -->
     
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
     
 </body>
 </html>

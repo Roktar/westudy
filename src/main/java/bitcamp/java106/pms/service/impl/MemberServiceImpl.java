@@ -155,15 +155,17 @@ public class MemberServiceImpl implements MemberService{
     
 
     @Override
-    public Object upload(String filename, HashMap<String, Object> jsonData, int memberno) {
-        // TODO Auto-generated method stub
-        Map<String, Object> map = new HashMap<>();
-        map.put("memberno", memberno);
-        map.put("profile", filename);
-        memberDao.upload(map);
-        
-        return jsonData;
+    public int uploadPhoto(HashMap<String, Object> params) {
+       memberDao.uploadPhoto(params);
+        return 1;
     }
+    
+    @Override
+    public int uploadExcludePhoto(Map<String, Object> params) {
+       memberDao.uploadExcludePhoto(params);
+        return 1;
+    }
+    
     @Override
 	public int checkId(String email) {
 		return memberDao.checkId(email);

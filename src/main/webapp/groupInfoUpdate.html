@@ -40,7 +40,7 @@
 
         $(document).ready(function() {
         	$('#groupImgeDiv').click(function(){
-                $('#groupImge').click;
+                $('#groupImge').click();
             })
             
         	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
@@ -368,11 +368,20 @@
                                 <div style="width: auto; overflow: hidden; margin: 0 auto;">
                                     <figure>
                                         
+<<<<<<< HEAD
+                                        <img src="img/test.jpeg" alt="logo"style="width: 100%; max-height: 20em; max-width: 100%;">
+                                    </figure>
+                                </div>
+                                <form id="form" runat="server" action="">
+                                    <input id="groupImge" type="file" multiple accept="image/*" id="imgInput" name="files" >
+                                    <button id='groupImgeDiv' class="btn btn-default" type='button'>찾기</button>
+=======
                                         <img src="img/study2.jpg" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
                                     </figure>
                                 </div>
                                 <form id="form" runat="server" action="">
                                     <input type="file" multiple accept="image/*" id="imgInput" name="files" >
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
                                 </form>
                                 <br>
                             </div>

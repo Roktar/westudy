@@ -97,10 +97,16 @@
     where email = #{id}
 </select>
 
-<update id="upload" parameterType="map">
+<update id="uploadPhoto" parameterType="map">
     update member
-    set pfp=#{profile}
-    where memno=#{memberno}
+    set pfp=#{profile}, tel=#{tel}, city=#{city}, county=#{county}
+    where memno=#{no}
+</update>
+
+<update id="uploadExcludePhoto" parameterType="map">
+    update member
+    set tel=#{tel}, city=#{city}, county=#{county}
+    where memno=#{no}
 </update>
 
 <select id="checkId" parameterType="Member" resultType="int">
