@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/group.css">
     <link href="node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
     <link rel="stylesheet" href="css/slidebar.css">
-	<link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
+   <link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
     
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -80,9 +80,9 @@
                        <h5 class="studyName"></h5>
                        <p class="studyDescription">스터디원 : <span class="studyCount">5</span>명 
                       
-                       	지역: <span class="studyArea">서울, 강남</span>
+                          지역: <span class="studyArea">서울, 강남</span>
                        <br>
-                       	 웹개발자가 되려는 모든 분들을 환영하는 스터디입니다.
+                           웹개발자가 되려는 모든 분들을 환영하는 스터디입니다.
                        </p>
                    </div>
     
@@ -173,7 +173,7 @@
                 <div class="row">
                     <div class="col menu menu2">
                         <h6 class="menu">
-                          		  오늘의 일정
+                                  오늘의 일정
                             <a href="calendar.html" class="badge badge-warning">전체 일정
                             </a>
                         </h6>
@@ -183,7 +183,7 @@
                             <div class="row">
                                 <div class="col-sm scheduleDetails">
                                     <span class="scheduleLocation">장소</span>
-                                    </span>
+                                    
                                     <br>
                                     <a href="#">
                                         <img src="img/mapMarker.png" class="rounded-0 mapMarker mapMarker-center">
@@ -210,7 +210,74 @@
             </div>
             <!-- 오늘의 일정 end -->
             
+            <!-- 설문조사 start -->
+             <div class="innerContainer">
+               <div class="row">
+                    <div class="col menu menu2">
+                        <h6 class="menu">
+                                  설문조사
+                            <a href="surveylist.html" class="badge badge-warning">전체 설문
+                            </a>
+                        </h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm survey-">
+                                <div class="survey">
+                                    <span class="pollTitle">새로운 교재 선정</span>
+                                    <br>
+                                    <br>
+                                    <div class="surveyInner">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">Head First Java</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio2">자바의 정석
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio3">자바 네트워크 프로그래밍 - 개정4판</label>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm poll">투표하기</button>
+                                </div>
+                            </div>
+                            <div class="col-sm survey-">
+                                <div class="survey">
+                                    <span class="pollTitle">다음 회식 장소</span>
+                                    <br>
+                                    <br>
+                                    <div class="surveyInner">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">버터핑거</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio2">자바의 정석
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio3">자바 네트워크 프로그래밍 - 개정4판</label>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm poll">투표하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
             
+             <!-- 설문조사 end -->
             
             
             
@@ -360,7 +427,7 @@
                     
                     <textarea id="boaOneContent" type="text" class="form-control input-view" value="" ></textarea>
                     <input id="fileuploadOne" type="file" name="files" value="" multiple>
-	                    <p id="fileWari" class="input-view">파일을 등록해 주세요</p>
+                       <p id="fileWari" class="input-view">파일을 등록해 주세요</p>
                     <div id="filesOne-div">
                     </div>
                 </div>
@@ -375,7 +442,7 @@
     
 
     
-    <footer class="footer" style="margin-top: 200em">
+    <footer class="footer" style="margin-top: 100em">
         <p>Logo</p>
         <div>
             <span>서울특별시 강남구 비트캠프 401호</span>

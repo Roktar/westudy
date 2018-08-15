@@ -145,13 +145,14 @@ public class MemberServiceImpl implements MemberService{
     }
     
     @Override
-	public List<Member> list() {
-		return null;
-	}
+    public List<Member> list() {
+        return null;
+    }
     @Override
-	public int delete(int no) {
-		return 0;
-	}
+    public int delete(int no) {
+        return 0;
+    }
+    
 
     @Override
     public int uploadPhoto(HashMap<String, Object> params) {
@@ -166,20 +167,20 @@ public class MemberServiceImpl implements MemberService{
     }
     
     @Override
-	public int checkId(String email) {
-		return memberDao.checkId(email);
-	}
+    public int checkId(String email) {
+        return memberDao.checkId(email);
+    }
 
-	@Override
-	public Member get(String email) {
-		return memberDao.findByEmail(email);
-	}
+    @Override
+    public Member get(String email) {
+        return memberDao.findByEmail(email);
+    }
 
-	@Override
-	public int add(Member member) {
-		return memberDao.add(member);
-	}
-	
+    @Override
+    public int add(Member member) {
+        return memberDao.add(member);
+    }
+    
     @Override
     public Object updateInterest(String[] itrs, int no) {
         interestFieldDao.delete(no);

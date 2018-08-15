@@ -52,6 +52,10 @@ $(document).ready(function() {
         console.log('modal reset');
       $(this).find('form')[0].reset();
       $(fContent).html("");
+<<<<<<< HEAD
+   
+=======
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
       $('#example').barrating('set', 1);
       $(addBtn).css('display', 'block');
       $(updBtn).css('display', 'none');
