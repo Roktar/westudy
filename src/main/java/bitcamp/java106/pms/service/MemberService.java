@@ -14,7 +14,8 @@ public interface MemberService {
     Member selectOneSimpleCase(String id);
     Object changePassword(int no, String nowPassword, String newPassword);
     int update(Member member);
-    Object upload(String filename, HashMap<String, Object> jsonData, int memberNo);
+    int uploadPhoto(HashMap<String, Object> params);
+    int uploadExcludePhoto(Map<String, Object> params);
 	List<Member> list();
 	int delete(int no);
 	

@@ -11,26 +11,9 @@
     <link type="text/css" rel="stylesheet" href="css/common.css">
     <link type="text/css" rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/myProfile.css">
-    <link rel="stylesheet" href="css/slidebar.css">
-    <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
-<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src='node_modules/jquery/dist/jquery.js'></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="node_modules/slidebars/dist/slidebars.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-    <script src="js/common.js"></script>
+    <link rel="stylesheet" href="css/br_profile.css">
     
     <title>내 정보 관리</title>
-    
-    <style>
-        #fileupload{
-            visibility: hidden;
-        }
-    </style>
-    
-    
     
 </head>
 
@@ -43,100 +26,87 @@
     <div canvas="container" id="container">
         
         <div class="container">
-           <div class="row justify-content-md-center">
-               <div class="col-sm-2 test" style="text-align: center">
-                   <div class="col-box-list">
-                      <div class="class_titl">내정보</div>
-                       <hr class="line3">
-                       <div class="list-group cls-list">
-                           <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
-                               내 정보 관리
-                           </a>
-                            <a href="Mystudy.html" class="list-group-item list-group-item-action cls-list-link">
-                                     내 스터디
-                        </a>
-                           <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
-                               관심 분야 설정
-                           </a>
-                           <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
-                               메시지
-                           </a>
-                           <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
-                               비밀번호 변경
-                           </a>
-                           <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
-                               계정 삭제
-                           </a>
-                       </div>
-                   </div>
-               </div>
-               
-               <div class="col-sm-10">
-                       <div class="inner-container-box">
-                           <h3>내 정보 관리</h3><hr>
-                           <div class="form-group-img">
-                               <div id='images-div'>
-                                   <img id="profileImage" src="#">
-                               </div>
-                               <div class="row">
-                                   <div class="col-sm-4 offset-sm-4">
-                                       <div class="row">
-                                         <input class="col-10 form-control-sm form-control-file" id="fileupload" type="file" name="files" data-url="json/member/upload01" multiple>
-                                         <div class="col" id="btnArea"></div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                           
+            <div class="row justify-content-md-center">
+                <div class="col-sm-2 test" style="text-align: center">
+                    <div class="col-box-list">
+                       <div class="class_titl">내정보</div>
+                        <hr class="line3">
+                        <div class="list-group cls-list">
+                            <a href="myProfile.html" class="list-group-item list-group-item-action cls-list-link">
+                                내 정보 관리
+                            </a>
+                            <a href="myInterestsField.html" class="list-group-item list-group-item-action cls-list-link">
+                                관심 분야 설정
+                            </a>
+                            <a href="myMessage.html" class="list-group-item list-group-item-action cls-list-link">
+                                메시지
+                            </a>
+                            <a href="myPasswordChange.html" class="list-group-item list-group-item-action cls-list-link">
+                                비밀번호 변경
+                            </a>
+                            <a href="myProfileDeleteConfirm.html" class="list-group-item list-group-item-action cls-list-link">
+                                계정 삭제
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-10">
+                        <div class="inner-container-box">
+                            <h3>내 정보 관리</h3>
+                            <hr>
+                            <div id="imgeBox">
+                                   <img id="myPhoto" src="img/icon.png" alt="" >
+                                   <button id='uploadBtn' class="btn btn-default" type='button'>이미지 첨부</button>
+                           <input id="fileupload" type="file" name="files" multiple>
+                            </div>
                            <div id="info">
-                              <ul class='list-group'>
-                                  <li class='list-group-item'><span class="cf">이름</span><input id='name' class='inputF' readonly></li>
-                                  <li class='list-group-item'><span class="cf">이메일</span><input id='email' class='inputF' readonly></li>
-                                  <li class='list-group-item'><span class="cf">연락처</span><input id='tel' class='inputF'></li>
-                                  <li class='list-group-item'><span class="cf">지역</span>
-                                     <form name="form">
-                                         <div class="row">
-                                           <div class="col-sm-6">
-                                           <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control">
-                                               <option value="" selected>:: 시/도 ::</option>
-                                               <option value="1">서울특별시</option>
-                                               <option value="2">부산광역시</option>
-                                               <option value="3">대구광역시</option>
-                                               <option value="4">인천광역시</option>
-                                               <option value="5">광주광역시</option>
-                                               <option value="6">대전광역시</option>
-                                               <option value="7">울산광역시</option>
-                                               <option value="8">세종특별자치시</option>
-                                               <option value="9">경기도</option>
-                                               <option value="10">강원도</option>
-                                               <option value="11">충청북도</option>
-                                               <option value="12">충청남도</option>
-                                               <option value="13">전라북도</option>
-                                               <option value="14">전라남도</option>
-                                               <option value="15">경상북도</option>
-                                               <option value="16">경상남도</option>
-                                               <option value="17">제주특별자치도</option>
-                                           </select>
-                                       </div>
-                                           <div class="col-sm-6">
-                                               <select id="fCounty" name="option2" class="form-control">
-                                                   <option>:: 시/군/구 ::</option>
-                                               </select>
-                                           </div>
-                                       </div>
-                                  </form>
-                                  </li>
-                              </ul>
-                           </div>
-                           <br>
-                           <button type="button" id="updateBtn" class="btn">변경</button>
-                            
-                       </div>
-               </div>
-               
-           </div>
-        </div>
-        
+                               <ul class='list-group'>
+                                   <li class='list-group-item'>이름<input id='name' name="name" class='float-right inputPro' readonly></li>
+                                   <li class='list-group-item'>이메일<input id='email' name="email" class='float-right inputPro' readonly></li>
+                                   <li class='list-group-item'>연락처<input id='tel' name="tel" class='float-right inputPro' ></li>
+                                   <li id="cityCount"class='list-group-item datail-view'>지역</li>
+                                   <li id="updataCity" class='list-group-item input-view'>지역
+                                       <form name="form">
+                                           <div class="row">
+                                                <div class="col-sm-6">
+                                                <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control ">
+                                                    <option value="" selected>:: 시/도 ::</option>
+                                                    <option value="1">서울특별시</option>
+                                                    <option value="2">부산광역시</option>
+                                                    <option value="3">대구광역시</option>
+                                                    <option value="4">인천광역시</option>
+                                                    <option value="5">광주광역시</option>
+                                                    <option value="6">대전광역시</option>
+                                                    <option value="7">울산광역시</option>
+                                                    <option value="8">세종특별자치시</option>
+                                                    <option value="9">경기도</option>
+                                                    <option value="10">강원도</option>
+                                                    <option value="11">충청북도</option>
+                                                    <option value="12">충청남도</option>
+                                                    <option value="13">전라북도</option>
+                                                    <option value="14">전라남도</option>
+                                                    <option value="15">경상북도</option>
+                                                    <option value="16">경상남도</option>
+                                                    <option value="17">제주특별자치도</option>
+                                                </select>
+                                            </div>
+                                                <div class="col-sm-6">
+                                                    <select id="fCounty" name="option2" class="form-control">
+                                                        <option>:: 시/군/구 ::</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                       </form>
+                                   </li>
+                               </ul>
+                                <button type="button" id="updateBtn" class="btn float-right">변경</button>
+                            </div>
+                        </div>
+                </div>  
+          </div>
+    </div>
+
         <!-- footer start -->
         <footer class="footer" style="max-width:100%;">
             <p>Logo</p>
@@ -153,48 +123,27 @@
         
     </div>
     <!-- container end -->
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+    <script src="js/bs_myprofile.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    
     
     <script>
         $("#header").load(serverRoot+"/header.html");
-    </script>
     
-    <script src="js/holder.min.js"></script>
-    <script>
-        Holder.addTheme("dark", {
-            background: "#000",
-            foreground: "#aaa",
-            size: 11,
-            font: "Monaco",
-            fontweight: "normal"
-        });
-    </script>
-    
-    <script>
-       var memno = -1;
-       $(document).ready( function () {
-           $.get("json/auth/loginstat", (data) => {
-              memno = data.no;
-              console.log("loginstat=" + memno);
-           });       
-       });
-        
-        setTimeout( function() {
-        $.getJSON("json/member/"+memno, (data) => {
-           console.log(data);
-           console.log(data.name);
-           
-            $("#name").val(data.name);
-            $(email).val(data.email);
-            $(tel).val(data.tel);
-            
-            if(data.profile != "undefined"){
-               $("#profileImage").attr("src", "img/" + data.profile);
-            } else {
-               $("#profileImage").attr("src", "holder.js/200x200?text=클릭해서 사진을 추가해주세요.(200x200)");
-            }
-        })
-        }, 500);
-        
         function changes(fr) {
             if(fr==1) {
                 //뿌려줄값을 배열로정렬
@@ -326,48 +275,8 @@
           }
         }
         
-        $("#updateBtn").click(() => {
-            $.post("json/member/updateprofile", {
-                tel: $("#tel").text(),
-                city: $("#fCity option:checked").text(),
-                county: $("#fCounty option:checked").text()
-            })
-        });
-    </script>
-    
-    <!-- file upload start -->
-    
-    <script>
-    "use strict"
-    
-    $(function() {
-        $('#images-div').click(function (e) {
-            e.preventDefault(); $('#fileupload').click(); 
-        }) 
-    });
-    
-    $('#fileupload').fileupload({
-        dataType: 'json',
-        add: function (e, data) {
-            console.log('add()...');
-            data.submit();// 해당 파일의 서버 전송을 시작한다.
-        },
-        done: function (e, data) {
-          console.log('done()...');
-          console.log(data.result);
-          var file = data.result;
-          $("#profileImage").attr("src", "img/"+file.filename);
-          //$("#profileImage").html("<img width='100' src='img/" + file.filename + "'> ");
-        },
-        submit:function(e, data) {
-            data.formData = {
-                    memberNo: memno
-            }
-        }
-    })
-    </script>
-    <!-- file upload end -->
-    
+        
+    </script>    
     
 </body>
 </html>

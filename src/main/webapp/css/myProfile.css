@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+#imgeBox{
+	width:20%;
+	margin: 0 auto;
+}
+
+div > #myPhoto {
+  width: auto;
+  height : auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#fileupload{
+	display: none;
+	
+}
+
+#uploadBtn{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 1em;
+    margin-top: 5px;
+    height: 26px;
+    width: 100%; 
+}
+
+#updateBtn{
+    width: 100%;
+    margin-top: 1em;
+}
+
+#info{
+	width: 90%;
+	margin: 0 auto;
+	width: 60%;
+}
+
+.inputPro{
+    margin-right: 1em;
+    width: 45%;
+}
+
+.form-control{
+	margin-top: 1em;
+}
+
+#myPhoto{
+    border-radius: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

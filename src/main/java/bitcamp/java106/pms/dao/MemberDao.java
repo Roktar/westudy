@@ -16,8 +16,8 @@ public interface MemberDao {
     void userAuth(Map<String, Object> params);
 	Member selectOneByNo(int user);
     int find(String id);
-    int upload(Map<String, Object> map);
-    
+    int uploadPhoto(Map<String, Object> params);
+    int uploadExcludePhoto(Map<String, Object> params);
     int checkId(String email);
     
     Member findMember(String id);
