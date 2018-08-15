@@ -23,11 +23,12 @@
       <id column="stdno" property="no"/>
       <id column="sname" property="name"/>
       <id column="ctgr" property="category"/>
+      <id column="pic" property="picture"/>
     </association>
   </resultMap>
   
 <select id="selectList" resultMap="ReviewMap" parameterType="map">
- select r.rvwno, r.stdno, r.memno, s.ctgr, s.sname, r.cont, r.rating, r.cdt, mname, pfp 
+ select r.rvwno, r.stdno, r.memno, s.ctgr, s.sname, s.pic, r.cont, r.rating, r.cdt, mname, pfp 
 from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
 where s.ctgr = #{category} 
 order by r.rvwno desc limit #{startRowNo}, #{pageSize} 

@@ -92,7 +92,7 @@
 
         hr.line3 {
             width: 80%;
-            border: 1px solid #BDBDBD;
+           
             margin-left : 1.5em;
             
         }
@@ -107,7 +107,7 @@
     
 
              
-        .prof-img {
+        .mprof-img {
             margin-right: 1em;
             float: left;
             display: inline-block;
@@ -116,8 +116,25 @@
             overflow:hidden;
             border-radius: 2.5em;
         }
-		.prof-img img {
+		.mprof-img img {
 		width:100%;
+		
+		}
+		
+		     
+        .study-img {
+           
+            
+            display: inline-block;
+            width:4em;
+            height:4em;
+            overflow:hidden;
+            border-radius: 2em;
+        }
+		.study-img img {
+		width:100%;
+		height: 100%;
+	
 		}
 
         .list-group-item-action:focus, .list-group-item-action:hover {
@@ -186,6 +203,7 @@
   
         div.form-group {
             margin-left: 4em;
+            margin-bottom: 2em;
         }
       
      
@@ -238,7 +256,7 @@
 
        
        .review-line {
-           margin-top : 1.5em;
+           margin-top :2em;
            margin-left : 3.9em;
        }
      
