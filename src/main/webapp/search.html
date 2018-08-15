@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
+<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
 <style>
 .container {
@@ -245,6 +246,7 @@
     <!-- footer end -->
 
     <!-- Bootstrap core JavaScript -->
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src='node_modules/jquery/dist/jquery.js'></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/slidebars/dist/slidebars.js"></script>
@@ -438,7 +440,11 @@
 	        }, function(data) {
 	            
 	            if (data.length <= 0) {
-	                alert("검색 결과가 없습니다.");
+	            	swal({
+	            		  type: 'error',
+	            		  title: '검색결과가 없습니다.',
+	            		})
+
 	            }
 	            
 	            for (var item of data) {

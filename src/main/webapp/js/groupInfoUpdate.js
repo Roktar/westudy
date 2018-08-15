@@ -18,8 +18,11 @@
 
             $.get(serverRoot + "/json/auth/loginstat", (data) => {
                 if(typeof(data) == "string") {
-                    alert("권한이 없습니다.");
-                    location.href="index.html";
+                	swal({
+      				  type: 'error',
+      				  title:  '권한이 없습니다.'
+      				})                    
+      				location.href="index.html";
                 }
                 myNo = data.no;
              });  

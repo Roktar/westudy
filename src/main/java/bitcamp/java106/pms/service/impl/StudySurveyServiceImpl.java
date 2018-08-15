@@ -14,6 +14,7 @@ import bitcamp.java106.pms.dao.StudySurveyItemDao;
 import bitcamp.java106.pms.dao.StudySurveyItemResponseDao;
 import bitcamp.java106.pms.domain.StudySurvey;
 import bitcamp.java106.pms.domain.StudySurveyItem;
+import bitcamp.java106.pms.domain.StudySurveyItemResponse;
 import bitcamp.java106.pms.service.StudySurveyService;
 
 @Service
@@ -33,6 +34,8 @@ public class StudySurveyServiceImpl implements StudySurveyService {
     public Object add(String[] params, int no) {
         StudySurvey survey = new StudySurvey();
         List<String> items = new ArrayList<>();
+
+        System.out.println("impl - addMethod");
         
         for(String p : params) {
             try {
@@ -85,7 +88,6 @@ public class StudySurveyServiceImpl implements StudySurveyService {
 
     @Override
     public List<StudySurvey> list(int no) {
-        System.out.println("no : " + no);
         List<StudySurvey> list = surveyDao.selectList(no);
         
         for(StudySurvey sv : list) {
@@ -122,5 +124,58 @@ public class StudySurveyServiceImpl implements StudySurveyService {
         } catch(Exception e) {
             return "fail";
         }
+    }
+
+    @Override
+    public Object vote(String[] params) {
+        
+        List<String> items = new ArrayList<String>();
+        int studyNo = -1;
+        int memNo = -1;
+        int surveyNo = -1;
+        
+        for(String param : params) {
+            String[] kv = param.split("=");
+                        
+            if(kv[0].contains("items")) {
+                items.add(kv[1]);
+                continue;
+            }
+            
+            switch(kv[0]) {
+                case "studyNo" :
+                    studyNo = Integer.parseInt(kv[1]);
+                    break;
+                case "memNo" :
+                    memNo = Integer.parseInt(kv[1]);
+                    break;
+                case "surveyNo" :
+                    surveyNo = Integer.parseInt(kv[1]);
+                    break;
+            }
+        }
+        
+        Map<String, Object> p = new HashMap<>();
+        p.put("studyNo", studyNo);
+        p.put("memNo", memNo);
+        p.put("surveyNo", surveyNo);
+        
+        try {
+            if(resDao.isVoted(p) > 0)
+                return "voted";
+            
+            for(String item : items) {
+                StudySurveyItemResponse resp = new StudySurveyItemResponse();
+                resp.setStudyNo(studyNo);
+                resp.setMemNo(memNo);
+                resp.setSurveyNo(surveyNo);
+                resp.setItemNo( Integer.parseInt(item) );
+                System.out.println(resp);
+                resDao.insertCheckbox(resp);
+            }
+        } catch(Exception e) {
+            return "fail";
+        }
+        return "success";
     }
 }

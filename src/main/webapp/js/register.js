@@ -3,8 +3,8 @@ var pwdCheck = 0;
 var telChectk = 0;
 
 $(document).ready(function() {
-	$("#header").load(serverRoot + "/header.html");
-	 
+   $("#header").load(serverRoot + "/header.html");
+    
     $(signup).click(function() {
         let in_email = $(email);
         let pass = $(password);
@@ -17,15 +17,14 @@ $(document).ready(function() {
         
         if( $(in_email).val() == "" || $(pass).val() == "" || $(checkpass).val() == ""
                         || $(nm).val() == "" || $(tel).val() == "" || $(city).val() == "" || $(county).val() == "" ) {
-            alert("입력되지않은 항목이 있습니다.");
+           swal({
+              type: 'error',
+              title:  '입력되지 않은 항목이 있습니다.'
+            })
             return;
         }
         
-        if( $(email).val().indexOf('@') == -1){
-        	alert("이메일 형식이 올바르지 않습니다.")
-        	return;
-        }
-        
+       
 
         for(let c of $('input[type=checkbox]')) {
             if($(c).is(":checked"))
@@ -37,18 +36,18 @@ $(document).ready(function() {
             password:decodeURIComponent($(password).val() ),
             name:decodeURIComponent($(memname).val() ),
             tel:decodeURIComponent($(t).val() ),
-            city:decodeURIComponent($(city).val() ),
-            county:decodeURIComponent($(county).val() ),
+            city:decodeURIComponent(city),
+            county:decodeURIComponent(county),
             interests:interest
         }, res => {
-        	console.log("email : " + $(email).val());
-        	console.log("password : " + $(password).val());
-        	console.log("name  : " + $(memname).val());
-        	console.log("tel : " + $(t).val() );
-        	console.log("city : " + city);
-        	console.log("county : " + county);
-        	console.log("interests : " + interest);
-        	
+           console.log("email : " + $(email).val());
+           console.log("password : " + $(password).val());
+           console.log("name  : " + $(memname).val());
+           console.log("tel : " + $(t).val() );
+           console.log("city : " + city);
+           console.log("county : " + county);
+           console.log("interests : " + interest);
+           
             location.href="registerd.html"
         });
     });
@@ -64,7 +63,10 @@ function count_ck(obj){
         }
     }
     if(chkCnt>3){
-        alert("3개 이상 선택할 수 없습니다.");
+       swal({
+           type: 'error',
+           title:  '3개 이상 선택할 수 없습니다.'
+         })
         obj.checked = false;
         return false;
     }
@@ -207,49 +209,49 @@ function changes(fr) {
 
 // 비밀번호 확인
 function checkPwd(){
-	let inputed = $(password).val();
-	let reinputed = $(checkpassword).val();
+   let inputed = $(password).val();
+   let reinputed = $(checkpassword).val();
 
-	if(inputed != reinputed){
-		$(".repwd").css("border", "1px solid red");
-		$("#chkMsg").css("display", "block");
-		$("#signup").prop("disabled", true);
-	} else if (inputed == reinputed){
-		$(".repwd").css("border", "1px solid #ced4da");
-		$("#chkMsg").css("display", "none");
-		pwdCheck= 1 ;
-		if(idCheck == 1 && pwdCheck == 1){
-			$("#signup").prop("disabled", false);
-			$("#signup").css("background-color", "#EF6C00");
-		}
-	}
+   if(inputed != reinputed){
+      $(".repwd").css("border", "1px solid red");
+      $("#chkMsg").css("display", "block");
+      $("#signup").prop("disabled", true);
+   } else if (inputed == reinputed){
+      $(".repwd").css("border", "1px solid #ced4da");
+      $("#chkMsg").css("display", "none");
+      pwdCheck= 1 ;
+      if(idCheck == 1 && pwdCheck == 1){
+         $("#signup").prop("disabled", false);
+         $("#signup").css("background-color", "#EF6C00");
+      }
+   }
 }
 //ID 중복확인
 function checkId(){
-	var inputed = $("#email").val();
-	$.ajax({
-		url:"/FinalProject/json/member/checkId",
-		method:"POST",
-		data:{"email" : inputed},
-		dataType:"json",
-		success:function(data){
-			if(inputed=="" && data=='0'){ // 데이터 입력X
-				$(".repwd").css("border", "1px solid red");
-				$("#idMsg").css("display", "block");
-				$("#signup").prop("disabled", true);
-				idCheck = 0;
-			} else if(data == '0'){ // 이메일중복X
-				idCheck = 1;
-				if(idCheck == 1 && pwdCheck == 1){
-					$("#signup").prop("disabled", false);
-					$("#signup").css("background-color", "#EF6C00");
-				}
-			} else if(data == '1'){ // 이메일중복
-				$(".repwd").css("border", "1px solid red");
-				$("#idMsg").css("display", "block");
-				$("#signup").prop("disabled", true);
-				idCheck = 0;
-			}
-			}
-	});
+   var inputed = $("#email").val();
+   $.ajax({
+      url:"/FinalProject/json/member/checkId",
+      method:"POST",
+      data:{"email" : inputed},
+      dataType:"json",
+      success:function(data){
+         if(inputed=="" && data=='0'){ // 데이터 입력X
+            $(".repwd").css("border", "1px solid red");
+            $("#idMsg").css("display", "block");
+            $("#signup").prop("disabled", true);
+            idCheck = 0;
+         } else if(data == '0'){ // 이메일중복X
+            idCheck = 1;
+            if(idCheck == 1 && pwdCheck == 1){
+               $("#signup").prop("disabled", false);
+               $("#signup").css("background-color", "#EF6C00");
+            }
+         } else if(data == '1'){ // 이메일중복
+            $(".repwd").css("border", "1px solid red");
+            $("#idMsg").css("display", "block");
+            $("#signup").prop("disabled", true);
+            idCheck = 0;
+         }
+         }
+   });
 }

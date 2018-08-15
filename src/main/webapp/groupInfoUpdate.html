@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/groupInfoUpdate.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slidebar.css">
     <link rel="stylesheet" href="css/jquery.tag-editor.css">
     <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
     <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
@@ -50,7 +51,10 @@
 
             $.get(serverRoot + "/json/auth/loginstat", (data) => {
                 if(typeof(data) == "string") {
-                    alert("권한이 없습니다.");
+                	swal({
+                		  type: 'error',
+                		  title: '권한이 없습니다.',
+                		})
                     location.href="index.html";
                 }
                 myNo = data.no;
@@ -337,7 +341,7 @@
 <body>
     <!-- header start -->
     <div id="header"></div>
-
+ <div id="container" canvas="container" style="padding : 3rem;">
     <div class="container">
         <div class="row">
             <div class="col-sm-2 menu-bar">
@@ -364,12 +368,20 @@
                                 <div style="width: auto; overflow: hidden; margin: 0 auto;">
                                     <figure>
                                         
+<<<<<<< HEAD
                                         <img src="img/test.jpeg" alt="logo"style="width: 100%; max-height: 20em; max-width: 100%;">
                                     </figure>
                                 </div>
                                 <form id="form" runat="server" action="">
                                     <input id="groupImge" type="file" multiple accept="image/*" id="imgInput" name="files" >
                                     <button id='groupImgeDiv' class="btn btn-default" type='button'>찾기</button>
+=======
+                                        <img src="img/study2.jpg" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
+                                    </figure>
+                                </div>
+                                <form id="form" runat="server" action="">
+                                    <input type="file" multiple accept="image/*" id="imgInput" name="files" >
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
                                 </form>
                                 <br>
                             </div>

@@ -1,4 +1,7 @@
-﻿﻿<!-- 사이드 메뉴 시작 -->
+﻿<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>﻿
+
+<!-- 사이드 메뉴 시작 -->
 <div off-canvas="id-2 right overlay" style="border: 1px solid #dddddd">
     <!-- 로그인 전 시작 -->
     <div class="text-center align-middle" id="login-before">
@@ -91,9 +94,7 @@
                  
                    <input id="login_password" class="mForm" type="password" placeholder="  비밀번호를 입력해주세요." />
                     <a class="right link-font" href="#">비밀번호를 잊으셨나요?</a>
-                   <div style="vertical-align:center; width:100%;"> 
-                    <input class="add-margin left" type="checkbox" /> <p class="left"> 로그인 상태 유지 </p> 
-                   </div>
+                  
                    <a class="right link-font" href="#">회원가입</a>
                     <div id="signin" class="btn btn-success lBtn"> 로그인 </div> 
                    <div class="or"> 또는 </div>
@@ -116,16 +117,19 @@
         </h5>
       </div>
       <div class="modal-body del-float">
-       <div> <input class="add-margin-top" type="checkbox" id="doc1" />  <a href="privacy.html"> 개인정보수집 및 이용에 대한 안내</a>에 동의합니다. </div>
+      
+      <div class="Div1">
+       <div class="d1"> <input class="add-margin-top" type="checkbox" id="doc1" />  <a href="privacy.html"> 개인정보수집 및 이용에 대한 안내</a>에 동의합니다. </div>
        <div> <input class="add-margin-top" type="checkbox" id="doc2" /> <a href="termsConditions.html"> 사이트 이용 약관</a>에 동의합니다. </div>
+      </div>
        
-       <div class="btn btn-success text-center resizeWidth add-margin-top"> 
+       <div class="btn btn-success text-center regBtn"> 
        <a id="regLink" href="register1.html" style="pointer-events:none; opacity:0.2;"> 가입하기  </a> 
        </div>
-       <div class="text-center resizeWidth add-margin-top or-text"> 또는 </div>
-       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 페이스북 계정으로 가입하기 </div> 
-       <div class="btn btn-primary text-center resizeWidth add-margin-top"> 구글 계정으로 가입하기 </div> 
-      </div>
+       <div class="text-center resizeWidth or-text"> 또는 </div>
+       <div class="fBtn"><img src="img/facebookbtn.png"></div> 
+       <div class="kBtn"><img src="img/kakaologin.png"></div>
+       </div>
       <div class="modal-footer">
       </div>
     </div>
@@ -213,7 +217,11 @@ let no = -1;
             password:$(login_password).val()
         }, res => {
             if(res.state == "fail")
-                alert("login failed");
+            	swal({
+            		  type: 'error',
+            		  title: 'login failed',
+            		})
+
             else
                 location.href = "index.html";
         });
@@ -345,4 +353,8 @@ let no = -1;
     
     
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
 <link rel="stylesheet" href="css/slidebar.css">

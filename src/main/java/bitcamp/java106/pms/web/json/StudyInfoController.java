@@ -37,6 +37,7 @@ public class StudyInfoController {
 
     public StudyInfoController(StudyInfoService studyInfoService, StudySurveyService studySurveyService) {
         this.studyInfoService = studyInfoService;
+        this.studySurveyService = studySurveyService;
     }
 
     @RequestMapping("add")
@@ -181,21 +182,34 @@ public class StudyInfoController {
     
     /* 설문조사 메소드 */
     @PostMapping("add/survey")
-    public Object addSurvey(@RequestBody String qs, @RequestParam("no") int studyNo) {
-        System.out.println(qs);
-        System.out.println(studyNo);
-        return studySurveyService.add(qs.split("&"), studyNo);
+    public Object addSurvey(@RequestBody String qs, @RequestParam(value="no", defaultValue="0") int studyNo) {
+
+        try {
+            return studySurveyService.add(qs.split("&"), studyNo);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
     
     @GetMapping("survey/list")
-    public List<StudySurvey> surveyList(int no) {
+    public List<StudySurvey> surveyList(@RequestParam(value="no", defaultValue="0") int no) {
         return studySurveyService.list(no);
     }
     
-    @PostMapping("survey/vote")
-    public Object vote(int studyNo, int memNo, int surveyNo, int itemNo) {
+    @PostMapping("survey/vote/radio")
+    public Object vote(@RequestParam(value="studyNo", defaultValue="0") int studyNo, 
+                       @RequestParam(value="memNo", defaultValue="0") int memNo, 
+                       @RequestParam(value="surveyNo", defaultValue="0") int surveyNo, 
+                       @RequestParam(value="itemNo", defaultValue="0") int itemNo) {
         return studySurveyService.vote(studyNo, memNo, surveyNo, itemNo);
     }
+    
+    @PostMapping("survey/vote/checkbox")
+    public Object voteCheckbox(@RequestBody String qs) {
+        return studySurveyService.vote(qs.split("&"));
+    }
+    
     /* 설문조사 */
 }
 

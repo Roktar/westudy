@@ -1,8 +1,6 @@
 var list_group = $('.memberbox');
 var no = location.href.split("?")[1].split("=")[1];
-console.log(no);
 var i = 1;
-var serverRoot = "http://localhost:8888/FinalProject";
 
 $(document).ready(function() {
 	$("#header").load(serverRoot + "/header.html");
@@ -13,7 +11,10 @@ $(document).ready(function() {
 	
 	$.get(serverRoot + "/json/auth/loginstat", (data) => {
        if(typeof(data) == "string") {
-           alert("권한이 없습니다.");
+    	   swal({
+				  type: 'error',
+				  title:  '권한이 없습니다.'
+				})
            location.href="index.html";
        }
        myNo = data.no;

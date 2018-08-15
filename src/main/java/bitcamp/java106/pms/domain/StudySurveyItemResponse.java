@@ -9,7 +9,8 @@ public class StudySurveyItemResponse implements Serializable {
     private int studyNo;
     private int memNo;
     private int surveyNo;
-    private int value;
+    private int itemNo;
+    
     public int getStudyNo() {
         return studyNo;
     }
@@ -27,17 +28,17 @@ public class StudySurveyItemResponse implements Serializable {
     }
     public void setSurveyNo(int surveyNo) {
         this.surveyNo = surveyNo;
+    }    
+    public int getItemNo() {
+        return itemNo;
     }
-    public int getValue() {
-        return value;
-    }
-    public void setValue(int value) {
-        this.value = value;
+    public void setItemNo(int itemNo) {
+        this.itemNo = itemNo;
     }
     
     @Override
     public String toString() {
         return "StudySurveyItemResponse [studyNo=" + studyNo + ", memNo=" + memNo + ", surveyNo=" + surveyNo
-                + ", value=" + value + "]";
+                + ", itemNo=" + itemNo + "]";
     }
 }

@@ -42,7 +42,6 @@ h3 {
 
 div.container-box {
     margin: 0 auto;
-    padding: 1em;
     line-height: 3rem;
 /*    width: 40%;*/
 }
@@ -139,7 +138,7 @@ h2 {
 
 
 div.container {
-    padding: 2rem;
+    padding: 3rem;
 }
 
 
@@ -151,7 +150,11 @@ div.inner-container-box {
 
 
 .modal-content {
+<<<<<<< HEAD
    margin-top : 10em;
+=======
+   margin-top : 30em;
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
 }
 
 a {
@@ -175,7 +178,11 @@ a {
 }
 
 .input-view, .cancel-view {
+<<<<<<< HEAD
    width: 230px;
+=======
+   width: 500px;
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
    
 }
 
@@ -205,4 +212,8 @@ a {
 
  } 
  
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
  

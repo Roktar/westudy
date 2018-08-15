@@ -111,14 +111,6 @@ div.studyCheckin {
     font-weight: bold;
 }
 
-h4{
-  font-size: 1.5rem !important;
-  padding-top: 1em !important;
-  margin-bottom: 0.4em !important;
-  text-align: center !important;
-  font-weight: bold !important;
-}
-
 
 
 .survey-titl {
@@ -286,7 +278,7 @@ div.con-box-list {
 
 .menu-bar {
     text-align: center;
-    margin-top : 3em;
+ 
 }
 
 
@@ -303,9 +295,7 @@ button.vote-btn {
   margin-top: 2em;
 }
 
-.ssss{
-margin-top: 2em;
-}
+
 
 hr.line3 {
     width: 80%;

@@ -43,19 +43,45 @@
     <script>
         let studyNo = window.location.search.substring(1).split("=")[1];
         $(document).ready(function() {
-            console.log("studyNo:", studyNo);
             $("#header").load( serverRoot + "/header.html" );
+
+            let nowDate = new Date();
+
+            $("#start").val( nowDate.getFullYear() + "-" + (nowDate.getMonth() < 10 ? "0"+(nowDate.getMonth()+1) : nowDate.getMonth()+1) + "-" + nowDate.getDate() );
+            $("#end").val( nowDate.getFullYear() + "-" + (nowDate.getMonth() < 10 ? "0"+(nowDate.getMonth()+1) : nowDate.getMonth()+1) + "-" + nowDate.getDate() );
+
+            $("#answerNumber").change(function() {
+                $(".red").remove();
+                let len = this.value;
+                
+                let target = $(".vote-list");
+
+                for(let i = 0; i < len; i++) {
+                    let defaultNode = $("<div class='red'>");
+                    let defaultInput = $("<input type='text' class='form-control list-form' aria-describedby='emailHelp' placeholder='항목을 입력해주세요' style='width:90%;'>");
+                    
+                    $(defaultNode).append(defaultInput);
+                    $(target).append(defaultNode);
+                }
+            });
 
             $(".enroll-bt").click(function() {
 
-                if($($("#title")).val().length < 1 || $("#defaultItem").val().length < 1) {
+                if($($("#title")).val().length < 1) {
                     showMessage("입력되지 않은 항목이 있습니다.", "error");
                     return;
                 }
                 
                 let items = [];
-                items.push( decodeURIComponent( $("#defaultItem").val() ) );
 
+                for(let x of $(".red").children()) {
+                    if(x.value.length < 1) {
+                        showMessage("입력되지 않은 항목이 있습니다.", "error");
+                        return;
+                    }
+                    items.push( decodeURIComponent( x.value ) );
+                }
+                
                 for(let item of $("#addTable > tbody tr"))
                     items.push( decodeURIComponent( $($(item).children()).children()[0].value ));
                 
@@ -68,9 +94,10 @@
                 };
 
                 $.post(serverRoot+"/json/studyInfo/add/survey?no="+studyNo, params , res => {
-                    if(res == "success")
+                    if(res == "success") {
                         showMessage("설문조사가 등록되었습니다.", "success");
-                    else
+                        location.href = "surveylist.html?no=" + studyNo;
+                    } else
                         showMessage("설문조사 등록이 실패했습니다.", "error");
                 });
             });

@@ -526,5 +526,28 @@ input[type=checkbox], input[type=radio] {
 /* 정호형 css */
 
 
+/* 하은 회원가입 모달 css*/
+#regLink {
+    color: white;
+}
+
+.Div1 {
+    padding: 1em 1em 1em 2.5em;
+}
+
+.d1 {
+    padding-bottom : 0.5em;
+}
+
+.regBtn, .fBtn, .kBtn {
+    display : block;
+    margin-top : 0.5em;
+}
+
+.or-text {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+}
+
 
 

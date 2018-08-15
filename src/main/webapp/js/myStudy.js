@@ -21,7 +21,7 @@ $(document).ready(function() {
                if (item.grade == 0) {
                $('<div class="studybox">'+
                      '<span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html?no='+ item.studyNo +'"><span id="stdname">\''+ item.study.name +'\'</span></a>'+
-                     '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal">관리</button>'+
+                     '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal"><a href="groupInfoUpdate.html?no='+ item.studyNo +'" style="color: white">관리</a></button>'+
                      '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value"><button id="vBtn" class="btn btn-primary btn-sm review"' + _chkHtml + '</button></a>'+
                '</div>').appendTo(mystudy);
                   
@@ -52,10 +52,12 @@ $(document).ready(function() {
         console.log('modal reset');
       $(this).find('form')[0].reset();
       $(fContent).html("");
+<<<<<<< HEAD
    
+=======
+>>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
       $('#example').barrating('set', 1);
       $(addBtn).css('display', 'block');
-      $(closeBtn).css('display', 'block');
       $(updBtn).css('display', 'none');
       $(delBtn).css('display', 'none');
 
@@ -75,16 +77,18 @@ function Rwrite(stdno, node) {
    console.log('*** Rwrite 작성 ');
    console.log("stdno : " + stdno);
    console.log("memno : " + no);
+   
    $('.modal-title').text('후기 작성');
-   console.log(node)
+   console.log(node);
+   
     var stdno = stdno;
+    
     $("#addBtn").click(() => {
            $('#dAD').css("display", "none");
              $.ajax({
                 type : 'POST',
                 url : 'json/review/add',
                 data: {
-                   category : this.ctg,
                    content: $(fContent).val(),
                    rating : $(example).val(),
                    "member.no": no,
@@ -116,7 +120,7 @@ function Rwrite(stdno, node) {
 function Rview(stdno) {
    console.log('*** Rview 보기 ');
      $(addBtn).css('display', 'none');
-     $(closeBtn).css('display', 'none');
+    
      $(updBtn).css('display', 'block');
      $(delBtn).css('display', 'block');
      $('.modal-title').text('내 후기');
@@ -197,5 +201,7 @@ function Out(stdno) {
              )
            }  
          })
+         
+         
 
 }

@@ -10,10 +10,16 @@ uploadFile = function() {
     _xml.open('POST', '/api/test_upload/', true);
     _xml.onload = function(event) {
       if (_xml.status == 200) {
-        alert('Uploaded');
+    	  swal({
+			  type: 'info',
+			  title:  'Uploaded'
+			})
       }
       else {
-        alert('Error');
+    	  swal({
+			  type: 'info',
+			  title:  'Error'
+			})
       }
     };
   
