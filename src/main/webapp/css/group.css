@@ -423,6 +423,7 @@ div.studyLeader {
      }
 .leader-img img {
 	width:100%;
+	height:100%;
 	 }
 	 
 
@@ -437,9 +438,13 @@ div.studyLeader {
      }
 .member-img img {
 	width:100%;
+	height:100%;
 	 }	 
      
-
+.acceptRequest {
+	background-color: white;
+	color: #ef6c00;
+}
 div.container {
 /*    margin: 0px;*/
     padding: 0px;
@@ -457,9 +462,7 @@ div.col-sm.message{
     align-items: center;
 }
 
-div.col-sm.memberProfile {
-    line-height: 3rem;
-}
+
 div.col {
     padding: 0px;
     max-width: 1200px;
@@ -481,6 +484,17 @@ img.message {
    float: right;
     margin: 0px;
     padding: 0px;
+}
+
+
+.scheduleTopics {
+	display: block;
+    padding-top: 1em;
+}
+
+.scheduleTimelineDetail {
+	display: block;
+    padding-top: 1em;
 }
 
 

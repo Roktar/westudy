@@ -36,12 +36,12 @@
 
 <body>
     <div id="header"> </div>
-    
+     <div canvas="container" id=container>
     <div id="topCon" class="container">
-        <div class="col text-right" style="padding: 0">
+        <div class="col text-right" style="padding-top: 2em">
             <h3 style="float: left">사진</h3>
             <button type="file" class="btn btn-sm">
-                <a id="" data-toggle="modal" href="#dAD"> 업로드</a>
+                <a id="" data-toggle="modal" href="#dAD" style="color:white"> 업로드</a>
             </button>
         </div>
         <hr>
@@ -57,15 +57,14 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">업로드</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header" style="justify-content:center">
+                    <h4 class="modal-title" style="font-size : 20px">업로드</h4>
                 </div>
 
                 <div class="modal-body">
 
                     <div class="input-group mb-3">
-                        <input id="phoTitle" type="text" class="form-control" placeholder="제목">
+                        <input id="phoTitle" type="text" class="form-control" placeholder="제목" style="height: 25px">
                     </div>
                     <input id="fileupload" type="file" name="files" multiple>
 
@@ -74,8 +73,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button id='upload-btn' class="btn btn-default" type='button' data-dismiss="modal">등록</button>
-                    <button id="closeBtn" class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button id='upload-btn' class="btn btn-default btn-sm" type='button' data-dismiss="modal">등록</button>
+                    <button id="closeBtn" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">취소</button>
                 </div>
             </div>
         </div>
@@ -89,13 +88,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modalTitle"></h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <img id="modalImg" src="" alt="">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   <!--  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button> -->
                 </div>
             </div>
 
@@ -112,6 +110,7 @@
             </div>
             <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
         </footer>
+        </div>
 <script>
     $(document).ready(function() {
         $('#dAD').on('show.bs.modal', function() {

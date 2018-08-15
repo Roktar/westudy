@@ -141,7 +141,7 @@
                         <h6 class="menu">
                                                      스터디 소개
                             <button type="button" id="grade0" class="btn-sm btn apply groupInfoUpdate" style="display: none;">그룹 관리하기</button>
-                            <button type="button" id="grade2" class="btn-sm btn apply acceptRequest">가입 신청하기</button>
+                            <button type="button" id="grade2" class="btn-sm btn apply acceptRequest">+ 가입 신청하기</button>
                         </h6>
                         <hr>
                           <div class="scheduleDescription">
@@ -177,7 +177,7 @@
                         </h6>
                         <hr>
                         <div class="scheduleDetail">
-                            <span class="scheduleTilte  scheduleTopics"></span>
+                            <span class="scheduleTilte"></span>
                             <div class="row">
                                 <div class="col-sm scheduleDetails">
                                     <span class="scheduleLocation">장소</span>
@@ -237,7 +237,7 @@
                 <div class="col checkedMembers menu">
                     <h6 class="menu" id="member">
                         <a name="members">회원 </a>
-                        <span class="badge badge-warning">모집중</span>&nbsp;
+                        <span class="badge badge-warning">모집중</span>
                         <span class="badge badge-warning"><span class="memberCount">8</span>/<span class="maxPeople">10</span></span>
                     </h6>
                     <hr>
@@ -339,9 +339,9 @@
 
             <!-- Modal add content-->
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="justify-content:center">
                     <h4 class="modal-title">파일 업로드</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 
                 </div>
 
                 <div class="modal-body">
@@ -445,7 +445,7 @@
                 if(cnt == 2)
                     return;
                 
-                let outerDiv = $("<div class='col-sm survey-'>");
+                let outerDiv = $("<div class='col-sm survey-' style='margin:1rem'>");
                 let sDiv = $("<div class='survey'>");
                 let span = $("<span class='pollTitle'>");
                 $(span).text(survey.title);

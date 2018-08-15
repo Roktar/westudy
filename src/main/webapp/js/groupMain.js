@@ -63,9 +63,11 @@ $(document).ready(function() {
          /* 타임라인 */
          $.getJSON("json/schedule/listdetail/" + stdno, (data) => {
       	   console.log(data);
- 	   		$('.scheduleLocationDetail').text(data[0].placeDetail);
+ 	   		$('.scheduleLocationDetail').text(data[0].placeAddress);
+ 	   		$('.scheduleTilte').text(data[0].title);
  	   		$('.scheduleTopics').text(data[0].title);
  	   	    $('.scheduleTimelineDetail').text(data[0].content);
+ 	   	
     });
           
     	 
@@ -77,7 +79,8 @@ $(document).ready(function() {
 	    $.get("json/auth/loginstat", {}, res=> {
 	    	memno = res.no;
 	    }).done(function(data){
-	
+	    	console.log("memNo :"+ memNo);
+		    console.log("no :" + stdno);
 	        var consoleMsg = '가입요청';
 	        var _msg = '가입 요청을 하시겠습니까??';
 	        
@@ -88,6 +91,9 @@ $(document).ready(function() {
 	  				  title:  '로그인 후 이용하실 수 있습니다.'
 	  				})
 	        	} else{
+	        		
+	        		
+	        		
 		            $.ajax({
 		                url : "/FinalProject/json/awaitingMember/add",
 		                method : "POST",
@@ -99,6 +105,13 @@ $(document).ready(function() {
 	        };
         });
 	});
+    
+    
+    
+    
+    
+    
+    
 
 	$.get("json/auth/loginstat", {}, res=> {
 		memNo = res.no;

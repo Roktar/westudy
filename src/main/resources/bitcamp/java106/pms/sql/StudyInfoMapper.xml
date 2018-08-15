@@ -41,7 +41,7 @@
   -->  
   <insert id="insert" parameterType="StudyInfo" 
         useGeneratedKeys="true" keyColumn="stdno" keyProperty="no"> <!-- 자동증가된 PK값을 Board 객체에 담아준다. -->
-    insert into study_info(city,county,name,info,cdt,mprs,ctgr) 
+    insert into study_info(city,county,sname,info,cdt,mprs,ctgr) 
     values(#{city},#{county},#{name},#{information},now(),#{maxPeople},#{category})
   </insert>
   

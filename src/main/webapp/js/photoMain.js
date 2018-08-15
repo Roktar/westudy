@@ -189,7 +189,7 @@ let fetchList = function(){
                                 '<div class="hvrbox-layer_top hvrbox-layer_slidedown">'+
                                     '<div class="hvrbox-text" style="color:white; top:30%">'+ item.title +'</div>'+
                                     '<div class="hvrbox-text hvrbox-date" style="color:white; top:60%;">'+ item.createdDate +'</div>'+
-                                    (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary" onclick="doDep(event,' + item.no + ');">삭제</button>' : '') +
+                                    (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary" onclick="doDep(event,' + item.no + ');"></button>' : '') +
                                     '</div>'+
                                 '</a>' +
                             '</div>'+
@@ -248,7 +248,7 @@ let fetchList2 = function(){
                             '<div class="hvrbox-layer_top hvrbox-layer_slidedown">'+
                                 '<div class="hvrbox-text" style="color:white; top:30%">'+ item.title +'</div>'+
                                 '<div class="hvrbox-text hvrbox-date" style="color:white; top:60%;">'+ item.createdDate +'</div>'+
-                                (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary" onclick="doDep(event,' + item.no + ');">삭제</button>' : '') +
+                                (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary" onclick="doDep(event,' + item.no + ');"></button>' : '') +
                                 '</div>'+
                             '</a>' +
                         '</div>'+
@@ -295,7 +295,7 @@ function showImg(no) {
 /*----------view end----------*/	
 
 /*----------delete----------*/
-function doDep(event, no) {
+/*function doDep(event, no) {
    event.stopPropagation();
 
    if (window.confirm("삭제하시겠습니까?") == false) 
@@ -305,6 +305,42 @@ function doDep(event, no) {
 	   	location.href = "photoMain.html?no="+ studyNo;
    });
 
+}*/
+
+
+
+function doDep(event, no) {
+	  event.stopPropagation();
+	 const swalWithBootstrapButtons = swal.mixin({
+	        confirmButtonClass: 'btn btn-primary oBtn',
+	        cancelButtonClass: 'btn btn-secondary cBtn',
+	        buttonsStyling: false,
+	      })
+	      swalWithBootstrapButtons({
+	           title: '삭제 하시겠습니까?',
+	           type: 'warning',
+	           showCancelButton: true,
+	           confirmButtonText: '네 삭제할래요!',
+	           cancelButtonText: '아니요!',
+	           reverseButtons: true
+	         }).then((result) => {
+	 
+	    if (result.value) {
+		     
+		   $.get(serverRoot + "/json/photo/delete"+ no, () => {
+		   
+	   })
+	   	swal({
+	   		type: 'success',
+             title: '삭제 완료!',
+             showConfirmButton: false,
+             timer: 700
+             }).then((result) => {
+            		location.href = "photoMain.html?no="+ studyNo;
+               }
+             )
+	    	}
+	      })
 }
 
 /*----------delete end----------*/
