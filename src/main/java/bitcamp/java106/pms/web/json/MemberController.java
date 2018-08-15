@@ -75,35 +75,35 @@ public class MemberController {
         return memberService.changePassword(no, nowPassword, newPassword);
     }
 
-    @PostMapping("photoUpload")
-    public Object photoUpload(
-            MultipartFile files) {
-        
-        HashMap<String,Object> jsonData = new HashMap<>();
-        
-        String filesDir = sc.getRealPath("/files");
-        
-        String filename = UUID.randomUUID().toString();
-        jsonData.put("filename", filename);
-        jsonData.put("filesize", files.getSize());
-        jsonData.put("originname", files.getOriginalFilename());
-        try {
-            File path = new File(filesDir + "/" + filename);
-            files.transferTo(path);
-            
-            // 써네일 이미지 생성
-            String thumbnailPath = path.getCanonicalPath() + "_300x300";
-            System.out.println(thumbnailPath);
-            Thumbnails.of(path)
-                      .size(300, 300)
-                      .outputFormat("jpg")
-                      .toFile(new File(thumbnailPath));
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return jsonData;
-    }
+//    @PostMapping("photoUpload")
+//    public Object photoUpload(
+//            MultipartFile files) {
+//        
+//        HashMap<String,Object> jsonData = new HashMap<>();
+//        
+//        String filesDir = sc.getRealPath("/files");
+//        
+//        String filename = UUID.randomUUID().toString();
+//        jsonData.put("filename", filename);
+//        jsonData.put("filesize", files.getSize());
+//        jsonData.put("originname", files.getOriginalFilename());
+//        try {
+//            File path = new File(filesDir + "/" + filename);
+//            files.transferTo(path);
+//            
+//            // 써네일 이미지 생성
+//            String thumbnailPath = path.getCanonicalPath() + "_300x300";
+//            System.out.println(thumbnailPath);
+//            Thumbnails.of(path)
+//                      .size(300, 300)
+//                      .outputFormat("jpg")
+//                      .toFile(new File(thumbnailPath));
+//            
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return jsonData;
+//    }
     
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK)
@@ -122,27 +122,48 @@ public class MemberController {
         return memberService.list();
     }
 	
-	@PostMapping("upload01")
-    public Object upload01(int memberNo, MultipartFile files) {
-        System.out.println(memberNo);
+	@PostMapping("uploadPhoto")
+    public int upload01(int memberNo, int tel, String city, String county, MultipartFile files) {
         
         HashMap<String,Object> jsonData = new HashMap<>();
         
         String filesDir = sc.getRealPath("/img");
         
         String filename = UUID.randomUUID().toString();
-        jsonData.put("filename", filename);
-        jsonData.put("filesize", files.getSize());
-        jsonData.put("originname", files.getOriginalFilename());
+        jsonData.put("profile", filename);
+        jsonData.put("no", memberNo);
+        jsonData.put("tel", "0"+ tel);
+        jsonData.put("city", city);
+        jsonData.put("county", county);
         try {
             File path = new File(filesDir + "/" + filename);
-            System.out.println(path);
             files.transferTo(path);
+            
+            String mainthumPho = path.getCanonicalPath() + "_350x350";
+            Thumbnails.of(path)
+            .size(350, 350)
+            .outputFormat("jpg")
+            .toFile(mainthumPho);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
+        memberService.uploadPhoto(jsonData);
+        return 1; 
         
-        return memberService.upload(filename, jsonData, memberNo);
+    }
+	
+	@PostMapping("updateProfile")
+    public int updateProfile(String memNo, String tel, String city, String county) throws Exception {
+	    
+	    Map<String,Object> map = new HashMap<>();
+	    map.put("no", memNo);
+	    map.put("tel", tel);
+	    map.put("city", city);
+	    map.put("county", county);
+        memberService.uploadExcludePhoto(map);
+        return 1;
+        
     }
 	
 	@RequestMapping("checkId")

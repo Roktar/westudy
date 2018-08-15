@@ -6,7 +6,7 @@ import java.util.Map;
 import bitcamp.java106.pms.domain.Review;
 
 public interface ReviewDao {
-	int insert(Review review);
+   int insert(Review review);
     List<Review> selectList(Map<String, Object> params);
     List<Review> selectListAll(); 
     List<Review> count();
