@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/group.css">
     <link href="node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
     <link rel="stylesheet" href="css/slidebar.css">
-   <link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
+	<link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
     
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -215,66 +215,18 @@
                <div class="row">
                     <div class="col menu menu2">
                         <h6 class="menu">
-                                  설문조사
-                            <a href="surveylist.html" class="badge badge-warning">전체 설문
+                                  진행중인 설문조사
+                            <a href="#" id="surveylist" class="badge badge-warning">전체 설문
                             </a>
                         </h6>
                         <hr>
-                        <div class="row">
-                            <div class="col-sm survey-">
-                                <div class="survey">
-                                    <span class="pollTitle">새로운 교재 선정</span>
-                                    <br>
-                                    <br>
-                                    <div class="surveyInner">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Head First Java</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">자바의 정석
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio3">자바 네트워크 프로그래밍 - 개정4판</label>
-                                            <br>
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-sm poll">투표하기</button>
-                                </div>
-                            </div>
-                            <div class="col-sm survey-">
-                                <div class="survey">
-                                    <span class="pollTitle">다음 회식 장소</span>
-                                    <br>
-                                    <br>
-                                    <div class="surveyInner">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">버터핑거</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">자바의 정석
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio3">자바 네트워크 프로그래밍 - 개정4판</label>
-                                            <br>
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-sm poll">투표하기</button>
-                                </div>
-                            </div>
+                        <div class="row" id="surveyList">
+
                         </div>
                     </div>
                 </div>
             </div>
+            <br>
       
             
              <!-- 설문조사 end -->
@@ -317,14 +269,7 @@
             </div>
         </div>
             <!--  회원 end-->
-            
-            
-            
-            
-            
-            
-            
-            
+
             <!-- 게시판 start -->
             <div class="innerContainer">
                 <div class="row">
@@ -442,7 +387,7 @@
     
 
     
-    <footer class="footer" style="margin-top: 100em">
+    <footer class="footer" style="margin-top: 200em">
         <p>Logo</p>
         <div>
             <span>서울특별시 강남구 비트캠프 401호</span>
@@ -488,10 +433,57 @@
         });
         
         var studyName = document.querySelectorAll(".studyName");
-        var no = location.href.split("?")[1].split("=")[1];
-        
-        
-       
+        var stdno = location.href.split("?")[1].split("=")[1];
+
+        $("#surveylist").attr("href", "surveylist.html?no="+stdno);
+
+        $.getJSON(serverRoot + "/json/studyInfo/survey/list?no="+stdno, {}, data => {
+            let cnt = 0;
+
+            for(let survey of data) {
+                if(cnt == 2)
+                    return;
+                
+                let outerDiv = $("<div class='col-sm survey-'>");
+                let sDiv = $("<div class='survey'>");
+                let span = $("<span class='pollTitle'>");
+                $(span).text(survey.title);
+                let br = $("<br>");
+                
+                $(sDiv).append(span);
+                $(sDiv).append(br);
+                $(sDiv).append(br);
+                $(outerDiv).append(sDiv);
+
+                let innerDiv = $("<div class='surveyInner'>");
+
+                if(survey.answerNum == 1) {
+                    for(let radio of survey.items) {
+                        let wrapDiv = $("<div class='custom-control custom-radio'>");
+                        let radioBt = $("<input type='radio' id='c'" + radio.no + "' class='custom-control-input'>");
+                        let label = $("<label class='custom-control-label' for='c" + radio.no + "'>");
+                        $(label).text(radio.itemName);
+                        $(wrapDiv).append(radioBt);
+                        $(wrapDiv).append(label);
+                        $(innerDiv).append(wrapDiv);
+                    }
+                } else {
+                    for(let cb of survey.items) {
+                        let wrapDiv = $("<div class='custom-control custom-checkbox'>");
+                        let radioBt = $("<input type='checkbox' id='c'" + cb.no + "' class='custom-control-input'>");
+                        let label = $("<label class='custom-control-label' for='c" + cb.no + "'>");
+                        $(label).text(cb.itemName);
+                        $(wrapDiv).append(radioBt);
+                        $(wrapDiv).append(label);
+                        $(innerDiv).append(wrapDiv);
+                    }
+                }
+                $(outerDiv).append(innerDiv);
+                $("#surveyList").append(outerDiv);
+                cnt++;
+            }
+
+        });
     });
     </script>
 
