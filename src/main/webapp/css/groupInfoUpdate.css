@@ -40,23 +40,40 @@
                       
                       input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { /* WebKit browsers */ color:transparent; } input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color:transparent; } input:focus::-moz-placeholder, textarea:focus::-moz-placeholder { /* Mozilla Firefox 19+ */ color:transparent; } input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */ color:transparent; }
 
+	                     div.container {
+							    padding : 3rem;
+						}
 
                     
-                      .container-box {
-                        width: 90%;
-                        margin: 5rem auto;
-                        margin: 3rem auto;
-                      }
-                      div.container-box {
-                        margin: 0 auto;
-                        padding: 1em;
-                        line-height: 3rem;
-                      /*    width: 40%;*/
-                      }
-                      div.inner-container-box {
-                        width: 70%;
-                        margin: 0 auto;
-                      }
+	                     div.container-box {
+							    margin: 0 auto;
+							    line-height: 3rem;
+							/*    width: 40%;*/
+						}
+					                   
+					div.inner-container-box {
+					    margin: 0 auto;
+					    width: 70%;
+					}
+					
+					#groupImgeDiv {
+						    float: right;
+   							 margin-top: 1em;
+					}
+					
+					 div.study-img {
+					
+					    display: inline-block;
+					    width: 35em;
+					    height: 20em;
+					    overflow: hidden;
+					   
+  						  }
+  						  
+  						   img.study-img {
+           
+					         width: 100%;
+					        }
 
                       div.form-group-img {
                         text-align: center;
@@ -120,15 +137,7 @@
                           font-weight: bold;
                       }
 
-                      h4{
-                        font-size: 1.5rem;
-                        padding-top: 1em;
-                        margin-bottom: 1em;
-                        text-align: center;
-                        font-weight: bold;
-                      }
-
-
+                
 
                       .survey-titl {
                         
@@ -360,10 +369,10 @@
                       }
 
                       h4 {
-                          font-size: 1.5rem !important; 
-                          margin-bottom: 0.4em !important;
-                          text-align: center !important;
-                          font-weight: bold !important;
+                          font-size: 1.5rem; 
+                          margin-bottom: 1em !important;
+                          text-align: center; 
+                          font-weight: bold; 
                       }
 
                       p.studyCheckin {

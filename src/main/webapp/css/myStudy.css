@@ -42,6 +42,7 @@ h3 {
 
 div.container-box {
     margin: 0 auto;
+    
     line-height: 3rem;
 /*    width: 40%;*/
 }
@@ -150,16 +151,10 @@ div.inner-container-box {
 
 
 .modal-content {
-<<<<<<< HEAD
-   margin-top : 10em;
-=======
-   margin-top : 30em;
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
+	margin-top : 3em;
 }
 
-a {
-   color: black !important;
-}
+
 
 
 
@@ -169,30 +164,26 @@ a {
 }
 
 .ttbtn {
-   float: right;
-   margin-left : 1em;
+	float: right;
+	margin-left : 1em;
 }
 
 .modal-footer {
-   justify-content : center;
+	justify-content : center;
 }
 
 .input-view, .cancel-view {
-<<<<<<< HEAD
-   width: 230px;
-=======
-   width: 500px;
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
-   
+	width: 500px;
+	
 }
 
 .ttbtn, .review {
-   margin-top: 0.6em;
+	margin-top: 0.6em;
 }
 
  .gg {
-    color: #aaa;
-    margin-right : 0.5em;
+ 	color: #aaa;
+ 	margin-right : 0.5em;
  }
  
  
@@ -202,7 +193,7 @@ a {
  
  
  .starzone {
-    text-align : center;
+ 	text-align : center;
  }
  
  
@@ -212,8 +203,12 @@ a {
 
  } 
  
-<<<<<<< HEAD
-=======
+ .cBtn {
+ 	margin-right : 1em;
+ }
  
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
+ .oBtn:focus{
+	box-shadow : none;
+	
+}
  

@@ -40,6 +40,8 @@ div > #myPhoto {
 .inputPro{
     margin-right: 1em;
     width: 45%;
+    border: 1px solid #BDBDBD;
+    border-radius: 1px;
 }
 
 .form-control{

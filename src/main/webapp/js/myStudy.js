@@ -1,6 +1,6 @@
   
 $(document).ready(function() {
-     $("#header").load(serverRoot + "/header.html");
+	  $("#header").load(serverRoot + "/header.html");
    $.get("json/auth/loginstat", {}, res=> {
        no = res.no;
      }).done(function(data){
@@ -12,11 +12,11 @@ $(document).ready(function() {
             let mystudy = $('.mystudy');
               let ownstudy = $('.ownstudy');
                for(var item of data) {
-                  console.log(item);
-                  var _chkHtml = 'onclick="Rwrite('+ item.study.no +', this)">후기 작성';
-                  if( item.review != null ){
-                     _chkHtml = 'onclick="Rview('+ item.study.no +')">후기 보기';
-                  }
+            	   console.log(item);
+            	   var _chkHtml = 'onclick="Rwrite('+ item.study.no +', this)">후기 작성';
+            	   if( item.review != null ){
+            		   _chkHtml = 'onclick="Rview('+ item.study.no +')">후기 보기';
+            	   }
                
                if (item.grade == 0) {
                $('<div class="studybox">'+
@@ -29,16 +29,16 @@ $(document).ready(function() {
               
                
                } else if (item.grade == 1) {
-                  
-                  var _html = '<div><span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html?no='+ item.studyNo +'">'
-                  + '<span id="stdname">\''+ item.study.name +'\'</span></a>'
-                  + '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal" onclick="Out('+ item.study.no +')">탈퇴</button>'
-                  + '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value">'
-                  + '<button id="vBtn" class="btn btn-primary btn-sm review"'
-                  + _chkHtml
-                  + '</button></a>'
-                  + '</div>'
-                  
+            	   
+            	   var _html = '<div><span class="gg">'+ item.study.category +' 스터디 </span><a href="groupMain.html?no='+ item.studyNo +'">'
+            	   + '<span id="stdname">\''+ item.study.name +'\'</span></a>'
+            	   + '<button class="btn btn-secondary btn-sm ttbtn" data-toggle="modal" data-target="#tmodal" onclick="Out('+ item.study.no +')">탈퇴</button>'
+            	   + '<a class="identifyingClass" data-toggle="modal" href="#dAD" data-id="my_id_value">'
+            	   + '<button id="vBtn" class="btn btn-primary btn-sm review"'
+            	   + _chkHtml
+            	   + '</button></a>'
+            	   + '</div>'
+            	   
                   $(_html).appendTo(ownstudy);
                   
                }
@@ -52,10 +52,6 @@ $(document).ready(function() {
         console.log('modal reset');
       $(this).find('form')[0].reset();
       $(fContent).html("");
-<<<<<<< HEAD
-   
-=======
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
       $('#example').barrating('set', 1);
       $(addBtn).css('display', 'block');
       $(updBtn).css('display', 'none');
@@ -74,7 +70,7 @@ $(document).ready(function() {
 
 
 function Rwrite(stdno, node) {
-   console.log('*** Rwrite 작성 ');
+	console.log('*** Rwrite 작성 ');
    console.log("stdno : " + stdno);
    console.log("memno : " + no);
    
@@ -118,7 +114,7 @@ function Rwrite(stdno, node) {
 
 
 function Rview(stdno) {
-   console.log('*** Rview 보기 ');
+	console.log('*** Rview 보기 ');
      $(addBtn).css('display', 'none');
     
      $(updBtn).css('display', 'block');
@@ -168,16 +164,16 @@ function Rview(stdno) {
 
 function Out(stdno) {
      const swalWithBootstrapButtons = swal.mixin({
-        confirmButtonClass: 'btn btn-primary',
-        cancelButtonClass: 'btn btn-secondary',
+        confirmButtonClass: 'btn btn-primary oBtn',
+        cancelButtonClass: 'btn btn-secondary cBtn',
         buttonsStyling: false,
       })
       swalWithBootstrapButtons({
            title: '스터디를 탈퇴하시겠습니까?',
            type: 'warning',
            showCancelButton: true,
-           cancelButtonText: '아니요!',
            confirmButtonText: '네 탈퇴할래요!',
+           cancelButtonText: '아니요!',
            reverseButtons: true
          }).then((result) => {
            if (result.value) {

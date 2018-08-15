@@ -32,7 +32,7 @@ h3 {
 
 div.container-box {
     margin: 0 auto;
-    padding: 1em;
+   
     line-height: 3rem;
 /*    width: 40%;*/
 }
@@ -140,7 +140,7 @@ div.modal-content {
 }
 
 div.container {
-    padding: 2rem;
+    padding: 3rem;
 }
 
 img.thumbnail {
@@ -152,7 +152,7 @@ img.thumbnail {
 }
 
 div.inner-container-box {
-    width: 95%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -186,13 +186,41 @@ div.list-group a{
     border: 0px;
 }
 
-#updBtn{
-    width: 50%;
-    margin: 10rem auto 0 auto;
+#updateBtn{
     display: block;
+    float:right;
 }
 
 input.form-control-plaintext{
     display: inline-block;
     width: 50%;
 }
+
+#name {
+	margin-left : 2em;
+}
+
+#email, #tel {
+	margin-left : 1em;
+}
+
+.inputF {
+	border :1px solid #cccccc;
+	border-radius : .25rem;
+	padding: 0.4em;
+}
+
+.cf {
+	display:inline-block;
+	padding-top: 0.5em;
+}
+
+.prof-div {
+	border : 1px solid #cccccc;
+}
+
+
+
+
+
+
