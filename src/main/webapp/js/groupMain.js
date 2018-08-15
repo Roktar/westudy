@@ -1,9 +1,8 @@
 $("#header").load("header.html");
 var studyName = document.querySelectorAll(".studyName");
-var stdno = location.href.split("?")[1].split("=")[1];
+let stdno = location.href.split("?")[1].split("=")[1];
 
 $(document).ready(function() {
-	
 	
 	$(".groupInfoUpdate").click(function(){
 		location.href =  "groupInfoUpdate.html?no="+stdno;

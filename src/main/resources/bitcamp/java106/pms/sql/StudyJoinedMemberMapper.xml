@@ -15,7 +15,7 @@
       <id column="memno" property="no"/>
       <result column="mname" property="name"/>
       <result column="email" property="email"/>
-     
+      <result column="pfp" property="photo"/>
     </association>
    <association property="study" javaType="StudyInfo">
       <id column="stdno" property="no"/>

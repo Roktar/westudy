@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/group.css">
-    <link href="node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/slidebar.css">
 	<link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
+    <link href="node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
     
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -26,9 +25,8 @@
     <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
     <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
     <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
-    
-    <script src="js/common.js"></script>
     <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src="js/common.js"></script>
     
     
     <style>
@@ -114,25 +112,25 @@
         </div> -->
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="groupMain.html">그룹메인</a>
+                <a class="nav-link active" href="#groupMain">그룹메인</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="calendar.html">전체일정</a>
+                <a class="nav-link active" href="#calendar">전체일정</a>
             </li>
             
               <li class="nav-item">
-                <a class="nav-link" href="groupMain.html#survey">전체 설문</a>
+                <a class="nav-link" href="#survey">전체 설문</a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="groupMain.html#members">회원</a>
+                <a class="nav-link" href="#members">회원</a>
             </li>
     
             <li class="nav-item">
-                <a class="nav-link" href="groupMain.html#board">게시판</a>
+                <a class="nav-link" href="#board">게시판</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="groupMain.html#album">앨범</a>
+                <a class="nav-link" href="#album">앨범</a>
             </li>
         </ul>
         <div class="container">
@@ -141,7 +139,7 @@
                 <div class="row">
                     <div class="col menu">
                         <h6 class="menu">
-                            스터디 소개
+                                                     스터디 소개
                             <button type="button" id="grade0" class="btn-sm btn apply groupInfoUpdate" style="display: none;">그룹 관리하기</button>
                             <button type="button" id="grade2" class="btn-sm btn apply acceptRequest">가입 신청하기</button>
                         </h6>
@@ -154,7 +152,7 @@
                                    <div class="objective-sm">
                                        <div class="studyLeader">
                                            <span class="memberClass"><img src="img/crown_32.png"></span>
-                                           <div class="prof-img"><img src="" alt="profile" id="leaderpfp"></div>
+                                           <div class="leader-img"><img src="" alt="profile" id="leaderpfp"></div>
                                            <span class="leaderName"></span>
                                        </div>
                                        <div class="studyInfo"><span id="fInformation"></span></div>
@@ -172,7 +170,7 @@
             <div class="innerContainer">
                 <div class="row">
                     <div class="col menu menu2">
-                        <h6 class="menu">
+                        <h6 class="menu" id="calendar">
                                   오늘의 일정
                             <a href="calendar.html" class="badge badge-warning">전체 일정
                             </a>
@@ -214,8 +212,8 @@
              <div class="innerContainer">
                <div class="row">
                     <div class="col menu menu2">
-                        <h6 class="menu">
-                                  진행중인 설문조사
+                        <h6 class="menu" id="survey">
+                                         진행중인 설문조사
                             <a href="#" id="surveylist" class="badge badge-warning">전체 설문
                             </a>
                         </h6>
@@ -237,7 +235,7 @@
                <div class="innerContainer">
             <div class="row">
                 <div class="col checkedMembers menu">
-                    <h6 class="menu">
+                    <h6 class="menu" id="member">
                         <a name="members">회원 </a>
                         <span class="badge badge-warning">모집중</span>&nbsp;
                         <span class="badge badge-warning"><span class="memberCount">8</span>/<span class="maxPeople">10</span></span>
@@ -318,6 +316,20 @@
             </div>
             <!-- 앨범 end -->
         </div>
+        
+         <footer class="footer">
+        <p>Logo</p>
+        <div>
+            <span>서울특별시 강남구 비트캠프 401호</span>
+            <span>Tel080-777-2299</span>
+            <span>개인정보취급관리자 홍길동
+            </span>
+            <span>E-mail : we_study@westudy.com</span>
+        </div>
+        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+    </footer>
+        
+        
     </div>
         <!--board end -->
 
@@ -381,28 +393,17 @@
                 
             </div>
         </div>
+    
+   
     </div>
     
     <!--board One end -->
     
-
-    
-    <footer class="footer" style="margin-top: 200em">
-        <p>Logo</p>
-        <div>
-            <span>서울특별시 강남구 비트캠프 401호</span>
-            <span>Tel080-777-2299</span>
-            <span>개인정보취급관리자 홍길동
-            </span>
-            <span>E-mail : we_study@westudy.com</span>
-        </div>
-        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-    </footer>
     
         
-<script src="js/groupMainPhoto.js"></script>
-    <script src="js/groupMainBoard.js"></script>
     <script src="js/groupMain.js"></script>
+    <script src="js/groupMainPhoto.js"></script>
+    <script src="js/groupMainBoard.js"></script>
     <script>
     $("#header").load(serverRoot + "/header.html");
         

@@ -412,7 +412,7 @@ div.studyLeader {
 }
 
      
-.prof-img {
+.leader-img {
     
     margin: auto;
     display: block;
@@ -421,7 +421,7 @@ div.studyLeader {
      overflow:hidden;
      border-radius: 3.5em;
      }
-.prof-img img {
+.leader-img img {
 	width:100%;
 	 }
 	 
