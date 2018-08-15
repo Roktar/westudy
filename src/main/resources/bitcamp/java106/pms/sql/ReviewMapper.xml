@@ -34,11 +34,6 @@ order by r.rvwno desc limit #{startRowNo}, #{pageSize}
 </select>
 
 <select id="selectListAll" resultMap="ReviewMap" parameterType="map">
-<<<<<<< HEAD
-  elect r.rvwno, s.sname, r.cont, pfp , s.stdno
-from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
-order by r.rvwno desc limit 0, 4 
-=======
 select r.rvwno, s.sname, r.cont, m.pfp , s.stdno
 from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
 order by r.rvwno desc limit 0, 4 
@@ -48,16 +43,7 @@ order by r.rvwno desc limit 0, 4
 select r.rating, r.cdt, r.cont, r.memno, r.stdno, r.rvwno
 from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
 where m.memno=#{memNo} and s.stdno=#{studyNo}
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
 </select>
-
-<select id="getMyReview" parameterType="map" resultMap="ReviewMap"> 
-select r.rating, r.cdt, r.cont, r.memno, r.stdno, r.rvwno
-from study_review r left join member m on r.memno=m.memno left join study_info s on r.stdno=s.stdno 
-where m.memno=#{memNo} and s.stdno=#{studyNo}
-</select>
-
-
 
  <select id="count" parameterType="int" resultMap="ReviewMap">
         SELECT ctgr, count(*) as cnt 
@@ -71,23 +57,12 @@ where m.memno=#{memNo} and s.stdno=#{studyNo}
         FROM study_review r left join study_info s on r.stdno = s.stdno
         WHERE s.ctgr = #{category}
 </select>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
    
   <insert id="insert" parameterType="Review" 
   keyProperty="no" keyColumn="rvwno" useGeneratedKeys="true"> 
   insert into study_review(cont, rating, cdt, stdno, memno) 
   values (#{content}, #{rating}, now(), #{study.no}, #{member.no}) 
   </insert>
-<<<<<<< HEAD
-  
-
-  
-=======
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
  
  <select id="get" parameterType="int" resultMap="ReviewMap">
     select *
@@ -99,17 +74,6 @@ where m.memno=#{memNo} and s.stdno=#{studyNo}
   delete from study_review 
   where rvwno=#{value} 
   </delete>
-<<<<<<< HEAD
-  
-  <update id="update" parameterType="Review">
-    update study_review set
-        cont=#{content}, 
-        rating=#{rating}
-        where rvwno=#{no}
-  </update>
-  
-=======
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
   
   <update id="update" parameterType="Review">
     update study_review set
@@ -118,7 +82,3 @@ where m.memno=#{memNo} and s.stdno=#{studyNo}
         where rvwno=#{no}
   </update>
 </mapper>
-<<<<<<< HEAD
-
-=======
->>>>>>> caa8f4ea8afc5e145aece69cccf3f50c8f10a3e4
