@@ -74,7 +74,7 @@ $(document).ready(function(){
 		   				   .click(doDel)
 		   				   .appendTo(fileDiv);
 		   $('<p style="display: inline-block;">' + data.files[i].name + '</p>').appendTo(fileWrapper);
-		   $('<button id="delBtn" class="btn btn-secondary" style="float: right;">삭제</button>')
+		   $('<button id="delBtn" class="btn btn-secondary btn-sm" style="float: right;">삭제</button>')
 		   .appendTo(fileWrapper);
       };
 

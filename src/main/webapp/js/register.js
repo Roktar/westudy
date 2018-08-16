@@ -241,6 +241,7 @@ function checkId(){
             $("#signup").prop("disabled", true);
             idCheck = 0;
          } else if(data == '0'){ // 이메일중복X
+        	 $("#idMsg").css("display", "none");
             idCheck = 1;
             if(idCheck == 1 && pwdCheck == 1){
                $("#signup").prop("disabled", false);

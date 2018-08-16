@@ -10,23 +10,24 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/br_register.css">
     <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
-    
-<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
-<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-    <script src="js/jquery.caret.min.js"></script>
-    <script src="js/jquery.tag-editor.js"></script>
-    <script src="node_modules/slidebars/dist/slidebars.js"></script>
-    <script src="js/common.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js" > </script>
-    <script src="js/register.js"> </script>
 </head>
 <body>
-    <div id="header"></div>
+    <header class="header">
+        <div class="headerWrap">
+            <h1 class="logo">
+                <a href="index.html"><img src="img/logo3.png" alt="로고" title="WeStudy"></a>
+            </h1>
+            <div class="utilMenu">
+                <ul>
+                    <li class="search"></li>
+                    <li>스터디 만들기</li>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+                    <li class="menu"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
     
     <div class="container col-sm-4">
         <h2>개인정보</h2>
@@ -105,16 +106,15 @@
             <input id="selectbox9" type="checkbox" name="chk" onClick="count_ck(this);"/>
             <input id="selectbox10" type="checkbox" name="chk" onClick="count_ck(this);"/>
             <section class="buttons">
-                <label for="selectbox1">프로그래밍</label>
-                <label for="selectbox2">어학</label>
+                <label for="selectbox1">IT</label>
+                <label for="selectbox2">국가시험</label>
                 <label for="selectbox3">기사</label>
-                <label for="selectbox4">한국사</label>
+                <label for="selectbox4">언어</label>
                 <label for="selectbox5">금융</label>
-                <label for="selectbox6">공무원</label>
+                <label for="selectbox6">취업</label>
                 <label for="selectbox7">토론</label>
-                <label for="selectbox8">독서</label>
-                <label for="selectbox9">기타</label>
-                <label for="selectbox10">기타</label>
+                <label for="selectbox8">기타</label>
+             
             </section>
             <hr>
             <div> 
@@ -132,6 +132,17 @@
         </div>
         <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script src="js/jquery.caret.min.js"></script>
+    <script src="js/jquery.tag-editor.js"></script>
+    <script src="node_modules/slidebars/dist/slidebars.js"></script>
+    <script src="js/common.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js" > </script>
+    <script src="js/common.js"> </script>
+    <script src="js/register.js"> </script>
 </body>
 
 </html>

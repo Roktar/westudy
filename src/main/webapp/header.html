@@ -1,4 +1,4 @@
-﻿﻿<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+﻿<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>﻿
 
 <!-- 사이드 메뉴 시작 -->
@@ -26,7 +26,7 @@
         
           <div class="col-sm-12 sidemenu">
           <a href="myProfile.html">
-       	내 정보</a>
+        내 정보</a>
             </div>
         
         <div class="col-sm-12 sidemenu" style="border-top:none">
@@ -176,7 +176,7 @@ let no = -1;
             }).done(function(){
                 
                 $.getJSON("json/member/" + no, {}, data => {
-                	 $('#userPic').attr('src', 'files/' + data.profile + '_350x350.jpg');
+                     $('#userPic').attr('src', 'img/' + data.profile + '_350x350.jpg');
                 });
                 })
       $('#doc1').click( function() {
@@ -201,8 +201,8 @@ let no = -1;
        });
     
     $('#register').on('shown.bs.modal', function() {
-        $('#doc1').attr("checked", "false");
-        $('#doc2').attr("checked", "false");
+        $('#doc1').attr("checked", false);
+        $('#doc2').attr("checked", false);
         $('#regLink').css('pointer-events', 'none');
             $('#regLink').css('opacity', '0.2');
     });
@@ -212,10 +212,10 @@ let no = -1;
             password:$(login_password).val()
         }, res => {
             if(res.state == "fail")
-            	swal({
-            		  type: 'error',
-            		  title: 'login failed',
-            		})
+                swal({
+                      type: 'error',
+                      title: 'login failed',
+                    })
 
             else
                 location.href = "index.html";

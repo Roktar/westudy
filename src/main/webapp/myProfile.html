@@ -68,11 +68,12 @@
                                    <li class='list-group-item'>이름<input id='name' name="name" class='float-right inputPro' readonly></li>
                                    <li class='list-group-item'>이메일<input id='email' name="email" class='float-right inputPro' readonly></li>
                                    <li class='list-group-item'>연락처<input id='tel' name="tel" class='float-right inputPro' ></li>
-                                   <li id="cityCount"class='list-group-item datail-view'>지역</li>
-                                   <li id="updataCity" class='list-group-item input-view'>지역
+                                   <li id="cityCount"class='list-group-item datail-view'><span class="titl">지역</span></li>
+                                   <li id="updataCity" class='list-group-item input-view'><span class="titl">지역</span>
+
                                        <form name="form">
                                            <div class="row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                 <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control ">
                                                     <option value="" selected>:: 시/도 ::</option>
                                                     <option value="1">서울특별시</option>
@@ -103,7 +104,7 @@
                                        </form>
                                    </li>
                                </ul>
-                                <button type="button" id="updateBtn" class="btn float-right">변경</button>
+                                <button type="button" id="updateBtn" class="btn">변경</button>
                             </div>
                         </div>
                 </div>  
