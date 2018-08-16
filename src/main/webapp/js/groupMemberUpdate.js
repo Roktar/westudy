@@ -1,8 +1,8 @@
 var list_group = $('.memberbox');
-var no = location.href.split("?")[1].split("=")[1];
 var i = 1;
 
 $(document).ready(function() {
+	var no = location.href.split("?")[1].split("=")[1];
 	$("#header").load(serverRoot + "/header.html");
 	
 	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);

@@ -178,7 +178,7 @@
 					let newEndNode = $(
 						'<input type="text" style="background:none; border:0;" readonly class="form-control col-sm-2" style="margin-right:0.25rem" id="newEndTime">');
 					let newContentNode = $("<input type='text' style='background:none; border:0;' readonly class='form-control col-sm-4' id='newContentNode'>");
-					let deleteNode = $("<input type='button' style='margin-top:0; position:relative; left:-1.6rem;' class='btn btn-danger btn-sm' value='x'>");
+					let deleteNode = $("<input type='button' style='margin-top:0; position:relative; left:-1.6rem; background: none; border: none; color: #c82333; font-size: 20px;' class='btn btn-danger btn-sm' value='x'>");
 					$(newStartNode).val($('#addStartTime').val());
 					$(newEndNode).val($('#addEndTime').val());
 					$(newContentNode).val($('#addContent').val());
@@ -324,6 +324,10 @@
 					$('#calendar').fullCalendar('addEventSource', events);
 					$('#calendar').fullCalendar('refetchEvents');
 				})
+				swal({
+						  type: 'success',
+						  title: '일정 추가 완료!',
+						})
 			});
 
 			$('#insertSchedule').modal('hide');
@@ -355,6 +359,18 @@
 			margin-top : 0.5em;
 			margin-bottom : 0.5em;
 		}
+		
+		.fc .fc-button-group > * {
+	   border: 1px solid #cccccc;
+	    background: none;
+}
+
+
+		h2 {
+		font-size : 25px;
+		}
+		
+		
 	</style>
 
 </head>
@@ -382,13 +398,14 @@
 			<a class="nav-link" href="groupMain.html#album">앨범</a>
 		</li>
 	</ul>
-	<div class="forcolor">
+	<div class="forcolor" style="padding: 2em 10em 3em 10em">
 		<div class="container">
 			<div class="innerContainer">
 				<div class="row">
 					<div class="col menu menu2">
 						<h6 class="menu">
-							<a name="board">일정 </a>
+							<a name="board" style="font-size: 20px; font-weight: bold;">일정 </a>
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertSchedule" style="margin-top: 0; float: right;">일정 등록</button>
 						</h6>
 						<hr>
 
@@ -398,23 +415,21 @@
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h3 class="modal-title" id="eventTitle"></h3>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
+										<h5 class="modal-title" id="eventTitle"></h5>
+										
 									</div>
 
 									<!-- modal-body start -->
 									<div class="modal-body">
-										<h4>장소</h4>
+										<h5>장소</h5>
 										<span id="eventPlace"></span>
 										<span id="eventPlaceDetail"></span>
-										<div id="eventMap" style="width:100%; height:200px;"></div>
+										<div id="eventMap" style="width:100%; height:200px; margin-top:1em"></div>
 										<br>
-										<h4>스터디 주제</h4>
+										<h5>스터디 주제</h5>
 										<span id="eventTopic"> </span>
 										<br>
-										<h4>일정</h4>
+										<h5 style="margin-top:2em">일정</h5>
 										<ul id="eventSchedules">
 
 										</ul>
@@ -423,7 +438,7 @@
 									<!-- modal-body end -->
 
 									<div class="modal-footer">
-										<input type="button" class="btn btn-danger btn-sm" value="일정 삭제" id="deleteSchedule" />
+										<input type="button" class="btn btn-danger btn-sm" style="margin:0" value="일정 삭제" id="deleteSchedule" />
 										<!-- <input type="checkbox" class="Checkbox" style="vertical-align:middle"/> 수정하기 -->
 									</div>
 								</div>
@@ -439,9 +454,7 @@
 
 									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalLabel">일정 등록</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
+										
 									</div>
 
 
@@ -451,7 +464,7 @@
 												<div class="row">
 													<div class="col-sm-2">제목</div>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" id="addTitle" style="width:90%">
+														<input type="text" class="form-control" id="addTitle" style="width:90%; height: 25px;">
 													</div>
 												</div>
 											</div>
@@ -477,8 +490,8 @@
 											<div class="row form-group">
 												<div class="col-sm-2">장소</div>
 												<div class="col-sm-7">
-													<input class="form-control" type="text" style="width:90%" id="addPlace" readonly></input>
-													<input class="form-control" type="text" style="width:90%" id="addDetailPlace" placeholder='상세주소를 입력하세요.'></input>
+													<input class="form-control" type="text" style="width:90%; height: 25px; margin-bottom:0.5em" id="addPlace" readonly></input>
+													<input class="form-control" type="text" style="width:90%; height: 25px;" id="addDetailPlace" placeholder='상세주소를 입력하세요.'></input>
 												</div>
 												<div class="col-sm-3">
 													<!-- <a href="html/map/map.html" style="color:#007bff; pointer-events:auto;" onclick="window.open(this.href, 'mapForm', 'width=500', 'height=300', scrollbars='no'); return false;"
@@ -495,18 +508,18 @@
 											<div class="form-group row" style="clear:both;">
 												<div class="col-sm-2">일정</div>
 												<div class="col-sm-10" style="margin-bottom:0.15rem;">
-													<input type="time" class="form-control col-sm-5" style="margin-right:0.25rem; float:left;" id="addStartTime">
-													<input type="time" class="form-control col-sm-5" id="addEndTime">
+													<input type="time" class="form-control col-sm-5" style="margin-right:0.25rem; float:left; height: 25px;" id="addStartTime">
+													<input type="time" class="form-control col-sm-5" style=" height: 25px;" id="addEndTime">
 												</div>
 												<!-- <div class="col-sm-1"></div> -->
 											</div>
 											<div class="form-group row" style="clear:both;">
 												<div class="col-sm-2"></div>
 												<div class="col-sm-8">
-													<input type='text' class='form-control ' id='addContent'>
+													<input type='text' class='form-control ' id='addContent' style=" height: 25px;">
 												</div>
 												<div class="col-sm-2">
-														<a href="#" id="addScheduleToTime">추가</a>
+														<a href="#" id="addScheduleToTime" style="margin-top: 0.5em; display: inline-block;">추가</a>
 												</div>
 											</div>
 											<form id="data" method="post">
@@ -538,7 +551,7 @@
 						<!-- add calendar schedule modal end -->
 
 
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertSchedule">일정 등록</button>
+					
 						<div id="calendar"> </div>
 
 					</div>

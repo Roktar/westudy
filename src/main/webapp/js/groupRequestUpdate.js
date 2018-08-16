@@ -1,12 +1,10 @@
 var list_group = $('.requestbox');
 
-var no = location.href.split("?")[1].split("=")[1];
-console.log(no);
-
 var i = 1;
 
 
 $(document).ready(function() {
+	var no = location.href.split("?")[1].split("=")[1];
 	$("#header").load(serverRoot + "/header.html");
 	
 	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);
@@ -30,7 +28,7 @@ $(document).ready(function() {
 });
 
 function rList(){
-	
+	var no = location.href.split("?")[1].split("=")[1];
 	$.ajax({
 		url: "/FinalProject/json/awaitingMember/list/?no=" + no,
 		method : "post",
@@ -62,6 +60,7 @@ function rList(){
 };
 
 function acceptRequest(memno, type) {
+	var no = location.href.split("?")[1].split("=")[1];
 	console.log("memno : " + memno);
 	console.log("type : " + type);
 	console.log("no : " + no);
