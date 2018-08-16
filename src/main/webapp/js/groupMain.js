@@ -3,7 +3,9 @@ var studyName = document.querySelectorAll(".studyName");
 let stdno = location.href.split("?")[1].split("=")[1];
 
 $(document).ready(function() {
-	
+	$("#surveylisttab").attr("href", "surveylisttab.html?no="+stdno);
+	$("#calendar").attr("href", "calendar.html?no="+stdno);
+
 	$(".groupInfoUpdate").click(function(){
 		location.href =  "groupInfoUpdate.html?no="+stdno;
 	});

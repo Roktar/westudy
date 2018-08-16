@@ -8,6 +8,8 @@ $(document).ready(function() {
 	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);
 	$("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+no);
 	$("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+no);
+	$("#groupSurveylist").attr("href", "surveylist.html?no="+no);
+	$("#groupSurveyInsert").attr("href", "survey-enroll.html?no="+no);
 	
 	$.get(serverRoot + "/json/auth/loginstat", (data) => {
        if(typeof(data) == "string") {

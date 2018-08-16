@@ -12,6 +12,8 @@ $(document).ready(function() {
 	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);
 	$("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+no);
 	$("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+no);
+	$("#groupSurveylist").attr("href", "surveylist.html?no="+no);
+	$("#groupSurveyInsert").attr("href", "survey-enroll.html?no="+no);
 	
 	$.get(serverRoot + "/json/auth/loginstat", (data) => {
 	       if(typeof(data) == "string") {
@@ -47,7 +49,7 @@ function rList(){
 	                    '<td>'+item.member.email+'</td>'+
 	                    '<td>'+item.requestDate+'</td>'+
 	            '<td>'+
-	            '<button class="btn btn-secondary btn-sm refuseBtn" onclick="acceptRequest('+item.memNo+', 1);">거절</button>'+
+	            '<button class="btn btn-secondary btn-sm" onclick="acceptRequest('+item.memNo+', 1);">거절</button>'+
 	            '<button class="btn btn-sm" onclick="acceptRequest('+item.memNo+', 2);">승낙</button>'+
 	            '</td>'+
 	            '</form>'+

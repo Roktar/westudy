@@ -13,15 +13,19 @@
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
 	<link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="css/slidebar.css">
 	
-   <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="node_modules/slidebars/dist/slidebars.js"></script>
 <script src="js/groupMemberUpdate.js"></script>
 <script src="js/common.js"></script>
+
+<script>
+
+</script>
 	
 </head>
 
@@ -29,27 +33,53 @@
 	<!-- header start -->
 	<div id="header"></div>
 	<!-- header end -->
-	  <div id="container" canvas="container">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-2 menu-bar">
-				<div class="col-box ssss">
-					<div class="class_titl">관리자 페이지</div>
-					<hr class="line3">
-					<div class="list-group cls-list">
-						<a id="groupInfoUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
+
+			            <div class="col-sm-2 menu-bar">
+
+                <div class="col-box ssss">
+
+                    <div class="class_titl">관리자 페이지</div>
+
+                    <hr class="line3">
+
+                    <div class="list-group cls-list">
+
+                        <a id="groupInfoUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
+
                         <a id="groupMemberUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+
                             그룹멤버 관리 </a>
+
                         <a id="groupRequestUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+
                             그룹요청 관리 </a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-10 container-box">
-                <div class="inner-container-box">
+
+                    <div class="dropdown sv-list-pr">
+
+                            <a class="list-group-item list-group-item-action cls-list-link" href='surveylist.html' style="padding: 1em">
+
+                                설문조사 관리</a>
+
+                            <div class="sv-list" aria-labelledby="dropdownMenuButton">
+
+                                <a id="groupSurveylist" class="sv-list-a sv-list-bordertop" href="surveylist.html">설문 내역</a>
+
+                                <a id="groupSurveyInsert" class="sv-list-a" href="survey-enroll.html">설문 등록</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+                
+			<div class="col-sm-10" style="min-height: 600px;">
 				<h4>그룹멤버 관리</h4>
-				      
-				<div class="row">
+				<div class="row" style="margin-top: 2em; margin-left:2em;">
 					<table class="table upper" style="width: 80%; margin: 0 auto; text-align:center">
 						<thead>
 							<tr>
@@ -66,8 +96,7 @@
 			</div>
 		</div>
 	</div>
-	</div>	
-</div>	
+	
 	<footer class="footer">
 		<p>Logo</p>
 		<div>

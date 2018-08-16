@@ -44,6 +44,12 @@
         let studyNo = window.location.search.substring(1).split("=")[1];
         $(document).ready(function() {
             $("#header").load( serverRoot + "/header.html" );
+            
+            $("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
+            $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+studyNo);
+            $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+studyNo);
+            $("#groupSurveylist").attr("href", "surveylist.html?no="+studyNo);
+            $("#groupSurveyInsert").attr("href", "survey-enroll.html?no="+studyNo);
 
             let nowDate = new Date();
 
@@ -124,31 +130,49 @@
     <!-- survey start -->
     <div class="container">
         <div class="row">
+
             <div class="col-sm-2 menu-bar">
-                <div class="col-box-list">
+
+                <div class="col-box ssss">
+
                     <div class="class_titl">관리자 페이지</div>
+
                     <hr class="line3">
+
                     <div class="list-group cls-list">
-                        <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
-                            그룹정보 관리
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
-                            그룹멤버 관리
-                        </a>
-                        <div class="dropdown sv-list-pr">
+
+                        <a id="groupInfoUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
+
+                        <a id="groupMemberUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+
+                            그룹멤버 관리 </a>
+
+                        <a id="groupRequestUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+
+                            그룹요청 관리 </a>
+
+                    <div class="dropdown sv-list-pr">
+
                             <a class="list-group-item list-group-item-action cls-list-link" href='surveylist.html' style="padding: 1em">
+
                                 설문조사 관리</a>
+
                             <div class="sv-list" aria-labelledby="dropdownMenuButton">
-                                <a class="sv-list-a sv-list-bordertop" href="surveylist.html">설문 내역</a>
-                                <a class="sv-list-a" href="survey-enroll.html">설문 등록</a>
+
+                                <a id="groupSurveylist" class="sv-list-a sv-list-bordertop" href="surveylist.html">설문 내역</a>
+
+                                <a id="groupSurveyInsert" class="sv-list-a" href="survey-enroll.html">설문 등록</a>
+
                             </div>
 
                         </div>
 
                     </div>
-                </div>
-            </div>
 
+                </div>
+
+            </div>
+            
             <div class="col-sm-10" style="padding-top: 1em;">
                 <h4>설문조사 등록</h4>
                 <div class="col-sm-12 con-box-enroll">
