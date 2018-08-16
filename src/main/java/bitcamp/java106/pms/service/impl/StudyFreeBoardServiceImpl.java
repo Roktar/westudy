@@ -62,6 +62,7 @@ public class StudyFreeBoardServiceImpl implements StudyFreeBoardService{
     
     @Override
     public void delete(int no) {
+        System.out.println(no);
         studyFreeBoardDao.delete(no);
         
     }

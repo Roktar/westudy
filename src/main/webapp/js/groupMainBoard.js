@@ -36,6 +36,11 @@ $(document).ready(function(){
 		
 	});
 	
+	$(".modal-content").on("shown.bs.modal", function() {
+		dataMemNo = $(this).memNo;
+		console.log(dataMemNo);
+	});
+	
 	$(function() {
 	    $('#files-div').click(function (e) {
 	        e.preventDefault(); 
@@ -108,7 +113,7 @@ $(document).ready(function(){
 
 function doDel(event){
 	   event.stopPropagation();
-	   var wrapperDiv = $(event.currentTarget);io
+	   var wrapperDiv = $(event.currentTarget);
 	   wrapperDiv.remove();
 	   
 	   var fileIndex = wrapperDiv.attr("upFiles-index");
@@ -120,6 +125,7 @@ function doDel(event){
 	    
 	}
 /*----------insert end----------*/
+
 
 
 /*----------view----------*/
@@ -146,6 +152,9 @@ function showBoa(no) {
     		dataTitle = data.title;
     		dataContent = data.content;
     		dataView = data;
+    		dataMemNo = data.memNo;
+    		console.log(data);
+    		$("#delete-btn").attr("onclick", "del(" + data.no + ")");
         }
 	
 	});
@@ -155,7 +164,7 @@ function showBoa(no) {
 
 /*------ update start ------*/
 $(document).ready(function(){
-	$((memNo == dataMemNo ? '<button id="delete-btn" class="btn btn-secondary detail-view" onclick="doDep(' + dataMemNo + ');">삭제</button>' : '') +
+	$((memNo == dataMemNo ? '<button id="delete-btn" class="btn btn-secondary detail-view" onclick="del(' + dataMemNo + ');">삭제</button>' : '') +
       	  (memNo == dataMemNo ? '<button id="update-btn" class="btn btn-default detail-view">수정</button>' : '')).appendTo('#boaOneFoot')
       	
 
@@ -237,7 +246,7 @@ $(document).ready(function(){
 });
 
 /*----------Delete start----------*/
-function doDep(no) {
+function del(no) {
    if (window.confirm("삭제하시겠습니까?") == false) 
 	   	return;
 	   

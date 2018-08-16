@@ -33,7 +33,9 @@ public class StudyFreeBoardsController {
     
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public int add(String title, String content, int memNo, int studyNo, MultipartFile[] files) throws Exception {
+    public int add(String title, String content, 
+                   @RequestParam(value="memNo", defaultValue="0") int memNo, 
+                   @RequestParam(value="studyNo", defaultValue="0") int studyNo, MultipartFile[] files) throws Exception {
         String filesDir = sc.getRealPath("/boardFiles");
         StudyFreeBoard[] boards = new StudyFreeBoard[files.length];
          
@@ -91,8 +93,10 @@ public class StudyFreeBoardsController {
     
     @RequestMapping("update")
     
-    public int update(@RequestParam("no") int no,
-            String title, String content, int memNo, int studyNo, MultipartFile[] files) throws Exception {
+    public int update(@RequestParam(value="no", defaultValue="0") int no,
+                      String title, String content, 
+                      @RequestParam(value="memNo", defaultValue="0") int memNo, 
+                      @RequestParam(value="studyNo", defaultValue="0") int studyNo, MultipartFile[] files) throws Exception {
         System.out.println(no);
         System.out.println(title);
         System.out.println(memNo);
@@ -127,9 +131,12 @@ public class StudyFreeBoardsController {
     }
     
     @RequestMapping("delete{no}")
-    public void delete(@PathVariable int no) throws Exception {
+    public void delete(@PathVariable String no) throws Exception {
         
-        studyFreeBoardService.delete(no);
+        if(no.equals("undefined"))
+            no = "0";
+        
+        studyFreeBoardService.delete( Integer.parseInt(no) );
     }
     
     @RequestMapping("search")
