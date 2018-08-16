@@ -30,7 +30,7 @@
   </resultMap>
     
 <!-- 회원 가입 승인 -->
-   <insert id="insert" parameterType="StudyJoinedMember" 
+   <insert id="insert" parameterType="map" 
         useGeneratedKeys="true" keyColumn="stdno" keyProperty="studyNo">
     insert into study_joined_member(
         stdno,memno,rdt,grade

@@ -172,7 +172,7 @@
                     <div class="col menu menu2">
                         <h6 class="menu" id="calendar">
                                   오늘의 일정
-                            <a href="calendar.html" id="calendar" class="badge badge-warning">전체 일정
+                            <a href="calendar.html" id="calendartab" class="badge badge-warning">전체 일정
                             </a>
                         </h6>
                         <hr>
@@ -405,9 +405,8 @@
     <script src="js/groupMainPhoto.js"></script>
     <script src="js/groupMainBoard.js"></script>
     <script>
-    $("#header").load(serverRoot + "/header.html");
         
-    $(document).ready(function() {
+    $(document).ready(function() {    	
         $('#boardMod').on('show.bs.modal', function() {
             $('#files-div').empty();
             $('#boaTitle').val('');
@@ -431,59 +430,6 @@
     
         $(".memberAdd").click(function () {
             $('.invitation').css('display', 'block');
-        });
-        
-        var studyName = document.querySelectorAll(".studyName");
-        var stdno = location.href.split("?")[1].split("=")[1];
-
-        $("#surveylist").attr("href", "surveylist.html?no="+stdno);
-
-        $.getJSON(serverRoot + "/json/studyInfo/survey/list?no="+stdno, {}, data => {
-            let cnt = 0;
-
-            for(let survey of data) {
-                if(cnt == 2)
-                    return;
-                
-                let outerDiv = $("<div class='col-sm survey-' style='margin:1rem'>");
-                let sDiv = $("<div class='survey'>");
-                let span = $("<span class='pollTitle'>");
-                $(span).text(survey.title);
-                let br = $("<br>");
-                
-                $(sDiv).append(span);
-                $(sDiv).append(br);
-                $(sDiv).append(br);
-                $(outerDiv).append(sDiv);
-
-                let innerDiv = $("<div class='surveyInner'>");
-
-                if(survey.answerNum == 1) {
-                    for(let radio of survey.items) {
-                        let wrapDiv = $("<div class='custom-control custom-radio'>");
-                        let radioBt = $("<input type='radio' id='c'" + radio.no + "' class='custom-control-input'>");
-                        let label = $("<label class='custom-control-label' for='c" + radio.no + "'>");
-                        $(label).text(radio.itemName);
-                        $(wrapDiv).append(radioBt);
-                        $(wrapDiv).append(label);
-                        $(innerDiv).append(wrapDiv);
-                    }
-                } else {
-                    for(let cb of survey.items) {
-                        let wrapDiv = $("<div class='custom-control custom-checkbox'>");
-                        let radioBt = $("<input type='checkbox' id='c'" + cb.no + "' class='custom-control-input'>");
-                        let label = $("<label class='custom-control-label' for='c" + cb.no + "'>");
-                        $(label).text(cb.itemName);
-                        $(wrapDiv).append(radioBt);
-                        $(wrapDiv).append(label);
-                        $(innerDiv).append(wrapDiv);
-                    }
-                }
-                $(outerDiv).append(innerDiv);
-                $("#surveyList").append(outerDiv);
-                cnt++;
-            }
-
         });
     });
     </script>

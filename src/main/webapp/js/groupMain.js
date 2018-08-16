@@ -1,14 +1,61 @@
-$("#header").load("header.html");
 var studyName = document.querySelectorAll(".studyName");
 let stdno = location.href.split("?")[1].split("=")[1];
 
 $(document).ready(function() {
-	$("#surveylisttab").attr("href", "surveylisttab.html?no="+stdno);
-	$("#calendar").attr("href", "calendar.html?no="+stdno);
+	$("#header").load("header.html");
+	
+	$("#surveylisttab").attr("href", "surveylist.html?no="+stdno);
+	$("#calendartab").attr("href", "calendar.html?no="+stdno);
 
 	$(".groupInfoUpdate").click(function(){
 		location.href =  "groupInfoUpdate.html?no="+stdno;
 	});
+    $.getJSON(serverRoot + "/json/studyInfo/survey/list?no="+stdno, {}, data => {
+        let cnt = 0;
+
+        for(let survey of data) {
+            if(cnt == 2)
+                return;
+            
+            let outerDiv = $("<div class='col-sm survey-' style='margin:1rem'>");
+            let sDiv = $("<div class='survey'>");
+            let span = $("<span class='pollTitle'>");
+            $(span).text(survey.title);
+            let br = $("<br>");
+            
+            $(sDiv).append(span);
+            $(sDiv).append(br);
+            $(sDiv).append(br);
+            $(outerDiv).append(sDiv);
+
+            let innerDiv = $("<div class='surveyInner'>");
+
+            if(survey.answerNum == 1) {
+                for(let radio of survey.items) {
+                    let wrapDiv = $("<div class='custom-control custom-radio'>");
+                    let radioBt = $("<input type='radio' id='c'" + radio.no + "' class='custom-control-input'>");
+                    let label = $("<label class='custom-control-label' for='c" + radio.no + "'>");
+                    $(label).text(radio.itemName);
+                    $(wrapDiv).append(radioBt);
+                    $(wrapDiv).append(label);
+                    $(innerDiv).append(wrapDiv);
+                }
+            } else {
+                for(let cb of survey.items) {
+                    let wrapDiv = $("<div class='custom-control custom-checkbox'>");
+                    let radioBt = $("<input type='checkbox' id='c'" + cb.no + "' class='custom-control-input'>");
+                    let label = $("<label class='custom-control-label' for='c" + cb.no + "'>");
+                    $(label).text(cb.itemName);
+                    $(wrapDiv).append(radioBt);
+                    $(wrapDiv).append(label);
+                    $(innerDiv).append(wrapDiv);
+                }
+            }
+            $(outerDiv).append(innerDiv);
+            $("#surveyList").append(outerDiv);
+            cnt++;
+        }
+    });
 	
     $.get("json/auth/loginstat", {}, res=> {
     	var memno = res.no;

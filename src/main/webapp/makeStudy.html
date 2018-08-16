@@ -360,13 +360,13 @@
                $.getJSON("json/studyInfo/one", function(data) {
                     console.log(data);
                     
-                    $.post("json/joinedmember/add", {
+                    $.post("json/joinedMember/add", {
                        mnumber: mnumber
                     }, () => {
                        console.log("joinedmember success");
+                       location.href = "groupMain.html?no=" + data;
                     });
                     
-                    location.href = "groupMain.html?no=" + data;
                 });
             });
             
