@@ -49,8 +49,8 @@ function rList(){
 	                    '<td>'+item.member.email+'</td>'+
 	                    '<td>'+item.requestDate+'</td>'+
 	            '<td>'+
+	            '<button class="btn btn-sm" style="margin-right: 1em;" onclick="acceptRequest('+item.memNo+', 2);">승낙</button>'+
 	            '<button class="btn btn-secondary btn-sm" onclick="acceptRequest('+item.memNo+', 1);">거절</button>'+
-	            '<button class="btn btn-sm" onclick="acceptRequest('+item.memNo+', 2);">승낙</button>'+
 	            '</td>'+
 	            '</form>'+
 	            '</tr>').appendTo(list_group);

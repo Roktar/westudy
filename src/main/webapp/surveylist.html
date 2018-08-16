@@ -70,8 +70,8 @@
                                 $(li).append(dateSpan);
                                 $(li).append($("<hr>"));
 
-                                        let idx = 0;
                                 if(survey.answerNum == 1) {
+                                        let idx = 0;
                                         for(let radio of survey.items) {
                                                 console.log(radio);
                                                 let div = $('<div class="custom-control custom-radio">');
@@ -87,23 +87,7 @@
                                         }
                                         let updBtn = $('<button type="button" class="btn btn-success btn-sm vote-btn" onclick="deleteSurvey(' + survey.no + ');">삭제</button>');
                                         $(li).append(updBtn);
-                                      }
-                                      else {
-                            for(let cb of survey.items) {
-                                    console.log(cb);
-                                    let div = $('<div class="custom-control custom-checkbox">');
-                                    let radioBt = $('<input type="checkbox" id="customCheckbox' + cb.no + '" name="customCheckbox" class="custom-control-input">');
-                                    let label = $("<label class='custom-control-label survey-list' for='customCheckbox" + cb.no + "'>");
-                                    $(label).text(cb.itemName);
-                                     $(div).append(radioBt);
-                                    $(div).append(label);
-                                    $(li).append(div);
-                                    
-                                    idx++;
-                            }
-                            let updBtn = $('<button type="button" class="btn btn-success btn-sm vote-btn" onclick="deleteSurvey(' + survey.no + ');">삭제</button>');
-                            $(li).append(updBtn);
-                    }
+                                }
                                 $(".surveybox").append(li);
                         }
                   });
@@ -115,7 +99,7 @@
       <div id="header"></div>
 
         <!-- survey start -->
-
+<div id="container" canvas="container" style="padding:3rem;">
         <div class="container">
                 <div class="row">
 
@@ -203,6 +187,7 @@
                 </div>
                 <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
         </footer>
+        </div>
 </body>
 
 </html>

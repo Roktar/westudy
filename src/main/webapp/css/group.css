@@ -441,7 +441,7 @@ div.studyLeader {
 	height:100%;
 	 }	 
      
-.acceptRequest {
+.acceptRequest, .groupInfoUpdate {
 	background-color: white;
 	color: #ef6c00;
 }

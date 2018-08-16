@@ -40,40 +40,41 @@
                       
                       input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { /* WebKit browsers */ color:transparent; } input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color:transparent; } input:focus::-moz-placeholder, textarea:focus::-moz-placeholder { /* Mozilla Firefox 19+ */ color:transparent; } input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */ color:transparent; }
 
-	                     div.container {
-							    padding : 3rem;
-						}
+                         div.container {
+                                padding : 3rem;
+                        }
 
                     
-	                     div.container-box {
-							    margin: 0 auto;
-							    line-height: 3rem;
-							/*    width: 40%;*/
-						}
-					                   
-					div.inner-container-box {
-					    margin: 0 auto;
-					    width: 70%;
-					}
-					
-					#groupImgeDiv {
-						    float: right;
-   							 margin-top: 1em;
-					}
-					
-					 div.study-img {
-					
-					    display: inline-block;
-					    width: 35em;
-					    height: 20em;
-					    overflow: hidden;
-					   
-  						  }
-  						  
-  						   img.study-img {
+                         div.container-box {
+                                margin: 0 auto;
+                                line-height: 3rem;
+                            /*    width: 40%;*/
+                        }
+                                       
+                    div.inner-container-box {
+                        margin: 0 auto;
+                        width: 70%;
+                    }
+                    
+                    #groupImgeDiv {
+                            float: right;
+                             margin-top: 1em;
+                             margin-right: 3em;
+                    }
+                    
+                     div.study-img {
+                    
+                        display: inline-block;
+                        width: 35em;
+                        height: 20em;
+                        overflow: hidden;
+                       
+                          }
+                          
+                           img.study-img {
            
-					         width: 100%;
-					        }
+                             width: 100%;
+                            }
 
                       div.form-group-img {
                         text-align: center;
@@ -498,6 +499,6 @@
 
 
 #groupImge{
-	visibility:hidden;
+    visibility:hidden;
 }
                      

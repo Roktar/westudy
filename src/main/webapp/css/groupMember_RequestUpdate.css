@@ -32,28 +32,28 @@
 
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { /* WebKit browsers */ color:transparent; } input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color:transparent; } input:focus::-moz-placeholder, textarea:focus::-moz-placeholder { /* Mozilla Firefox 19+ */ color:transparent; } input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */ color:transparent; }
 
-   							 div.container {
-							    padding : 3rem;
-						}
+                             div.container {
+                                padding : 3rem;
+                        }
 
                     
-	                     div.container-box {
-							    margin: 0 auto;
-							    line-height: 3rem;
-							/*    width: 40%;*/
-						}
-					                   
-					div.inner-container-box {
-					    margin: 0 auto;
-					    width: 80%;
-					}
-					
-					.refuseBtn {
-					    margin-right: 1em;
-					    }
+                         div.container-box {
+                                margin: 0 auto;
+                                line-height: 3rem;
+                            /*    width: 40%;*/
+                        }
+                                       
+                    div.inner-container-box {
+                        margin: 0 auto;
+                        width: 80%;
+                    }
+                    
+                    .refuseBtn {
+                        margin-right: 1em;
+                        }
 
                     .table thead th {
-                    	padding: 0;
+                        padding: 0;
                     }
 
 

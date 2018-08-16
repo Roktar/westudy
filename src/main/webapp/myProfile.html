@@ -59,18 +59,17 @@
                             <h3>내 정보 관리</h3>
                             <hr>
                             <div id="imgeBox">
-                                   <img id="myPhoto" src="img/icon.png" alt="" >
+                                   <div class="myProfile"><img id="myPhoto" src="img/icon.png" alt="" ></div>
                                    <button id='uploadBtn' class="btn btn-default" type='button'>이미지 첨부</button>
                            <input id="fileupload" type="file" name="files" multiple>
                             </div>
                            <div id="info">
                                <ul class='list-group'>
-                                   <li class='list-group-item'>이름<input id='name' name="name" class='float-right inputPro' readonly></li>
-                                   <li class='list-group-item'>이메일<input id='email' name="email" class='float-right inputPro' readonly></li>
-                                   <li class='list-group-item'>연락처<input id='tel' name="tel" class='float-right inputPro' ></li>
+                                   <li class='list-group-item name'><span class="titl">이름</span><input id='name' name="name" class='float-right inputPro' readonly></li>
+                                   <li class='list-group-item email'><span class="titl">이메일</span><input id='email' name="email" class='float-right inputPro' readonly></li>
+                                   <li class='list-group-item tel'><span class="titl">연락처</span><input id='tel' name="tel" class='float-right inputPro' ></li>
                                    <li id="cityCount"class='list-group-item datail-view'><span class="titl">지역</span></li>
                                    <li id="updataCity" class='list-group-item input-view'><span class="titl">지역</span>
-
                                        <form name="form">
                                            <div class="row">
                                                 <div class="col-sm-4">
@@ -95,7 +94,7 @@
                                                     <option value="17">제주특별자치도</option>
                                                 </select>
                                             </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <select id="fCounty" name="option2" class="form-control">
                                                         <option>:: 시/군/구 ::</option>
                                                     </select>
