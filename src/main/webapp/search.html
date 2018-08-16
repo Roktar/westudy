@@ -11,6 +11,7 @@
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
 <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
@@ -448,9 +449,9 @@
 	            }
 	            
 	            for (var item of data) {
-	                /* console.log(item); */
+	                 console.log(item); 
 	                $(`<div class='col-sm-4 box' data-no='${item.no}'>`).html(`<div class='imgWrap'>
-	                        <a href='groupMain.html?no=${item.no}'><img src='img/searchtestimg.png'></a></div>
+	                        <a href='groupMain.html?no=${item.no}'><img src='files/${item.picture}_350x350.jpg'></a></div>
 	                        <div class='studyDetail'><div><a href='#'><h6 class='studyTitle text-center font-weight-bold'>${item.name} <span class='badge badge-warning'>모집중</span></h6></a></div></a>
 	                        <div class='studyHashTag text-center'></div><hr>
 	                        <div class='list-details text-muted'><span class='float-left'><p>${item.city} , ${item.county}</p></span><span class='float-right'><i class='fas fa-user'></i><span> 4 / ${item.maxPeople}</span></span></div></div>`).appendTo(searchrow);
@@ -536,7 +537,7 @@
                         $(
                        		'<div class="col-sm-4 box">' +
                                '<div class="imgWrap">' +
-                                   '<a href="#"><img src=""></a>' +
+                                   '<a href="#"><img src="files/'+ item.picture +'_350x350.jpg"></a>' +
                                '</div>' +
                                '<div class="studyDetail">' +
                                    '<div>' +
