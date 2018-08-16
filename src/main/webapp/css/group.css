@@ -88,7 +88,7 @@ div.carousel-caption h5
 h6 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 1rem 0px 0.5rem 0px;
+    margin: 2rem 0px 0.5rem 0px;
 }
 
 div.menu {
@@ -103,6 +103,10 @@ a.calendar {
 .studyInfo {
 	margin: 1em auto;
     text-align: center;
+}
+
+.memberClass {
+	padding-top: 0.5em;
 }
 
 span.scheduleTopic,
@@ -491,9 +495,26 @@ img.message {
     padding-top: 1em;
 }
 
-.scheduleTimelineDetail {
-	display: block;
+.scheduleTimelineDetail, .scheduleTimelineDetail2 {
+	margin-left: 0.5em;
     padding-top: 1em;
+    font-size: 15px;
+}
+
+
+
+
+#time {
+	color: #a4a4a4;
+}
+
+.gg {
+	    float: left;
+    padding-left: 3em;
+}
+
+.m {
+	color: #a4a4a4;
 }
 
 
@@ -517,9 +538,11 @@ div#files-div{
     border-radius: 5px;
     margin-top: -0.5em;
     overflow: scroll;
+    overflow-x :hidden;
 }
 #fileupload{
 	visibility: hidden;
+	
 }
 
 #boaTitle{

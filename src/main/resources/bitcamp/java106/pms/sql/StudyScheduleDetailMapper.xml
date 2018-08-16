@@ -30,6 +30,8 @@
     where scno = #{no}
   </select>
   
+  
+  
   <insert id="insert" parameterType="map">
    insert into study_schedule_detail(scno, stime, etime, cont) values (#{no}, #{startTime}, #{endTime}, #{content})
   </insert>

@@ -109,24 +109,29 @@ $(document).ready(function() {
       	   		
          });
 
-         /* 타임라인 
+         /* 타임라인 */
          $.getJSON("json/schedule/listdetail/" + stdno, (data) => {
       	   console.log(data);
- 	   		$('.scheduleLocationDetail').text(data[0].placeAddress);
- 	   		$('.scheduleTilte').text(data[0].title);
- 	   		$('.scheduleTopics').text(data[0].title);
- 	   	    $('.scheduleTimelineDetail').text(data[0].content);
- 	   	
-    });*/
+      	  console.log(data[3].schedules[0].content);
+      	console.log(data[3].schedules[0].startTime);
+      	console.log(data[3].schedules[0].endTime);
+	      	$('.scheduleStartTime').text(data[2].schedules[0].startTime);
+	      	$('.scheduleEndTime').text(data[2].schedules[0].endTime);
+ 	   	    $('.scheduleTimelineDetail').text(data[2].schedules[0].content);
+	 	   	    
+	 	   	$('.scheduleStartTime2').text(data[2].schedules[1].startTime);
+	      	$('.scheduleEndTime2').text(data[2].schedules[1].endTime);
+	   	    $('.scheduleTimelineDetail2').text(data[2].schedules[1].content);
+         });
          
+         /* 장소, 제목, 주제 */
          $.getJSON("json/schedule/recent", data => {
         	   console.log(data);
    	   		$('.scheduleLocationDetail').text(data.placeAddress);
+   	   		$('.Loc').text(data.placeDetail);
    	   		$('.scheduleTilte').text(data.title);
-   	   		$('.scheduleTopics').text(data.title);
-   	   	    $('.scheduleTimelineDetail').text(data.content);
-   	   	
-      });
+   	   		$('.scheduleTopics').text(data.content);
+         });
             
           
     	 

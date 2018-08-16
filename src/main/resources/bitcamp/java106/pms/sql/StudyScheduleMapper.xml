@@ -38,6 +38,8 @@
     order by sdt desc
   </select>
   
+ 
+  
   <select id="selectOne" resultMap="scMap" parameterType="String">
     select *
     from study_schedule

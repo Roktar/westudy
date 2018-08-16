@@ -19,6 +19,7 @@ border-radius: 5px;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 overflow: scroll;
+overflow-x : hidden;
 }
 .ad-adImgs-wrapper {
 position: relative;
