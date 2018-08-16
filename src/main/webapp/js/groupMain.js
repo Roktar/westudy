@@ -72,7 +72,7 @@ $(document).ready(function() {
       		  console.log(data);
       		 console.log(data.member.name);
       		$('.leaderName').text(data.member.name);
-      		$(leaderpfp).attr('src', 'files/' + data.member.photo + '_350x350.jpg');
+      		$(leaderpfp).attr('src', 'img/' + data.member.photo + '_350x350.jpg');
           });
     	 
     	 
@@ -85,7 +85,7 @@ $(document).ready(function() {
       			  $('<div class="col-4">'+
                     '<div class="row eachMember">'+
                        '<div class="col-sm">'+
-                            '<div class="member-img"><img src="files/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+
+                            '<div class="member-img"><img src="img/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+
                         '</div>'+
                         '<div class="col-sm memberProfile">'+
                             (item.grade == 1 ?'<span class="memberClass">회원</span>' : '<span class="memberClass">리더</span>')+
@@ -109,7 +109,7 @@ $(document).ready(function() {
       	   		
          });
 
-         /* 타임라인 */
+         /* 타임라인 
          $.getJSON("json/schedule/listdetail/" + stdno, (data) => {
       	   console.log(data);
  	   		$('.scheduleLocationDetail').text(data[0].placeAddress);
@@ -117,7 +117,17 @@ $(document).ready(function() {
  	   		$('.scheduleTopics').text(data[0].title);
  	   	    $('.scheduleTimelineDetail').text(data[0].content);
  	   	
-    });
+    });*/
+         
+         $.getJSON("json/schedule/recent", data => {
+        	   console.log(data);
+   	   		$('.scheduleLocationDetail').text(data.placeAddress);
+   	   		$('.scheduleTilte').text(data.title);
+   	   		$('.scheduleTopics').text(data.title);
+   	   	    $('.scheduleTimelineDetail').text(data.content);
+   	   	
+      });
+            
           
     	 
     	 

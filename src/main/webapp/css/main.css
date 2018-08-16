@@ -228,6 +228,7 @@
 	
 	.study-icon img {
 		width:100%;
+		height: 100%;
 	}
 	.study .study-hover {
 		display: none;

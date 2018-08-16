@@ -123,8 +123,12 @@ public class MemberController {
     }
 	
     
-    @PostMapping("uploadPhoto")
-    public int upload01(int memberNo, int tel, String city, String county, MultipartFile files) {
+	@PostMapping("uploadPhoto")
+    public Object upload01(
+            @RequestParam(value="memberNo", defaultValue="0") int memberNo, 
+            @RequestParam(value="tel", defaultValue="0") int tel, String city, String county, MultipartFile files) {
+        
+        System.out.println(county);
         
         HashMap<String,Object> jsonData = new HashMap<>();
         
@@ -150,7 +154,7 @@ public class MemberController {
             e.printStackTrace();
         }
         memberService.uploadPhoto(jsonData);
-        return 1; 
+        return jsonData; 
         
     }
     

@@ -7,7 +7,7 @@ $(document).ready(function() {
 					$('<li class="l-col">'+
                         '<div class="study">'+
                         	'<div class="study-icon">'+
-                            '<img src="files/'+ item.member.photo +'_350x350.jpg">'+
+                            '<img src="img/'+ item.member.photo +'_350x350.jpg">'+
                             '</div>'+
                             '<h2>'+ item.study.name +'</h2>'+
                             '<p>'+ item.content +'</p>'+

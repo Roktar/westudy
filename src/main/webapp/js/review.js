@@ -40,7 +40,7 @@ $(document).ready(function() {
 			console.log(mno);
 			console.log("photo = "+item.member.photo);
 			$('<li class="list-group-item">' +
-					'<div class="mprof-img"><img src="files/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+
+					'<div class="mprof-img"><img src="img/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+
 					'<div id="user_inform">' +
 /*					(mno == item.member.no ? '<button class="btn" id="delBtn" onclick="doDep(event,' + item.no + ');"></button>' : '') +
 */					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
@@ -63,7 +63,7 @@ $(document).ready(function() {
 					'<span class="review_date">'+ item.createdDate +'</span>'+
 					'<div class="user_class_info">'+
 					'<div class="user_class_name"><a href="groupMain.html">'+ item.study.name +'</a> <span class="study-link">스터디</span></div>'+
-					'<div class="study-img"><img src="files/'+ item.study.picture +'_350x350.jpg" alt="study-profile"></div>'+
+					'<div class="study-img"><img src="img/studyImgs/'+ item.study.picture +'_300x300.jpg" alt="study-profile"></div>'+
 					'</div>'+
 					'<hr class="review-line">'+
 			'</li>').appendTo(list_group);
@@ -133,7 +133,7 @@ function mkreview(c) {
 			for(var item of data) {
 				console.log(item);
 				$('<li class="list-group-item" id="categ">' +
-						'<div class="mprof-img"><img src="files/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+						
+						'<div class="mprof-img"><img src="img/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+						
 						'<div id="user_inform">' +
 /*						(mno == item.member.no ? '<button id="delBtn" class="btn btn-default btn-sm" onclick="doDep(event,' + item.no + ');">삭제</button>' : '') +
 */						'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
@@ -156,7 +156,7 @@ function mkreview(c) {
 						'<span class="review_date">'+ item.createdDate +'</span>'+
 						'<div class="user_class_info">'+
 						'<div class="user_class_name"><a href="groupMain.html">'+ item.study.name +'</a> <span class="study-link">스터디</span></div>'+
-						'<div class="study-img"><img src="files/'+ item.study.picture +'_350x350.jpg" alt="study-profile"></div>'+
+						'<div class="study-img"><img src="img/studyImgs/'+ item.study.picture +'_300x300.jpg" alt="study-profile"></div>'+
 						'</div>'+
 						'<hr class="review-line">'+
 				'</li>').appendTo(list_group);
@@ -223,7 +223,7 @@ function moreView(c) {
 		    		for(var item of data) {
 		    			console.log(item);
 		    			$('<li class="list-group-item" id="categ">' +
-		    					'<div class="mprof-img"><img src="files/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+		    					
+		    					'<div class="mprof-img"><img src="img/'+ item.member.photo +'_350x350.jpg" alt="profile"></div>'+		    					
 		    					'<div id="user_inform">' +
 /*		    					(mno == item.member.no ? '<button id="delBtn" class="btn btn-default btn-sm" onclick="doDep(event,' + item.no + ');">삭제</button>' : '') +
 */		    					'<div id="user_name"><a href="#">'+ item.member.name +'</a></div>'+
@@ -246,7 +246,7 @@ function moreView(c) {
 		    					'<span class="review_date">'+ item.createdDate +'</span>'+
 		    					'<div class="user_class_info">'+
 		    					'<div class="user_class_name"><a href="groupMain.html">'+ item.study.name +'</a> <span class="study-link">스터디</span></div>'+
-		    					'<div class="study-img"><img src="files/'+ item.study.picture +'_350x350.jpg" alt="study-profile"></div>'+
+		    					'<div class="study-img"><img src="img/studyImgs/'+ item.study.picture +'_300x300.jpg" alt="study-profile"></div>'+
 		    					'</div>'+
 		    					'<hr class="review-line">'+
 		    					
