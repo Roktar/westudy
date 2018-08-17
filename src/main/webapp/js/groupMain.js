@@ -4,7 +4,7 @@ let stdno = location.href.split("?")[1].split("=")[1];
 $(document).ready(function() {
 	$("#header").load("header.html");
 	
-	$("#surveylisttab").attr("href", "surveylist.html?no="+stdno);
+	$("#surveylisttab").attr("href", "surveylisttab.html?no="+stdno);
 	$("#calendartab").attr("href", "calendar.html?no="+stdno);
 
 	$(".groupInfoUpdate").click(function(){
@@ -108,29 +108,38 @@ $(document).ready(function() {
       	   		$('.memberCount').text(data);
       	   		
          });
-
-         /* 타임라인 */
-         $.getJSON("json/schedule/listdetail/" + stdno, (data) => {
-      	   console.log(data);
-      	  console.log(data[3].schedules[0].content);
-      	console.log(data[3].schedules[0].startTime);
-      	console.log(data[3].schedules[0].endTime);
-	      	$('.scheduleStartTime').text(data[2].schedules[0].startTime);
-	      	$('.scheduleEndTime').text(data[2].schedules[0].endTime);
- 	   	    $('.scheduleTimelineDetail').text(data[2].schedules[0].content);
-	 	   	    
-	 	   	$('.scheduleStartTime2').text(data[2].schedules[1].startTime);
-	      	$('.scheduleEndTime2').text(data[2].schedules[1].endTime);
-	   	    $('.scheduleTimelineDetail2').text(data[2].schedules[1].content);
-         });
          
-         /* 장소, 제목, 주제 */
-         $.getJSON("json/schedule/recent", data => {
-        	   console.log(data);
+         /* 장소, 제목, 주제 + Timeline */
+         $.getJSON("json/schedule/recent", {
+        	studyNo : stdno
+         }, data => {
+        	console.log(data);
+        	let date = new Date(data.startDate);
+
+        	$("#scheduleDate").text(date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate());
    	   		$('.scheduleLocationDetail').text(data.placeAddress);
    	   		$('.Loc').text(data.placeDetail);
    	   		$('.scheduleTilte').text(data.title);
    	   		$('.scheduleTopics').text(data.content);
+   	   		
+   	   		for(let item of data.schedules) {
+   	   			let div = $("<div class='gg'>");
+   	   			let startSpan = $("<span style='color:#a4a4a4;' class='schedyleStartTime'>");
+   	   			let innerSpan = $("<span class='m'> ~ </span>");
+   	   			let endSpan = $("<span style='color:#a4a4a4'> class='scheduleEndTime'>");
+   	   			let contSpan = $("<span class='scheduleTimelineDetail'>");
+   	   			
+   	   			$(startSpan).text(item.startTime.split(":")[0] + ":" + item.startTime.split(":")[1] );
+   	   			$(endSpan).text(item.endTime.split(":")[0] + ":" + item.endTime.split(":")[1]);
+   	   			$(contSpan).text(item.content);
+   	   			
+   	   			$(div).append(startSpan);
+   	   			$(div).append(innerSpan);
+   	   			$(div).append(endSpan);
+   	   			$(div).append(contSpan);
+   	   			$($(".scheduleDetails")[2]).append(div);
+   	   		}
+   	   		
          });
             
           

@@ -12,5 +12,5 @@ public interface StudyScheduleService {
     void insert(Map<String, String> param);
     //void insert(String title, String startDate, String time, String place, String topic, String option);
     void delete(int no);
-    StudySchedule getRecent();
+    StudySchedule getRecent(int no);
 }

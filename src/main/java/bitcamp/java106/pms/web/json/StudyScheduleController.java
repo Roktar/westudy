@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,8 +79,9 @@ public class StudyScheduleController {
     }
     
     @RequestMapping("recent")
-    public StudySchedule getAddedRecent() {
-        return scheduleService.getRecent();
+    public StudySchedule getAddedRecent(@RequestParam(value="studyNo", defaultValue="0") int no) {
+        System.out.println("recent ->" + no);
+        return scheduleService.getRecent(no);
     }
 }
 

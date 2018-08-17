@@ -9,7 +9,7 @@ public interface StudyScheduleDao {
     List<StudySchedule> selectList(Map<String, Object> map);
     //List<TestBase> selectListWithSchedules(Map<String, Object> map);
     StudySchedule selectOne(String title);
-    StudySchedule selectOneRecent();
+    StudySchedule selectOneRecent(Map<String, Object> params);
     void insert(StudySchedule tb);
     void delete(int no);
 }

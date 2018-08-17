@@ -62,7 +62,7 @@
          left outer join test_schedule_detail ta on tb.no=ta.refid
   </select> -->
   
-  <insert id="insert" parameterType="bitcamp.java106.pms.domain.StudySchedule">
+  <insert id="insert" parameterType="bitcamp.java106.pms.domain.StudySchedule" useGeneratedKeys="true" keyProperty="no">
     insert into study_schedule(place, plcdt, sdt, time, titl, cont, lng, lat, stdno) 
     values(#{placeAddress}, #{placeDetail}, #{startDate}, #{time}, #{title}, #{content}, #{longitude}, #{latitude}, #{refStudyNo} )
   </insert>
@@ -71,8 +71,10 @@
     delete from study_schedule where scno = #{no}
   </delete>
   
-  <select id="selectOneRecent" resultMap="scMap">
-    select * from study_schedule order by scno DESC limit 1
+  <select id="selectOneRecent" resultMap="scMap" parameterType="map">
+    select *
+    from study_schedule 
+    where stdno = #{studyNo} and date(sdt) = date(#{nowDate})
   </select>
   
 </mapper>

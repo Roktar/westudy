@@ -36,7 +36,6 @@
 		let ip = null;
 		let lat, lng;
 		let map, marker;
-		let eventMap = null, eventMarker = null;
 		let placeAddr, placeName;
 		let geocoder;
 		let lists = {};
@@ -72,22 +71,6 @@
 						text: text
 					}));
 				}
-
-				if(eventMap != null)
-					eventMap = null;
-
-				eventMap = new daum.maps.Map(document.getElementById("eventMap"), {
-					center : new daum.maps.LatLng(calEvent.lat, calEvent.lng),
-					level: 1
-				});
-				eventMap.relayout();
-
-				if(eventMarker != null)
-					eventMarker = null;
-				eventMarker = new daum.maps.Marker({
-					position: new daum.maps.LatLng(calEvent.lat, calEvent.lng)
-				});
-				eventMarker.setMap(eventMap);
 
 				$("#exampleModal").modal();
 			}
@@ -424,7 +407,8 @@
 										<h5>장소</h5>
 										<span id="eventPlace"></span>
 										<span id="eventPlaceDetail"></span>
-										<div id="eventMap" style="width:100%; height:200px; margin-top:1em"></div>
+										
+										<br>
 										<br>
 										<h5>스터디 주제</h5>
 										<span id="eventTopic"> </span>

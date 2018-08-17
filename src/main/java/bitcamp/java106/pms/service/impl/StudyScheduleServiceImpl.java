@@ -2,6 +2,8 @@ package bitcamp.java106.pms.service.impl;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,7 +85,8 @@ public class StudyScheduleServiceImpl implements StudyScheduleService{
         
         scheduleDao.insert(schedule);
         // 해당 날짜에 대한 전체정보 저장
-        int refid = scheduleDao.selectOne(schedule.getTitle()).getNo(); // 기준 일정 선택, 나중에는 스터디번호로 대체예정
+        int refid = schedule.getNo(); 
+        System.out.println("getNo --> " + refid);
         
         if(refid > 0) {
             StudyScheduleDetail[] list = new StudyScheduleDetail[ (int)param.size()/3 ];
@@ -126,12 +129,51 @@ public class StudyScheduleServiceImpl implements StudyScheduleService{
     }
 
     @Override
-    public StudySchedule getRecent() {
+    public StudySchedule getRecent(int no) {
         // TODO Auto-generated method stub
-        StudySchedule sc = scheduleDao.selectOneRecent();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String data = df.format(new java.util.Date());
         
-        List<StudyScheduleDetail> details = detailDao.selectListWithNo(sc.getNo());
-        sc.setSchedules(details);
+        Map<String, Object> params = new HashMap<>();
+        params.put("studyNo", no);
+        params.put("nowDate", data);
+        
+        StudySchedule sc = scheduleDao.selectOneRecent(params);
+        
+        int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        
+        if( Integer.parseInt( data.split("-")[0] ) % 4 != 0 && 
+            Integer.parseInt( data.split("-")[0] ) % 100 != 0 &&
+            Integer.parseInt( data.split("-")[0] ) % 400 != 0)
+            maxDays[1] = 29;
+        
+        int loop = 0;
+        
+        while(loop < 10) {
+            System.out.println(loop);
+            if(sc != null)
+                break;
+            int year = Integer.parseInt(data.split("-")[0]);
+            int month = Integer.parseInt(data.split("-")[1]);
+            int day = Integer.parseInt(data.split("-")[2]);
+            
+            if(day > maxDays[month-1]) {
+                month += 1;
+                day = 1;
+            } else
+                day++;
+            
+            data = "" + year + "-" + month + "-" + day;
+            System.out.println(data);
+            
+            params.put("nowDate", data);
+            sc = scheduleDao.selectOneRecent(params);
+            loop++;
+        }
+        if(sc == null)
+            return null;
+        sc.setSchedules(detailDao.selectListWithNo(sc.getNo()));
+        System.out.println(sc);
         
         return sc;
     }
