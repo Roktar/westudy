@@ -1,12 +1,24 @@
 var studyName = document.querySelectorAll(".studyName");
 let stdno = location.href.split("?")[1].split("=")[1];
 
+
+
+	
+
+
+
+
+
 $(document).ready(function() {
 	$("#header").load("header.html");
 	
 	$("#surveylisttab").attr("href", "surveylisttab.html?no="+stdno);
 	$("#calendartab").attr("href", "calendar.html?no="+stdno);
-
+	$(".mainLink").attr("href", "groupMain.html?no="+stdno);
+	$(".calLink").attr("href", "calendar.html?no="+stdno);
+	$(".surveyLink").attr("href", "surveylisttab.html?no="+stdno);
+	$(".albumLink").attr("href", "photoMain.html?no="+stdno);
+	
 	$(".groupInfoUpdate").click(function(){
 		location.href =  "groupInfoUpdate.html?no="+stdno;
 	});
@@ -218,3 +230,8 @@ $(document).ready(function() {
     	})
 	})
 });
+
+
+
+
+

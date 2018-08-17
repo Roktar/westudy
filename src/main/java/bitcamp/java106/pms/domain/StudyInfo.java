@@ -28,6 +28,8 @@ public class StudyInfo implements Serializable {
     private Member member;
     private HashTag hashtag;
     
+    private int memCount;
+    
     @Override
     public String toString() {
         return "StudyInfo [no=" + no + ", city=" + city + ", county=" + county + ", name=" + name + ", information="
@@ -129,5 +131,13 @@ public class StudyInfo implements Serializable {
 
 	public void setPicture(String picture) {
 		Picture = picture;
+	}
+
+	public int getMemCount() {
+		return memCount;
+	}
+
+	public void setMemCount(int memCount) {
+		this.memCount = memCount;
 	}
 }

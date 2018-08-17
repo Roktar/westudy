@@ -52,6 +52,14 @@
 	$(document).ready(function() {
 		$("#header").load( serverRoot + "/header.html" );
 		
+		
+		$("#surveylisttab").attr("href", "surveylisttab.html?no="+studyNo);
+		$("#calendartab").attr("href", "calendar.html?no="+studyNo);
+		$(".mainLink").attr("href", "groupMain.html?no="+studyNo);
+		$(".calLink").attr("href", "calendar.html?no="+studyNo);
+		$(".surveyLink").attr("href", "surveylisttab.html?no="+studyNo);
+		$(".albumLink").attr("href", "photoMain.html?no="+studyNo);
+		
 		$.getJSON(serverRoot + "/json/auth/loginstat", {}, res => {
 			myNo = res.no;
 		});
@@ -242,25 +250,19 @@
 	<div id="header"></div>
 
 	<!-- </header> -->
-    <ul class="nav justify-content-center" style="margin-top:100px;">
+    <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" href="groupMain.html">그룹메인</a>
+            <a class="nav-link active mainLink" href="">그룹메인</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="calendar.html">전체일정</a>
+            <a class="nav-link active calLink" href="">전체일정</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="surveylisttab.html">전체설문</a>
+            <a class="nav-link surveyLink" href="">전체설문</a>
         </li>
+       
         <li class="nav-item">
-            <a class="nav-link" href="groupMain.html#members">회원</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="groupMain.html#board">게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="groupMain.html#album">앨범</a>
+            <a class="nav-link albumLink" href="">앨범</a>
         </li>
     </ul>
 

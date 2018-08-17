@@ -165,9 +165,9 @@
                     <div class="col-sm-3 searchOption">
                         <div class="input-group mb-3">
                             <input id="tagText" type="text" name="hashtag" 
-                                 class="form-control-sm" placeholder="해시태그 입력">
+                                 class="form-control-sm" placeholder="해시태그 입력" style="border: 1px solid #cccccc;height: 28px; border-top-right-radius: 0;border-bottom-right-radius:0">
                             <div class="input-group-append">
-                                <button id="searchBtn" type="button">검색</button>
+                                <button id="searchBtn" type="button" style="background: none;border: 1px solid #cccccc;border-top-right-radius: 3px;border-bottom-right-radius: 3px;">검색</button>
                             </div>
                         </div>
                         
@@ -557,7 +557,7 @@
                                        '</span>' +
                                        '<span class="float-right">' +
                                            '<i class="fas fa-user"></i>' +
-                                           '<span>' + data.maxPeople + '</span>' +
+                                           '<span>'+ data.memCount +'</span> / <span>' + data.maxPeople + '</span>' +
                                        '</span>' +
                                    '</div>' +
                                '</div>' +

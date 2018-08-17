@@ -108,7 +108,7 @@ left outer join study_review sr
 
 
   <select id="count" parameterType="map" resultType="int">
-    select count(*) 
+    select count(*) as cnt
     from study_joined_member
     where stdno=#{studyNo}
     and grade != 2

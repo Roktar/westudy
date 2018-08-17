@@ -21,6 +21,13 @@ $(document).ready(function(){
 	
 	studyNo = window.location.search.substring(1).split("=")[1];
 	
+	$("#surveylisttab").attr("href", "surveylisttab.html?no="+studyNo);
+	$("#calendartab").attr("href", "calendar.html?no="+studyNo);
+	$(".mainLink").attr("href", "groupMain.html?no="+studyNo);
+	$(".calLink").attr("href", "calendar.html?no="+studyNo);
+	$(".surveyLink").attr("href", "surveylisttab.html?no="+studyNo);
+	$(".albumLink").attr("href", "photoMain.html?no="+studyNo);
+	
 	
    $('#fileupload').fileupload({
      url: serverRoot + '/json/photo/add',        // 서버에 요청할 URL

@@ -20,6 +20,7 @@
     <result column="mprs" property="maxPeople" />
     <result column="ctgr" property="category" />
     <result column="pic" property="picture" />
+    <result column="cnt" property="memCount" />
     
      <association property="member" javaType="Member">
       <id column="memno" property="no"/>
@@ -51,8 +52,8 @@
   
   <select id="selectList" 
           resultMap="StudyMap" parameterType="map"> 
-    select * 
-    from study_info order by stdno desc limit #{startRowNo}, #{pageSize}
+    select stdno, city, county, sname, info, cdt, mprs, ctgr, pic, (select count(*) from study_joined_member jm where jm.stdno = si.stdno) as cnt
+    from study_info si order by stdno desc limit #{startRowNo}, #{pageSize}
     <!-- study_info.stdno,name,county -->
   </select>
   
@@ -60,6 +61,8 @@
     select count(*) 
     from study_info
   </select>
+  
+ 
   
   <select id="selectSearchList" 
           resultMap="StudyMap" parameterType="map"> 
