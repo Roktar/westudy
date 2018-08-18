@@ -10,11 +10,18 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/br_register.css">
     <link rel="stylesheet" href="node_modules/slidebars/dist/slidebars.css">
-    
+     <script src="js/common.js"></script>
 <link href="node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
-
+<script>
+$(document).ready(function() {
+	   $("#header").load(serverRoot + "/header.html");
+});
+</script>
 <body>
      <div id="header"></div>
 <div class="container" style="margin-top:150px;">
@@ -26,8 +33,8 @@
                    
                    <br><br>
                     WeStudy의 회원이 되신 것을 환영합니다. <br>
-                    회원가입이 완료되었습니다. <br>
-                    이제 모든 서비스를 자유롭게 이용하실 수 있습니다. <br>
+                    <a href="http://www.naver.com"><span style="color:blue; text-decoration: underline;">donghyeon24@naver.com</span></a>으로 인증메일이 발송되었습니다.<br>
+                    이메일 인증 후 WeStudy의 모든 서비스를 이용하실 수 있습니다.<br>
                     다양한 스터디 그룹을 둘러보시고, <br>나만의 스터디 그룹도 만들어 보세요 !
                     <br><br>
                     
@@ -37,8 +44,10 @@
       </div>
    </div>
 </div>
+         <!-- footer start -->
         <footer class="footer">
-            <p>Logo</p>
+            <p style="font-size:25px">WeStudy</p>
+    
             <div>
                 <span>서울특별시 강남구 비트캠프 401호</span>
                 <span>Tel080-777-2299</span>
@@ -47,6 +56,7 @@
             </div>
             <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
         </footer>
+        <!-- footer end -->
         <script src="node_modules/slidebars/dist/slidebars.js"></script>
         <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 </body>

@@ -104,7 +104,7 @@ $(document).ready(function() {
                             '<span class="memberName">'+ item.member.name +'</span>'+
                         '</div>'+
                         '<div class="col-sm message">'+
-                            '<a href="message.html">'+
+                            '<a href="myMessage.html">'+
                                 '<img src="img/message.png" alt="..." class="message" onclick="">'+
                             '</a>'+
                         '</div>'+
@@ -128,7 +128,7 @@ $(document).ready(function() {
         	console.log(data);
         	let date = new Date(data.startDate);
 
-        	$("#scheduleDate").text(date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate());
+        	$("#scheduleDate").text(date.getFullYear() + "-" + (date.getMonth()+1) + "-" + (date.getDate()-1));
    	   		$('.scheduleLocationDetail').text(data.placeAddress);
    	   		$('.Loc').text(data.placeDetail);
    	   		$('.scheduleTilte').text(data.title);
@@ -167,18 +167,20 @@ $(document).ready(function() {
 	    	console.log("memNo :"+ memNo);
 		    console.log("no :" + stdno);
 	        var consoleMsg = '가입요청';
-	        var _msg = '가입 요청을 하시겠습니까??';
-	        
-	        if (confirm(_msg)) {
-	        	if(memno == undefined){
-	        		swal({
-	  				  type: 'error',
-	  				  title:  '로그인 후 이용하실 수 있습니다.'
-	  				})
-	        	} else{
-	        		
-	        		
-	        		
+	        const swalWithBootstrapButtons = swal.mixin({
+	            confirmButtonClass: 'btn btn-primary oBtn',
+	            cancelButtonClass: 'btn btn-secondary cBtn',
+	            buttonsStyling: false,
+	          })
+	          swalWithBootstrapButtons({
+	               title: '가입신청을 신청하시겠습니까?',
+	               type: 'question',
+	               showCancelButton: true,
+	               confirmButtonText: '네!',
+	               cancelButtonText: '아니요!',
+	               reverseButtons: true
+	             }).then((result) => {
+	            	 if (result.value) {
 		            $.ajax({
 		                url : "/FinalProject/json/awaitingMember/add",
 		                method : "POST",
@@ -186,11 +188,18 @@ $(document).ready(function() {
 		                dataType : "json",
 		                success : function(data) {console.log(consoleMsg);}
 		            })
-	        	}
-	        };
+		            swalWithBootstrapButtons({
+		                title: '신청 완료!',
+		                  type: 'success'
+		                }).then(function(){
+		               	 reload();
+		                }
+		                )
+		              }  
+		            })
+	        	})
+	        });
         });
-	});
-    
     
     
     
@@ -229,7 +238,8 @@ $(document).ready(function() {
     		}
     	})
 	})
-});
+	
+
 
 
 

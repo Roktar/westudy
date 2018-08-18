@@ -196,7 +196,7 @@ let fetchList = function(){
                                 '<div class="hvrbox-layer_top hvrbox-layer_slidedown">'+
                                     '<div class="hvrbox-text" style="color:white; top:30%">'+ item.title +'</div>'+
                                     '<div class="hvrbox-text hvrbox-date" style="color:white; top:60%;">'+ item.createdDate +'</div>'+
-                                    (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary" onclick="doDep(event,' + item.no + ');"></button>' : '') +
+                                    (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary btn-sm" onclick="doDep(event,' + item.no + ');">삭제</button>' : '') +
                                     '</div>'+
                                 '</a>' +
                             '</div>'+
@@ -255,7 +255,7 @@ let fetchList2 = function(){
                             '<div class="hvrbox-layer_top hvrbox-layer_slidedown">'+
                                 '<div class="hvrbox-text" style="color:white; top:30%">'+ item.title +'</div>'+
                                 '<div class="hvrbox-text hvrbox-date" style="color:white; top:60%;">'+ item.createdDate +'</div>'+
-                                (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary" onclick="doDep(event,' + item.no + ');"></button>' : '') +
+                                (memNo == data.memNo ? '<button id="delBtn" class="btn btn-secondary btn-sm" onclick="doDep(event,' + item.no + ');">삭제</button>' : '') +
                                 '</div>'+
                             '</a>' +
                         '</div>'+
@@ -283,6 +283,7 @@ let fetchList2 = function(){
 /*----------view----------*/
 
 function showImg(no) {
+	 
 	$.ajax({
         url: serverRoot + "/json/photo/" + no + "?studyNo="+studyNo,
 

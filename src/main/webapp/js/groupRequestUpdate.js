@@ -65,13 +65,21 @@ function acceptRequest(memno, type) {
 	console.log("type : " + type);
 	console.log("no : " + no);
 	var consoleMsg = '거절';
-	var _msg = '요청을 거절하시겠습니까?';
-	if( type == 2 ){
-		_msg = '요청을 승인하시겠습니까?';
-		consoleMsg = '승락';
-	}
 	
-	if(confirm(_msg)){
+	const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-primary oBtn',
+        cancelButtonClass: 'btn btn-secondary cBtn',
+        buttonsStyling: false,
+      })
+      swalWithBootstrapButtons({
+           title: '가입신청을 승인하시겠습니까?',
+           type: 'question',
+           showCancelButton: true,
+           confirmButtonText: '네!',
+           cancelButtonText: '아니요!',
+           reverseButtons: true
+         }).then((result) => {
+        	 if (result.value) {
 		$.ajax({
 			url: "/FinalProject/json/awaitingMember/acceptRequest",
 			method: "POST",
@@ -87,7 +95,15 @@ function acceptRequest(memno, type) {
 				}
 			}
 		});
-	}
-};
+		 swalWithBootstrapButtons({
+             title: '승인 완료!',
+               type: 'success'
+             }).then(function(){
+            	 reload();
+             }
+             )
+           }  
+         })
+}
 
 // location.href="/FinalProject/dhGM.html?no="+data <- studyNo

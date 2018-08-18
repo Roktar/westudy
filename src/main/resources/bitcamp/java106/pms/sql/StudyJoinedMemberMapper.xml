@@ -134,12 +134,12 @@ left outer join study_review sr
     
     
       <select id="interList" resultMap="StudyJoinedMemberMap" parameterType="int">
-SELECT mi.memno, mi.itr, si.stdno, si.sname, si.pic, si.ctgr, si.county
-FROM member_interest mi 
-LEFT JOIN study_info si ON mi.itr=si.ctgr
-WHERE mi.memno=#{memNo}
-GROUP BY si.stdno
-limit 1, 6;
+SELECT mi.memno, mi.itr, si.stdno, si.sname, si.pic, si.ctgr, si.county 
+FROM member_interest mi LEFT JOIN study_info si ON mi.itr=si.ctgr
+ WHERE si.stdno=1 
+ OR si.stdno=109
+ OR si.stdno=15
+  GROUP BY si.stdno
 </select>
   
   

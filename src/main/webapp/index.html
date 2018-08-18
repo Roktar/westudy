@@ -143,66 +143,67 @@
 	           <!-- 관심 스터디 -->
 	            <div class="center">
                    <p class="titlehead" style="margin:2rem 0;">내 관심 스터디</p>
-                   <a href="#" class="right" style="color:#333">더보기</a>
-                   <div class="slider">
-                       <div class="sliderInner">
+                   
+                 <!--   <div class="slider">
+                       <div class="sliderInner"> -->
                            <div class="left grid3" style="margin-left: 0">
-                               <img src="" id="s1img"/>
+                               <img src="" id="s1img" style="width: 100%; height:256px;"/>
                                <div class="imgOverInfo">
                                    <span id="s1name"><!-- 강원대학교 자바 웹개발 스터디 --> </span>
                                    <br>
-                                   <span id="s1tag"> #Servlet #Spring </span>
+                                   <span id="s1tag">#java #자바 </span>
                                </div>
                            </div>
                            <div class="left grid3">
-                               <img src="" id="s2img"/>
+                               <img src="" id="s2img" style="width: 100%; height:256px;"/>
                                <div class="imgOverInfo">
                                    <span id="s2name"><!-- 강원대학교 자바 웹개발 스터디 --> </span>
                                    <br>
-                                   <span id="s2tag"> #Servlet #Spring </span>
+                                   <span id="s2tag">#강북개발 #개발자 #자바 </span>
                                </div>
                            </div>
                            <div class="left grid3">
-                               <img src="" id="s3img"/>
+                               <img src="" id="s3img" style="width: 100%; height:256px;"/>
                                <div class="imgOverInfo">
                                    <span id="s3name"><!-- 강원대학교 자바 웹개발 스터디 --> </span>
                                    <br>
-                                   <span id="s3tag">#Servlet #Spring </span>
+                                   <span id="s3tag">#면접울렁증극복 #면접준비</span>
+                                  
                                </div>
                            </div> 
                        </div>
 
-                       <div class="sliderInner">
+                     <!--   <div class="sliderInner2">
                            <div class="left grid3" style="margin-left: 0">
-                               <img src="" id="s4img"/>
+                               <img src="" id="s4img" style="width: 100%; height:256px;"/>
                                <div class="imgOverInfo">
-                                   <span id="s4name"><!-- 강원대학교 자바 웹개발 스터디2  --></span>
+                                   <span id="s4name">  </span>
                                    <br>
                                    <span id="s4tag"> #Servlet #Spring</span>
                                </div>
                            </div>
                            <div class="left grid3">
-                               <img src="" id="s5img"/>
+                               <img src="" id="s5img" style="width: 100%; height:256px;"/>
                                <div class="imgOverInfo">
-                                   <span id="s5name"><!-- 강원대학교 자바 웹개발 스터디2  --></span>
+                                   <span id="s5name"></span>
                                    <br>
                                    <span id="s5tag">#Servlet #Spring</span>
                                </div>
                            </div>
                            <div class="left grid3">
-                               <img src="" id="s6img"/>
+                               <img src="" id="s6img" style="width: 100%; height:256px;"/>
                                <div class="imgOverInfo">
-                                   <span id="s6name"><!-- 강원대학교 자바 웹개발 스터디2  --></span>
+                                   <span id="s6name"></span>
                                    <br>
                                    <span id="s6tag"> #Servlet #Spring</span>
                                </div>
                            </div>
-                       </div>
-                   </div>
-               </div>
+                       </div> -->
+           <!--          </div>
+               </div> -->
 	           <!-- 관심 스터디 -->
 	        </div>
-        </div>
+        </div> 
         
         <div class="section" style="padding-top: 0; display:none;" id="login-before">
             <div class="resizeWidth">
@@ -255,7 +256,7 @@
 	    
 	    <!-- footer start -->
 	    <footer class="footer">
-	        <p>Logo</p>
+	        <p style="font-size:25px">WeStudy</p>
 	
 	        <div>
 	            <span>서울특별시 강남구 비트캠프 401호</span>
@@ -311,7 +312,7 @@
                 maxSlides: 3
             });
             nearList();
-            interList();
+          
             });
 
             function nearList(){
@@ -326,10 +327,11 @@
                         data: {"no" : no},
                         dataType:"json",
                         success:function(data){
+                        	console.log(data);
                             for(var item of data){
                                $("<li class='l-col'>").html(`<div id='mystudy' data-no='${item.no}' class='study' style='background: #fff; border:solid 1px #d2d2d2'>
                                        <a href='groupMain.html?no=${item.no}' style='display: block; width: 100%;'>
-                                       <div class='ove'><span class='ove_span'><img style="width:100%; height:100%"src="img/studyImgs/${item.picture}_350x350.jpg" class="as"></span></div></a>
+                                       <div class='ove'><span class='ove_span'><img style="width:100%; height:100%"src="img/studyImgs/${item.picture}_300x300.jpg" class="as"></span></div></a>
                                        <div class='info_area'><h2 class='infoareah2'>${item.name}</h2>
                                        <div class='tags'><span class='tag_area_name'>${item.county}</span></div></div></div>`).appendTo(lrow);
                               
@@ -351,7 +353,7 @@
                         console.log(item); 
                          $("<li class='l-col'>").html(`<div id='mystudy' data-no='${item.no}' class='study' style='background: #fff; border:solid 1px #d2d2d2'>
                            <a href='groupMain.html?no=${item.no}' style='display: block; width: 100%;'>
-                           <div class='ove'><span class='ove_span'><img src="img/studyImgs/${item.picture}_350x350.jpg" class="as"></span></div></a>
+                           <div class='ove'><span class='ove_span'><img src="img/studyImgs/${item.picture}_300x300.jpg" class="as"></span></div></a>
                            <div class='info_area'><h2 class='infoareah2'>${item.name}</h2>
                            <div class='tags'><span class='tag_area_name'>${item.county}</span></div></div></div>`).appendTo(interested);
                     
@@ -367,44 +369,7 @@
             });
             
             
-            function interList(){
-                var interList = $('.interList');
-                
-                $.get("json/auth/loginstat", {}, res=> {
-                     memNo = res.no;
-                 }).done(function(data){
-                     console.log("memNo : " + memNo);
-                     $.getJSON("json/joinedMember/interList", {memNo : memNo}, (data) => {
-                        console.log(data);
-                        console.log(data[0].study.picture);
-                       
-                        /* 관심스터디이름 */
-                       $('#s1name').text(data[0].study.name);
-                       $('#s2name').text(data[1].study.name);
-                       $('#s3name').text(data[2].study.name);
-                       $('#s4name').text(data[3].study.name);
-                       $('#s5name').text(data[4].study.name);
-                       $('#s6name').text(data[5].study.name);
-                       
-                       
-                       $('#s1img').attr('src', 'img/studyImgs/' + data[0].study.picture + '_350x350.jpg');
-                       $('#s2img').attr('src', 'img/studyImgs/' + data[1].study.picture + '_350x350.jpg');
-                       $('#s3img').attr('src', 'img/studyImgs/' + data[2].study.picture + '_350x350.jpg');
-                       $('#s4img').attr('src', 'img/studyImgs/' + data[3].study.picture + '_350x350.jpg');
-                       $('#s5img').attr('src', 'img/studyImgs/' + data[4].study.picture + '_350x350.jpg');
-                       $('#s6img').attr('src', 'img/studyImgs/' + data[5].study.picture + '_350x350.jpg');
-                       
-                    /*     /* 관심스터디해시태그 
-                       $('.s1tag').text(data[0].hashtag);
-                       $('.s2tag').text(data[1].hashtag);
-                       $('.s3tag').text(data[2].hashtag);
-                       $('.s4tag').text(data[3].hashtag);
-                       $('.s5tag').text(data[4].hashtag);
-                       $('.s6tag').text(data[5].hashtag); */
-                        
-                    });
-             });
-             }          
+              
 
 
         

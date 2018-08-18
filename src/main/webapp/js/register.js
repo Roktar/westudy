@@ -48,8 +48,8 @@ $(document).ready(function() {
            console.log("county : " + county);
            console.log("interests : " + interest);
            
-            location.href="registerd.html"
-        });
+           location.href="index.html"
+         });
     });
 });
 

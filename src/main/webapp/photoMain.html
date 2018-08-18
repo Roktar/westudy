@@ -6,13 +6,12 @@
 <title>Photo</title>
 
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/photoMain.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="node_modules/blueimp-file-upload/css/jquery.fileupload.css">
 <link rel="stylesheet" href="node_modules/blueimp-file-upload/css/jquery.fileupload-ui.css">
 <link type="text/css" rel="stylesheet" href="css/hover-box.css">
-<link rel="stylesheet" href="css/photoMain.css">
-<link rel="stylesheet" href="css/group.css">
 <link href="node_modules/slidebars/dist/slidebars.css" rel="stylesheet">
 <link href="node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
 
@@ -37,9 +36,8 @@
 
 <body>
     <div id="header"> </div>
-     <div canvas="container" id=container>
-    <ul class="nav justify-content-center">
-		<li class="nav-item">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
                 <a class="nav-link active mainLink" href="">그룹메인</a>
             </li>
             <li class="nav-item">
@@ -53,12 +51,12 @@
             <li class="nav-item">
                 <a class="nav-link albumLink" href="">앨범</a>
             </li>
-	</ul>
+        </ul>
     <div id="topCon" class="container">
-        <div class="col text-right" style="padding-top: 2em">
+        <div class="col text-right" style="padding: 0">
             <h3 style="float: left">사진</h3>
             <button type="file" class="btn btn-sm">
-                <a id="" data-toggle="modal" href="#dAD" style="color:white"> 업로드</a>
+                <a id="" data-toggle="modal" href="#dAD" style="color:white;"> 업로드</a>
             </button>
         </div>
         <hr>
@@ -74,14 +72,15 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header" style="justify-content:center">
-                    <h4 class="modal-title" style="font-size : 20px">업로드</h4>
+                <div class="modal-header">
+                    <h4 class="modal-title">업로드</h4>
+                   
                 </div>
 
                 <div class="modal-body">
 
                     <div class="input-group mb-3">
-                        <input id="phoTitle" type="text" class="form-control" placeholder="제목" style="height: 25px">
+                        <input id="phoTitle" type="text" class="form-control" placeholder="제목" style="height:25px;">
                     </div>
                     <input id="fileupload" type="file" name="files" multiple>
 
@@ -105,20 +104,23 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modalTitle"></h4>
+                  
                 </div>
                 <div class="modal-body">
                     <img id="modalImg" src="" alt="">
                 </div>
                 <div class="modal-footer">
-                   <!--  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
         </div>
     </div>
     
-    <footer class="footer">
-            <p>Logo</p>
+    <!-- footer start -->
+        <footer class="footer">
+            <p style="font-size:25px">WeStudy</p>
+    
             <div>
                 <span>서울특별시 강남구 비트캠프 401호</span>
                 <span>Tel080-777-2299</span>
@@ -127,7 +129,7 @@
             </div>
             <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
         </footer>
-        </div>
+        <!-- footer end -->
 <script>
     $(document).ready(function() {
         $('#dAD').on('show.bs.modal', function() {

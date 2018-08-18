@@ -236,14 +236,19 @@
     </div>
     <!-- pagination end -->
     <!-- footer start -->
-    <footer class="footer">
-        <p>Logo</p>
-        <div>
-            <span>서울특별시 강남구 비트캠프 401호</span> <span>Tel080-777-2299</span> <span>개인정보취급관리자
-                홍길동</span> <span>E-mail : we_study@westudy.com</span>
-        </div>
-        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-    </footer>
+   <!-- footer start -->
+        <footer class="footer">
+            <p style="font-size:25px">WeStudy</p>
+    
+            <div>
+                <span>서울특별시 강남구 비트캠프 401호</span>
+                <span>Tel080-777-2299</span>
+                <span>개인정보취급관리자 홍길동</span>
+                <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+        </footer>
+        <!-- footer end -->
     <!-- footer end -->
 
     <!-- Bootstrap core JavaScript -->
@@ -451,7 +456,7 @@
 	            for (var item of data) {
 	                 console.log(item); 
 	                $(`<div class='col-sm-4 box' data-no='${item.no}'>`).html(`<div class='imgWrap'>
-	                        <a href='groupMain.html?no=${item.no}'><img src='files/${item.picture}_350x350.jpg'></a></div>
+	                        <a href='groupMain.html?no=${item.no}'><img src='img/studyImgs/${item.picture}_300x300.jpg'></a></div>
 	                        <div class='studyDetail'><div><a href='#'><h6 class='studyTitle text-center font-weight-bold'>${item.name} <span class='badge badge-warning'>모집중</span></h6></a></div></a>
 	                        <div class='studyHashTag text-center'></div><hr>
 	                        <div class='list-details text-muted'><span class='float-left'><p>${item.city} , ${item.county}</p></span><span class='float-right'><i class='fas fa-user'></i><span> 4 / ${item.maxPeople}</span></span></div></div>`).appendTo(searchrow);
@@ -467,7 +472,7 @@
 	                    var temp = $(".container .col-sm-4.box .studyHashTag > span:contains('" + k + "')");
 	                    /* console.log($(temp).parents(".col-sm-4").length); */
 	                    var length = $(temp).parents(".col-sm-4").length;
-	                    searchCnt.innerHTML = length;
+	                    $(searchCnt).text(length);
 	                });
 	                
 	            }
@@ -504,8 +509,7 @@
                     sz-=9;
                     
                     }
-                    
-                    
+                    $("#searchCnt").text(data);
                 }
             }
         
@@ -534,14 +538,15 @@
                     console.log(item.tags.length);
                     
                     if(data != null){
+                    	console.log(data);
                         $(
                        		'<div class="col-sm-4 box">' +
                                '<div class="imgWrap">' +
-                                   '<a href="#"><img src="files/'+ item.picture +'_350x350.jpg"></a>' +
+                                   '<a href="groupMain.html?no=' + item.no + '"><img src="img/studyImgs/'+ item.picture +'_300x300.jpg"></a>' +
                                '</div>' +
                                '<div class="studyDetail">' +
                                    '<div>' +
-                                       '<a href="#">' +
+                                       '<a href="groupMain.html?no=' + item.no + '">' +
                                            '<h6 class="studyTitle text-center font-weight-bold">' +
                                                data.name +
                                            '</h6>' +
@@ -568,7 +573,6 @@
                         	console.log(tag.hashtag);
                         	$('<span>' + tag.hashtag + ' </span>').appendTo($(".studyHashTag"+index));
                         }
-
                     }
                 });
             }

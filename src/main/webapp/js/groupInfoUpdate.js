@@ -1,35 +1,39 @@
-        var no = location.href.split("?")[1].split("=")[1];
-        
-        
         let myNo = -1;
         let studyNo = window.location.search.substring(1).split("=")[1];
         let initTags = [];
         let studyInfo = null;
 
-        
-
         $(document).ready(function() {
-        	
-            $("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+no);
-            $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+no);
-            $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+no);
+            $('#groupImgeDiv').click(function(){
+                $('#groupImge').click;
+            })
+            
+            
+            $(".image-thumbnail").click(function() {
+                $("#imgInput").trigger("click");
+            });
+            
+            $("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
+            $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+studyNo);
+            $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+studyNo);
+            $("#groupSurveylist").attr("href", "surveylist.html?no="+studyNo);
+            $("#groupSurveyInsert").attr("href", "survey-enroll.html?no="+studyNo);
             
             $("#header").load(serverRoot + "/header.html");
 
             $.get(serverRoot + "/json/auth/loginstat", (data) => {
                 if(typeof(data) == "string") {
-                	swal({
-      				  type: 'error',
-      				  title:  '권한이 없습니다.'
-      				})                    
-      				location.href="index.html";
+                    swal({
+                          type: 'error',
+                          title: '권한이 없습니다.',
+                        })
+                    location.href="index.html";
                 }
                 myNo = data.no;
              });  
 
             $.get(serverRoot + "/json/studyInfo/" + studyNo, {}, res => {
-                studyInfo = res;
-
+                console.log(res);
                 $('#studyName').val(res.name);
 
                 $('#fCity').val( cityChanger(res.city) );
@@ -54,8 +58,7 @@
                     placeholder: '태그를 입력해주세요.'
                 });
 
-                $(".image-thumbnail").attr("src", (res.picture != "" ? "img/studyImgs/" + res.picture : "img/img.jpg") );
-
+                $(".image-thumbnail").attr("src", (res.picture != "" || res.picture != null || res.picture != undefined ? "img/studyImgs/" + res.picture : "img/study2.jpg") );
             });
             
             $("#updateBtn").click(function() {
@@ -87,7 +90,6 @@
                     }
                 });
                 
-                console.log(tags);
                 $.post(serverRoot + "/json/studyInfo/update_tags", {
                     tags,
                     no : studyNo
@@ -131,6 +133,9 @@
         });
 
         function changes(fr) {
+            let num = 0;
+            let vnum = 0;
+
             if(fr==1) {
                 //뿌려줄값을 배열로정렬
                 num = new Array("서울 전체","강남구","강동구", "강북구", "강서구", 

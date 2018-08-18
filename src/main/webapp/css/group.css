@@ -21,6 +21,10 @@ a.nav-link {
     color: white;
 }
 
+.cBtn{
+	margin-right:1em;
+}
+
 div.scheduleDetails {
     border: 1px solid #ddd;
     margin: 1rem;
@@ -88,7 +92,7 @@ div.carousel-caption h5
 h6 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 2rem 0px 0.5rem 0px;
+    margin: 1rem 0px 0.5rem 0px;
 }
 
 div.menu {
@@ -186,7 +190,7 @@ div.scheduleDetail {
 
 span.pollTitle {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 2rem;
 }
 
@@ -598,3 +602,9 @@ div#filesOne-div{
 	height: 28rem;
 }
 /*-------------------------------------------------------------------*/
+
+
+.surveyInner {
+	margin-left: 4em;
+    margin-top: 1em;
+}

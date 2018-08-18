@@ -448,16 +448,16 @@ input[type=checkbox], input[type=radio] {
  }
 
  .imgOverInfo {
-  position:relative; 
-  bottom:3.4rem; 
-  background-color:#000000; 
-  opacity:0.6; 
-  color:#ffffff;
-  padding: 0.5em 0 0.5em 3em;
+   position: relative;
+    bottom: 4.3rem;
+    background-color: #000000;
+    opacity: 0.6;
+    color: #ffffff;
+    padding: 1em 0 1em 1em;
  }
 
  .imgOverInfo span:first-child {
-   font-size:1.03rem;
+   font-size:1.2rem;
  }
 
  .imgOverInfo span:last-child {

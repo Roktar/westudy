@@ -23,32 +23,167 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="node_modules/slidebars/dist/slidebars.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-    <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
-    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
-    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    
     
     <script src="js/common.js"></script>
-    <script>
+</head>
+
+<body>
+    <!-- header start -->
+    <div id="header"></div>
+ <div id="container" canvas="container" style="padding: 3rem; margin-left: 1em;
+    margin-right: 1em;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 menu-bar">
+                <div class="col-box ssss">
+                    <div class="class_titl">관리자 페이지</div>
+                    <hr class="line3">
+                    <div class="list-group cls-list">
+                        <a id="groupInfoUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
+                        <a id="groupMemberUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                            그룹멤버 관리 </a>
+                        <a id="groupRequestUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
+                            그룹요청 관리 </a>
+                    <div class="dropdown sv-list-pr">
+                            <a class="list-group-item list-group-item-action cls-list-link" href='surveylist.html' style="padding: 1em">
+                                설문조사 관리</a>
+                            <div class="sv-list" aria-labelledby="dropdownMenuButton">
+                                <a id="groupSurveylist" class="sv-list-a sv-list-bordertop" href="surveylist.html">설문 내역</a>
+                                <a id="groupSurveyInsert" class="sv-list-a" href="survey-enroll.html">설문 등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-10 container-box">
+              <div class="inner-container-box">
+                <h4>그룹정보 관리</h4>
+
+                            <div class="form-group-img">
+                                <div style="width: auto; overflow: hidden; margin: 0 auto;">
+                                    <figure>
+                                        <img src="" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
+                                    </figure>
+                                </div>
+                                <form id="form" runat="server" action="">
+                                    <input type="file" multiple accept="image/*" id="imgInput" name="files" style="display:none;">
+                                </form>
+                                <br>
+                            </div>
+
+                            <ul>
+                                <li>
+                                    <div class="form-group">
+                                        <label for="">스터디 이름</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="studyName" class="form-control">
+                                            <div class="input-group-append"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <form name="form">
+                                            <label for="">스터디 지역</label>
+                                            <div class="input-group mb-3">
+                                                <div class="form-group col-sm-6" style="padding-left: 0">
+                                                    <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control">
+                                                            <option value="" selected>:: 시/도 ::</option>
+                                                            <option value="1">서울특별시</option>
+                                                            <option value="2">부산광역시</option>
+                                                            <option value="3">대구광역시</option>
+                                                            <option value="4">인천광역시</option>
+                                                            <option value="5">광주광역시</option>
+                                                            <option value="6">대전광역시</option>
+                                                            <option value="7">울산광역시</option>
+                                                            <option value="8">세종특별자치시</option>
+                                                            <option value="9">경기도</option>
+                                                            <option value="10">강원도</option>
+                                                            <option value="11">충청북도</option>
+                                                            <option value="12">충청남도</option>
+                                                            <option value="13">전라북도</option>
+                                                            <option value="14">전라남도</option>
+                                                            <option value="15">경상북도</option>
+                                                            <option value="16">경상남도</option>
+                                                            <option value="17">제주특별자치도</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-sm-6" style="padding-right: 0">
+                                                    <select id="fCounty" name="option2" class="form-control">
+                                                        <option>:: 시/군/구 ::</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <label for="">스터디 주제</label>
+                                        <div class="input-group mb-3">
+                                            <div class="form-group col-sm-12" style="padding-left: 0;">
+                                                <select id="fCategory" class="form-control">
+                                                    <option selected>주제 선택</option>
+                                                    <option value="IT">IT</option>
+                                                    <option value="국가시험">국가시험</option>
+                                                    <option value="기사">기사</option>
+                                                    <option value="언어">언어</option>
+                                                    <option value="금융">금융</option>
+                                                    <option value="취업">취업</option>
+                                                    <option value="토론">토론</option>
+                                                    <option value="기타">기타</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <textarea id="tagEditor" class="form-control area" type="text"></textarea>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="">스터디 설명</label>
+                                    <textarea class="form-control" id="profileInput" rows="5" style="width: 100%; resize: none"></textarea>
+                                </li>
+                            </ul>
+                            <button class="btn " type="button" id="updateBtn" style="width: 100%; margin-top: 2em">변경하기</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+   <!-- footer start -->
+        <footer class="footer">
+            <p style="font-size:25px">WeStudy</p>
+    
+            <div>
+                <span>서울특별시 강남구 비트캠프 401호</span>
+                <span>Tel080-777-2299</span>
+                <span>개인정보취급관리자 홍길동</span>
+                <span>E-mail : we_study@westudy.com</span>
+            </div>
+            <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
+        </footer>
+        <!-- footer end -->
+<script>
         let myNo = -1;
         let studyNo = window.location.search.substring(1).split("=")[1];
         let initTags = [];
         let studyInfo = null;
 
         $(document).ready(function() {
-        	$('#groupImgeDiv').click(function(){
+            $('#groupImgeDiv').click(function(){
                 $('#groupImge').click;
             })
             
             
             $(".image-thumbnail").click(function() {
-            	$("#imgInput").trigger("click");
+                $("#imgInput").trigger("click");
             });
             
-        	$("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
+            $("#groupInfoUpdate").attr("href", "groupInfoUpdate.html?no="+studyNo);
             $("#groupMemberUpdate").attr("href", "groupMemberUpdate.html?no="+studyNo);
             $("#groupRequestUpdate").attr("href", "groupRequestUpdate.html?no="+studyNo);
             $("#groupSurveylist").attr("href", "surveylist.html?no="+studyNo);
@@ -58,10 +193,10 @@
 
             $.get(serverRoot + "/json/auth/loginstat", (data) => {
                 if(typeof(data) == "string") {
-                	swal({
-                		  type: 'error',
-                		  title: '권한이 없습니다.',
-                		})
+                    swal({
+                          type: 'error',
+                          title: '권한이 없습니다.',
+                        })
                     location.href="index.html";
                 }
                 myNo = data.no;
@@ -93,7 +228,7 @@
                     placeholder: '태그를 입력해주세요.'
                 });
 
-                $(".image-thumbnail").attr("src", (res.picture != "" || res.picture != null || res.picture != undefined ? "img/studyImgs/" + res.picture : "img/study1.jpg") );
+                $(".image-thumbnail").attr("src", (res.picture != "" || res.picture != null || res.picture != undefined ? "img/studyImgs/" + res.picture : "img/study2.jpg") );
             });
             
             $("#updateBtn").click(function() {
@@ -343,148 +478,14 @@
             }
         }
     </script>
-</head>
 
-<body>
-    <!-- header start -->
-    <div id="header"></div>
- <div id="container" canvas="container" style="padding: 3rem; margin-left: 1em;
-    margin-right: 1em;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2 menu-bar">
-                <div class="col-box ssss">
-                    <div class="class_titl">관리자 페이지</div>
-                    <hr class="line3">
-                    <div class="list-group cls-list">
-                        <a id="groupInfoUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em"> 그룹정보 관리 </a>
-                        <a id="groupMemberUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
-                            그룹멤버 관리 </a>
-                        <a id="groupRequestUpdate" class="list-group-item list-group-item-action cls-list-link" style="padding: 1em">
-                            그룹요청 관리 </a>
-                    <div class="dropdown sv-list-pr">
-                            <a class="list-group-item list-group-item-action cls-list-link" href='surveylist.html' style="padding: 1em">
-                                설문조사 관리</a>
-                            <div class="sv-list" aria-labelledby="dropdownMenuButton">
-                                <a id="groupSurveylist" class="sv-list-a sv-list-bordertop" href="surveylist.html">설문 내역</a>
-                                <a id="groupSurveyInsert" class="sv-list-a" href="survey-enroll.html">설문 등록</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-10 container-box">
-              <div class="inner-container-box">
-                <h4>그룹정보 관리</h4>
-
-                            <div class="form-group-img">
-                                <div style="width: auto; overflow: hidden; margin: 0 auto;">
-                                    <figure>
-                                        <img src="img/study2.jpg" alt="logo" class="image-thumbnail" style="width: 100%; max-height: 20em; max-width: 100%;">
-                                    </figure>
-                                </div>
-                                <form id="form" runat="server" action="">
-                                    <input type="file" multiple accept="image/*" id="imgInput" name="files" style="display:none;">
-                                </form>
-                                <br>
-                            </div>
-
-                            <ul>
-                                <li>
-                                    <div class="form-group">
-                                        <label for="">스터디 이름</label>
-                                        <div class="input-group mb-3">
-                                            <input type="text" id="studyName" class="form-control">
-                                            <div class="input-group-append"></div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-group">
-                                        <form name="form">
-                                            <label for="">스터디 지역</label>
-                                            <div class="input-group mb-3">
-                                                <div class="form-group col-sm-6" style="padding-left: 0">
-                                                    <select id="fCity" name="option1" onchange="changes(document.form.option1.value)" class="form-control">
-                                                            <option value="" selected>:: 시/도 ::</option>
-                                                            <option value="1">서울특별시</option>
-                                                            <option value="2">부산광역시</option>
-                                                            <option value="3">대구광역시</option>
-                                                            <option value="4">인천광역시</option>
-                                                            <option value="5">광주광역시</option>
-                                                            <option value="6">대전광역시</option>
-                                                            <option value="7">울산광역시</option>
-                                                            <option value="8">세종특별자치시</option>
-                                                            <option value="9">경기도</option>
-                                                            <option value="10">강원도</option>
-                                                            <option value="11">충청북도</option>
-                                                            <option value="12">충청남도</option>
-                                                            <option value="13">전라북도</option>
-                                                            <option value="14">전라남도</option>
-                                                            <option value="15">경상북도</option>
-                                                            <option value="16">경상남도</option>
-                                                            <option value="17">제주특별자치도</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-6" style="padding-right: 0">
-                                                    <select id="fCounty" name="option2" class="form-control">
-                                                        <option>:: 시/군/구 ::</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-group">
-                                        <label for="">스터디 주제</label>
-                                        <div class="input-group mb-3">
-                                            <div class="form-group col-sm-12" style="padding-left: 0;">
-                                                <select id="fCategory" class="form-control">
-                                                    <option selected>주제 선택</option>
-                                                    <option value="IT">IT</option>
-                                                    <option value="국가시험">국가시험</option>
-                                                    <option value="기사">기사</option>
-                                                    <option value="언어">언어</option>
-                                                    <option value="금융">금융</option>
-                                                    <option value="취업">취업</option>
-                                                    <option value="토론">토론</option>
-                                                    <option value="기타">기타</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="step">
-                                            <textarea id="tagEditor" class="form-control area" type="text"></textarea>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label for="">스터디 설명</label>
-                                    <textarea class="form-control" id="profileInput" rows="5" style="width: 100%; resize: none"></textarea>
-                                </li>
-                            </ul>
-                            <button class="btn " type="button" id="updateBtn" style="width: 100%; margin-top: 2em">변경하기</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-</div>
-    <footer class="footer">
-        <p>Logo</p>
-        <div>
-            <span>서울특별시 강남구 비트캠프 401호</span>
-            <span>Tel080-777-2299</span>
-            <span>개인정보취급관리자 홍길동
-            </span>
-            <span>E-mail : we_study@westudy.com</span>
-        </div>
-        <p>Copyright ⓒ 2018 WeStudy. All Rights Reserved.</p>
-    </footer>
-
-
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 </body>
 
 </html>

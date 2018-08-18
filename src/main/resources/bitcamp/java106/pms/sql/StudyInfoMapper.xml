@@ -96,9 +96,22 @@
   
    <select id="selectListRandom" 
           resultMap="StudyMap" parameterType="map"> 
-    select * 
-    from study_info ORDER BY RAND() limit 4
-   
+select * 
+    from study_info 
+    where stdno=1
+    or stdno=3
+    or stdno=103
+    or stdno=142
+    or stdno=15
+    or stdno=47
+    or stdno=87
+    or stdno=76
+    or stdno=104
+    or stdno=33
+    or stdno=73
+    or stdno=108
+    or stdno=6
+    ORDER BY RAND() limit 1, 4   
   </select>
   
   <select id="nearList" resultMap="StudyMap" parameterType="int">
@@ -109,7 +122,7 @@
         WHERE m.memno=#{no}
         AND m.county=si.county
         ORDER BY rand()
-        limit 4;    
+        limit 1, 4;    
 </select>
 
 </mapper>

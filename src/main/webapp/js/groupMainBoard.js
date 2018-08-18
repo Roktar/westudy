@@ -1,4 +1,6 @@
 "use strict"
+
+
 var upFiles;
 var memNo;
 var dataMemNo;
@@ -30,7 +32,8 @@ var next = true;
 var currentBlock = 1;
 var lastBlock;
 
-$(document).ready(function(){
+$(document).ready(function(e){
+	
 	$.getJSON('json/auth/loginstat',{}, res =>{
 		memNo = res.no;
 		
@@ -258,7 +261,7 @@ function del(no) {
 /*----------Delete end----------*/
 
 
-//*----------list start----------*/
+// *----------list start----------*/
 
 var totalCount;
 var currentBlock = 1;
@@ -274,6 +277,7 @@ var lastPage;
 var pageCount = 1;
 var tbType = 0;
 $(function(){
+	
 	$('#searchBtn').click(function(){
 		if($('input[name="search"]').val() != null){
 			tbType = 1
@@ -282,6 +286,16 @@ $(function(){
 		}	
 		$('#countListBtn').html('');
 		$('#boardTable').html('');
+		if (pageCount < 1) {
+			preBlock = false;
+    		nextBlock = true;
+		} else if (pageCount > 10) {
+			preBlock = true;
+    		nextBlock = true;
+		} else if (pageCount > endPage){
+			preBlock = true;
+			nextBlock = false;
+		}
 		
 		$.ajax({
 			url: "json/FreeBoard/" + (tbType == 0 ? "getCount?" : "getSearchCount?title="+ $('input[name="search"]').val()+"&") + "studyNo=" + studyNo,
@@ -311,7 +325,7 @@ $(function(){
 	        	}
 	        	
 	        	if(preBlock == true){
-					
+					console.log("호");
 	        		$('<li class="page-item">'+
 	        			  '<a class="page-link" onClick="redRaw(preBlock, (pageCount-5), endPage, currentBlock)"> < </a>'+
 	        		  '</li>').appendTo('#countListBtn');
@@ -344,15 +358,21 @@ $(function(){
 
         success: function(data){
         	console.log(data);
-//        	$('#countListBtn').html('');
+// $('#countListBtn').html('');
         	pageCount = 1;
-        	calcTotal(data);
-        	calcStartPage(currentBlock);
-        	calcLastPage(data)
-        	calcEndPage(lastPage, currentBlock ,data);
-        	calcPreNext(currentBlock);
+        	if (pageCount < 1) {
+    			preBlock = false;
+        		nextBlock = true;
+    		} else if (pageCount > 10) {
+    			preBlock = true;
+        		nextBlock = true;
+    		} else if (pageCount > endPage){
+    			preBlock = true;
+    			nextBlock = false;
+    		}
         	if(totalCount > 1){
         		if(preBlock == true){
+        			console.log("호출");
 	        		$('<li class="page-item">'+
 	        			  '<a class="page-link" onClick="redRaw(preBlock, pageCount, (endPage - 5), currentBlock)"> < </a>'+
 	        		  '</li>').appendTo('#countListBtn');
@@ -374,20 +394,32 @@ $(function(){
         }
     });
 });
-
+$(document).ready(function(){
+	$('#searchBtn').bind('click', function() {$('input[name="search"]').val()});
+	$('#searchBtn').trigger('click');
+})
 
 function redRaw(blockType,pageCount, endPage, currentBlock){
 	calcCurrentBlock(pageCount);
 	
 	console.log("pageSZ"+pageCount);
-	
+	if (pageCount < 1) {
+		preBlock = false;
+		nextBlock = true;
+	} else if (pageCount > 10) {
+		preBlock = true;
+		nextBlock = true;
+	}  else if (pageCount > endPage){
+		preBlock = true;
+		nextBlock = false;
+	}
 		if(lastPage != null){
 			$('#countListBtn').html('');
 			calcStartPage(currentBlock);
 			calcPreNext(pageCount);
 
 			if(preBlock == true){
-				
+				console.log("호출2");
         		$('<li class="page-item">'+
         			  '<a class="page-link" onClick="redRaw(preBlock, (pageCount-5), endPage, currentBlock)"> < </a>'+
         		  '</li>').appendTo('#countListBtn');
@@ -444,8 +476,15 @@ function calcTotal(data){
 }
 
 function calcCurrentBlock(pageCount){
-	console.log("언제 호출되는거야..");
-	console.log(pageCount);
+	if (pageCount < 1) {
+		
+		preBlock = false;
+		nextBlock = true;
+	} else if (pageCount > 10) {
+		preBlock = true;
+		nextBlock = true;
+	}
+	
 	if (pageCount % 5 > 0){
 		currentBlock = (pageCount % 5) + 1;
 		
@@ -504,7 +543,7 @@ function calcLastPage(data){
 		
 	}
 	lastPage = data / (5 * pageSize);
-//	console.log(lastPage);
+// console.log(lastPage);
 }
 
 function calcEndPage(lastPage, currentBlock, data){
