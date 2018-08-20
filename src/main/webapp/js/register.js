@@ -48,7 +48,7 @@ $(document).ready(function() {
            console.log("county : " + county);
            console.log("interests : " + interest);
            
-           location.href="index.html"
+           location.href= serverRoot + "index.html"
          });
     });
 });

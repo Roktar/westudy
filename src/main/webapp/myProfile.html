@@ -23,7 +23,7 @@
     <!-- header end -->
     
     <!-- container start -->
-    <div canvas="container" id="container">
+    <div canvas="container" id="container" style="height:1005px; padding:3rem;">
         
         <div class="container">
             <div class="row justify-content-md-center">
@@ -59,7 +59,8 @@
                             <h3>내 정보 관리</h3>
                             <hr>
                             <div id="imgeBox">
-                                   <div class="myProfile"><img id="myPhoto" src="img/icon.png" alt="" ></div>
+                                   <div class="myProfile"><img id="myPhoto" src="" alt="" >
+                                   <img id="myPhoto2" src="img/icon.png" alt=""></div></div>
                                    <button id='uploadBtn' class="btn btn-default" type='button'>이미지 첨부</button>
                            <input id="fileupload" type="file" name="files" multiple>
                             </div>
@@ -109,10 +110,10 @@
                 </div>  
           </div>
     </div>
-
+</div>
         <!-- footer start -->
          <!-- footer start -->
-        <footer class="footer" style="margin-top:300px">
+        <footer class="footer" style="margin-top: 0">
             <p style="font-size:25px">WeStudy</p>
     
             <div>
@@ -126,7 +127,7 @@
         <!-- footer end -->
         <!-- footer end -->
         
-    </div>
+    
     <!-- container end -->
     <script src='node_modules/jquery/dist/jquery.min.js'></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>

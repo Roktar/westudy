@@ -118,7 +118,7 @@
                         $(dayTd).text(list.createdDate);
 
                         let responseTd = $("<td>");
-                        let responseBtn = $("<button class='btn btn-light btn-sm dg-btn reply' style='margin:10% 60% 0% 0%;' onclick='toTransPage(\"" + list.sender.email + "\")' >");
+                        let responseBtn = $("<button class='btn btn-light btn-sm dg-btn reply' style='margin-top:10px' onclick='toTransPage(\"" + list.sender.email + "\")' >");
                         $(responseBtn).text("답장");
                         $(responseTd).append(responseBtn);
 
@@ -300,7 +300,7 @@
 
 <body>
     <div id="header"></div>
-<div id="container" canvas="container">
+<div id="container" canvas="container" style="height: 1005px;padding: 3rem;">
     <div class="container">
         <div class="row">
             <div class="col-sm-2" style="text-align: center">
@@ -355,7 +355,7 @@
                                                         <input id="checkall" class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                                     </div>
                                                 </th>
-                                                <th scope="col">보낸사람</th>
+                                                <th scope="col">보낸이 </th>
                                                 <th scope="col">내용</th>
                                                 <th scope="col">날짜</th>
                                                 <th scope="col">답장</th>
@@ -384,7 +384,7 @@
                                                         <input class="form-check-input position-static chk" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." name="fofo">
                                                     </div>
                                                 </th>
-                                                <th scope="col">받은사람</th>
+                                                <th scope="col">받은이</th>
                                                 <th scope="col">내용</th>
                                                 <th scope="col">날짜</th>
                                             </tr>
@@ -426,7 +426,7 @@
     </div>
     
      <!-- footer start -->
-        <footer class="footer">
+        <footer class="footer" style="margin-top:0">
             <p style="font-size:25px">WeStudy</p>
     
             <div>

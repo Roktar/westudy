@@ -46,7 +46,7 @@ $(document).ready(function(){
 //         console.log(data.files);
          imgFiles = data.files;
          var imagesDiv = $('#ad-images-div');
-         imagesDiv.html("");
+//         imagesDiv.html("");
          for (var i = 0; i < data.files.length; i++) { 
            try {
              if (data.files[i].preview.toDataURL) {

@@ -1,6 +1,8 @@
 "use strict"
 var memNo;	
 $(document).ready(function(){
+//	$('#myPhoto').css("display","none");
+//    $('#myPhoto2').css("display","block");
 	$('#uploadBtn').click(function(){
 		$('#fileupload').click();
 		
@@ -57,12 +59,13 @@ $(document).ready(function(){
 	        add: function (e, data) {
 	        	console.log(data);
 	            console.log('add()...');
-//	            $('#myPhoto').attr('src',);
+	            $('#myPhoto').css("display","block");
+	            $('#myPhoto2').css("display","none");
 	            for (var i = 0; i < data.files.length; i++) { 
 	                try {
-	                  if (data.files[i].preview.toDataURL) {
-	                	  $("<img/>").attr('src', data.files[i].preview.toDataURL()).appendTo('#myPhoto');
-	                  }
+	                	
+	                	  $("#myPhoto").attr('src', data.files[i].name);
+	                  
 	                } catch (err) {}
 	              }
 	            $('#updateBtn').unbind("click");

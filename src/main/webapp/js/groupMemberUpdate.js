@@ -60,7 +60,20 @@ function dep(memno, no) {
 	console.log("memno : " + memno);
 	console.log("no : " + no);
 	
-	if(confirm('회원을 추방하시겠습니까?')){
+	const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-primary oBtn',
+        cancelButtonClass: 'btn btn-secondary cBtn',
+        buttonsStyling: false,
+      })
+      swalWithBootstrapButtons({
+           title: '회원을 탈퇴시키겠습니까?',
+           type: 'question',
+           showCancelButton: true,
+           confirmButtonText: '네',
+           cancelButtonText: '아니요',
+           reverseButtons: true
+         }).then((result) => {
+        	 if (result.value) {
 		$.ajax({
 			url: "/FinalProject/json/joinedMember/exclude",
 			method: "POST",
@@ -77,5 +90,7 @@ function dep(memno, no) {
 				}
 			}
 		});
-	}
-};
+         
+             }  
+           })
+  }
